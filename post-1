@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>My First Post</title>
+</head>
+<body>
+  <h1>My First Post</h1>
+  <p>This is a test post for my GitHub Pages blog.</p>
+  <p><a href="index.html">Back to home</a></p>
+</body>
+</html>
+
+
