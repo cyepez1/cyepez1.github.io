@@ -2,25 +2,48 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>PlayStation 2007 Inspired</title>
+  <title>PlayStation 2007 Inspired Homepage</title>
 </head>
 
 <body style="margin:0; background:#000000; font-family:Verdana; color:#FFFFFF;">
 
-<!-- TOP GLOSSY BLUE HERO -->
-<div style="
+<!-- ========================================================= -->
+<!-- HERO SECTION WITH SUBTLE MOTION + SLIDESHOW               -->
+<!-- ========================================================= -->
+
+<div id="hero" style="
   width:100%;
-  padding:60px 0;
+  padding:80px 0;
   text-align:center;
   background:linear-gradient(to bottom, #0a2a66, #0f4fa8, #0a2a66);
   border-bottom:4px solid #1a3f7c;
   box-shadow:0 0 25px #0f4fa8 inset;
-">
-  <!-- (edit here: replace with hero image later) -->
-  <span style="font-size:40px; font-weight:bold; color:#FFFFFF;">
-    [HERO IMAGE DESCRIPTION HERE]
-  </span>
+  transition:0.5s;
+"
+onmouseover="this.style.boxShadow='0 0 40px #4da3ff inset';"
+onmouseout="this.style.boxShadow='0 0 25px #0f4fa8 inset';"
+>
+
+  <!-- (edit here: slideshow text placeholders, replace with images later) -->
+  <div id="slideshowText" style="font-size:40px; font-weight:bold;">
+    [SLIDESHOW IMAGE DESCRIPTION 1]
+  </div>
+
 </div>
+
+<script>
+  /* SIMPLE SLIDESHOW — replace text with <img> tags later */
+  const slides = [
+    "[SLIDESHOW IMAGE DESCRIPTION 1]",
+    "[SLIDESHOW IMAGE DESCRIPTION 2]",
+    "[SLIDESHOW IMAGE DESCRIPTION 3]"
+  ];
+  let slideIndex = 0;
+  setInterval(() => {
+    slideIndex = (slideIndex + 1) % slides.length;
+    document.getElementById("slideshowText").innerHTML = slides[slideIndex];
+  }, 3500);
+</script>
 
 <!-- SILVER METALLIC BAR -->
 <div style="
@@ -30,30 +53,40 @@
   border-bottom:2px solid #0f4fa8;
 "></div>
 
-<!-- MAIN LAYOUT -->
+<!-- ========================================================= -->
+<!-- MAIN LAYOUT: SIDEBAR + CONTENT                            -->
+<!-- ========================================================= -->
+
 <table width="90%" align="center" cellpadding="20" cellspacing="0" style="margin-top:30px;">
   <tr>
 
-    <!-- LEFT SIDEBAR -->
+    <!-- ===================================================== -->
+    <!-- LEFT SIDEBAR                                          -->
+    <!-- ===================================================== -->
+
     <td width="260" valign="top">
 
-      <!-- GLOSSY NAV PANEL -->
+      <!-- LOGO PANEL -->
       <div style="
         background:linear-gradient(to bottom, #1a3f7c, #0f4fa8, #1a3f7c);
         padding:20px;
         border-radius:10px;
         border:2px solid #0f4fa8;
         box-shadow:0 0 20px #0f4fa8;
-      ">
-        <!-- (edit here: replace with logo later) -->
-        <div style="font-size:22px; font-weight:bold; text-align:center; color:#FFFFFF;">
+        transition:0.3s;
+      "
+      onmouseover="this.style.transform='translateX(5px)';"
+      onmouseout="this.style.transform='translateX(0)';"
+      >
+        <!-- (edit here: replace with logo image later) -->
+        <div style="font-size:22px; font-weight:bold; text-align:center;">
           [PLAYSTATION LOGO DESCRIPTION]
         </div>
       </div>
 
       <br>
 
-      <!-- ICON NAVIGATION PANEL -->
+      <!-- NAVIGATION PANEL -->
       <div style="
         background:#0a1a33;
         padding:15px;
@@ -63,26 +96,61 @@
       ">
         <div style="color:#FFFFFF; font-weight:bold; margin-bottom:10px;">Navigation</div>
 
-        <!-- (edit here: replace with icons later) -->
-        <div style="margin-bottom:8px; color:#7ab4ff;">[ICON] Games</div>
-        <div style="margin-bottom:8px; color:#7ab4ff;">[ICON] Media</div>
-        <div style="margin-bottom:8px; color:#7ab4ff;">[ICON] Hardware</div>
-        <div style="margin-bottom:8px; color:#7ab4ff;">[ICON] Support</div>
+        <!-- (edit here: replace with real links later) -->
+        <a href="#" style="color:#7ab4ff; text-decoration:none;">
+          <div style="padding:6px; transition:0.2s;"
+          onmouseover="this.style.color='#ffffff'; this.style.transform='translateX(5px)';"
+          onmouseout="this.style.color='#7ab4ff'; this.style.transform='translateX(0)';">
+            Games
+          </div>
+        </a>
+
+        <a href="#" style="color:#7ab4ff; text-decoration:none;">
+          <div style="padding:6px; transition:0.2s;"
+          onmouseover="this.style.color='#ffffff'; this.style.transform='translateX(5px)';"
+          onmouseout="this.style.color='#7ab4ff'; this.style.transform='translateX(0)';">
+            Media
+          </div>
+        </a>
+
+        <a href="#" style="color:#7ab4ff; text-decoration:none;">
+          <div style="padding:6px; transition:0.2s;"
+          onmouseover="this.style.color='#ffffff'; this.style.transform='translateX(5px)';"
+          onmouseout="this.style.color='#7ab4ff'; this.style.transform='translateX(0)';">
+            Hardware
+          </div>
+        </a>
+
+        <a href="#" style="color:#7ab4ff; text-decoration:none;">
+          <div style="padding:6px; transition:0.2s;"
+          onmouseover="this.style.color='#ffffff'; this.style.transform='translateX(5px)';"
+          onmouseout="this.style.color='#7ab4ff'; this.style.transform='translateX(0)';">
+            Support
+          </div>
+        </a>
+
       </div>
 
     </td>
 
-    <!-- RIGHT CONTENT AREA -->
+    <!-- ===================================================== -->
+    <!-- RIGHT CONTENT AREA                                    -->
+    <!-- ===================================================== -->
+
     <td valign="top">
 
-      <!-- FEATURED BLOG POST PANEL -->
+      <!-- FEATURED ARTICLE PANEL -->
       <div style="
         background:linear-gradient(to bottom, #0a1a33, #0f2f66);
         padding:25px;
         border-radius:12px;
         border:2px solid #1a3f7c;
         box-shadow:0 0 25px #0f4fa8;
-      ">
+        transition:0.3s;
+      "
+      onmouseover="this.style.boxShadow='0 0 35px #4da3ff';"
+      onmouseout="this.style.boxShadow='0 0 25px #0f4fa8';"
+      >
         <div style="font-size:28px; font-weight:bold; color:#7ab4ff;">
           Featured Article
         </div>
@@ -107,19 +175,18 @@
 
         <div style="font-size:14px; color:#d0e4ff;">
           <!-- (edit here: replace with real excerpt) -->
-          This is a preview of your featured PlayStation‑style article. In the final version,
-          this will contain a short summary or teaser.
+          This is a preview of your featured PlayStation‑style article. Replace this with your own text.
         </div>
       </div>
 
       <br><br>
 
-      <!-- BLOG LISTING -->
+      <!-- LATEST UPDATES HEADER -->
       <div style="font-size:24px; font-weight:bold; color:#7ab4ff; margin-bottom:10px;">
         Latest Updates
       </div>
 
-      <!-- POST ITEM -->
+      <!-- BLOG POST ITEM -->
       <div style="
         background:linear-gradient(to bottom, #0a1a33, #0f2f66);
         padding:15px;
@@ -127,7 +194,11 @@
         border:1px solid #1a3f7c;
         margin-bottom:15px;
         box-shadow:0 0 15px #0f4fa8;
-      ">
+        transition:0.3s;
+      "
+      onmouseover="this.style.transform='translateX(5px)';"
+      onmouseout="this.style.transform='translateX(0)';"
+      >
         <div style="font-size:20px; font-weight:bold; color:#7ab4ff;">Update One</div>
         <div style="margin-top:10px; color:#7ab4ff;">
           <!-- (edit here: replace with thumbnail later) -->
@@ -138,7 +209,7 @@
         </div>
       </div>
 
-      <!-- POST ITEM -->
+      <!-- BLOG POST ITEM -->
       <div style="
         background:linear-gradient(to bottom, #0a1a33, #0f2f66);
         padding:15px;
@@ -146,7 +217,11 @@
         border:1px solid #1a3f7c;
         margin-bottom:15px;
         box-shadow:0 0 15px #0f4fa8;
-      ">
+        transition:0.3s;
+      "
+      onmouseover="this.style.transform='translateX(5px)';"
+      onmouseout="this.style.transform='translateX(0)';"
+      >
         <div style="font-size:20px; font-weight:bold; color:#7ab4ff;">Update Two</div>
         <div style="margin-top:10px; color:#7ab4ff;">
           <!-- (edit here: replace with thumbnail later) -->
@@ -164,7 +239,10 @@
 
 <br><br>
 
-<!-- FOOTER -->
+<!-- ========================================================= -->
+<!-- FOOTER                                                    -->
+<!-- ========================================================= -->
+
 <div style="
   width:100%;
   padding:20px;
@@ -176,6 +254,7 @@
   font-size:14px;
 ">
   © 2026 — PlayStation‑2007 Inspired Prototype<br>
+  <!-- (edit here: add your own footer text) -->
   This is a static HTML tribute to the glossy PS3 era.
 </div>
 
