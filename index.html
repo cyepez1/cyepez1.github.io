@@ -2,164 +2,145 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>2Advanced-Inspired Prototype</title>
+  <title>2Advanced Inspired</title>
 </head>
 
-<!-- GRID BACKGROUND -->
-<body bgcolor="#000000" text="#CCCCCC" background="">
+<body style="margin:0; background:#000000; font-family:Verdana; color:#CCCCCC;">
 
-<!-- TOP HERO PANEL -->
-<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#0A0A0A;">
-  <tr>
-    <td align="center" style="padding:40px; border-bottom:3px solid #00AEEF;">
-      <!-- (edit here: replace this text with a hero image later) -->
-      <font face="Verdana" size="6" color="#00AEEF"><b>[HERO IMAGE DESCRIPTION HERE]</b></font>
-    </td>
-  </tr>
-</table>
+<!-- TOP GRADIENT HERO -->
+<div style="
+  width:100%;
+  padding:60px 0;
+  text-align:center;
+  background:linear-gradient(to bottom, #00111f, #003b5c);
+  border-bottom:3px solid #00AEEF;
+">
+  <!-- (edit here: replace with hero image later) -->
+  <span style="color:#00AEEF; font-size:40px; font-weight:bold;">
+    [HERO IMAGE DESCRIPTION HERE]
+  </span>
+</div>
 
 <!-- METALLIC BAR -->
-<table width="100%" cellpadding="0" cellspacing="0" border="0">
-  <tr>
-    <td height="12" bgcolor="#1A1A1A"></td>
-  </tr>
-</table>
+<div style="width:100%; height:12px; background:linear-gradient(to right, #1a1a1a, #3a3a3a, #1a1a1a);"></div>
 
-<!-- MAIN CONTENT AREA -->
-<table width="90%" align="center" cellpadding="20" cellspacing="0" border="0" style="margin-top:20px;">
+<!-- MAIN LAYOUT -->
+<table width="90%" align="center" cellpadding="20" cellspacing="0" style="margin-top:30px;">
   <tr>
 
-    <!-- LEFT PANEL (Navigation / Branding) -->
-    <td width="250" valign="top">
+    <!-- LEFT SIDEBAR -->
+    <td width="260" valign="top">
 
       <!-- GLOW PANEL -->
-      <table width="100%" cellpadding="15" cellspacing="0" bgcolor="#0A0A0A"
-             style="border:3px solid #00AEEF;">
-        <tr>
-          <td align="center">
-            <!-- (edit here: replace with logo image later) -->
-            <font face="Verdana" size="4" color="#00AEEF"><b>[LOGO IMAGE DESCRIPTION]</b></font>
-          </td>
-        </tr>
-      </table>
+      <div style="
+        background:#0A0A0A;
+        padding:20px;
+        border:2px solid #00AEEF;
+        box-shadow:0 0 15px #0077aa;
+      ">
+        <!-- (edit here: replace with logo later) -->
+        <div style="color:#00AEEF; font-size:22px; font-weight:bold; text-align:center;">
+          [LOGO IMAGE DESCRIPTION]
+        </div>
+      </div>
 
       <br>
 
-      <!-- SUB PANEL -->
-      <table width="100%" cellpadding="10" cellspacing="0" bgcolor="#111111"
-             style="border:2px solid #00AEEF;">
-        <tr>
-          <td>
-            <font face="Verdana" size="2" color="#CCCCCC">
-              <!-- (edit here: replace with navigation text or icons) -->
-              <b style="color:#00AEEF;">Navigation Placeholder</b><br>
-              Home<br>
-              Blog<br>
-              Archives<br>
-              Contact<br>
-            </font>
-          </td>
-        </tr>
-      </table>
+      <!-- NAV PANEL -->
+      <div style="
+        background:#0f0f0f;
+        padding:15px;
+        border:1px solid #0077aa;
+        box-shadow:0 0 10px #004466 inset;
+      ">
+        <div style="color:#00AEEF; font-weight:bold; margin-bottom:10px;">Navigation</div>
+        <div>Home</div>
+        <div>Blog</div>
+        <div>Archives</div>
+        <div>Contact</div>
+      </div>
 
     </td>
 
-    <!-- RIGHT PANEL (Blog Content) -->
+    <!-- RIGHT CONTENT -->
     <td valign="top">
 
-      <!-- FEATURED BLOG POST -->
-      <table width="100%" cellpadding="20" cellspacing="0" bgcolor="#0A0A0A"
-             style="border:3px solid #00AEEF;">
-        <tr>
-          <td>
-            <font face="Verdana" size="5" color="#00AEEF"><b>Featured Post Title</b></font><br><br>
+      <!-- FEATURED POST PANEL -->
+      <div style="
+        background:#0A0A0A;
+        padding:25px;
+        border:2px solid #00AEEF;
+        box-shadow:0 0 20px #0077aa;
+      ">
+        <div style="color:#00AEEF; font-size:28px; font-weight:bold;">
+          Featured Post Title
+        </div>
 
-            <!-- (edit here: replace with featured image later) -->
-            <div style="padding:10px; background-color:#111111; border:2px solid #00AEEF;">
-              <font face="Verdana" size="3" color="#00AEEF"><b>[FEATURED IMAGE DESCRIPTION]</b></font>
-            </div>
+        <br>
 
-            <br>
+        <!-- (edit here: replace with featured image later) -->
+        <div style="
+          background:#111111;
+          padding:20px;
+          border:1px solid #00AEEF;
+          text-align:center;
+          color:#00AEEF;
+          font-size:18px;
+          box-shadow:0 0 10px #004466 inset;
+        ">
+          [FEATURED IMAGE DESCRIPTION]
+        </div>
 
-            <font face="Verdana" size="2" color="#CCCCCC">
-              <!-- (edit here: replace with real blog intro) -->
-              This is a preview of your featured blog post. In the real version, this section
-              will contain a short excerpt, teaser text, or summary of the article.
-            </font>
-          </td>
-        </tr>
-      </table>
+        <br>
 
-      <br>
+        <div style="font-size:14px; color:#CCCCCC;">
+          <!-- (edit here: replace with real excerpt) -->
+          This is a preview of your featured blog post. In the final version, this will contain a short excerpt or teaser.
+        </div>
+      </div>
+
+      <br><br>
 
       <!-- BLOG LISTING -->
-      <table width="100%" cellpadding="15" cellspacing="0" bgcolor="#111111"
-             style="border:2px solid #00AEEF;">
-        <tr>
-          <td>
-            <font face="Verdana" size="4" color="#00AEEF"><b>Latest Posts</b></font><br><br>
+      <div style="color:#00AEEF; font-size:24px; font-weight:bold; margin-bottom:10px;">
+        Latest Posts
+      </div>
 
-            <!-- POST 1 -->
-            <table width="100%" cellpadding="10" cellspacing="0" bgcolor="#0A0A0A"
-                   style="border:2px solid #00AEEF;">
-              <tr>
-                <td width="120">
-                  <!-- (edit here: replace with thumbnail later) -->
-                  <font face="Verdana" size="2" color="#00AEEF"><b>[THUMBNAIL 1 DESCRIPTION]</b></font>
-                </td>
-                <td>
-                  <font face="Verdana" size="3" color="#00AEEF"><b>Post Title One</b></font><br>
-                  <font face="Verdana" size="2" color="#CCCCCC">
-                    <!-- (edit here: replace with excerpt) -->
-                    A short excerpt or summary of the first blog post goes here.
-                  </font>
-                </td>
-              </tr>
-            </table>
+      <!-- POST ITEM -->
+      <div style="
+        background:#0A0A0A;
+        padding:15px;
+        border:1px solid #00AEEF;
+        margin-bottom:15px;
+        box-shadow:0 0 10px #004466;
+      ">
+        <div style="color:#00AEEF; font-size:20px; font-weight:bold;">Post Title One</div>
+        <div style="margin-top:10px;">
+          <!-- (edit here: replace with thumbnail later) -->
+          <span style="color:#00AEEF; font-weight:bold;">[THUMBNAIL 1 DESCRIPTION]</span>
+        </div>
+        <div style="margin-top:10px; color:#CCCCCC;">
+          A short excerpt or summary of the first blog post goes here.
+        </div>
+      </div>
 
-            <br>
-
-            <!-- POST 2 -->
-            <table width="100%" cellpadding="10" cellspacing="0" bgcolor="#0A0A0A"
-                   style="border:2px solid #00AEEF;">
-              <tr>
-                <td width="120">
-                  <!-- (edit here: replace with thumbnail later) -->
-                  <font face="Verdana" size="2" color="#00AEEF"><b>[THUMBNAIL 2 DESCRIPTION]</b></font>
-                </td>
-                <td>
-                  <font face="Verdana" size="3" color="#00AEEF"><b>Post Title Two</b></font><br>
-                  <font face="Verdana" size="2" color="#CCCCCC">
-                    <!-- (edit here: replace with excerpt) -->
-                    Another short excerpt or summary of a blog post.
-                  </font>
-                </td>
-              </tr>
-            </table>
-
-            <br>
-
-            <!-- POST 3 -->
-            <table width="100%" cellpadding="10" cellspacing="0" bgcolor="#0A0A0A"
-                   style="border:2px solid #00A0EE;">
-              <tr>
-                <td width="120">
-                  <!-- (edit here: replace with thumbnail later) -->
-                  <font face="Verdana" size="2" color="#00AEEF"><b>[THUMBNAIL 3 DESCRIPTION]</b></font>
-                </td>
-                <td>
-                  <font face="Verdana" size="3" color="#00AEEF"><b>Post Title Three</b></font><br>
-                  <font face="Verdana" size="2" color="#CCCCCC">
-                    <!-- (edit here: replace with excerpt) -->
-                    A third example excerpt for your blog listing.
-                  </font>
-                </td>
-              </tr>
-            </table>
-
-          </td>
-        </tr>
-      </table>
+      <!-- POST ITEM -->
+      <div style="
+        background:#0A0A0A;
+        padding:15px;
+        border:1px solid #00AEEF;
+        margin-bottom:15px;
+        box-shadow:0 0 10px #004466;
+      ">
+        <div style="color:#00AEEF; font-size:20px; font-weight:bold;">Post Title Two</div>
+        <div style="margin-top:10px;">
+          <!-- (edit here: replace with thumbnail later) -->
+          <span style="color:#00AEEF; font-weight:bold;">[THUMBNAIL 2 DESCRIPTION]</span>
+        </div>
+        <div style="margin-top:10px; color:#CCCCCC;">
+          Another short excerpt or summary of a blog post.
+        </div>
+      </div>
 
     </td>
 
@@ -169,18 +150,19 @@
 <br><br>
 
 <!-- FOOTER -->
-<table width="100%" cellpadding="20" cellspacing="0" bgcolor="#0A0A0A"
-       style="border-top:3px solid #00AEEF;">
-  <tr>
-    <td align="center">
-      <font face="Verdana" size="2" color="#00AEEF">
-        © 2026 — 2Advanced‑Inspired Prototype<br>
-        <!-- (edit here: add your own footer text) -->
-        This is a static HTML tribute to the Flash era.
-      </font>
-    </td>
-  </tr>
-</table>
+<div style="
+  width:100%;
+  padding:20px;
+  text-align:center;
+  background:#0A0A0A;
+  border-top:2px solid #00AEEF;
+  box-shadow:0 -5px 20px #003344;
+  color:#00AEEF;
+  font-size:14px;
+">
+  © 2026 — 2Advanced‑Inspired Prototype<br>
+  This is a static HTML tribute to the Flash era.
+</div>
 
 </body>
 </html>
