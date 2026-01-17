@@ -9,7 +9,3 @@ hello testing 123
 
 ##Heading Testing
 
-
-<ul>
-  <li><a href="post-1.html">My First Post</a></li>
-</ul>
