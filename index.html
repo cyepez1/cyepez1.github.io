@@ -74,6 +74,12 @@
       transform: translateX(5px);
     }
 
+    /* Make nav links clickable */
+    a.nav-link {
+      text-decoration: none;
+      color: inherit;
+    }
+
   </style>
 </head>
 
@@ -160,12 +166,12 @@
       ">
         <div style="color:#FFFFFF; font-weight:bold; margin-bottom:10px;">Navigation</div>
 
-        <!-- (edit here: replace with real links later) -->
-        <div class="nav-item">Games</div>
-        <div class="nav-item">Blog</div>
-        <div class="nav-item">Music</div>
-        <div class="nav-item">Designs</div>
-        <div class="nav-item">Misc</div>
+        <!-- Placeholder links to future pages -->
+        <a href="games.html" class="nav-link"><div class="nav-item">Games</div></a>
+        <a href="blog.html" class="nav-link"><div class="nav-item">Blog</div></a>
+        <a href="music.html" class="nav-link"><div class="nav-item">Music</div></a>
+        <a href="designs.html" class="nav-link"><div class="nav-item">Designs</div></a>
+        <a href="misc.html" class="nav-link"><div class="nav-item">Misc</div></a>
       </div>
 
     </td>
@@ -207,7 +213,6 @@
         <br>
 
         <div style="font-size:14px; color:#d0e4ff;">
-          <!-- (edit here: replace with real excerpt) -->
           insert article short preview text here
         </div>
       </div>
@@ -277,7 +282,6 @@
   font-size:14px;
 ">
   © 2026 — Mr. Cairo Cyborg Enhanced Prototype<br>
-  <!-- (edit here: add your own footer text) -->
   This is a static HTML tribute to fallen heroes of the PS4 era.
 </div>
 
