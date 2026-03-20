@@ -4,38 +4,45 @@
   <meta charset="UTF-8">
   <title>Cairo's</title>
 
-  <!-- ========================================================= -->
-  <!-- INLINE CSS (safe, no external files needed)               -->
-  <!-- ========================================================= -->
   <style>
-
     body {
-  margin: 0;
-  font-family: Verdana;
-  color: #fff;
+      margin: 0;
+      font-family: Garamond, serif;
+      background: #f7f2e6; /* light papyrus tone */
+      color: #000;
+    }
 
-  background:
-    linear-gradient(rgba(10, 42, 102, 0.20), rgba(10, 42, 102, 0.20)),
-    linear-gradient(to bottom, #0a2a66, #0f4fa8, #0a2a66),
-    url("images/Suppercarrier%20PNG.png");
+    /* Notebook-style inset panels */
+    .paper {
+      background: white;
+      border: 2px solid maroon;
+      padding: 20px;
+      border-radius: 6px;
+      box-shadow: 0 0 0 4px #d0d0ff inset; /* blue notebook margin */
+      position: relative;
+    }
 
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-}
+    /* Horizontal ruled lines */
+    .paper::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 40px;
+      width: 2px;
+      height: 100%;
+      background: #a0b4ff; /* blue notebook margin line */
+    }
 
-
-    /* HERO SECTION FADE-IN */
+    /* HERO SECTION */
     #hero {
-      animation: fadeInHero 1.5s ease forwards;
-      opacity: 0;
+      width: 100%;
+      padding: 60px 0;
+      text-align: center;
+      background: #ffffff;
+      border-bottom: 3px solid maroon;
+      position: relative;
     }
 
-    @keyframes fadeInHero {
-      to { opacity: 1; }
-    }
-
-    /* SLIDESHOW CROSSFADE */
     .slide {
       position: absolute;
       width: 100%;
@@ -44,49 +51,39 @@
       font-weight: bold;
       opacity: 0;
       transition: opacity 1s ease;
+      color: maroon;
     }
 
     .slide.active {
       opacity: 1;
     }
 
-    /* HOVER GLOW PANEL */
-    .glow-panel {
-      transition: 0.3s;
+    /* Sidebar navigation */
+    .nav-item {
+      padding: 6px;
+      color: maroon;
+      cursor: pointer;
+      transition: 0.2s;
+      font-weight: bold;
     }
 
-    .glow-panel:hover {
-      box-shadow: 0 0 25px #4da3ff;
+    .nav-item:hover {
       transform: translateX(5px);
+      color: black;
     }
 
-    /* BLOG POST HOVER SLIDE */
+    a.nav-link {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Blog post hover */
     .post {
       transition: 0.3s;
     }
 
     .post:hover {
       transform: translateX(5px);
-      box-shadow: 0 0 20px #4da3ff;
-    }
-
-    /* NAV ITEM HOVER */
-    .nav-item {
-      padding: 6px;
-      color: #7ab4ff;
-      transition: 0.2s;
-      cursor: pointer;
-    }
-
-    .nav-item:hover {
-      color: #fff;
-      transform: translateX(5px);
-    }
-
-    /* Make nav links clickable */
-    a.nav-link {
-      text-decoration: none;
-      color: inherit;
     }
 
   </style>
@@ -94,29 +91,13 @@
 
 <body>
 
-<!-- ========================================================= -->
-<!-- HERO SECTION WITH CROSSFADE SLIDESHOW                     -->
-<!-- ========================================================= -->
-
-<div id="hero" style="
-  width:100%;
-  padding:80px 0;
-  text-align:center;
-  background:linear-gradient(to bottom, #0a2a66, #0f4fa8, #0a2a66);
-  border-bottom:4px solid #1a3f7c;
-  box-shadow:0 0 25px #0f4fa8 inset;
-  position:relative;
-  overflow:hidden;
-">
-
-  <!-- (edit here: replace text with <img> tags later) -->
+<!-- HERO SECTION -->
+<div id="hero">
   <div class="slide active">[test image 1]</div>
   <div class="slide">[halo 2]</div>
   <div class="slide">[halo reach]</div>
-
 </div>
 
-<!-- SLIDESHOW SCRIPT -->
 <script>
   let slideIndex = 0;
   const slides = document.querySelectorAll(".slide");
@@ -128,36 +109,14 @@
   }, 3500);
 </script>
 
-<!-- SILVER BAR -->
-<div style="
-  width:100%;
-  height:14px;
-  background:linear-gradient(to right, #d0d0d0, #ffffff, #d0d0d0);
-  border-bottom:2px solid #0f4fa8;
-"></div>
-
-<!-- ========================================================= -->
-<!-- MAIN LAYOUT                                               -->
-<!-- ========================================================= -->
-
+<!-- MAIN LAYOUT -->
 <table width="90%" align="center" cellpadding="20" cellspacing="0" style="margin-top:30px;">
   <tr>
 
-    <!-- ===================================================== -->
-    <!-- LEFT SIDEBAR                                          -->
-    <!-- ===================================================== -->
-
+    <!-- LEFT SIDEBAR -->
     <td width="260" valign="top">
 
-      <!-- LOGO PANEL -->
-      <div class="glow-panel" style="
-        background:linear-gradient(to bottom, #1a3f7c, #0f4fa8, #1a3f7c);
-        padding:20px;
-        border-radius:10px;
-        border:2px solid #0f4fa8;
-        box-shadow:0 0 20px #0f4fa8;
-      ">
-        <!-- (edit here: replace with logo image later) -->
+      <div class="paper">
         <div style="font-size:22px; font-weight:bold; text-align:center;">
           [IMAGE placeholder text]
         </div>
@@ -165,17 +124,9 @@
 
       <br>
 
-      <!-- NAVIGATION PANEL -->
-      <div style="
-        background:#0a1a33;
-        padding:15px;
-        border-radius:8px;
-        border:1px solid #1a3f7c;
-        box-shadow:0 0 10px #0f4fa8 inset;
-      ">
-        <div style="color:#FFFFFF; font-weight:bold; margin-bottom:10px;">Navigation</div>
+      <div class="paper">
+        <div style="font-weight:bold; margin-bottom:10px; color:maroon;">Navigation</div>
 
-        <!-- Placeholder links to future pages -->
         <a href="games.html" class="nav-link"><div class="nav-item">Games</div></a>
         <a href="blog.html" class="nav-link"><div class="nav-item">Blog</div></a>
         <a href="music.html" class="nav-link"><div class="nav-item">Music</div></a>
@@ -185,86 +136,51 @@
 
     </td>
 
-    <!-- ===================================================== -->
-    <!-- RIGHT CONTENT AREA                                    -->
-    <!-- ===================================================== -->
-
+    <!-- RIGHT CONTENT -->
     <td valign="top">
 
-      <!-- FEATURED ARTICLE -->
-      <div class="glow-panel" style="
-        background:linear-gradient(to bottom, #0a1a33, #0f2f66);
-        padding:25px;
-        border-radius:12px;
-        border:2px solid #1a3f7c;
-        box-shadow:0 0 25px #0f4fa8;
-      ">
-        <div style="font-size:28px; font-weight:bold; color:#7ab4ff;">
+      <div class="paper">
+        <div style="font-size:28px; font-weight:bold; color:maroon;">
           Featured Article
         </div>
 
         <br>
 
-        <!-- (edit here: replace with featured image later) -->
-        <div style="
-          background:#0a1a33;
-          padding:20px;
-          border-radius:8px;
-          border:1px solid #1a3f7c;
-          text-align:center;
-          color:#7ab4ff;
-          font-size:18px;
-          box-shadow:0 0 10px #0f4fa8 inset;
-        ">
+        <div class="paper" style="padding:15px; margin-left:20px;">
           [featured image]
         </div>
 
         <br>
 
-        <div style="font-size:14px; color:#d0e4ff;">
+        <div style="font-size:14px;">
           insert article short preview text here
         </div>
       </div>
 
       <br><br>
 
-      <!-- LATEST UPDATES -->
-      <div style="font-size:24px; font-weight:bold; color:#7ab4ff; margin-bottom:10px;">
+      <div style="font-size:24px; font-weight:bold; color:maroon; margin-bottom:10px;">
         Insert Latest Posts
       </div>
 
-      <!-- BLOG POST ITEM -->
-      <div class="post" style="
-        background:linear-gradient(to bottom, #0a1a33, #0f2f66);
-        padding:15px;
-        border-radius:8px;
-        border:1px solid #1a3f7c;
-        margin-bottom:15px;
-        box-shadow:0 0 15px #0f4fa8;
-      ">
-        <div style="font-size:20px; font-weight:bold; color:#7ab4ff;">Update One</div>
-        <div style="margin-top:10px; color:#7ab4ff;">
+      <div class="paper post">
+        <div style="font-size:20px; font-weight:bold; color:maroon;">Update One</div>
+        <div style="margin-top:10px; color:maroon;">
           [THUMBNAIL 1 ]
         </div>
-        <div style="margin-top:10px; color:#d0e4ff;">
+        <div style="margin-top:10px;">
           older article preview summary here.
         </div>
       </div>
 
-      <!-- BLOG POST ITEM -->
-      <div class="post" style="
-        background:linear-gradient(to bottom, #0a1a33, #0f2f66);
-        padding:15px;
-        border-radius:8px;
-        border:1px solid #1a3f7c;
-        margin-bottom:15px;
-        box-shadow:0 0 15px #0f4fa8;
-      ">
-        <div style="font-size:20px; font-weight:bold; color:#7ab4ff;">Update Two</div>
-        <div style="margin-top:10px; color:#7ab4ff;">
+      <br>
+
+      <div class="paper post">
+        <div style="font-size:20px; font-weight:bold; color:maroon;">Update Two</div>
+        <div style="margin-top:10px; color:maroon;">
           [THUMBNAIL 2 ]
         </div>
-        <div style="margin-top:10px; color:#d0e4ff;">
+        <div style="margin-top:10px;">
           Another short preview for 3.
         </div>
       </div>
@@ -276,18 +192,14 @@
 
 <br><br>
 
-<!-- ========================================================= -->
-<!-- FOOTER                                                    -->
-<!-- ========================================================= -->
-
+<!-- FOOTER -->
 <div style="
   width:100%;
   padding:20px;
   text-align:center;
-  background:#0a1a33;
-  border-top:2px solid #1a3f7c;
-  box-shadow:0 -5px 20px #0f4fa8;
-  color:#7ab4ff;
+  background:#ffffff;
+  border-top:3px solid maroon;
+  color:maroon;
   font-size:14px;
 ">
   © 2026 — Mr. Cyborg Enhanced Prototypes<br>
