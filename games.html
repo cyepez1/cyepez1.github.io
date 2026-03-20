@@ -17,6 +17,8 @@
       border-top: 3px solid var(--maroon);
       padding: 0 0 12px;
       transition: transform 0.15s;
+      text-decoration: none;
+      display: block;
     }
     .game-card:hover { transform: translateY(-3px); }
     .game-cover {
@@ -33,18 +35,25 @@
       letter-spacing: 0.1em;
       margin-bottom: 10px;
       position: relative;
+      overflow: hidden;
+    }
+    .game-cover img {
+      position: absolute;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 1;
     }
     .game-cover .platform-badge {
       position: absolute;
-      top: 8px;
-      right: 8px;
+      top: 8px; right: 8px;
       background: var(--maroon);
       color: var(--cream);
       font-family: 'Share Tech Mono', monospace;
       font-size: 8px;
       padding: 2px 6px;
       letter-spacing: 0.1em;
-      opacity: 0.85;
+      opacity: 0.9;
+      z-index: 2;
     }
     .game-title {
       font-family: 'Special Elite', cursive;
@@ -109,7 +118,7 @@
       <a href="photos.html" class="nav-item">Photos</a>
       <a href="misc.html" class="nav-item">Misc</a>
       <div class="sidebar-note">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Currently playing: Lorem Ipsum 2 (PS2).
+        Currently playing: Halo 3: ODST. There is something about a rainy city at night that never gets old.
       </div>
     </div>
   </aside>
@@ -121,21 +130,22 @@
     <div class="paper" style="margin-bottom:20px;">
       <div class="featured-game">
         <div class="game-cover">
-          <div class="platform-badge">PS2</div>
-          <span>Cover Art</span>
+          <div class="platform-badge">360</div>
+          <img src="images/HaloODST.jpg" alt="Halo 3: ODST">
         </div>
         <div>
-          <div class="post-title">Lorem Ipsum: Dawn of the Adipiscing</div>
-          <div class="post-meta">2003 &nbsp;·&nbsp; Action / Adventure &nbsp;·&nbsp; PS2</div>
+          <div class="post-title">Halo 3: ODST</div>
+          <div class="post-meta">2009 &nbsp;·&nbsp; First-Person Shooter &nbsp;·&nbsp; Xbox 360</div>
           <p style="font-size:14px; color:#3a2e22; line-height:1.65; margin-top:8px;">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.
+            Write your opening thoughts on ODST here — what drew you back to it, what the atmosphere feels like, what makes it different from the mainline Halo games.
           </p>
           <p style="font-size:14px; color:#3a2e22; line-height:1.65; margin-top:8px;">
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
+            Continue here — the Rookie, New Mombasa, the jazz soundtrack, the open-world hub. Whatever stands out most right now.
           </p>
           <div style="margin-top:10px; font-family:'Share Tech Mono',monospace; font-size:10px; color:var(--maroon); letter-spacing:0.1em;">
-            RATING: ★★★★☆
+            RATING: ★★★★★
           </div>
+          <a href="game-halo-odst.html" class="read-more" style="margin-top:8px; display:inline-block;">Full Review →</a>
         </div>
       </div>
     </div>
@@ -144,68 +154,90 @@
     <div class="section-label">The Shelf</div>
     <div class="game-grid">
 
-      <div class="game-card">
-        <div class="game-cover"><div class="platform-badge">GCN</div><img src="HaloODST.jpg" style="width:100%; height:100%; object-fit:cover;"></div>
-        <div class="game-title">Consectetur Warriors: Siege of Magna Aliqua</div>
-        <div class="game-meta">2002 &nbsp;·&nbsp; Tactical</div>
+      <a href="game-halo-odst.html" class="game-card">
+        <div class="game-cover">
+          <div class="platform-badge">360</div>
+          <img src="images/HaloODST.jpg" alt="Halo 3: ODST">
+        </div>
+        <div class="game-title">Halo 3: ODST</div>
+        <div class="game-meta">2009 &nbsp;·&nbsp; FPS</div>
         <div class="rating">★★★★★</div>
-      </div>
+      </a>
 
-      <div class="game-card">
-        <div class="game-cover"><div class="platform-badge">Wii</div><span>Cover</span></div>
-        <div class="game-title">Adipiscing Rift Zero</div>
-        <div class="game-meta">2007 &nbsp;·&nbsp; Mech Combat</div>
-        <div class="rating">★★★★☆</div>
-      </div>
-
-      <div class="game-card">
-        <div class="game-cover"><div class="platform-badge">PS2</div><span>Cover</span></div>
-        <div class="game-title">Tempor Incididunt Road Rage Turbo</div>
-        <div class="game-meta">2004 &nbsp;·&nbsp; Racing</div>
-        <div class="rating">★★★☆☆</div>
-      </div>
-
-      <div class="game-card">
-        <div class="game-cover"><div class="platform-badge">GCN</div><span>Cover</span></div>
-        <div class="game-title">Dolore Magna: The Phantom Laborum</div>
-        <div class="game-meta">2001 &nbsp;·&nbsp; Stealth / Action</div>
+      <a href="game-halo-reach.html" class="game-card">
+        <div class="game-cover">
+          <div class="platform-badge">360</div>
+          <img src="images/HaloReachAlexandria.png" alt="Halo: Reach">
+        </div>
+        <div class="game-title">Halo: Reach</div>
+        <div class="game-meta">2010 &nbsp;·&nbsp; FPS</div>
         <div class="rating">★★★★★</div>
+      </a>
+
+      <a href="game-halo-3.html" class="game-card">
+        <div class="game-cover">
+          <div class="platform-badge">360</div>
+          <img src="images/Halo3.jpg" alt="Halo 3">
+        </div>
+        <div class="game-title">Halo 3</div>
+        <div class="game-meta">2007 &nbsp;·&nbsp; FPS</div>
+        <div class="rating">★★★★★</div>
+      </a>
+
+      <a href="game-dead-space-2.html" class="game-card">
+        <div class="game-cover">
+          <div class="platform-badge">360</div>
+          <img src="images/deadspace2.jpg" alt="Dead Space 2">
+        </div>
+        <div class="game-title">Dead Space 2</div>
+        <div class="game-meta">2011 &nbsp;·&nbsp; Survival Horror</div>
+        <div class="rating">★★★★★</div>
+      </a>
+
+      <div class="game-card">
+        <div class="game-cover"><div class="platform-badge">—</div><span>Coming Soon</span></div>
+        <div class="game-title">Next Game</div>
+        <div class="game-meta">Year &nbsp;·&nbsp; Genre</div>
+        <div class="rating">—</div>
       </div>
 
       <div class="game-card">
-        <div class="game-cover"><div class="platform-badge">PS2</div><span>Cover</span></div>
-        <div class="game-title">Voluptatem Accusantium Drift King</div>
-        <div class="game-meta">2005 &nbsp;·&nbsp; Racing</div>
-        <div class="rating">★★★★☆</div>
-      </div>
-
-      <div class="game-card">
-        <div class="game-cover"><div class="platform-badge">Wii</div><span>Cover</span></div>
-        <div class="game-title">Natus Error Strike Force</div>
-        <div class="game-meta">2008 &nbsp;·&nbsp; Shooter</div>
-        <div class="rating">★★★☆☆</div>
+        <div class="game-cover"><div class="platform-badge">—</div><span>Coming Soon</span></div>
+        <div class="game-title">Next Game</div>
+        <div class="game-meta">Year &nbsp;·&nbsp; Genre</div>
+        <div class="rating">—</div>
       </div>
 
     </div>
 
-    <!-- MINI REVIEWS -->
+    <!-- QUICK TAKES -->
     <div class="section-label">Quick Takes</div>
+
     <div class="paper ruled" style="margin-bottom:14px;">
-      <div class="post-title">Why Tempor Incididunt Road Rage Turbo Still Holds Up</div>
-      <div class="post-meta">March 2026 &nbsp;·&nbsp; Racing</div>
+      <div class="post-title">Halo: Reach and the Weight of a Doomed Fight</div>
+      <div class="post-meta">March 2026 &nbsp;·&nbsp; FPS</div>
       <p style="font-size:14px; color:#3a2e22; line-height:1.65;">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.
+        Write a short 2–3 sentence blurb about Reach here. Something that captures the tone without giving the full review away.
       </p>
-      <a href="#" class="read-more">Read More →</a>
+      <a href="game-halo-reach.html" class="read-more">Read More →</a>
+    </div>
+
+    <div class="paper ruled" style="margin-bottom:14px;">
+      <div class="post-title">Dead Space 2: Horror That Earns Its Panic</div>
+      <div class="post-meta">Feb 2026 &nbsp;·&nbsp; Survival Horror</div>
+      <p style="font-size:14px; color:#3a2e22; line-height:1.65;">
+        Write a short 2–3 sentence blurb about Dead Space 2 here — the Ishimura flashback, the Sprawl, Isaac finally talking.
+      </p>
+      <a href="game-dead-space-2.html" class="read-more">Read More →</a>
     </div>
 
     <div class="paper ruled">
-      <div class="post-title">Consectetur Warriors and the Art of the Comeback Win</div>
-      <div class="post-meta">Feb 2026 &nbsp;·&nbsp; Tactical</div>
+      <div class="post-title">Halo 3: Finishing the Fight, Finally</div>
+      <div class="post-meta">Jan 2026 &nbsp;·&nbsp; FPS</div>
       <p style="font-size:14px; color:#3a2e22; line-height:1.65;">
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        Write a short 2–3 sentence blurb about Halo 3 here — the campaign, the ending, the multiplayer legacy.
       </p>
-      <a href="#" class="read-more">Read More →</a>
+      <a href="game-halo-3.html" class="read-more">Read More →</a>
     </div>
 
   </main>
