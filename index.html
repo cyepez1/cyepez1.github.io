@@ -1,209 +1,906 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Cairo's</title>
-
+  <title>Chips Dominguez</title>
   <style>
-    body {
-      margin: 0;
-      font-family: Garamond, serif;
-      background: #f7f2e6; /* light papyrus tone */
-      color: #000;
+    @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Special+Elite&family=Share+Tech+Mono&display=swap');
+
+    :root {
+      --cream: #f0e8d5;
+      --cream-dark: #e2d8c2;
+      --maroon: #6b0f1a;
+      --maroon-light: #8b1a28;
+      --maroon-faint: #f5eae8;
+      --olive: #5a5430;
+      --olive-light: #8a8050;
+      --ink: #1a1410;
+      --blue-margin: #7080c0;
+      --blue-margin-light: #a8b4e8;
+      --paper: #faf6ed;
+      --scanline: rgba(0,0,0,0.07);
     }
 
-    /* Notebook-style inset panels */
-    .paper {
-      background: white;
-      border: 2px solid maroon;
-      padding: 20px;
-      border-radius: 6px;
-      box-shadow: 0 0 0 4px #d0d0ff inset; /* blue notebook margin */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'EB Garamond', serif;
+      background-color: var(--cream);
+      color: var(--ink);
+      font-size: 15px;
+      line-height: 1.6;
       position: relative;
     }
 
-    /* Horizontal ruled lines */
+    /* Grain overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.045;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ─── MASTHEAD ─── */
+    #masthead {
+      background: var(--maroon);
+      border-bottom: 4px double var(--maroon-light);
+      padding: 10px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    #masthead .site-title {
+      font-family: 'Special Elite', cursive;
+      font-size: 13px;
+      color: var(--cream);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.7;
+    }
+
+    #masthead .dateline {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      color: var(--cream);
+      opacity: 0.5;
+      letter-spacing: 0.1em;
+    }
+
+    /* ─── HERO / CRT ─── */
+    #hero {
+      width: 100%;
+      background: #0d0d0d;
+      padding: 36px 0 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-bottom: 4px solid var(--maroon);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Ambient glow behind CRT */
+    #hero::before {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 300px;
+      background: radial-gradient(ellipse, rgba(107,15,26,0.35) 0%, transparent 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .crt-wrap {
+      position: relative;
+      width: 560px;
+      max-width: 94vw;
+    }
+
+    /* Outer shell */
+    .crt-shell {
+      background: linear-gradient(160deg, #2a2420, #1a1410, #221e18);
+      border-radius: 18px 18px 22px 22px;
+      padding: 14px 14px 34px;
+      box-shadow:
+        0 0 0 2px #3a3028,
+        0 0 0 5px #151210,
+        0 8px 40px rgba(0,0,0,0.8),
+        inset 0 1px 0 rgba(255,255,255,0.06);
+      position: relative;
+    }
+
+    /* Screen bezel */
+    .crt-bezel {
+      background: #0a0806;
+      border-radius: 10px;
+      padding: 6px;
+      box-shadow: inset 0 0 12px rgba(0,0,0,0.9), inset 0 0 3px rgba(255,255,255,0.04);
+    }
+
+    /* Screen itself */
+    .crt-screen {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: #050e05;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    /* Placeholder image area */
+    .crt-image {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 2px,
+          rgba(0,255,80,0.018) 2px,
+          rgba(0,255,80,0.018) 4px
+        ),
+        linear-gradient(135deg, #0a1a0a 0%, #050e05 50%, #0d150a 100%);
+      font-family: 'Share Tech Mono', monospace;
+      color: rgba(80,200,80,0.5);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .crt-image .ph-label {
+      font-size: 11px;
+      opacity: 0.4;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .crt-image .ph-crosshair {
+      width: 48px;
+      height: 48px;
+      border: 1px solid rgba(80,200,80,0.3);
+      border-radius: 50%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .crt-image .ph-crosshair::before,
+    .crt-image .ph-crosshair::after {
+      content: "";
+      position: absolute;
+      background: rgba(80,200,80,0.3);
+    }
+
+    .crt-image .ph-crosshair::before {
+      width: 1px;
+      height: 100%;
+    }
+
+    .crt-image .ph-crosshair::after {
+      width: 100%;
+      height: 1px;
+    }
+
+    /* Scanlines */
+    .crt-screen::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 3px,
+        rgba(0,0,0,0.18) 3px,
+        rgba(0,0,0,0.18) 4px
+      );
+      pointer-events: none;
+      border-radius: 6px;
+    }
+
+    /* Vignette */
+    .crt-screen::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.7) 100%);
+      z-index: 2;
+      pointer-events: none;
+      border-radius: 6px;
+    }
+
+    /* Slideshow text ticker inside CRT */
+    .crt-ticker {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,0.75);
+      padding: 5px 12px;
+      z-index: 3;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      color: rgba(80,220,80,0.7);
+      letter-spacing: 0.08em;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .ticker-inner {
+      display: inline-block;
+      animation: ticker-scroll 18s linear infinite;
+    }
+
+    @keyframes ticker-scroll {
+      0%   { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* CRT base/foot */
+    .crt-foot {
+      width: 60%;
+      height: 10px;
+      background: linear-gradient(180deg, #1a1410, #2a2420);
+      margin: 0 auto;
+      border-radius: 0 0 8px 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+
+    .crt-foot-base {
+      width: 40%;
+      height: 6px;
+      background: #1a1410;
+      margin: 0 auto;
+      border-radius: 0 0 6px 6px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+    }
+
+    /* Power LED */
+    .crt-led {
+      position: absolute;
+      bottom: 18px;
+      right: 22px;
+      width: 6px;
+      height: 6px;
+      background: #2ecc40;
+      border-radius: 50%;
+      box-shadow: 0 0 6px #2ecc40, 0 0 12px rgba(46,204,64,0.4);
+      animation: led-pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes led-pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    /* Site name below CRT */
+    .hero-title {
+      margin-top: 20px;
+      font-family: 'Special Elite', cursive;
+      font-size: 32px;
+      color: var(--cream);
+      letter-spacing: 0.08em;
+      text-shadow: 0 0 20px rgba(107,15,26,0.5);
+    }
+
+    .hero-sub {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      color: rgba(240,232,213,0.45);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* ─── MAIN LAYOUT ─── */
+    #main {
+      max-width: 1000px;
+      margin: 28px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    /* ─── PAPER PANELS ─── */
+    .paper {
+      background: var(--paper);
+      border: 1px solid #c8b89a;
+      border-left: 3px solid var(--maroon);
+      padding: 16px 18px 16px 28px;
+      position: relative;
+      box-shadow: 2px 2px 0 rgba(0,0,0,0.08), inset 0 0 0 1px rgba(255,255,255,0.5);
+    }
+
+    /* Margin line */
     .paper::before {
       content: "";
       position: absolute;
+      left: 20px;
       top: 0;
-      left: 40px;
-      width: 2px;
-      height: 100%;
-      background: #a0b4ff; /* blue notebook margin line */
+      bottom: 0;
+      width: 1px;
+      background: var(--blue-margin-light);
+      opacity: 0.7;
     }
 
-    /* HERO SECTION */
-    #hero {
+    /* Ruled lines */
+    .paper.ruled {
+      background-image: repeating-linear-gradient(
+        180deg,
+        transparent,
+        transparent 23px,
+        rgba(160,180,220,0.15) 23px,
+        rgba(160,180,220,0.15) 24px
+      );
+    }
+
+    /* ─── SIDEBAR ─── */
+    .sidebar-avatar {
       width: 100%;
-      padding: 60px 0;
-      text-align: center;
-      background: #ffffff;
-      border-bottom: 3px solid maroon;
+      aspect-ratio: 1;
+      background:
+        repeating-linear-gradient(45deg, #e8dfc8 0px, #e8dfc8 2px, #f0e8d5 2px, #f0e8d5 10px);
+      border: 1px solid #c8b89a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
       position: relative;
     }
 
-    .slide {
+    .sidebar-avatar::after {
+      content: "PHOTO";
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--maroon);
+      opacity: 0.4;
+    }
+
+    .sidebar-avatar .avatar-frame {
+      width: 70px;
+      height: 70px;
+      border: 2px solid var(--maroon);
+      opacity: 0.3;
+      position: relative;
+    }
+
+    .sidebar-avatar .avatar-frame::before,
+    .sidebar-avatar .avatar-frame::after {
+      content: "";
       position: absolute;
-      width: 100%;
+      background: var(--maroon);
+    }
+
+    .sidebar-avatar .avatar-frame::before {
+      width: 1px; height: 100%; left: 50%; top: 0;
+    }
+
+    .sidebar-avatar .avatar-frame::after {
+      height: 1px; width: 100%; top: 50%; left: 0;
+    }
+
+    .sidebar-name {
+      font-family: 'Special Elite', cursive;
+      font-size: 16px;
+      color: var(--maroon);
       text-align: center;
-      font-size: 40px;
-      font-weight: bold;
-      opacity: 0;
-      transition: opacity 1s ease;
-      color: maroon;
+      margin-bottom: 4px;
     }
 
-    .slide.active {
-      opacity: 1;
+    .sidebar-tagline {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 9px;
+      color: var(--olive);
+      text-align: center;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      opacity: 0.7;
     }
 
-    /* Sidebar navigation */
+    /* Nav */
+    .nav-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--olive-light);
+      margin-bottom: 10px;
+      border-bottom: 1px solid var(--cream-dark);
+      padding-bottom: 5px;
+    }
+
     .nav-item {
-      padding: 6px;
-      color: maroon;
-      cursor: pointer;
-      transition: 0.2s;
-      font-weight: bold;
+      display: block;
+      padding: 5px 0 5px 10px;
+      color: var(--maroon);
+      text-decoration: none;
+      font-family: 'Special Elite', cursive;
+      font-size: 14px;
+      border-left: 2px solid transparent;
+      transition: all 0.15s ease;
+      position: relative;
+    }
+
+    .nav-item::before {
+      content: "›";
+      position: absolute;
+      left: 0;
+      opacity: 0;
+      transition: opacity 0.15s;
     }
 
     .nav-item:hover {
-      transform: translateX(5px);
-      color: black;
+      border-left-color: var(--maroon);
+      padding-left: 14px;
+      color: var(--ink);
     }
 
-    a.nav-link {
-      text-decoration: none;
-      color: inherit;
+    .nav-item:hover::before {
+      opacity: 1;
     }
 
-    /* Blog post hover */
+    /* Sidebar note box */
+    .sidebar-note {
+      margin-top: 18px;
+      border-top: 1px dashed #c8b89a;
+      padding-top: 14px;
+      font-size: 12px;
+      line-height: 1.5;
+      color: #5a4a38;
+      font-style: italic;
+    }
+
+    /* ─── MAIN CONTENT ─── */
+    .section-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--olive-light);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-label::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--cream-dark);
+    }
+
+    /* Featured article */
+    .featured-img {
+      width: 100%;
+      aspect-ratio: 16/7;
+      background:
+        repeating-linear-gradient(-45deg, #e2d8c2 0px, #e2d8c2 2px, #ede5d0 2px, #ede5d0 12px);
+      border: 1px solid #c8b89a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 14px;
+      position: relative;
+    }
+
+    .featured-img::after {
+      content: "[ FEATURED IMAGE PLACEHOLDER ]";
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      color: var(--maroon);
+      opacity: 0.35;
+    }
+
+    .featured-img .img-corner {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      border-color: var(--maroon);
+      border-style: solid;
+      opacity: 0.35;
+    }
+
+    .img-corner.tl { top: 8px; left: 8px; border-width: 2px 0 0 2px; }
+    .img-corner.tr { top: 8px; right: 8px; border-width: 2px 2px 0 0; }
+    .img-corner.bl { bottom: 8px; left: 8px; border-width: 0 0 2px 2px; }
+    .img-corner.br { bottom: 8px; right: 8px; border-width: 0 2px 2px 0; }
+
+    .featured-title {
+      font-family: 'Special Elite', cursive;
+      font-size: 26px;
+      color: var(--maroon);
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .featured-meta {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      color: var(--olive);
+      letter-spacing: 0.15em;
+      margin-bottom: 10px;
+      opacity: 0.7;
+    }
+
+    /* Post cards */
     .post {
-      transition: 0.3s;
+      margin-bottom: 20px;
+      transition: transform 0.15s ease;
     }
 
     .post:hover {
-      transform: translateX(5px);
+      transform: translateX(3px);
     }
 
+    .post-inner {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .post-thumb {
+      aspect-ratio: 1;
+      background:
+        repeating-linear-gradient(45deg, #e2d8c2 0px, #e2d8c2 1px, #ede5d0 1px, #ede5d0 8px);
+      border: 1px solid #c8b89a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 8px;
+      color: var(--maroon);
+      opacity: 0.5;
+      letter-spacing: 0.1em;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .post-thumb .thumb-ph-icon {
+      width: 24px;
+      height: 24px;
+      border: 1px solid currentColor;
+      border-radius: 2px;
+      opacity: 0.6;
+    }
+
+    .post-title {
+      font-family: 'Special Elite', cursive;
+      font-size: 18px;
+      color: var(--maroon);
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+
+    .post-meta {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 9px;
+      color: var(--olive);
+      letter-spacing: 0.12em;
+      margin-bottom: 6px;
+      opacity: 0.65;
+    }
+
+    .post-excerpt {
+      font-size: 13.5px;
+      color: #3a2e22;
+      line-height: 1.55;
+    }
+
+    .read-more {
+      display: inline-block;
+      margin-top: 6px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      color: var(--maroon);
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      border-bottom: 1px solid var(--maroon);
+      opacity: 0.7;
+      transition: opacity 0.15s;
+    }
+
+    .read-more:hover { opacity: 1; }
+
+    /* Divider */
+    .divider {
+      border: none;
+      border-top: 1px dashed #c8b89a;
+      margin: 18px 0;
+    }
+
+    /* ─── FOOTER ─── */
+    #footer {
+      background: var(--maroon);
+      border-top: 4px double var(--maroon-light);
+      padding: 22px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 40px;
+    }
+
+    .footer-left {
+      font-family: 'Special Elite', cursive;
+      font-size: 18px;
+      color: var(--cream);
+      opacity: 0.9;
+    }
+
+    .footer-right {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      color: var(--cream);
+      opacity: 0.45;
+      letter-spacing: 0.15em;
+      text-align: right;
+      line-height: 1.8;
+    }
+
+    /* Torn paper effect between sections */
+    .torn {
+      height: 12px;
+      background: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .torn::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 12px;
+      background: var(--paper);
+      clip-path: polygon(
+        0% 100%, 2% 40%, 4% 80%, 6% 20%, 8% 60%, 10% 10%,
+        12% 70%, 14% 30%, 16% 80%, 18% 20%, 20% 55%, 22% 15%,
+        24% 65%, 26% 35%, 28% 75%, 30% 25%, 32% 60%, 34% 15%,
+        36% 70%, 38% 30%, 40% 85%, 42% 25%, 44% 60%, 46% 10%,
+        48% 50%, 50% 20%, 52% 75%, 54% 35%, 56% 65%, 58% 15%,
+        60% 55%, 62% 25%, 64% 70%, 66% 30%, 68% 80%, 70% 20%,
+        72% 60%, 74% 15%, 76% 65%, 78% 35%, 80% 75%, 82% 25%,
+        84% 55%, 86% 10%, 88% 50%, 90% 20%, 92% 70%, 94% 30%,
+        96% 65%, 98% 15%, 100% 50%, 100% 100%
+      );
+    }
+
+    /* ─── PHOTO SUBPAGE TEASERS ─── */
+    .photo-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .photo-cell {
+      aspect-ratio: 4/3;
+      background:
+        repeating-linear-gradient(-45deg, #e2d8c2 0px, #e2d8c2 1px, #ede5d0 1px, #ede5d0 8px);
+      border: 1px solid #c8b89a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 8px;
+      color: var(--maroon);
+      opacity: 0.5;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      position: relative;
+      transition: opacity 0.2s;
+      cursor: pointer;
+    }
+
+    .photo-cell:hover {
+      opacity: 0.8;
+    }
+
+    .photo-cell .cell-label {
+      position: absolute;
+      bottom: 6px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: 8px;
+      letter-spacing: 0.12em;
+    }
   </style>
 </head>
-
 <body>
 
-<!-- HERO SECTION -->
-<div id="hero">
-  <div class="slide active">[test image 1]</div>
-  <div class="slide">[halo 2]</div>
-  <div class="slide">[halo reach]</div>
+<!-- MASTHEAD -->
+<div id="masthead">
+  <span class="site-title">Chips Dominguez — Personal Site</span>
+  <span class="dateline">EST. 2026 &nbsp;|&nbsp; CHICAGO, IL</span>
 </div>
 
-<script>
-  let slideIndex = 0;
-  const slides = document.querySelectorAll(".slide");
-
-  setInterval(() => {
-    slides[slideIndex].classList.remove("active");
-    slideIndex = (slideIndex + 1) % slides.length;
-    slides[slideIndex].classList.add("active");
-  }, 3500);
-</script>
+<!-- HERO / CRT -->
+<div id="hero">
+  <div class="crt-wrap">
+    <div class="crt-shell">
+      <div class="crt-bezel">
+        <div class="crt-screen">
+          <div class="crt-image">
+            <div class="ph-crosshair"></div>
+            <span class="ph-label">Image Placeholder</span>
+          </div>
+          <div class="crt-ticker">
+            <span class="ticker-inner">
+              ★ CHIPS DOMINGUEZ &nbsp;&nbsp;·&nbsp;&nbsp; GAMES · MUSIC · DESIGN · MISC &nbsp;&nbsp;·&nbsp;&nbsp;
+              Lorem ipsum dolor sit amet — consectetur adipiscing elit &nbsp;&nbsp;·&nbsp;&nbsp;
+              WELCOME TO THE SITE &nbsp;&nbsp;·&nbsp;&nbsp; NEW POST: Update Two &nbsp;&nbsp;·&nbsp;&nbsp;
+              ★ CHIPS DOMINGUEZ &nbsp;&nbsp;·&nbsp;&nbsp;
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="crt-led"></div>
+    </div>
+    <div class="crt-foot"></div>
+    <div class="crt-foot-base"></div>
+  </div>
+  <div class="hero-title">Chips Dominguez</div>
+  <div class="hero-sub">Games &nbsp;·&nbsp; Music &nbsp;·&nbsp; Design &nbsp;·&nbsp; Misc</div>
+</div>
 
 <!-- MAIN LAYOUT -->
-<table width="90%" align="center" cellpadding="20" cellspacing="0" style="margin-top:30px;">
-  <tr>
+<div id="main">
 
-    <!-- LEFT SIDEBAR -->
-    <td width="260" valign="top">
+  <!-- SIDEBAR -->
+  <aside>
+    <div class="paper ruled">
+      <div class="sidebar-avatar">
+        <div class="avatar-frame"></div>
+      </div>
+      <div class="sidebar-name">Chips Dominguez</div>
+      <div class="sidebar-tagline">Chicago, IL &nbsp;·&nbsp; Since 2026</div>
 
-      <div class="paper">
-        <div style="font-size:22px; font-weight:bold; text-align:center;">
-          [IMAGE placeholder text]
+      <div class="nav-label">Navigation</div>
+      <a href="games.html" class="nav-item">Games</a>
+      <a href="blog.html" class="nav-item">Blog</a>
+      <a href="music.html" class="nav-item">Music</a>
+      <a href="designs.html" class="nav-item">Designs</a>
+      <a href="photos.html" class="nav-item">Photos</a>
+      <a href="misc.html" class="nav-item">Misc</a>
+
+      <div class="sidebar-note">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus.
+      </div>
+    </div>
+  </aside>
+
+  <!-- RIGHT CONTENT -->
+  <main>
+
+    <!-- FEATURED -->
+    <div class="section-label">Featured Article</div>
+    <div class="paper">
+      <div class="featured-img">
+        <div class="img-corner tl"></div>
+        <div class="img-corner tr"></div>
+        <div class="img-corner bl"></div>
+        <div class="img-corner br"></div>
+      </div>
+      <div class="featured-title">Lorem Ipsum Dolor Sit Amet Consectetur</div>
+      <div class="featured-meta">March 2026 &nbsp;·&nbsp; Category &nbsp;·&nbsp; 6 min read</div>
+      <p style="font-size:14px; color:#3a2e22; line-height:1.65;">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      </p>
+      <a href="#" class="read-more">Read More →</a>
+    </div>
+
+    <br>
+
+    <!-- PHOTO STRIP TEASER -->
+    <div class="section-label">Photos</div>
+    <div class="paper">
+      <div class="photo-strip">
+        <div class="photo-cell"><span class="cell-label">Photo 01</span></div>
+        <div class="photo-cell"><span class="cell-label">Photo 02</span></div>
+        <div class="photo-cell"><span class="cell-label">Photo 03</span></div>
+      </div>
+      <div style="margin-top:10px; font-size:12px; color:#5a4a38; font-style:italic;">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi.
+        <a href="photos.html" class="read-more" style="margin-left:10px;">View All →</a>
+      </div>
+    </div>
+
+    <br>
+
+    <!-- LATEST POSTS -->
+    <div class="section-label">Latest Posts</div>
+
+    <div class="post">
+      <div class="paper ruled">
+        <div class="post-inner">
+          <div class="post-thumb">
+            <div class="thumb-ph-icon"></div>
+            THUMB
+          </div>
+          <div>
+            <div class="post-title">Update One: Lorem Ipsum Dolor</div>
+            <div class="post-meta">Feb 2026 &nbsp;·&nbsp; Games</div>
+            <div class="post-excerpt">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
+            </div>
+            <a href="#" class="read-more">Read More →</a>
+          </div>
         </div>
       </div>
+    </div>
 
-      <br>
-
-      <div class="paper">
-        <div style="font-weight:bold; margin-bottom:10px; color:maroon;">Navigation</div>
-
-        <a href="games.html" class="nav-link"><div class="nav-item">Games</div></a>
-        <a href="blog.html" class="nav-link"><div class="nav-item">Blog</div></a>
-        <a href="music.html" class="nav-link"><div class="nav-item">Music</div></a>
-        <a href="designs.html" class="nav-link"><div class="nav-item">Designs</div></a>
-        <a href="misc.html" class="nav-link"><div class="nav-item">Misc</div></a>
-      </div>
-
-    </td>
-
-    <!-- RIGHT CONTENT -->
-    <td valign="top">
-
-      <div class="paper">
-        <div style="font-size:28px; font-weight:bold; color:maroon;">
-          Featured Article
-        </div>
-
-        <br>
-
-        <div class="paper" style="padding:15px; margin-left:20px;">
-          [featured image]
-        </div>
-
-        <br>
-
-        <div style="font-size:14px;">
-          insert article short preview text here
+    <div class="post">
+      <div class="paper ruled">
+        <div class="post-inner">
+          <div class="post-thumb">
+            <div class="thumb-ph-icon"></div>
+            THUMB
+          </div>
+          <div>
+            <div class="post-title">Update Two: Consectetur Adipiscing</div>
+            <div class="post-meta">Jan 2026 &nbsp;·&nbsp; Music</div>
+            <div class="post-excerpt">
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint.
+            </div>
+            <a href="#" class="read-more">Read More →</a>
+          </div>
         </div>
       </div>
+    </div>
 
-      <br><br>
-
-      <div style="font-size:24px; font-weight:bold; color:maroon; margin-bottom:10px;">
-        Insert Latest Posts
-      </div>
-
-      <div class="paper post">
-        <div style="font-size:20px; font-weight:bold; color:maroon;">Update One</div>
-        <div style="margin-top:10px; color:maroon;">
-          [THUMBNAIL 1 ]
-        </div>
-        <div style="margin-top:10px;">
-          older article preview summary here.
-        </div>
-      </div>
-
-      <br>
-
-      <div class="paper post">
-        <div style="font-size:20px; font-weight:bold; color:maroon;">Update Two</div>
-        <div style="margin-top:10px; color:maroon;">
-          [THUMBNAIL 2 ]
-        </div>
-        <div style="margin-top:10px;">
-          Another short preview for 3.
+    <div class="post">
+      <div class="paper ruled">
+        <div class="post-inner">
+          <div class="post-thumb">
+            <div class="thumb-ph-icon"></div>
+            THUMB
+          </div>
+          <div>
+            <div class="post-title">Update Three: Sed Do Eiusmod</div>
+            <div class="post-meta">Dec 2025 &nbsp;·&nbsp; Design</div>
+            <div class="post-excerpt">
+              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.
+            </div>
+            <a href="#" class="read-more">Read More →</a>
+          </div>
         </div>
       </div>
+    </div>
 
-    </td>
+  </main>
 
-  </tr>
-</table>
-
-<br><br>
+</div>
 
 <!-- FOOTER -->
-<div style="
-  width:100%;
-  padding:20px;
-  text-align:center;
-  background:#ffffff;
-  border-top:3px solid maroon;
-  color:maroon;
-  font-size:14px;
-">
-  © 2026 — Mr. Cyborg Enhanced Prototypes<br>
-  This is a tribute to fallen heroes of the era.
+<div id="footer">
+  <div class="footer-left">Chips Dominguez</div>
+  <div class="footer-right">
+    © 2026 — Chips Dominguez<br>
+    Chicago, IL &nbsp;·&nbsp; All rights reserved<br>
+    A tribute to fallen heroes of the era.
+  </div>
 </div>
 
 </body>
