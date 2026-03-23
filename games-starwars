@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>A Long Time Ago… — Games — Cairo Yepez</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--cream); color: var(--ink); font-family: 'EB Garamond', Georgia, serif; }
+    body::before {
+      content: ''; position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 999; opacity: .5;
+    }
+
+    /* MASTHEAD */
+    .masthead { background: var(--maroon); color: var(--cream); text-align: center; padding: 10px 20px 8px; border-bottom: 3px double var(--olive); }
+    .masthead .site-name { font-family: 'Special Elite', cursive; font-size: 2.2rem; letter-spacing: .08em; color: var(--cream); text-decoration: none; }
+    .masthead .tagline { font-family: 'Share Tech Mono', monospace; font-size: .7rem; color: var(--blue-margin-light); letter-spacing: .15em; margin-top: 2px; }
+
+    /* LAYOUT */
+    .page-wrap { max-width: 1100px; margin: 0 auto; padding: 30px 20px 60px; display: grid; grid-template-columns: 200px 1fr; gap: 30px; }
+    .sidebar-label { font-family: 'Share Tech Mono', monospace; font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; color: var(--maroon); border-bottom: 1px solid var(--maroon); padding-bottom: 4px; margin-bottom: 10px; }
+    .sidebar nav a { display: block; font-family: 'Special Elite', cursive; font-size: .88rem; color: var(--ink); text-decoration: none; padding: 4px 0; border-bottom: 1px dotted var(--cream-dark); transition: color .2s; }
+    .sidebar nav a:hover { color: var(--maroon); }
+    .sidebar nav a.active { color: var(--maroon); }
+
+    /* PAGE HEADER */
+    .page-header { margin-bottom: 28px; border-bottom: 2px solid var(--maroon); padding-bottom: 16px; }
+    .page-header .breadcrumb { font-family: 'Share Tech Mono', monospace; font-size: .6rem; letter-spacing: .15em; color: var(--olive); margin-bottom: 8px; }
+    .page-header .breadcrumb a { color: var(--olive); text-decoration: none; }
+    .page-header h1 { font-family: 'Special Elite', cursive; font-size: 2.4rem; color: var(--maroon); line-height: 1; }
+    .page-header .subtitle { font-style: italic; font-size: .95rem; color: #5a4f45; margin-top: 6px; }
+
+    /* SECTION DIVIDER */
+    .section-divider { font-family: 'Share Tech Mono', monospace; font-size: .65rem; letter-spacing: .2em; text-transform: uppercase; color: var(--maroon); border-top: 1px solid var(--cream-dark); padding-top: 18px; margin: 28px 0 18px; }
+
+    /* GAME GRID */
+    .game-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 20px; margin-bottom: 30px; }
+
+    /* GAME CARD with 3D TILT */
+    .game-card { perspective: 800px; }
+    .game-card-inner {
+      display: flex; flex-direction: column;
+      transition: transform .1s ease;
+      transform-style: preserve-3d;
+    }
+    .cover-wrap {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: var(--cream-dark);
+      border: 1.5px solid var(--maroon);
+      overflow: hidden;
+      position: relative;
+      box-shadow: 3px 3px 0 var(--olive-light);
+    }
+    .cover-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .cover-placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Share Tech Mono', monospace; font-size: .55rem;
+      color: var(--olive); text-align: center; padding: 8px;
+      background: linear-gradient(135deg, var(--cream-dark) 0%, #d4c9b0 100%);
+    }
+    .cover-caption { font-family: 'Share Tech Mono', monospace; font-size: .58rem; color: var(--olive-light); margin-top: 6px; padding: 0 2px; line-height: 1.4; }
+    .game-title { font-family: 'Special Elite', cursive; font-size: .88rem; color: var(--ink); margin-top: 5px; line-height: 1.3; }
+    .game-year { font-family: 'Share Tech Mono', monospace; font-size: .6rem; color: var(--olive); }
+    .star-rating { margin-top: 4px; font-size: .8rem; color: var(--maroon); letter-spacing: 1px; }
+    .game-blurb { font-size: .8rem; font-style: italic; color: #5a4f45; line-height: 1.5; margin-top: 5px; }
+
+    /* FOOTER */
+    footer { background: var(--maroon); color: var(--cream); text-align: center; padding: 14px 20px; font-family: 'Share Tech Mono', monospace; font-size: .65rem; letter-spacing: .1em; border-top: 3px double var(--olive); }
+
+    @media (max-width: 700px) { .page-wrap { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <header class="masthead">
+    <a href="index.html" class="site-name">Cairo Yepez</a>
+    <p class="tagline">// games — a long time ago in a galaxy far, far away…</p>
+  </header>
+
+  <div class="page-wrap">
+    <aside class="sidebar">
+      <p class="sidebar-label">Navigate</p>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="blog.html">Writing</a>
+        <a href="music.html">Music</a>
+        <a href="photos.html">Photos</a>
+        <a href="designs.html">Designs</a>
+        <a href="games.html">Games</a>
+        <a href="misc.html">Misc</a>
+      </nav>
+      <br/>
+      <p class="sidebar-label">Categories</p>
+      <nav>
+        <a href="games-starwars.html" class="active">A Long Time Ago…</a>
+        <a href="games-halo.html">Halo</a>
+        <a href="games-openworld.html">Open World</a>
+        <a href="games-indie.html">Indie</a>
+        <a href="games-shooters.html">Shooters</a>
+        <a href="games-builder.html">Builder &amp; Sim</a>
+      </nav>
+    </aside>
+
+    <main>
+      <div class="page-header">
+        <p class="breadcrumb"><a href="games.html">games</a> // star wars</p>
+        <h1>A Long Time Ago…</h1>
+        <p class="subtitle">The Star Wars games that shaped a childhood — strategy, lightsabers, and galactic chaos.</p>
+      </div>
+
+      <p class="section-divider">// the collection — chronological order</p>
+
+      <div class="game-grid" id="swGrid">
+
+        <!-- 2006 -->
+        <div class="game-card">
+          <div class="game-card-inner">
+            <div class="cover-wrap"><div class="cover-placeholder">Star Wars:<br/>Empire at War</div></div>
+            <span class="cover-caption">RTS campaign across the galaxy</span>
+            <p class="game-title">Empire at War</p>
+            <p class="game-year">2006</p>
+            <p class="star-rating">★★★★☆</p>
+            <p class="game-blurb">Command fleets and ground troops across iconic Star Wars battlefields. One of the best Star Wars strategy games ever made.</p>
+          </div>
+        </div>
+
+        <!-- 2008 -->
+        <div class="game-card">
+          <div class="game-card-inner">
+            <div class="cover-wrap"><div class="cover-placeholder">The Force<br/>Unleashed</div></div>
+            <span class="cover-caption">You are Vader's secret apprentice</span>
+            <p class="game-title">The Force Unleashed</p>
+            <p class="game-year">2008</p>
+            <p class="star-rating">★★★★☆</p>
+            <p class="game-blurb">Unstoppable Force powers, bridge scenes between episodes, and Starkiller's impossible cool. A love letter to the Dark Side.</p>
+          </div>
+        </div>
+
+        <!-- 2019 -->
+        <div class="game-card">
+          <div class="game-card-inner">
+            <div class="cover-wrap"><div class="cover-placeholder">Jedi:<br/>Fallen Order</div></div>
+            <span class="cover-caption">Survival. Order 66 aftermath.</span>
+            <p class="game-title">Jedi: Fallen Order</p>
+            <p class="game-year">2019</p>
+            <p class="star-rating">★★★★★</p>
+            <p class="game-blurb">Meticulously crafted Soulslike meets Star Wars. Cal Kestis carries the weight of the entire Jedi Order on his shoulders.</p>
+          </div>
+        </div>
+
+        <!-- 2022 -->
+        <div class="game-card">
+          <div class="game-card-inner">
+            <div class="cover-wrap"><div class="cover-placeholder">LEGO Skywalker<br/>Saga</div></div>
+            <span class="cover-caption">All 9 films. Brick by brick.</span>
+            <p class="game-title">LEGO Skywalker Saga</p>
+            <p class="game-year">2022</p>
+            <p class="star-rating">★★★★☆</p>
+            <p class="game-blurb">The most ambitious LEGO game ever made. Packed with every corner of the Skywalker saga in glorious plastic form.</p>
+          </div>
+        </div>
+
+        <!-- 2024 remaster -->
+        <div class="game-card">
+          <div class="game-card-inner">
+            <div class="cover-wrap"><div class="cover-placeholder">Battlefront<br/>Classic Collection</div></div>
+            <span class="cover-caption">2024 remaster of a 2004 legend</span>
+            <p class="game-title">Battlefront Classic</p>
+            <p class="game-year">2004 / 2024</p>
+            <p class="star-rating">★★★☆☆</p>
+            <p class="game-blurb">The original Battlefronts — massive multiplayer battles, hero units, space combat. The remaster brought them back for a new generation.</p>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <footer>© 2026 — Cairo Yepez · Chicago, IL · All rights reserved · A tribute to fallen heroes of the era.</footer>
+
+  <script>
+    // 3D Tilt effect
+    document.querySelectorAll('.game-card').forEach(card => {
+      const inner = card.querySelector('.game-card-inner');
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const x = e.clientX - r.left - r.width / 2;
+        const y = e.clientY - r.top - r.height / 2;
+        const rotY = (x / r.width) * 18;
+        const rotX = -(y / r.height) * 18;
+        inner.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.04)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        inner.style.transform = 'rotateX(0) rotateY(0) scale(1)';
+        inner.style.transition = 'transform .4s ease';
+      });
+      card.addEventListener('mouseenter', () => {
+        inner.style.transition = 'transform .1s ease';
+      });
+    });
+  </script>
+
+</body>
+</html>
