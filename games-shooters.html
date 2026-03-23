@@ -1,112 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Shooters — Games — Cairo Yepez</title>
   <link rel="stylesheet" href="style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="games-shared.css"/>
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: var(--cream); color: var(--ink); font-family: 'EB Garamond', Georgia, serif; }
-    body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 999; opacity: .5; }
-    .masthead { background: var(--maroon); color: var(--cream); text-align: center; padding: 10px 20px 8px; border-bottom: 3px double var(--olive); }
-    .masthead .site-name { font-family: 'Special Elite', cursive; font-size: 2.2rem; letter-spacing: .08em; color: var(--cream); text-decoration: none; }
-    .masthead .tagline { font-family: 'Share Tech Mono', monospace; font-size: .7rem; color: var(--blue-margin-light); letter-spacing: .15em; margin-top: 2px; }
-    .page-wrap { max-width: 1100px; margin: 0 auto; padding: 30px 20px 60px; display: grid; grid-template-columns: 200px 1fr; gap: 30px; }
-    .sidebar-label { font-family: 'Share Tech Mono', monospace; font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; color: var(--maroon); border-bottom: 1px solid var(--maroon); padding-bottom: 4px; margin-bottom: 10px; }
-    .sidebar nav a { display: block; font-family: 'Special Elite', cursive; font-size: .88rem; color: var(--ink); text-decoration: none; padding: 4px 0; border-bottom: 1px dotted var(--cream-dark); transition: color .2s; }
-    .sidebar nav a:hover, .sidebar nav a.active { color: var(--maroon); }
-    .page-header { margin-bottom: 28px; border-bottom: 2px solid var(--maroon); padding-bottom: 16px; }
-    .page-header .breadcrumb { font-family: 'Share Tech Mono', monospace; font-size: .6rem; letter-spacing: .15em; color: var(--olive); margin-bottom: 8px; }
-    .page-header .breadcrumb a { color: var(--olive); text-decoration: none; }
-    .page-header h1 { font-family: 'Special Elite', cursive; font-size: 2.4rem; color: var(--maroon); line-height: 1; }
-    .page-header .subtitle { font-style: italic; font-size: .95rem; color: #5a4f45; margin-top: 6px; }
-
-    /* MINI-CATEGORY SECTION */
-    .mini-cat {
-      background: var(--paper);
-      border: 1.5px solid var(--cream-dark);
-      border-top: 4px solid var(--maroon);
-      padding: 20px 20px 24px;
-      margin-bottom: 36px;
-    }
-    .mini-cat-header { margin-bottom: 16px; }
-    .mini-cat-label { font-family: 'Share Tech Mono', monospace; font-size: .6rem; letter-spacing: .2em; text-transform: uppercase; color: var(--olive); margin-bottom: 4px; }
-    .mini-cat-title { font-family: 'Special Elite', cursive; font-size: 1.5rem; color: var(--maroon); }
-    .mini-cat-desc { font-size: .85rem; font-style: italic; color: #5a4f45; margin-top: 4px; }
-
-    /* SERIES TABLE */
-    .series-table { width: 100%; border-collapse: collapse; margin-bottom: 18px; font-size: .82rem; }
-    .series-table th { font-family: 'Share Tech Mono', monospace; font-size: .58rem; letter-spacing: .15em; text-transform: uppercase; color: var(--maroon); border-bottom: 2px solid var(--maroon); padding: 6px 8px; text-align: left; background: var(--cream); }
-    .series-table td { padding: 7px 8px; border-bottom: 1px dotted var(--cream-dark); vertical-align: top; }
-    .series-table tr:last-child td { border-bottom: none; }
-    .series-table td:first-child { font-family: 'Special Elite', cursive; font-size: .88rem; }
-    .year-badge { font-family: 'Share Tech Mono', monospace; font-size: .62rem; color: var(--olive); }
-    .rating-cell { color: var(--maroon); letter-spacing: 1px; font-size: .78rem; white-space: nowrap; }
-    .note-cell { font-style: italic; color: #5a4f45; font-size: .78rem; }
-    .zombies-tag {
-      display: inline-block;
-      background: var(--maroon);
-      color: var(--cream);
-      font-family: 'Share Tech Mono', monospace;
-      font-size: .5rem;
-      letter-spacing: .1em;
-      padding: 1px 5px;
-      margin-left: 6px;
-      vertical-align: middle;
-    }
-    .no-zombies-tag {
-      display: inline-block;
-      background: var(--olive);
-      color: var(--cream);
-      font-family: 'Share Tech Mono', monospace;
-      font-size: .5rem;
-      letter-spacing: .1em;
-      padding: 1px 5px;
-      margin-left: 6px;
-      vertical-align: middle;
-    }
-
-    /* GAME GRID */
-    .game-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 16px; }
-    .game-card { perspective: 800px; }
-    .game-card-inner { display: flex; flex-direction: column; transition: transform .1s ease; transform-style: preserve-3d; }
-    .cover-wrap { width: 100%; aspect-ratio: 3/4; background: var(--cream-dark); border: 1.5px solid var(--maroon); overflow: hidden; position: relative; box-shadow: 3px 3px 0 var(--olive-light); }
-    .cover-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .cover-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-family: 'Share Tech Mono', monospace; font-size: .52rem; color: var(--olive); text-align: center; padding: 8px; background: linear-gradient(135deg, var(--cream-dark) 0%, #d4c9b0 100%); }
-    .cover-caption { font-family: 'Share Tech Mono', monospace; font-size: .55rem; color: var(--olive-light); margin-top: 5px; padding: 0 2px; line-height: 1.4; }
-    .game-title { font-family: 'Special Elite', cursive; font-size: .82rem; color: var(--ink); margin-top: 4px; line-height: 1.3; }
-    .game-year { font-family: 'Share Tech Mono', monospace; font-size: .58rem; color: var(--olive); }
-    .star-rating { margin-top: 3px; font-size: .75rem; color: var(--maroon); letter-spacing: 1px; }
-    .game-blurb { font-size: .78rem; font-style: italic; color: #5a4f45; line-height: 1.5; margin-top: 4px; }
-    .tbd-badge { font-family: 'Share Tech Mono', monospace; font-size: .5rem; background: var(--olive-light); color: var(--cream); padding: 1px 5px; display: inline-block; margin-left: 4px; vertical-align: middle; }
-
-    footer { background: var(--maroon); color: var(--cream); text-align: center; padding: 14px 20px; font-family: 'Share Tech Mono', monospace; font-size: .65rem; letter-spacing: .1em; border-top: 3px double var(--olive); }
-    @media (max-width: 700px) { .page-wrap { grid-template-columns: 1fr; } .game-grid { grid-template-columns: repeat(3, 1fr); } }
+    /* Shooters-specific sticky section jump */
+    .s-jump { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:24px; }
+    .s-jump a { font-family:'Share Tech Mono',monospace; font-size:.58rem; letter-spacing:.12em; text-transform:uppercase; padding:5px 10px; border:1px solid var(--cream-dark); color:var(--olive); text-decoration:none; transition:all .15s; }
+    .s-jump a:hover { border-color:var(--maroon); color:var(--maroon); background:var(--maroon-dim); }
   </style>
 </head>
 <body>
+<div id="scroll-bar"></div>
+<header class="g-masthead">
+  <a href="index.html" class="site-name">Cairo Yepez</a>
+  <span class="dateline">// SHOOTERS</span>
+  <div class="g-hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
+</header>
 
-  <header class="masthead">
-    <a href="index.html" class="site-name">Cairo Yepez</a>
-    <p class="tagline">// games — no survivors</p>
-  </header>
+<div class="g-banner" data-echo="SHOOTERS">
+  <div class="g-banner-inner">
+    <p class="g-banner-crumb"><a href="index.html">home</a> // <a href="games.html">games</a> // shooters</p>
+    <h1>Shooters</h1>
+    <p class="g-banner-sub">Battlefield mud. Metro tunnels. CoD lobbies at 2am. The full arsenal — no survivors.</p>
+    <div class="g-banner-meta">
+      <span class="g-tag">30+ entries</span>
+      <span class="g-tag">6 series + standalones</span>
+      <span class="g-tag">FPS / action</span>
+      <span class="g-tag">2007–2024</span>
+    </div>
+  </div>
+</div>
 
-  <div class="page-wrap">
-    <aside class="sidebar">
-      <p class="sidebar-label">Navigate</p>
+<nav class="g-jumpnav" id="jumpnav">
+  <a href="#battlefield">Battlefield</a><div class="jn-pipe"></div>
+  <a href="#metro">Metro</a><div class="jn-pipe"></div>
+  <a href="#cod">Call of Duty</a><div class="jn-pipe"></div>
+  <a href="#bioshock">BioShock</a><div class="jn-pipe"></div>
+  <a href="#wolfenstein">Wolfenstein</a><div class="jn-pipe"></div>
+  <a href="#loose">Loose Cannons</a><div class="jn-pipe"></div>
+  <a href="games-indie.html">← Indie</a><div class="jn-pipe"></div>
+  <a href="games-builder.html">Builder →</a>
+</nav>
+
+<div class="g-layout">
+  <aside class="g-sidebar" id="g-sidebar">
+    <div class="g-sidebar-block">
+      <p class="g-sidebar-label">Site</p>
       <nav>
-        <a href="index.html">Home</a>
-        <a href="blog.html">Writing</a>
-        <a href="music.html">Music</a>
-        <a href="photos.html">Photos</a>
-        <a href="designs.html">Designs</a>
-        <a href="games.html">Games</a>
-        <a href="misc.html">Misc</a>
+        <a href="index.html">Home</a><a href="blog.html">Writing</a><a href="music.html">Music</a>
+        <a href="photos.html">Photos</a><a href="designs.html">Designs</a>
+        <a href="games.html">Games</a><a href="misc.html">Misc</a>
       </nav>
-      <br/>
-      <p class="sidebar-label">Categories</p>
+    </div>
+    <div class="g-sidebar-block">
+      <p class="g-sidebar-label">Categories</p>
       <nav>
         <a href="games-starwars.html">A Long Time Ago…</a>
         <a href="games-halo.html">Halo</a>
@@ -115,8 +65,9 @@
         <a href="games-shooters.html" class="active">Shooters</a>
         <a href="games-builder.html">Builder &amp; Sim</a>
       </nav>
-      <br/>
-      <p class="sidebar-label">Jump to</p>
+    </div>
+    <div class="g-sidebar-block">
+      <p class="g-sidebar-label">Jump To</p>
       <nav>
         <a href="#battlefield">Battlefield</a>
         <a href="#metro">Metro</a>
@@ -125,362 +76,325 @@
         <a href="#wolfenstein">Wolfenstein</a>
         <a href="#loose">Loose Cannons</a>
       </nav>
-    </aside>
+    </div>
+  </aside>
 
-    <main>
-      <div class="page-header">
-        <p class="breadcrumb"><a href="games.html">games</a> // shooters</p>
-        <h1>Shooters</h1>
-        <p class="subtitle">Battlefield mud. Metro tunnels. Call of Duty lobbies at 2am. The full arsenal — no survivors.</p>
+  <main class="g-main">
+
+    <div class="g-lede">
+      <p class="g-lede-title">The Shooters Collection</p>
+      <p>This is the densest category — six named series plus a catch-all for the games too good to be anyone's franchise placeholder. From the large-scale theater of war in Battlefield to the suffocating tunnels of Metro's post-nuclear Moscow, from Call of Duty lobbies at midnight to DOOM's singular gospel of rip and tear. Lorem ipsum dolor sit amet, consectetur adipiscing elit — no survivors, no mercy, no skipping the Titanfall 2 campaign.</p>
+    </div>
+
+    <!-- ═══════════════════ BATTLEFIELD ═══════════════════ -->
+    <div class="g-minicat" id="battlefield">
+      <div class="g-minicat-header">
+        <p class="g-minicat-sup">// series · 6 entries</p>
+        <p class="g-minicat-title">Battlefield</p>
+        <p class="g-minicat-desc">Large-scale warfare, destructible environments, and the chaos only 64 players on one map can produce. DICE's legacy in full.</p>
       </div>
 
-      <!-- ═══════════════════════════════════════ -->
-      <!-- BATTLEFIELD -->
-      <!-- ═══════════════════════════════════════ -->
-      <div class="mini-cat" id="battlefield">
-        <div class="mini-cat-header">
-          <p class="mini-cat-label">// series</p>
-          <p class="mini-cat-title">Battlefield</p>
-          <p class="mini-cat-desc">Large-scale warfare, destructible environments, and the chaos only 64 players on one map can produce.</p>
-        </div>
-
-        <div class="game-grid">
-          <div class="game-card"><div class="game-card-inner">
-            <div class="cover-wrap"><div class="cover-placeholder">Battlefield 3</div></div>
-            <span class="cover-caption">Modern combat. Frostbite engine.</span>
-            <p class="game-title">Battlefield 3</p>
-            <p class="game-year">2011</p>
-            <p class="star-rating">★★★★★</p>
-            <p class="game-blurb">The multiplayer DICE built their legacy on. Metro, Caspian Border, Kharg Island — legends every one.</p>
-          </div></div>
-
-          <div class="game-card"><div class="game-card-inner">
-            <div class="cover-wrap"><div class="cover-placeholder">Battlefield 4</div></div>
-            <span class="cover-caption">Levolution. Flood the map.</span>
-            <p class="game-title">Battlefield 4</p>
-            <p class="game-year">2013</p>
-            <p class="star-rating">★★★★☆</p>
-            <p class="game-blurb">Rough at launch, legendary in death. Dragon's Teeth, Final Stand — BF4 aged into one of the best multiplayer games ever made.</p>
-          </div></div>
-
-          <div class="game-card"><div class="game-card-inner">
-            <div class="cover-wrap"><div class="cover-placeholder">Battlefield 1</div></div>
-            <span class="cover-caption">WWI. Through Mud and Blood.</span>
-            <p class="game-title">Battlefield 1</p>
-            <p class="game-year">2016</p>
-            <p class="star-rating">★★★★★</p>
-            <p class="game-blurb">The bravest pivot in franchise history. WWI rendered in fire and mud, with an anthology campaign that made people cry in a multiplayer game.</p>
-          </div></div>
-
-          <div class="game-card"><div class="game-card-inner">
-            <div class="cover-wrap"><div class="cover-placeholder">Battlefield V</div></div>
-            <span class="cover-caption">WWII. Tides of War.</span>
-            <p class="game-title">Battlefield V</p>
-            <p class="game-year">2018</p>
-            <p class="star-rating">★★★☆☆</p>
-            <p class="game-blurb">Underbaked at launch and abandoned too soon. But Pacific Theater maps were stunning and the TTK felt precise. Underrated in retrospect.</p>
-          </div></div>
-
-          <div class="game-card"><div class="game-card-inner">
-            <div class="cover-wrap"><div class="cover-placeholder">Battlefield 2042</div></div>
-            <span class="cover-caption">Near-future. 128 players.</span>
-            <p class="game-title">Battlefield 2042</p>
-            <p class="game-year">2021</p>
-            <p class="star-rating">★★☆☆☆</p>
-            <p class="game-blurb">A painful stumble. No scoreboard, specialists over classes, maps too large to function. Patched significantly but never fully recovered.</p>
-          </div></div>
-
-          <div class="game-card"><div class="game-card-inner">
-            <div class="cover-wrap"><div class="cover-placeholder">Battlefield 6<br/>TBD</div></div>
-            <span class="cover-caption">The return. Back to basics.</span>
-            <p class="game-title">Battlefield 6 <span class="tbd-badge">TBD</span></p>
-            <p class="game-year">TBD</p>
-            <p class="star-rating">— — —</p>
-            <p class="game-blurb">Back to modern warfare, class system restored, and DICE under new leadership. The redemption arc the franchise needs.</p>
-          </div></div>
-        </div>
+      <div class="g-callout">
+        <p class="g-callout-title">// on BF1</p>
+        Lorem ipsum dolor sit amet — the bravest pivot in franchise history. WWI rendered in fire and mud, with an anthology campaign that made people cry inside a multiplayer game. Through Mud and Blood remains one of the finest single missions in the series.
       </div>
 
-      <!-- ═══════════════════════════════════════ -->
-      <!-- METRO -->
-      <!-- ═══════════════════════════════════════ -->
-      <div class="mini-cat" id="metro">
-        <div class="mini-cat-header">
-          <p class="mini-cat-label">// series</p>
-          <p class="mini-cat-title">Metro</p>
-          <p class="mini-cat-desc">Dmitry Glukhovsky's post-nuclear Moscow, brought to life by 4A Games. Survival horror beneath the ruins of civilization.</p>
-        </div>
+      <div class="g-grid">
 
-        <table class="series-table">
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Year</th>
-              <th>Rating</th>
-              <th>Notes</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Metro 2033</td>
-              <td><span class="year-badge">2010</span></td>
-              <td><span class="rating-cell">★★★★☆</span></td>
-              <td class="note-cell">Claustrophobic tunnel horror. Artyom's first journey through the Moscow metro. Raw, atmospheric, unforgettable.</td>
-            </tr>
-            <tr>
-              <td>Metro: Last Light</td>
-              <td><span class="year-badge">2013</span></td>
-              <td><span class="rating-cell">★★★★★</span></td>
-              <td class="note-cell">The peak of the series. Refined gameplay, richer world, the Dark Ones resolved. The Revolution DLC alone justifies the whole game.</td>
-            </tr>
-            <tr>
-              <td>Metro Exodus</td>
-              <td><span class="year-badge">2019</span></td>
-              <td><span class="rating-cell">★★★★★</span></td>
-              <td class="note-cell">Out of the tunnels, onto the open road. Semi-open world Russia, brutal survival, the best train level in gaming history.</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="g-card"><div class="g-card-inner">
+          <div class="g-cover"><div class="g-cover-ph ph-sh"><div class="ph-corners"></div>Battlefield 3</div></div>
+          <span class="g-card-caption">Modern combat · 2011</span>
+          <p class="g-card-title">Battlefield 3</p><p class="g-card-year">2011</p>
+          <p class="g-card-stars">★★★★★</p>
+          <p class="g-card-blurb">The multiplayer DICE built their legacy on. Metro, Caspian Border, Kharg Island — legends every one.</p>
+          <div class="g-card-tags"><span class="g-vtag vt-fps">FPS</span><span class="g-vtag vt-coop">multiplayer</span></div>
+        </div></div>
+
+        <div class="g-card"><div class="g-card-inner">
+          <div class="g-cover"><div class="g-cover-ph ph-sh"><div class="ph-corners"></div>Battlefield 4</div></div>
+          <span class="g-card-caption">Levolution · 2013</span>
+          <p class="g-card-title">Battlefield 4</p><p class="g-card-year">2013</p>
+          <p class="g-card-stars">★★★★☆</p>
+          <p class="g-card-blurb">Rough at launch, legendary in death. Dragon's Teeth, Final Stand — BF4 aged into one of the best multiplayer games ever made.</p>
+          <div class="g-card-tags"><span class="g-vtag vt-fps">FPS</span><span class="g-vtag vt-coop">multiplayer</span></div>
+        </div></div>
+
+        <div class="g-card"><div class="g-card-inner">
+          <div class="g-cover"><div class="g-cover-ph ph-sh"><div class="ph-corners"></div>Battlefield 1</div></div>
+          <span class="g-card-caption">WWI · Through Mud and Blood</span>
+          <p class="g-card-title">Battlefield 1</p><p class="g-card-year">2016</p>
+          <p class="g-card-stars">★★★★★</p>
+          <p class="g-card-blurb">The bravest pivot in franchise history. WWI in fire and mud. The anthology campaign made people cry inside a multiplayer game.</p>
+          <div class="g-card-tags"><span class="g-vtag vt-fps">FPS</span><span class="g-vtag vt-coop">multiplayer</span></div>
+        </div></div>
+
+        <div class="g-card"><div class="g-card-inner">
+          <div class="g-cover"><div class="g-cover-ph ph-sh"><div class="ph-corners"></div>Battlefield V</div></div>
+          <span class="g-card-caption">WWII · Tides of War</span>
+          <p class="g-card-title">Battlefield V</p><p class="g-card-year">2018</p>
+          <p class="g-card-stars">★★★☆☆</p>
+          <p class="g-card-blurb">Underbaked and abandoned too soon. Pacific Theater maps were stunning. Underrated in retrospect, overwhelmed by its own launch problems.</p>
+          <div class="g-card-tags"><span class="g-vtag vt-fps">FPS</span><span class="g-vtag vt-coop">multiplayer</span></div>
+        </div></div>
+
+        <div class="g-card"><div class="g-card-inner">
+          <div class="g-cover"><div class="g-cover-ph ph-sh"><div class="ph-corners"></div>Battlefield<br/>2042</div></div>
+          <span class="g-card-caption">Near-future · 128 players</span>
+          <p class="g-card-title">Battlefield 2042</p><p class="g-card-year">2021</p>
+          <p class="g-card-stars">★★☆☆☆</p>
+          <p class="g-card-blurb">A painful stumble. No scoreboard at launch, specialists over classes, maps too large. Patched significantly, never fully recovered.</p>
+          <div class="g-card-tags"><span class="g-vtag vt-fps">FPS</span><span class="g-vtag vt-coop">multiplayer</span></div>
+        </div></div>
+
+        <div class="g-card"><div class="g-card-inner">
+          <div class="g-cover"><div class="g-cover-ph ph-sh"><div class="ph-corners"></div>Battlefield 6<br/>TBD</div></div>
+          <span class="g-card-caption">The return · class system restored</span>
+          <p class="g-card-title">Battlefield 6 <span class="tb-tbd">TBD</span></p><p class="g-card-year">TBD</p>
+          <p class="g-card-stars">— — —</p>
+          <p class="g-card-blurb">Back to modern warfare, class system restored. DICE under new direction. The redemption arc the franchise needs.</p>
+          <div class="g-card-tags"><span class="g-vtag vt-fps">FPS</span><span class="g-vtag vt-coop">multiplayer</span></div>
+        </div></div>
+
+      </div>
+    </div>
+
+    <!-- ═══════════════════ METRO ═══════════════════ -->
+    <div class="g-minicat" id="metro">
+      <div class="g-minicat-header">
+        <p class="g-minicat-sup">// series · 3 entries</p>
+        <p class="g-minicat-title">Metro</p>
+        <p class="g-minicat-desc">Dmitry Glukhovsky's post-nuclear Moscow, rendered by 4A Games. Survival horror in the tunnels beneath the ruins of civilization.</p>
       </div>
 
-      <!-- ═══════════════════════════════════════ -->
-      <!-- CALL OF DUTY -->
-      <!-- ═══════════════════════════════════════ -->
-      <div class="mini-cat" id="cod">
-        <div class="mini-cat-header">
-          <p class="mini-cat-label">// series</p>
-          <p class="mini-cat-title">Call of Duty</p>
-          <p class="mini-cat-desc">The franchise that defined online shooters for a generation. Split here by the feature that mattered most — Zombies mode.</p>
-        </div>
-
-        <p class="mini-cat-label" style="margin-bottom:10px">— with zombies mode —</p>
-        <table class="series-table" style="margin-bottom:24px">
-          <thead>
-            <tr><th>Title</th><th>Year</th><th>Rating</th><th>Notes</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>World at War <span class="zombies-tag">ZOMBIES</span></td>
-              <td><span class="year-badge">2008</span></td>
-              <td><span class="rating-cell">★★★★☆</span></td>
-              <td class="note-cell">Where it all started. Nacht der Untoten, Shi No Numa. The original Zombies experience — janky, iconic, never forgotten.</td>
-            </tr>
-            <tr>
-              <td>Black Ops <span class="zombies-tag">ZOMBIES</span></td>
-              <td><span class="year-badge">2010</span></td>
-              <td><span class="rating-cell">★★★★★</span></td>
-              <td class="note-cell">Kino der Toten. Five. Ascension. The EE storyline begins. Black Ops Zombies is arguably the best CoD package ever made.</td>
-            </tr>
-            <tr>
-              <td>Black Ops 2 <span class="zombies-tag">ZOMBIES</span></td>
-              <td><span class="year-badge">2012</span></td>
-              <td><span class="rating-cell">★★★★★</span></td>
-              <td class="note-cell">Tranzit, TranZit, Mob of the Dead, Origins. The Zombies storyline peaked here. Multiplayer was precision-tuned perfection too.</td>
-            </tr>
-            <tr>
-              <td>Black Ops 3 <span class="zombies-tag">ZOMBIES</span></td>
-              <td><span class="year-badge">2015</span></td>
-              <td><span class="rating-cell">★★★★☆</span></td>
-              <td class="note-cell">Shadows of Evil, Der Eisendrache, Revelations. Over-stuffed with lore but brimming with creativity. Specialist system was divisive.</td>
-            </tr>
-            <tr>
-              <td>Black Ops 4 <span class="zombies-tag">ZOMBIES</span></td>
-              <td><span class="year-badge">2018</span></td>
-              <td><span class="rating-cell">★★★☆☆</span></td>
-              <td class="note-cell">No campaign. Blackout (BR mode) was brilliant. Zombies excellent. Multiplayer overcomplicated. A weird, messy package with great parts.</td>
-            </tr>
-            <tr>
-              <td>Black Ops Cold War <span class="zombies-tag">ZOMBIES</span></td>
-              <td><span class="year-badge">2020</span></td>
-              <td><span class="rating-cell">★★★★☆</span></td>
-              <td class="note-cell">Cold War setting done right. Firebase Z, Die Maschine. Round-based Zombies revival after WWII's forgettable outing. Welcome return to form.</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <p class="mini-cat-label" style="margin-bottom:10px">— without zombies mode —</p>
-        <table class="series-table">
-          <thead>
-            <tr><th>Title</th><th>Year</th><th>Rating</th><th>Notes</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>CoD 4: Modern Warfare <span class="no-zombies-tag">NO ZOMBIES</span></td>
-              <td><span class="year-badge">2007</span></td>
-              <td><span class="rating-cell">★★★★★</span></td>
-              <td class="note-cell">The game that changed everything. All Ghillied Up. The Mile High Club. The multiplayer that hooked a generation. An all-time classic.</td>
-            </tr>
-            <tr>
-              <td>MW2 <span class="no-zombies-tag">NO ZOMBIES</span></td>
-              <td><span class="year-badge">2009</span></td>
-              <td><span class="rating-cell">★★★★★</span></td>
-              <td class="note-cell">No Russian. Rust 1v1. The Favela. Possibly the most-played CoD in history. Broken in ways that people loved it for.</td>
-            </tr>
-            <tr>
-              <td>MW3 <span class="no-zombies-tag">NO ZOMBIES</span></td>
-              <td><span class="year-badge">2011</span></td>
-              <td><span class="rating-cell">★★★☆☆</span></td>
-              <td class="note-cell">Solid if unspectacular. Price and Soap's trilogy ending lands. Survival mode was a nice addition. Lived in Black Ops 2's shadow.</td>
-            </tr>
-            <tr>
-              <td>Ghosts <span class="no-zombies-tag">NO ZOMBIES</span></td>
-              <td><span class="year-badge">2013</span></td>
-              <td><span class="rating-cell">★★☆☆☆</span></td>
-              <td class="note-cell">The start of a rough run for IW. Extinction mode was underrated. Federation storyline went nowhere. Riley the dog was the highlight.</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="g-callout">
+        <p class="g-callout-title">// on Metro Exodus</p>
+        Lorem ipsum dolor sit amet — the train level. The Caspian. The Taiga. Exodus took Artyom out of the tunnels and onto the open road, and the shift was terrifying in the best way. The best train sequence in gaming history, full stop.
       </div>
 
-      <!-- ═══════════════════════════════════════ -->
-      <!-- BIOSHOCK -->
-      <!-- ═══════════════════════════════════════ -->
-      <div class="mini-cat" id="bioshock">
-        <div class="mini-cat-header">
-          <p class="mini-cat-label">// series</p>
-          <p class="mini-cat-title">BioShock</p>
-          <p class="mini-cat-desc">Rapture and Columbia — the two greatest cities in gaming, both rotting from the inside out. Irrational Games at its peak.</p>
-        </div>
+      <table class="g-table">
+        <thead><tr><th>Title</th><th>Year</th><th>Rating</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Metro 2033</td>
+            <td class="td-year">2010</td>
+            <td class="td-stars">★★★★☆</td>
+            <td class="td-note">Claustrophobic tunnel horror. Artyom's first journey. Raw, atmospheric, unforgettable. The original Ranger Mode is still the definitive way to play.</td>
+          </tr>
+          <tr>
+            <td>Metro: Last Light</td>
+            <td class="td-year">2013</td>
+            <td class="td-stars">★★★★★</td>
+            <td class="td-note">The peak. Refined gameplay, richer world, the Dark Ones resolved beautifully. Revolution DLC alone justifies the whole game.</td>
+          </tr>
+          <tr>
+            <td>Metro Exodus</td>
+            <td class="td-year">2019</td>
+            <td class="td-stars">★★★★★</td>
+            <td class="td-note">Out of the tunnels, onto the road. Semi-open world Russia, brutal survival, the best train level in gaming. The Two Colonels DLC is devastating.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-        <div class="game-grid" style="grid-template-columns: repeat(auto-fill, minmax(160px, 1fr))">
-          <div class="game-card"><div class="game-card-inner">
-            <div class="cover-wrap"><div class="cover-placeholder">BioShock 2</div></div>
-            <span class="cover-caption">Rapture — a decade underwater later</span>
-            <p class="game-title">BioShock 2</p>
-            <p class="game-year">2010</p>
-            <p class="star-rating">★★★★☆</p>
-            <p class="game-blurb">Unfairly dismissed as a sequel. Playing as a Big Daddy reframes Rapture entirely. Minerva's Den DLC is a masterpiece in its own right.</p>
-          </div></div>
-
-          <div class="game-card"><div class="game-card-inner">
-            <div class="cover-wrap"><div class="cover-placeholder">BioShock Infinite</div></div>
-            <span class="cover-caption">Columbia — city in the clouds</span>
-            <p class="game-title">BioShock Infinite</p>
-            <p class="game-year">2013</p>
-            <p class="star-rating">★★★★★</p>
-            <p class="game-blurb">Booker DeWitt and Elizabeth in the sky-city of Columbia. The ending rearranges your brain. Burial at Sea ties the whole saga together.</p>
-          </div></div>
-        </div>
+    <!-- ═══════════════════ CALL OF DUTY ═══════════════════ -->
+    <div class="g-minicat" id="cod">
+      <div class="g-minicat-header">
+        <p class="g-minicat-sup">// series · 10 entries</p>
+        <p class="g-minicat-title">Call of Duty</p>
+        <p class="g-minicat-desc">The franchise that defined online shooters for a generation. Split here by the feature that mattered most — Zombies mode.</p>
       </div>
 
-      <!-- ═══════════════════════════════════════ -->
-      <!-- WOLFENSTEIN -->
-      <!-- ═══════════════════════════════════════ -->
-      <div class="mini-cat" id="wolfenstein">
-        <div class="mini-cat-header">
-          <p class="mini-cat-label">// standalone</p>
-          <p class="mini-cat-title">Wolfenstein: The New Order</p>
-          <p class="mini-cat-desc">MachineGames turned a legacy id franchise into a character study. B.J. Blazkowicz punching fascism with unexpected soul.</p>
-        </div>
+      <div class="g-lede" style="margin-bottom:18px">
+        <p class="g-lede-title">— with zombies mode —</p>
+        <p style="font-size:.8rem;font-style:italic;color:var(--ink-light)">Lorem ipsum dolor sit amet — the Zombies Easter Egg runs. Mob of the Dead. Der Eisendrache. Kino der Toten. A mode that became its own genre within a genre, with a lore so dense it spawned entire YouTube channels dedicated to nothing else.</p>
+      </div>
+      <table class="g-table" style="margin-bottom:24px">
+        <thead><tr><th>Title</th><th>Year</th><th>Rating</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>World at War <span class="tb-zombies">ZOMBIES</span></td><td class="td-year">2008</td><td class="td-stars">★★★★☆</td><td class="td-note">Where it all started. Nacht der Untoten, Shi No Numa. The original — janky, iconic, never forgotten.</td></tr>
+          <tr><td>Black Ops <span class="tb-zombies">ZOMBIES</span></td><td class="td-year">2010</td><td class="td-stars">★★★★★</td><td class="td-note">Kino der Toten. Five. Ascension. The EE storyline begins. Black Ops Zombies is arguably the best CoD package ever assembled.</td></tr>
+          <tr><td>Black Ops 2 <span class="tb-zombies">ZOMBIES</span></td><td class="td-year">2012</td><td class="td-stars">★★★★★</td><td class="td-note">Mob of the Dead. Origins. Die Rise. The Zombies story peaked here. The multiplayer was precision-tuned perfection alongside it.</td></tr>
+          <tr><td>Black Ops 3 <span class="tb-zombies">ZOMBIES</span></td><td class="td-year">2015</td><td class="td-stars">★★★★☆</td><td class="td-note">Shadows of Evil, Der Eisendrache, Revelations. Over-stuffed with lore but overflowing with creativity. Specialist system was divisive.</td></tr>
+          <tr><td>Black Ops 4 <span class="tb-zombies">ZOMBIES</span></td><td class="td-year">2018</td><td class="td-stars">★★★☆☆</td><td class="td-note">No campaign. Blackout (BR mode) was brilliant. Zombies solid. Multiplayer overcomplicated. A weird, messy package with genuinely great parts.</td></tr>
+          <tr><td>Black Ops Cold War <span class="tb-zombies">ZOMBIES</span></td><td class="td-year">2020</td><td class="td-stars">★★★★☆</td><td class="td-note">Firebase Z, Die Maschine. Round-based Zombies revival. Cold War campaign is underrated. Welcome return to form across the board.</td></tr>
+        </tbody>
+      </table>
 
-        <div class="game-grid" style="grid-template-columns: repeat(auto-fill, minmax(160px, 1fr))">
-          <div class="game-card"><div class="game-card-inner">
-            <div class="cover-wrap"><div class="cover-placeholder">Wolfenstein:<br/>The New Order</div></div>
-            <span class="cover-caption">Alt-history Nazi Germany. One man's war.</span>
-            <p class="game-title">The New Order</p>
-            <p class="game-year">2014</p>
-            <p class="star-rating">★★★★★</p>
-            <p class="game-blurb">Nobody expected this to be profound. B.J. reading poetry. The pacing. The quiet moments between the carnage. An FPS that made you feel.</p>
-          </div></div>
-        </div>
+      <div class="g-lede" style="margin-bottom:18px">
+        <p class="g-lede-title">— without zombies mode —</p>
+        <p style="font-size:.8rem;font-style:italic;color:var(--ink-light)">Lorem ipsum dolor sit amet — CoD 4 changed everything. All Ghillied Up. The Mile High Club. A generation of shooter players grew up in its lobbies, and the multiplayer DNA it established is still being copied today.</p>
+      </div>
+      <table class="g-table">
+        <thead><tr><th>Title</th><th>Year</th><th>Rating</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>CoD 4: Modern Warfare <span class="tb-nozombie">NO ZOMBIES</span></td><td class="td-year">2007</td><td class="td-stars">★★★★★</td><td class="td-note">The game that changed everything. All Ghillied Up. The Mile High Club. The multiplayer that hooked a generation. All-time classic.</td></tr>
+          <tr><td>MW2 <span class="tb-nozombie">NO ZOMBIES</span></td><td class="td-year">2009</td><td class="td-stars">★★★★★</td><td class="td-note">No Russian. Rust 1v1. The Favela. Possibly the most-played CoD in history. Broken in ways people loved it for.</td></tr>
+          <tr><td>MW3 <span class="tb-nozombie">NO ZOMBIES</span></td><td class="td-year">2011</td><td class="td-stars">★★★☆☆</td><td class="td-note">Solid if unspectacular. Price and Soap's trilogy closes. Survival mode was a nice addition. Lived entirely in Black Ops 2's shadow.</td></tr>
+          <tr><td>Ghosts <span class="tb-nozombie">NO ZOMBIES</span></td><td class="td-year">2013</td><td class="td-stars">★★☆☆☆</td><td class="td-note">The start of a rough IW run. Extinction mode underrated. Federation storyline went nowhere. Riley the dog was the highlight.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ═══════════════════ BIOSHOCK ═══════════════════ -->
+    <div class="g-minicat" id="bioshock">
+      <div class="g-minicat-header">
+        <p class="g-minicat-sup">// series · 2 entries</p>
+        <p class="g-minicat-title">BioShock</p>
+        <p class="g-minicat-desc">Rapture and Columbia — the two greatest cities in gaming, both rotting from the inside out. Irrational Games at its absolute peak.</p>
       </div>
 
-      <!-- ═══════════════════════════════════════ -->
-      <!-- LOOSE CANNONS -->
-      <!-- ═══════════════════════════════════════ -->
-      <div class="mini-cat" id="loose">
-        <div class="mini-cat-header">
-          <p class="mini-cat-label">// the rest of the arsenal</p>
-          <p class="mini-cat-title">Loose Cannons</p>
-          <p class="mini-cat-desc">Everything that didn't fit a series but absolutely belongs in the library. No lesser for it.</p>
-        </div>
+      <div class="g-grid" style="grid-template-columns:repeat(auto-fill,minmax(180px,1fr))">
 
-        <div class="game-grid">
+        <div class="g-card"><div class="g-card-inner">
+          <div class="g-cover"><div class="g-cover-ph ph-sh"><div class="ph-corners"></div>BioShock 2</div></div>
+          <span class="g-card-caption">FPS/RPG — Rapture, a decade later</span>
+          <p class="g-card-title">BioShock 2</p><p class="g-card-year">2010</p>
+          <p class="g-card-stars">★★★★☆</p>
+          <p class="g-card-blurb">Unfairly dismissed as a sequel. Playing as a Big Daddy reframes Rapture entirely. Minerva's Den DLC is a masterpiece in its own right — maybe the best thing in the whole series.</p>
+          <div class="g-card-tags"><span class="g-vtag vt-fps">FPS</span><span class="g-vtag vt-rpg">RPG</span><span class="g-vtag vt-horror">atmosphere</span></div>
+        </div></div>
 
-          <div class="game-card"><div class="game-card-inner">
-            <div class="cover-wrap"><div class="cover-placeholder">Left 4 Dead 2</div></div>
-            <span class="cover-caption">4-player co-op zombie survival</span>
-            <p class="game-title">Left 4 Dead 2</p>
-            <p class="game-year">2009</p>
-            <p class="star-rating">★★★★★</p>
-            <p class="game-blurb">Still the gold standard for cooperative shooter design. The Director AI. The Witch. The Tank. Valve at its most deviously playful.</p>
-          </div></div>
+        <div class="g-card"><div class="g-card-inner">
+          <div class="g-cover"><div class="g-cover-ph ph-sh"><div class="ph-corners"></div>BioShock<br/>Infinite</div></div>
+          <span class="g-card-caption">FPS/RPG — Columbia, city in clouds</span>
+          <p class="g-card-title">BioShock Infinite</p><p class="g-card-year">2013</p>
+          <p class="g-card-stars">★★★★★</p>
+          <p class="g-card-blurb">Booker DeWitt and Elizabeth in the sky-city of Columbia. The ending rearranges your brain. Burial at Sea ties the whole saga together in a way that rewards every hour of attention you gave it.</p>
+          <div class="g-card-tags"><span class="g-vtag vt-fps">FPS</span><span class="g-vtag vt-rpg">RPG</span><span class="g-vtag vt-horror">atmosphere</span></div>
+        </div></div>
 
-          <div class="game-card"><div class="game-card-inner">
-            <div class="cover-wrap"><div class="cover-placeholder">Warhammer 40K:<br/>Space Marine</div></div>
-            <span class="cover-caption">Ultramarines vs. Ork horde</span>
-            <p class="game-title">Space Marine</p>
-            <p class="game-year">2011</p>
-            <p class="star-rating">★★★★☆</p>
-            <p class="game-blurb">The power fantasy the 40K universe demanded. Titus wades through thousands of Orks with a chainsword and zero hesitation. Cathartic.</p>
-          </div></div>
+      </div>
+    </div>
 
-          <div class="game-card"><div class="game-card-inner">
-            <div class="cover-wrap"><div class="cover-placeholder">DOOM (2016)</div></div>
-            <span class="cover-caption">Rip and tear. Until it is done.</span>
-            <p class="game-title">DOOM</p>
-            <p class="game-year">2016</p>
-            <p class="star-rating">★★★★★</p>
-            <p class="game-blurb">id Software reinvented themselves and the FPS genre in one move. Glory kills, BFG, Mick Gordon's score. Violence as a spiritual experience.</p>
-          </div></div>
-
-          <div class="game-card"><div class="game-card-inner">
-            <div class="cover-wrap"><div class="cover-placeholder">Titanfall 2</div></div>
-            <span class="cover-caption">Pilot movement + mech warfare</span>
-            <p class="game-title">Titanfall 2</p>
-            <p class="game-year">2016</p>
-            <p class="star-rating">★★★★★</p>
-            <p class="game-blurb">The best FPS campaign of the 2010s and one of the greatest ever made. Effect and Cause alone is worth the price of admission.</p>
-          </div></div>
-
-          <div class="game-card"><div class="game-card-inner">
-            <div class="cover-wrap"><div class="cover-placeholder">Chivalry 2</div></div>
-            <span class="cover-caption">Medieval melee chaos</span>
-            <p class="game-title">Chivalry 2</p>
-            <p class="game-year">2021</p>
-            <p class="star-rating">★★★★☆</p>
-            <p class="game-blurb">64 players swinging swords and screaming. Objectively hilarious, surprisingly deep. The chicken leg mechanic alone earns five stars.</p>
-          </div></div>
-
-          <div class="game-card"><div class="game-card-inner">
-            <div class="cover-wrap"><div class="cover-placeholder">Armored Core VI</div></div>
-            <span class="cover-caption">FromSoftware mechs. AC6.</span>
-            <p class="game-title">Armored Core VI</p>
-            <p class="game-year">2023</p>
-            <p class="star-rating">★★★★★</p>
-            <p class="game-blurb">FromSoftware applied Souls precision to mech combat. Customization rabbit hole, punishing bosses, mercenary story with real weight.</p>
-          </div></div>
-
-          <div class="game-card"><div class="game-card-inner">
-            <div class="cover-wrap"><div class="cover-placeholder">Helldivers 2</div></div>
-            <span class="cover-caption">Managed democracy. Spread liberty.</span>
-            <p class="game-title">Helldivers 2</p>
-            <p class="game-year">2024</p>
-            <p class="star-rating">★★★★★</p>
-            <p class="game-blurb">The social shooter lightning strike of the decade. Starship Troopers satire meets immaculate co-op chaos. Major Orders changed the game.</p>
-          </div></div>
-
-        </div>
+    <!-- ═══════════════════ WOLFENSTEIN ═══════════════════ -->
+    <div class="g-minicat" id="wolfenstein">
+      <div class="g-minicat-header">
+        <p class="g-minicat-sup">// standalone · 1 entry</p>
+        <p class="g-minicat-title">Wolfenstein: The New Order</p>
+        <p class="g-minicat-desc">MachineGames turned a legacy id franchise into a character study. B.J. Blazkowicz punching fascism — with unexpected soul.</p>
       </div>
 
-    </main>
-  </div>
+      <div class="g-grid" style="grid-template-columns:repeat(auto-fill,minmax(180px,1fr))">
+        <div class="g-card"><div class="g-card-inner">
+          <div class="g-cover"><div class="g-cover-ph ph-sh"><div class="ph-corners"></div>Wolfenstein:<br/>The New Order</div></div>
+          <span class="g-card-caption">FPS — alt-history Nazi Germany</span>
+          <p class="g-card-title">The New Order</p><p class="g-card-year">2014</p>
+          <p class="g-card-stars">★★★★★</p>
+          <p class="g-card-blurb">Nobody expected this to be profound. B.J. reading poetry. The pacing. The quiet moments between carnage. An FPS that made you feel. Lorem ipsum dolor sit amet — the record player scene alone.</p>
+          <div class="g-card-tags"><span class="g-vtag vt-fps">FPS</span><span class="g-vtag vt-action">action</span></div>
+        </div></div>
+      </div>
+    </div>
 
-  <footer>© 2026 — Cairo Yepez · Chicago, IL · All rights reserved · A tribute to fallen heroes of the era.</footer>
+    <!-- ═══════════════════ LOOSE CANNONS ═══════════════════ -->
+    <div class="g-minicat" id="loose">
+      <div class="g-minicat-header">
+        <p class="g-minicat-sup">// standalones · 7 entries</p>
+        <p class="g-minicat-title">Loose Cannons</p>
+        <p class="g-minicat-desc">Everything that didn't fit a series but absolutely belongs in the library. No lesser for flying solo.</p>
+      </div>
 
-  <script>
-    document.querySelectorAll('.game-card').forEach(card => {
-      const inner = card.querySelector('.game-card-inner');
-      card.addEventListener('mousemove', e => {
-        const r = card.getBoundingClientRect();
-        const x = e.clientX - r.left - r.width / 2;
-        const y = e.clientY - r.top - r.height / 2;
-        inner.style.transform = `rotateX(${-(y/r.height)*18}deg) rotateY(${(x/r.width)*18}deg) scale(1.04)`;
-      });
-      card.addEventListener('mouseleave', () => { inner.style.transition = 'transform .4s ease'; inner.style.transform = 'rotateX(0) rotateY(0) scale(1)'; });
-      card.addEventListener('mouseenter', () => { inner.style.transition = 'transform .1s ease'; });
-    });
-  </script>
+      <div class="g-grid">
 
+        <div class="g-card"><div class="g-card-inner">
+          <div class="g-cover"><div class="g-cover-ph ph-sh"><div class="ph-corners"></div>Left 4 Dead 2</div></div>
+          <span class="g-card-caption">Co-op — zombie survival, 4-player</span>
+          <p class="g-card-title">Left 4 Dead 2</p><p class="g-card-year">2009</p>
+          <p class="g-card-stars">★★★★★</p>
+          <p class="g-card-blurb">Still the gold standard for co-op shooter design. The Director AI, the Witch, the Tank. Valve at its most deviously playful.</p>
+          <div class="g-card-tags"><span class="g-vtag vt-fps">FPS</span><span class="g-vtag vt-coop">co-op</span><span class="g-vtag vt-zombies">zombies</span></div>
+        </div></div>
+
+        <div class="g-card"><div class="g-card-inner">
+          <div class="g-cover"><div class="g-cover-ph ph-sh"><div class="ph-corners"></div>Space Marine</div></div>
+          <span class="g-card-caption">Action — Ultramarines vs. Ork horde</span>
+          <p class="g-card-title">Warhammer: Space Marine</p><p class="g-card-year">2011</p>
+          <p class="g-card-stars">★★★★☆</p>
+          <p class="g-card-blurb">The power fantasy 40K demanded. Titus wades through thousands of Orks with a chainsword and zero hesitation. Cathartic.</p>
+          <div class="g-card-tags"><span class="g-vtag vt-fps">TPS</span><span class="g-vtag vt-action">action</span></div>
+        </div></div>
+
+        <div class="g-card"><div class="g-card-inner">
+          <div class="g-cover"><div class="g-cover-ph ph-sh"><div class="ph-corners"></div>DOOM (2016)</div></div>
+          <span class="g-card-caption">FPS — rip and tear. Until it is done.</span>
+          <p class="g-card-title">DOOM</p><p class="g-card-year">2016</p>
+          <p class="g-card-stars">★★★★★</p>
+          <p class="g-card-blurb">id reinvented themselves and the FPS genre in one move. Glory kills, BFG, Mick Gordon's score. Violence as a spiritual experience.</p>
+          <div class="g-card-tags"><span class="g-vtag vt-fps">FPS</span><span class="g-vtag vt-action">action</span></div>
+        </div></div>
+
+        <div class="g-card"><div class="g-card-inner">
+          <div class="g-cover"><div class="g-cover-ph ph-sh"><div class="ph-corners"></div>Titanfall 2</div></div>
+          <span class="g-card-caption">FPS — pilot movement + mech warfare</span>
+          <p class="g-card-title">Titanfall 2</p><p class="g-card-year">2016</p>
+          <p class="g-card-stars">★★★★★</p>
+          <p class="g-card-blurb">Best FPS campaign of the 2010s. Effect and Cause alone. The wall-run flow state is something no other game has replicated.</p>
+          <div class="g-card-tags"><span class="g-vtag vt-fps">FPS</span><span class="g-vtag vt-mech">mech</span><span class="g-vtag vt-action">action</span></div>
+        </div></div>
+
+        <div class="g-card"><div class="g-card-inner">
+          <div class="g-cover"><div class="g-cover-ph ph-sh"><div class="ph-corners"></div>Chivalry 2</div></div>
+          <span class="g-card-caption">Melee — medieval chaos, 64 players</span>
+          <p class="g-card-title">Chivalry 2</p><p class="g-card-year">2021</p>
+          <p class="g-card-stars">★★★★☆</p>
+          <p class="g-card-blurb">64 players swinging swords and screaming. Objectively hilarious, surprisingly deep. The chicken leg mechanic earns five stars alone.</p>
+          <div class="g-card-tags"><span class="g-vtag vt-action">action</span><span class="g-vtag vt-coop">multiplayer</span></div>
+        </div></div>
+
+        <div class="g-card"><div class="g-card-inner">
+          <div class="g-cover"><div class="g-cover-ph ph-sh"><div class="ph-corners"></div>Armored Core VI</div></div>
+          <span class="g-card-caption">Mech action — FromSoftware AC6</span>
+          <p class="g-card-title">Armored Core VI</p><p class="g-card-year">2023</p>
+          <p class="g-card-stars">★★★★★</p>
+          <p class="g-card-blurb">FromSoftware applied Souls precision to mech combat. Customization rabbit hole, punishing bosses, mercenary story with real weight.</p>
+          <div class="g-card-tags"><span class="g-vtag vt-mech">mech</span><span class="g-vtag vt-action">action</span><span class="g-vtag vt-souls">soulslike</span></div>
+        </div></div>
+
+        <div class="g-card"><div class="g-card-inner">
+          <div class="g-cover"><div class="g-cover-ph ph-sh"><div class="ph-corners"></div>Helldivers 2</div></div>
+          <span class="g-card-caption">Co-op — managed democracy</span>
+          <p class="g-card-title">Helldivers 2</p><p class="g-card-year">2024</p>
+          <p class="g-card-stars">★★★★★</p>
+          <p class="g-card-blurb">The social shooter lightning strike of the decade. Starship Troopers satire meets immaculate co-op chaos. Major Orders changed the game.</p>
+          <div class="g-card-tags"><span class="g-vtag vt-fps">TPS</span><span class="g-vtag vt-coop">co-op</span><span class="g-vtag vt-action">action</span></div>
+        </div></div>
+
+      </div>
+    </div>
+
+    <div class="g-prevnext">
+      <a href="games-indie.html" class="g-pn-link">
+        <span class="g-pn-dir">← previous</span>
+        <span class="g-pn-title">Indie</span>
+        <span class="g-pn-sub">7 entries · Small studios, huge hearts</span>
+      </a>
+      <a href="games-builder.html" class="g-pn-link next">
+        <span class="g-pn-dir">next →</span>
+        <span class="g-pn-title">Builder &amp; Sim</span>
+        <span class="g-pn-sub">10 entries · Civ, trucks, theme parks</span>
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<footer class="g-footer">
+  <a href="index.html" class="g-footer-left">Cairo Yepez</a>
+  <div class="g-footer-right">© 2026 · Chicago, IL · All rights reserved<br/>A tribute to fallen heroes of the era.</div>
+</footer>
+<script>
+  window.addEventListener('scroll',()=>{
+    const p=window.scrollY/(document.body.scrollHeight-window.innerHeight)*100;
+    document.getElementById('scroll-bar').style.width=p+'%';
+    // jumpnav active
+    const sections=['battlefield','metro','cod','bioshock','wolfenstein','loose'];
+    const jnLinks=document.querySelectorAll('.g-jumpnav a');
+    let cur='';
+    sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-130)cur=id;});
+    jnLinks.forEach(a=>{a.classList.toggle('jn-active',a.getAttribute('href')==='#'+cur);});
+  });
+  function toggleNav(){document.getElementById('g-sidebar').classList.toggle('open');}
+  document.querySelectorAll('.g-card').forEach(card=>{const inner=card.querySelector('.g-card-inner');card.addEventListener('mousemove',e=>{const r=card.getBoundingClientRect();inner.style.transform=`rotateX(${-((e.clientY-r.top-r.height/2)/r.height)*16}deg) rotateY(${((e.clientX-r.left-r.width/2)/r.width)*16}deg) scale(1.04)`;});card.addEventListener('mouseleave',()=>{inner.style.transition='transform .4s ease';inner.style.transform='rotateX(0) rotateY(0) scale(1)';});card.addEventListener('mouseenter',()=>{inner.style.transition='transform .1s ease';});});
+</script>
 </body>
 </html>
