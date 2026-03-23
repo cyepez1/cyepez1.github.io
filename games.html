@@ -1,256 +1,448 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Games — Cairo Yepez</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
   <style>
-    .game-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-bottom: 20px;
+    /* ── PAGE SHELL ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'EB Garamond', Georgia, serif;
+      min-height: 100vh;
     }
-    .game-card {
-      background: var(--paper);
-      border: 1px solid #c8b89a;
-      border-top: 3px solid var(--maroon);
-      padding: 0 0 12px;
-      transition: transform 0.15s;
-      text-decoration: none;
-      display: block;
+
+    /* ── GRAIN OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 999; opacity: .5;
     }
-    .game-card:hover { transform: translateY(-3px); }
-    .game-cover {
-      width: 100%;
-      aspect-ratio: 3/4;
-      background: repeating-linear-gradient(-45deg, #e2d8c2 0px, #e2d8c2 2px, #ede5d0 2px, #ede5d0 10px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 8px;
-      color: var(--maroon);
-      opacity: 0.45;
-      letter-spacing: 0.1em;
-      margin-bottom: 10px;
-      position: relative;
-      overflow: hidden;
-    }
-    .game-cover img {
-      position: absolute;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      opacity: 1;
-    }
-    .game-cover .platform-badge {
-      position: absolute;
-      top: 8px; right: 8px;
+
+    /* ── MASTHEAD ── */
+    .masthead {
       background: var(--maroon);
       color: var(--cream);
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 8px;
-      padding: 2px 6px;
-      letter-spacing: 0.1em;
-      opacity: 0.9;
-      z-index: 2;
+      text-align: center;
+      padding: 10px 20px 8px;
+      border-bottom: 3px double var(--olive);
     }
-    .game-title {
+    .masthead .site-name {
       font-family: 'Special Elite', cursive;
-      font-size: 14px;
-      color: var(--maroon);
-      padding: 0 10px;
-      margin-bottom: 3px;
-      line-height: 1.2;
+      font-size: 2.2rem;
+      letter-spacing: .08em;
+      color: var(--cream);
+      text-decoration: none;
     }
-    .game-meta {
+    .masthead .tagline {
       font-family: 'Share Tech Mono', monospace;
-      font-size: 8px;
-      color: var(--olive);
-      padding: 0 10px;
-      letter-spacing: 0.1em;
-      opacity: 0.65;
+      font-size: .7rem;
+      color: var(--blue-margin-light);
+      letter-spacing: .15em;
+      margin-top: 2px;
     }
-    .rating {
-      padding: 0 10px;
-      margin-top: 5px;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 10px;
-      color: var(--maroon);
-      letter-spacing: 0.05em;
-    }
-    .featured-game {
+
+    /* ── LAYOUT ── */
+    .page-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 30px 20px 60px;
       display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 16px;
-      align-items: start;
+      grid-template-columns: 200px 1fr;
+      gap: 30px;
     }
-    .featured-game .game-cover { aspect-ratio: 3/4; margin-bottom: 0; }
+
+    /* ── SIDEBAR NAV ── */
+    .sidebar {
+      padding-top: 4px;
+    }
+    .sidebar-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .62rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--maroon);
+      border-bottom: 1px solid var(--maroon);
+      padding-bottom: 4px;
+      margin-bottom: 10px;
+    }
+    .sidebar nav a {
+      display: block;
+      font-family: 'Special Elite', cursive;
+      font-size: .88rem;
+      color: var(--ink);
+      text-decoration: none;
+      padding: 4px 0;
+      border-bottom: 1px dotted var(--cream-dark);
+      transition: color .2s;
+    }
+    .sidebar nav a:hover { color: var(--maroon); }
+    .sidebar nav a.active { color: var(--maroon); font-weight: bold; }
+
+    /* ── MAIN CONTENT ── */
+    .main-content {}
+
+    /* ── SLIDESHOW ── */
+    .slideshow-wrap {
+      position: relative;
+      width: 100%;
+      height: 320px;
+      overflow: hidden;
+      border: 2px solid var(--maroon);
+      box-shadow: 4px 4px 0 var(--olive);
+      margin-bottom: 28px;
+    }
+    .slide {
+      position: absolute; inset: 0;
+      opacity: 0;
+      transition: opacity .8s ease;
+    }
+    .slide.active { opacity: 1; }
+    .slide img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .slide-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(26,20,16,.85));
+      color: var(--cream);
+      padding: 20px 16px 12px;
+      font-family: 'Special Elite', cursive;
+      font-size: 1.05rem;
+    }
+    .slide-caption span {
+      display: block;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .62rem;
+      letter-spacing: .15em;
+      color: var(--blue-margin-light);
+      margin-bottom: 2px;
+    }
+    .slide-dots {
+      position: absolute;
+      bottom: 10px; right: 12px;
+      display: flex; gap: 6px;
+    }
+    .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: rgba(240,232,213,.4);
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .dot.active { background: var(--cream); }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .65rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--maroon);
+      margin-bottom: 16px;
+    }
+
+    /* ── CATEGORY GRID ── */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-bottom: 40px;
+    }
+    .cat-card {
+      background: var(--paper);
+      border: 1.5px solid var(--cream-dark);
+      border-left: 4px solid var(--maroon);
+      padding: 18px 16px 14px;
+      text-decoration: none;
+      color: var(--ink);
+      display: block;
+      transition: transform .15s, box-shadow .15s;
+      box-shadow: 2px 2px 0 var(--cream-dark);
+    }
+    .cat-card:hover {
+      transform: translate(-2px,-2px);
+      box-shadow: 4px 4px 0 var(--olive-light);
+    }
+    .cat-card .cat-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .6rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--olive);
+      margin-bottom: 6px;
+    }
+    .cat-card .cat-title {
+      font-family: 'Special Elite', cursive;
+      font-size: 1.2rem;
+      color: var(--maroon);
+      margin-bottom: 6px;
+    }
+    .cat-card .cat-count {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .68rem;
+      color: var(--olive-light);
+    }
+    .cat-card .cat-desc {
+      font-size: .82rem;
+      color: #5a4f45;
+      line-height: 1.5;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── RECENTLY PLAYED STRIP ── */
+    .recently-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .65rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--maroon);
+      border-top: 1px solid var(--cream-dark);
+      padding-top: 20px;
+      margin-bottom: 14px;
+    }
+    .recent-strip {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+    }
+    .recent-strip::-webkit-scrollbar { height: 4px; }
+    .recent-strip::-webkit-scrollbar-track { background: var(--cream-dark); }
+    .recent-strip::-webkit-scrollbar-thumb { background: var(--maroon); }
+    .recent-item {
+      flex: 0 0 90px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .recent-cover {
+      width: 90px; height: 120px;
+      background: var(--cream-dark);
+      border: 1.5px solid var(--maroon);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .5rem;
+      color: var(--olive);
+      text-align: center;
+      padding: 4px;
+      margin-bottom: 6px;
+    }
+    .recent-name {
+      font-family: 'Special Elite', cursive;
+      font-size: .7rem;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--maroon);
+      color: var(--cream);
+      text-align: center;
+      padding: 14px 20px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .65rem;
+      letter-spacing: .1em;
+      border-top: 3px double var(--olive);
+    }
+
+    @media (max-width: 700px) {
+      .page-wrap { grid-template-columns: 1fr; }
+      .category-grid { grid-template-columns: 1fr 1fr; }
+    }
   </style>
 </head>
 <body>
 
-<div id="masthead">
-  <a href="index.html" class="site-title">Chips Dominguez</a>
-  <span class="dateline">Chicago, IL &nbsp;·&nbsp; 2026</span>
-</div>
+  <header class="masthead">
+    <a href="index.html" class="site-name">Cairo Yepez</a>
+    <p class="tagline">// games library — personal archive</p>
+  </header>
 
-<div class="page-banner">
-  <div class="page-banner-inner">
-    <div class="page-banner-label">Chips Dominguez / Games</div>
-    <div class="page-banner-title">The Cartridge Shelf</div>
-    <div class="page-banner-sub">Notes from the controller. Ranked, reviewed, remembered.</div>
-  </div>
-</div>
+  <div class="page-wrap">
 
-<div id="main">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <p class="sidebar-label">Navigate</p>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="blog.html">Writing</a>
+        <a href="music.html">Music</a>
+        <a href="photos.html">Photos</a>
+        <a href="designs.html">Designs</a>
+        <a href="games.html" class="active">Games</a>
+        <a href="misc.html">Misc</a>
+      </nav>
 
-  <aside>
-    <div class="paper ruled">
-      <div class="sidebar-name">Chips Dominguez</div>
-      <div class="sidebar-tagline">Chicago, IL &nbsp;·&nbsp; Since 2026</div>
-      <div class="nav-label">Navigation</div>
-      <a href="index.html" class="nav-item">Home</a>
-      <a href="games.html" class="nav-item active">Games</a>
-      <a href="blog.html" class="nav-item">Blog</a>
-      <a href="music.html" class="nav-item">Music</a>
-      <a href="designs.html" class="nav-item">Designs</a>
-      <a href="photos.html" class="nav-item">Photos</a>
-      <a href="misc.html" class="nav-item">Misc</a>
-      <div class="sidebar-note">
-        Currently playing: Halo 3: ODST. There is something about a rainy city at night that never gets old.
-      </div>
-    </div>
-  </aside>
+      <br/>
+      <p class="sidebar-label">Categories</p>
+      <nav>
+        <a href="games-starwars.html">A Long Time Ago…</a>
+        <a href="games-halo.html">Halo</a>
+        <a href="games-openworld.html">Open World</a>
+        <a href="games-indie.html">Indie</a>
+        <a href="games-shooters.html">Shooters</a>
+        <a href="games-builder.html">Builder &amp; Sim</a>
+      </nav>
+    </aside>
 
-  <main>
+    <!-- MAIN -->
+    <main class="main-content">
 
-    <!-- CURRENTLY PLAYING -->
-    <div class="section-label">Currently Playing</div>
-    <div class="paper" style="margin-bottom:20px;">
-      <div class="featured-game">
-        <div class="game-cover">
-          <div class="platform-badge">360</div>
-          <img src="images/HaloODST.jpg" alt="Halo 3: ODST">
-        </div>
-        <div>
-          <div class="post-title">Halo 3: ODST</div>
-          <div class="post-meta">2009 &nbsp;·&nbsp; First-Person Shooter &nbsp;·&nbsp; Xbox 360</div>
-          <p style="font-size:14px; color:#3a2e22; line-height:1.65; margin-top:8px;">
-            Write your opening thoughts on ODST here — what drew you back to it, what the atmosphere feels like, what makes it different from the mainline Halo games.
-          </p>
-          <p style="font-size:14px; color:#3a2e22; line-height:1.65; margin-top:8px;">
-            Continue here — the Rookie, New Mombasa, the jazz soundtrack, the open-world hub. Whatever stands out most right now.
-          </p>
-          <div style="margin-top:10px; font-family:'Share Tech Mono',monospace; font-size:10px; color:var(--maroon); letter-spacing:0.1em;">
-            RATING: ★★★★★
+      <!-- SLIDESHOW -->
+      <div class="slideshow-wrap">
+        <div class="slide active">
+          <img src="images/slide1.jpg" alt="Featured game 1" onerror="this.parentElement.style.background='#3a2a1a'"/>
+          <div class="slide-caption">
+            <span>// featured</span>
+            Elden Ring — The Lands Between await
           </div>
-          <a href="game-halo-odst.html" class="read-more" style="margin-top:8px; display:inline-block;">Full Review →</a>
+        </div>
+        <div class="slide">
+          <img src="images/slide2.jpg" alt="Featured game 2" onerror="this.parentElement.style.background='#1a2a3a'"/>
+          <div class="slide-caption">
+            <span>// featured</span>
+            Halo: Reach — Fall of a Spartan
+          </div>
+        </div>
+        <div class="slide">
+          <img src="images/slide3.jpg" alt="Featured game 3" onerror="this.parentElement.style.background='#2a3a1a'"/>
+          <div class="slide-caption">
+            <span>// featured</span>
+            Red Dead Redemption 2 — Wide open country
+          </div>
+        </div>
+        <div class="slide">
+          <img src="images/slide4.jpg" alt="Featured game 4" onerror="this.parentElement.style.background='#2a1a3a'"/>
+          <div class="slide-caption">
+            <span>// featured</span>
+            Terraria — A world that never ends
+          </div>
+        </div>
+        <div class="slide">
+          <img src="images/slide5.jpg" alt="Featured game 5" onerror="this.parentElement.style.background='#3a1a2a'"/>
+          <div class="slide-caption">
+            <span>// featured</span>
+            Battlefield 1 — Through Mud and Blood
+          </div>
+        </div>
+        <div class="slide-dots">
+          <div class="dot active" onclick="goSlide(0)"></div>
+          <div class="dot" onclick="goSlide(1)"></div>
+          <div class="dot" onclick="goSlide(2)"></div>
+          <div class="dot" onclick="goSlide(3)"></div>
+          <div class="dot" onclick="goSlide(4)"></div>
         </div>
       </div>
-    </div>
 
-    <!-- GAME SHELF -->
-    <div class="section-label">The Shelf</div>
-    <div class="game-grid">
+      <!-- CATEGORIES -->
+      <p class="section-label">// browse by category</p>
+      <div class="category-grid">
 
-      <a href="game-halo-odst.html" class="game-card">
-        <div class="game-cover">
-          <div class="platform-badge">360</div>
-          <img src="images/HaloODST.jpg" alt="Halo 3: ODST">
-        </div>
-        <div class="game-title">Halo 3: ODST</div>
-        <div class="game-meta">2009 &nbsp;·&nbsp; FPS</div>
-        <div class="rating">★★★★★</div>
-      </a>
+        <a href="games-starwars.html" class="cat-card">
+          <p class="cat-label">sci-fi / action</p>
+          <p class="cat-title">A Long Time Ago…</p>
+          <p class="cat-count">5 entries</p>
+          <p class="cat-desc">From Galactic Conquest to Jedi trials — the saga in interactive form.</p>
+        </a>
 
-      <a href="game-halo-reach.html" class="game-card">
-        <div class="game-cover">
-          <div class="platform-badge">360</div>
-          <img src="images/HaloReachAlexandria.png" alt="Halo: Reach">
-        </div>
-        <div class="game-title">Halo: Reach</div>
-        <div class="game-meta">2010 &nbsp;·&nbsp; FPS</div>
-        <div class="rating">★★★★★</div>
-      </a>
+        <a href="games-halo.html" class="cat-card">
+          <p class="cat-label">sci-fi / fps</p>
+          <p class="cat-title">Halo</p>
+          <p class="cat-count">6 entries</p>
+          <p class="cat-desc">Wars, ODSTs, Spartans. A franchise that defined a generation of gaming.</p>
+        </a>
 
-      <a href="game-halo-3.html" class="game-card">
-        <div class="game-cover">
-          <div class="platform-badge">360</div>
-          <img src="images/Halo3.jpg" alt="Halo 3">
-        </div>
-        <div class="game-title">Halo 3</div>
-        <div class="game-meta">2007 &nbsp;·&nbsp; FPS</div>
-        <div class="rating">★★★★★</div>
-      </a>
+        <a href="games-openworld.html" class="cat-card">
+          <p class="cat-label">rpg / exploration</p>
+          <p class="cat-title">Open World</p>
+          <p class="cat-count">9 entries</p>
+          <p class="cat-desc">Vast lands, brutal bosses, quiet sunsets. Games you get lost in.</p>
+        </a>
 
-      <a href="game-dead-space-2.html" class="game-card">
-        <div class="game-cover">
-          <div class="platform-badge">360</div>
-          <img src="images/deadspace2.jpg" alt="Dead Space 2">
-        </div>
-        <div class="game-title">Dead Space 2</div>
-        <div class="game-meta">2011 &nbsp;·&nbsp; Survival Horror</div>
-        <div class="rating">★★★★★</div>
-      </a>
+        <a href="games-indie.html" class="cat-card">
+          <p class="cat-label">indie / pixel</p>
+          <p class="cat-title">Indie</p>
+          <p class="cat-count">7 entries</p>
+          <p class="cat-desc">Small studios. Massive hearts. These games punch far above their weight.</p>
+        </a>
 
-      <div class="game-card">
-        <div class="game-cover"><div class="platform-badge">—</div><span>Coming Soon</span></div>
-        <div class="game-title">Next Game</div>
-        <div class="game-meta">Year &nbsp;·&nbsp; Genre</div>
-        <div class="rating">—</div>
+        <a href="games-shooters.html" class="cat-card">
+          <p class="cat-label">fps / action</p>
+          <p class="cat-title">Shooters</p>
+          <p class="cat-count">30+ entries</p>
+          <p class="cat-desc">Battlefield, Metro, CoD, DOOM — the full arsenal. No survivors.</p>
+        </a>
+
+        <a href="games-builder.html" class="cat-card">
+          <p class="cat-label">sim / strategy</p>
+          <p class="cat-title">Builder &amp; Sim</p>
+          <p class="cat-count">10 entries</p>
+          <p class="cat-desc">Cities, farms, truck routes, theme parks. The art of making things run.</p>
+        </a>
+
       </div>
 
-      <div class="game-card">
-        <div class="game-cover"><div class="platform-badge">—</div><span>Coming Soon</span></div>
-        <div class="game-title">Next Game</div>
-        <div class="game-meta">Year &nbsp;·&nbsp; Genre</div>
-        <div class="rating">—</div>
+      <!-- RECENTLY PLAYED -->
+      <p class="recently-label">// recently on rotation</p>
+      <div class="recent-strip">
+        <div class="recent-item">
+          <div class="recent-cover">Elden Ring</div>
+          <span class="recent-name">Elden Ring</span>
+        </div>
+        <div class="recent-item">
+          <div class="recent-cover">Halo Infinite</div>
+          <span class="recent-name">Halo Infinite</span>
+        </div>
+        <div class="recent-item">
+          <div class="recent-cover">Terraria</div>
+          <span class="recent-name">Terraria</span>
+        </div>
+        <div class="recent-item">
+          <div class="recent-cover">BF1</div>
+          <span class="recent-name">Battlefield 1</span>
+        </div>
+        <div class="recent-item">
+          <div class="recent-cover">Cyberpunk 2077</div>
+          <span class="recent-name">Cyberpunk 2077</span>
+        </div>
+        <div class="recent-item">
+          <div class="recent-cover">Balatro</div>
+          <span class="recent-name">Balatro</span>
+        </div>
+        <div class="recent-item">
+          <div class="recent-cover">Metro Exodus</div>
+          <span class="recent-name">Metro Exodus</span>
+        </div>
       </div>
 
-    </div>
-
-    <!-- QUICK TAKES -->
-    <div class="section-label">Quick Takes</div>
-
-    <div class="paper ruled" style="margin-bottom:14px;">
-      <div class="post-title">Halo: Reach and the Weight of a Doomed Fight</div>
-      <div class="post-meta">March 2026 &nbsp;·&nbsp; FPS</div>
-      <p style="font-size:14px; color:#3a2e22; line-height:1.65;">
-        Write a short 2–3 sentence blurb about Reach here. Something that captures the tone without giving the full review away.
-      </p>
-      <a href="game-halo-reach.html" class="read-more">Read More →</a>
-    </div>
-
-    <div class="paper ruled" style="margin-bottom:14px;">
-      <div class="post-title">Dead Space 2: Horror That Earns Its Panic</div>
-      <div class="post-meta">Feb 2026 &nbsp;·&nbsp; Survival Horror</div>
-      <p style="font-size:14px; color:#3a2e22; line-height:1.65;">
-        Write a short 2–3 sentence blurb about Dead Space 2 here — the Ishimura flashback, the Sprawl, Isaac finally talking.
-      </p>
-      <a href="game-dead-space-2.html" class="read-more">Read More →</a>
-    </div>
-
-    <div class="paper ruled">
-      <div class="post-title">Halo 3: Finishing the Fight, Finally</div>
-      <div class="post-meta">Jan 2026 &nbsp;·&nbsp; FPS</div>
-      <p style="font-size:14px; color:#3a2e22; line-height:1.65;">
-        Write a short 2–3 sentence blurb about Halo 3 here — the campaign, the ending, the multiplayer legacy.
-      </p>
-      <a href="game-halo-3.html" class="read-more">Read More →</a>
-    </div>
-
-  </main>
-</div>
-
-<div id="footer">
-  <a href="index.html" class="footer-left">Chips Dominguez</a>
-  <div class="footer-right">
-    © 2026 — Chips Dominguez<br>
-    Chicago, IL &nbsp;·&nbsp; All rights reserved<br>
-    A tribute to fallen heroes of the era.
+    </main>
   </div>
-</div>
+
+  <footer>© 2026 — Cairo Yepez · Chicago, IL · All rights reserved · A tribute to fallen heroes of the era.</footer>
+
+  <script>
+    let current = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    function goSlide(n) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = n;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+    setInterval(() => goSlide((current + 1) % slides.length), 4500);
+  </script>
 
 </body>
 </html>
