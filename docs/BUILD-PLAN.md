@@ -7,18 +7,19 @@ Working principles every session: propose before touching · one concern per com
 preview locally before pushing · one page per visual change · branch per feature ·
 keep docs current.
 
-## Phase 0 — Repo cleanup [~]
+## Phase 0 — Repo cleanup [x]
 Clean foundation. No visual or functional changes.
 - [x] `.gitignore` added
 - [x] `images/.gitkeep` removed
 - [x] `mainpage.md`, `PAGE-NAME.md` deleted
 - [x] Sparrow image renamed → `house-sparrows-menace.jpg`
-- [ ] Install `CLAUDE.md`; create `/docs/`; place `DESIGN-PHILOSOPHY.md` and
+- [x] Install `CLAUDE.md`; create `/docs/`; place `DESIGN-PHILOSOPHY.md` and
       `BUILD-PLAN.md`; move audit files into `/docs/`
-- [ ] Rewrite `README.md`
-- [ ] Add `.nojekyll`
-- [ ] Rename Halo images to convention + update `games-halo.html` references
-- [ ] Archive unreferenced images → `/images/archive/`
+- [x] Stub `README.md` for hand-authored content
+- [x] Add `.nojekyll`
+- [x] Rename Halo images to convention + update `games-halo.html` references
+- [x] Archive 12 unreferenced images → `/images/archive/`
+      (kept `house-sparrows-menace.jpg` staged for the future bird page)
 
 ## Phase 1 — Design plumbing [ ]
 Mechanical fixes. Site looks identical when done.
