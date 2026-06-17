@@ -1,67 +1,117 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Project brief for cairoyepez.com. Read before doing anything. Stack, conventions,
+and working method are here. Full aesthetic reference is in
+`docs/DESIGN-PHILOSOPHY.md`. Phased plan and live status are in `docs/BUILD-PLAN.md`.
 
-## Overview
+## The site
+Personal website of Cairo Yepez. Each page is a distinct room in the same building —
+coherent palette and type, different layout personality per section. The site is
+hand-coded, static, and intended to feel permanent rather than current.
 
-This is Cairo Yepez's personal website, hosted via GitHub Pages (Jekyll) at cairoyepez.com (see `CNAME`). It is a static site of plain HTML/CSS files — no build step, no package manager, no JS framework. Pages are opened directly or served via Jekyll's default GitHub Pages pipeline.
+Live at cairoyepez.com (GitHub Pages, auto-deploys from `main`).
+Repo: `github.com/cyepez1/cyepez1.github.io`
 
-## Architecture
+## Stack
+Vanilla HTML + CSS. No JavaScript, no build step, no framework, no package manager.
+Jekyll nominally enabled (empty `_config.yml`) but bypassed — `.nojekyll` at root.
+Google Fonts: EB Garamond (body), Special Elite (display/headers), Share Tech Mono
+(terminal accents).
 
-### Page structure
-- `index.html` — homepage, "newspaper/CRT terminal" themed landing page with its own large inline `<style>` block.
-- `games.html` — games library hub page, links out to category sub-pages.
-- `games-{starwars,halo,openworld,indie,shooters,builder}.html` — per-category game listing pages, all sharing a common layout (masthead, banner, jump nav, sidebar) defined in `games-shared.css`.
-- `blog.html`, `designs.html`, `music.html`, `photos.html`, `misc.html` — other top-level content pages, each largely self-contained with their own inline `<style>` blocks (similar visual language to `style.css` but not all migrated to the shared system yet).
-- `images/` — all site image assets, referenced directly by relative path.
+Stack changes require an explicit decision and their own phase. Default is always
+vanilla. Likely triggers for revisiting: guestbook (needs backend), RSS/email,
+JSON-driven games data, bird-page audio. If a trigger arrives, plan a migration
+phase — don't let the stack drift.
 
-### Styling system
-There are two parallel design systems in play:
-- `style.css` — base/global stylesheet (masthead, hero/CRT effect, color variables) used by `index.html` and most non-games pages.
-- `games-shared.css` — newer shared stylesheet specifically for the games section (`games.html` and all `games-*.html` pages), implementing a "late-2000s wiki" design system: masthead (`g-masthead`), banner (`g-banner`), jump nav (`g-jumpnav`), sidebar layout (`g-layout`/`g-sidebar`), scroll progress bar (`#scroll-bar`), and category color tints (`--tint-*`).
+## Design tokens
+Single source of truth once `tokens.css` exists. Until then, tokens are duplicated
+across three `:root` blocks (`index.html` inline, `style.css`, `games-shared.css`)
+— keep them in sync.
 
-Both stylesheets define an overlapping set of CSS custom properties (`--cream`, `--maroon`, `--olive`, `--ink`, `--paper`, etc.) for a shared color palette — keep these in sync if updating the palette in one place.
+```
+--cream:        #f0e8d5    paper background
+--cream-dark:   #e2d8c2
+--maroon:       #6b0f1a    masthead, primary accents
+--maroon-light: #8b1a28
+--olive:        #5a5430
+--olive-light:  #8a8050
+--ink:          #1a1410    body text
+--blue-margin:  #a8b4e8    ruled-margin rule
+--paper:        #faf6ed    card surface
+```
 
-When editing or adding a games-section page, follow the established pattern:
-1. Link both `style.css` and `games-shared.css`.
-2. Reuse the shared layout classes (`g-masthead`, `g-banner`, `g-jumpnav`, `g-layout`, `g-sidebar`, `#scroll-bar`) rather than re-declaring layout CSS inline.
-3. Page-specific styles (e.g. category-specific grids/cards) go in a `<style>` block in that page's `<head>`, following the naming/spacing conventions already used in sibling `games-*.html` files.
-4. Update the sidebar nav and `games-shared.css` `--tint-*` variables consistently across all games pages when adding a new category.
+Plus grain overlay and scanlines applied at the page level.
 
-### Navigation
-Every page includes a sidebar/nav linking to: `index.html`, `blog.html`, `music.html`, `photos.html`, `designs.html`, `games.html`, `misc.html`. When adding a new top-level page, add it to this nav list across all existing pages.
+## Two design systems
+Main site (`style.css` + per-page inline `<style>`): masthead with maroon double
+border, CRT hero on the index, paper/ruled card layouts. Pages: index, blog, music,
+designs, photos, misc.
 
-## Notes
-- `mainpage.md` and `PAGE-NAME.md` appear to be scratch/template files (not part of the live site).
-- No tests, linting, or build commands exist for this project — changes are verified by opening the HTML files in a browser.
+Games section (`style.css` + `games-shared.css` + per-page inline `<style>`):
+late-2000s wiki structure. This section is the current quality bar — preserve it.
+Shared components: `g-masthead`, `g-banner`, `g-jumpnav`, `g-layout`, `g-sidebar`,
+`#scroll-bar`, category tints `--tint-*` (starwars, halo, openworld, indie, shooters).
+Pages: games, games-halo, games-starwars, games-openworld, games-indie, games-shooters,
+games-builder.
 
-## Aesthetic
+When adding or editing a games page: link `style.css` then `games-shared.css` in that
+order, reuse shared layout classes, put page-specific styles in a `<head>` `<style>`
+block.
 
-The site's visual identity is "Analog Zine meets CRT Terminal" — late-2000s wiki energy, newspaper masthead typography, subtle CRT scanlines, cream/maroon/olive color palette on ink/paper backgrounds. When adding new pages or features, lean into this language. Avoid modern flat-design defaults (no gradient blobs, no neumorphism, no minimalist sans-serif everything). Period-appropriate references: old web magazines, paper zines, terminal UIs, library card catalogs.
+## Navigation
+Every page carries the same sidebar/nav, linking: index, blog, music, photos,
+designs, games, misc. The nav is copy-pasted per page (see Structural debt) —
+adding or renaming a top-level page means editing every page.
 
-## Working style
+## Guiding aesthetic (condensed)
+The site occupies a specific tonal register: analog-warm, institutionally serious,
+handmade without being precious. The visual language draws on print and archival
+traditions — zine production, relief printmaking, CRT interfaces, physical media —
+rendered with care and without irony. No flat design, no framework defaults, no
+disposable-tech conventions.
 
-I'm an early-stage coder learning the craft. Prefer explanation over volume:
-- Before making non-trivial changes, briefly describe the plan and wait for approval.
-- When introducing a new technique (new HTML tag, CSS feature, JS pattern), add a one-line comment explaining what it does and why.
-- Favor vanilla HTML/CSS/JS over frameworks. No build tools unless I explicitly ask.
-- When I ask "why," answer in plain language — assume basic CS background, no professional dev experience.
-- Suggest git commits at natural stopping points.
+Named influences: Mexican printmaking (Posada, Taller de Gráfica Popular), Bloodborne,
+Remedios Varo, Sofía Bassi. These set the atmospheric range — gothic-warm, alchemical,
+rooted in Mexican graphic and surrealist tradition.
 
-## Conventions
+Full specification in `docs/DESIGN-PHILOSOPHY.md`. Read it before making any design
+decision. Do not relitigate it.
 
-- Dates in semantic `<time>` tags with `datetime` attribute.
-- Color values come from CSS custom properties, never hardcoded hex.
-- Keep page-specific styles in that page's `<head>` `<style>` block; promote to shared CSS only when reused across 2+ pages.
-- Image filenames in `images/` are lowercase, hyphen-separated.
+## Content conventions
+All body placeholder text: lorem ipsum only.
+Placeholder item titles: plausible titles, no fabricated body content.
+Cairo writes all real prose. Claude Code does not generate voice or editorial content.
 
-## Current focus: Now page
+## File and naming conventions
+Lowercase hyphenated filenames throughout: `games-shooters.html`, `games-shared.css`.
+Section sub-pages prefixed with section name: `games-halo.html`.
+Images in `/images/`. Unused images archived to `/images/archive/`.
+Documentation in `/docs/`.
 
-Building a `/now/` page (single-page convention: nownownow.com/about). Sections planned:
-- What I'm reading
-- Currently playing  
-- Watching the yard for (backyard birding)
-- Working on (LSAT, JD apps, satirical publication, site projects)
-- World Cup pick of the week (rotating)
+## Working method
+Audit → propose → approve → execute. One approval per action.
+One concern per commit.
+Preview locally before pushing.
+One page at a time for visual changes.
+Feature branches; merge when stable.
+Keep `CLAUDE.md` and `/docs/` current as decisions are made.
+Ask before any destructive or irreversible action. Archive over delete by default.
 
-Should match the index.html aesthetic. Add to sidebar nav across all pages when launched.
+## Structural debt (tracked)
+Token definitions duplicated across three `:root` blocks — Phases 1–2.
+Masthead and footer nav copy-pasted into all 6 main pages — flag on any nav change.
+`blog.html` is a stale copy of `games.html` — Phase 4.
+`music.html` carries wrong name ("Chips Dominguez") — Phase 1.
+Nav label inconsistency ("Blog" vs "Writing"); `index.html` missing Home link — Phase 1.
+Lorem ipsum and placeholder cells throughout.
+
+## Verification
+No automated tests, linter, or build step. Changes are verified by opening the
+affected page(s) in a browser before committing. Optional future (not yet adopted,
+its own decision): a CI-only link/image checker via GitHub Actions — catches broken
+links and missing images while keeping the site buildless.
+
+## Project docs
+`docs/DESIGN-PHILOSOPHY.md` — aesthetic reference, hard NOs, contributor rules
+`docs/BUILD-PLAN.md` — phased plan, live status
+`docs/DESIGN-AUDIT.md`, `docs/REPO-AUDIT.md` — source audits
