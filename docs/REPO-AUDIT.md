@@ -135,3 +135,23 @@ Of the 4 images actually in use, 3 of 4 (`HaloReachAlexandria.png`, `HaloODST.jp
 | 11 | Add a styled `404.html` | (c) Cairo's decision | Nice-to-have once `tokens.css`/shared layout exists (per `DESIGN-AUDIT.md`) — could reuse the "junk drawer"/zine voice for a fun 404 |
 
 Recommended order: **1 → 2 → 3** (zero-risk deletes/additions, do anytime) → **5 & 6** (quick decisions, no code risk) → **7 & 9** (small renames + reference updates, do together since both touch filenames) → **4, 8, 10, 11** (larger decisions, can wait until after the design migration or be folded into it — e.g. step 8's "use soon" images naturally feed into the `photos.html`/`misc.html` redesign sketches in `DESIGN-AUDIT.md`).
+
+---
+
+## Phase 0 resolution (completed 2026-06-16)
+
+Items from the cleanup sequence above that were addressed in Phase 0:
+
+| # | Item | Result |
+|---|---|---|
+| 1 | Add `.gitignore` | ✓ Done |
+| 2 | Delete `images/.gitkeep` | ✓ Done |
+| 3 | Delete `PAGE-NAME.md` | ✓ Done |
+| 4 | `mainpage.md` fate | Deleted (Cairo's call, Phase 0) |
+| 5 | Rewrite `README.md` | ✓ Stub written; Cairo to author real prose later |
+| 6 | `_config.yml` decision | Kept empty; `.nojekyll` added to bypass Jekyll entirely |
+| 7 | Rename in-use Halo images | ✓ Done — 4 files renamed to convention, references in `games-halo.html` updated |
+| 9 | Rename `fucking_house_sparrows.jpg` | ✓ Done → `house-sparrows-menace.jpg` |
+| 8 | Fate of 13 unreferenced images | Archived to `images/archive/` (12 images); `house-sparrows-menace.jpg` staged for future bird page |
+| 10 | `favicon.ico` | Deferred — needs artwork decision |
+| 11 | Styled `404.html` | Deferred — Phase 6 or later |

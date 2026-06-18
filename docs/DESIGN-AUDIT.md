@@ -212,3 +212,23 @@ Ordered, small, one concern per step. Each step should be independently committa
 12. **Build `/now/` page** using `tokens.css` from day one, per the §5 sketch and `CLAUDE.md`'s planned sections. Add to sidebar nav across all pages once launched (separate, larger task — out of scope for this audit's migration but listed for sequencing). *(Effort: large — new page.)*
 
 Suggested sequencing: steps 1–5 are quick wins and can land together or in rapid succession. Step 6 (blog) is the first "real" redesign and should get its own review per `CLAUDE.md`'s "don't redesign more than one page at a time" rule. Steps 7–9 are mechanical token migration and can trickle in over time. Steps 10–12 are decisions/larger work to schedule separately.
+
+---
+
+## 7. Phase 1–2 resolution (completed 2026-06-16)
+
+Migration steps 1–9 above were executed as Phases 1 and 2. Status per item:
+
+| Step | Description | Result |
+|---|---|---|
+| 1 | Create `tokens.css` | ✓ Done. Reconciled all three `:root` blocks; rogue `--blue-margin: #7080c0` in `index.html` resolved to canonical `#a8b4e8`. Extended tokens (games extras, index extras) also included. |
+| 2 | Fix `music.html` identity | ✓ Done. "Chips Dominguez" → "Cairo Yepez" in 5 locations. |
+| 3 | Nav label consistency | ✓ Done. "Writing" → "Blog" on all 7 games pages; "Blog" was already correct on main pages. |
+| 4 | `index.html` Home link + masthead link | ✓ Done. Home link added (marked active). Masthead `<span>` upgraded to `<a href="index.html">`. |
+| 5 | Dead `.s-jump` CSS | ✓ Done. Removed from `games-shooters.html`. |
+| 6 | Blog rebuild | Deferred — Phase 4 per BUILD-PLAN.md. |
+| 7–8 | Adopt `tokens.css` everywhere + remove `:root` blocks | ✓ Done. All 13 pages link `tokens.css` first. `:root` removed from `style.css` and `games-shared.css`. |
+| 9 | Slim `index.html` inline styles | ✓ Done. Removed all rules duplicated in `style.css`; retained only index-specific CSS (CRT hero, sidebar avatar, featured article, post cards, torn paper, photo strip). Block reduced from ~723 to ~462 lines. |
+| 10 | Page-header strategy decision | Documented: `#hero`, `.page-banner`, and `.g-banner` are three intentional header personalities. No unification planned. |
+| 11 | Footer tagline | ✓ Done. "A tribute to fallen heroes of the era." replaced with "✶✶✶✶Made in Chicago, USA✶✶✶✶" across all 13 pages. |
+| 12 | `/now/` page | Deferred — Phase 5 per BUILD-PLAN.md. |

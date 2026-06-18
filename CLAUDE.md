@@ -24,10 +24,10 @@ JSON-driven games data, bird-page audio. If a trigger arrives, plan a migration
 phase — don't let the stack drift.
 
 ## Design tokens
-Single source of truth once `tokens.css` exists. Until then, tokens are duplicated
-across three `:root` blocks (`index.html` inline, `style.css`, `games-shared.css`)
-— keep them in sync.
+Single source of truth: `tokens.css`. All pages link it before `style.css`.
+Do not add `:root` blocks to individual pages or stylesheets — edit `tokens.css` only.
 
+Canonical tokens (Phase 2 resolved):
 ```
 --cream:        #f0e8d5    paper background
 --cream-dark:   #e2d8c2
@@ -40,7 +40,8 @@ across three `:root` blocks (`index.html` inline, `style.css`, `games-shared.css
 --paper:        #faf6ed    card surface
 ```
 
-Plus grain overlay and scanlines applied at the page level.
+Extended tokens (games section and index extras) are also in `tokens.css` —
+see that file for the full list. Grain overlay applied via `body::before` in `style.css`.
 
 ## Two design systems
 Main site (`style.css` + per-page inline `<style>`): masthead with maroon double
@@ -54,9 +55,9 @@ Shared components: `g-masthead`, `g-banner`, `g-jumpnav`, `g-layout`, `g-sidebar
 Pages: games, games-halo, games-starwars, games-openworld, games-indie, games-shooters,
 games-builder.
 
-When adding or editing a games page: link `style.css` then `games-shared.css` in that
-order, reuse shared layout classes, put page-specific styles in a `<head>` `<style>`
-block.
+When adding or editing a games page: link `tokens.css`, then `style.css`, then
+`games-shared.css` in that order, reuse shared layout classes, put page-specific
+styles in a `<head>` `<style>` block.
 
 ## Navigation
 Every page carries the same sidebar/nav, linking: index, blog, music, photos,
@@ -98,12 +99,20 @@ Keep `CLAUDE.md` and `/docs/` current as decisions are made.
 Ask before any destructive or irreversible action. Archive over delete by default.
 
 ## Structural debt (tracked)
-Token definitions duplicated across three `:root` blocks — Phases 1–2.
-Masthead and footer nav copy-pasted into all 6 main pages — flag on any nav change.
+Masthead and footer nav copy-pasted into all 13 pages — flag on any nav change,
+every page must be edited individually.
 `blog.html` is a stale copy of `games.html` — Phase 4.
-`music.html` carries wrong name ("Chips Dominguez") — Phase 1.
-Nav label inconsistency ("Blog" vs "Writing"); `index.html` missing Home link — Phase 1.
 Lorem ipsum and placeholder cells throughout.
+
+Resolved in Phases 1–2 (kept for record):
+- Token `:root` blocks consolidated into `tokens.css` ✓
+- `music.html` wrong name ("Chips Dominguez") fixed ✓
+- Nav label "Writing" → "Blog" everywhere ✓
+- `index.html` missing Home link added ✓
+- Masthead name made a link on all pages ✓
+- Footer tagline set to "✶✶✶✶Made in Chicago, USA✶✶✶✶" ✓
+- Dead `.s-jump` CSS removed from `games-shooters.html` ✓
+- `index.html` inline `<style>` slimmed from ~723 to ~462 lines ✓
 
 ## Verification
 No automated tests, linter, or build step. Changes are verified by opening the
