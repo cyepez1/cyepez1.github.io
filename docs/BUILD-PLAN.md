@@ -21,7 +21,7 @@ Clean foundation. No visual or functional changes.
 - [x] Archive 12 unreferenced images → `/images/archive/`
       (kept `house-sparrows-menace.jpg` staged for the future bird page)
 
-## Phase 1 — Design plumbing [ ]
+## Phase 1 — Design plumbing [x]
 Mechanical fixes. Site looks identical when done.
 - Fix `music.html` identity (wrong name)
 - Remove dead `.s-jump` CSS from `games-shooters.html`
@@ -30,34 +30,34 @@ Mechanical fixes. Site looks identical when done.
 - Decide footer tagline (real copy or lorem ipsum)
 - Create `tokens.css` — unified token definitions, not yet linked anywhere
 
-## Phase 2 — Token migration [ ]
+## Phase 2 — Token migration [x]
 Single source of truth for color and type.
 - Adopt `tokens.css` page by page: misc → photos → music → designs → games
 - Migrate `games-shared.css` to `tokens.css`; remove duplicated vars
 - Slim `index.html` inline styles (~700 lines of duplication); link `tokens.css`
 
-## Phase 3 — Document the system [ ]
+## Phase 3 — Document the system [x]
 - Record structural decisions from Phases 1–2 in `CLAUDE.md` and `/docs/`
 - No code changes
 
-## Phase 4 — Blog rebuild [ ]
+## Phase 4 — Blog rebuild [x]
 - Rebuild `blog.html` as a long-form reading space
 - New banner, post-list structure, single-column layout, generous type
 - First page fully specific to its medium
 
-## Phase 5 — Now page [ ]
-- New `/now/index.html`
-- Sections: reading, playing, watching the yard, working on
-- Collage layout — index-card blocks, varied weight
-- Inherits `tokens.css`; added to nav across pages
-
-## Phase 6 — Per-page redesigns [ ]
+## Phase 5 — Per-page redesigns [ ]
 One session and branch per page.
 - Designs → drafting table treatment
 - Music → liner-note typography
 - Photos → contact sheet layout
 - Misc → corkboard layout
 - Index → refine CRT hero
+
+## Phase 6 — Now page [ ]
+- New `/now/index.html`
+- Sections: reading, playing, watching the yard, working on
+- Collage layout — index-card blocks, varied weight
+- Inherits `tokens.css`; added to nav across pages
 
 ## Phase 7 — Feature builds [ ]
 Sequence to be determined.
