@@ -2,81 +2,80 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Games — Cairo Yepez</title>
+  <title>Blog — Cairo Yepez</title>
+  <link rel="stylesheet" href="tokens.css">
   <link rel="stylesheet" href="style.css">
   <style>
-    .game-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-bottom: 20px;
+    /* ─── BLOG COLUMN ─── */
+    .blog-column {
+      max-width: 640px;
     }
-    .game-card {
-      background: var(--paper);
-      border: 1px solid #c8b89a;
-      border-top: 3px solid var(--maroon);
-      padding: 0 0 12px;
-      transition: transform 0.15s;
+
+    /* ─── POST ENTRY ─── */
+    .blog-post {
+      padding: 28px 0 24px;
+      border-bottom: 1px solid #c8b89a;
     }
-    .game-card:hover { transform: translateY(-3px); }
-    .game-cover {
-      width: 100%;
-      aspect-ratio: 3/4;
-      background: repeating-linear-gradient(-45deg, #e2d8c2 0px, #e2d8c2 2px, #ede5d0 2px, #ede5d0 10px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .blog-post:first-child {
+      padding-top: 4px;
+    }
+    .blog-post:last-child {
+      border-bottom: none;
+    }
+
+    .blog-category {
       font-family: 'Share Tech Mono', monospace;
-      font-size: 8px;
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
       color: var(--maroon);
-      opacity: 0.45;
-      letter-spacing: 0.1em;
-      margin-bottom: 10px;
-      position: relative;
+      opacity: 0.6;
+      margin-bottom: 6px;
     }
-    .game-cover .platform-badge {
-      position: absolute;
-      top: 8px;
-      right: 8px;
-      background: var(--maroon);
-      color: var(--cream);
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 8px;
-      padding: 2px 6px;
-      letter-spacing: 0.1em;
-      opacity: 0.85;
-    }
-    .game-title {
+
+    .blog-title {
       font-family: 'Special Elite', cursive;
-      font-size: 14px;
+      font-size: 24px;
       color: var(--maroon);
-      padding: 0 10px;
-      margin-bottom: 3px;
       line-height: 1.2;
+      margin-bottom: 6px;
     }
-    .game-meta {
+    .blog-title a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .blog-title a:hover {
+      text-decoration: underline;
+      text-decoration-color: var(--maroon-light);
+      text-underline-offset: 3px;
+    }
+
+    .blog-meta {
       font-family: 'Share Tech Mono', monospace;
-      font-size: 8px;
+      font-size: 9px;
       color: var(--olive);
-      padding: 0 10px;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       opacity: 0.65;
+      margin-bottom: 12px;
     }
-    .rating {
-      padding: 0 10px;
-      margin-top: 5px;
+
+    .blog-excerpt {
+      font-family: 'EB Garamond', serif;
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--ink-light);
+    }
+
+    /* ─── ORNAMENTAL DIVIDER ─── */
+    .blog-ornament {
       font-family: 'Share Tech Mono', monospace;
-      font-size: 10px;
-      color: var(--maroon);
-      letter-spacing: 0.05em;
+      font-size: 9px;
+      letter-spacing: 0.35em;
+      color: var(--olive-light);
+      opacity: 0.5;
+      margin: 32px 0 0;
+      text-align: left;
     }
-    .featured-game {
-      display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 16px;
-      align-items: start;
-    }
-    .featured-game .game-cover { aspect-ratio: 3/4; margin-bottom: 0; }
   </style>
 </head>
 <body>
@@ -88,9 +87,9 @@
 
 <div class="page-banner">
   <div class="page-banner-inner">
-    <div class="page-banner-label">Cairo Yepez / Games</div>
-    <div class="page-banner-title">The Cartridge Shelf</div>
-    <div class="page-banner-sub">Notes from the controller. Ranked, reviewed, remembered.</div>
+    <div class="page-banner-label">Cairo Yepez / Blog</div>
+    <div class="page-banner-title">The Long Room</div>
+    <div class="page-banner-sub">Essays, notes, and dispatch from Chicago.</div>
   </div>
 </div>
 
@@ -102,112 +101,81 @@
       <div class="sidebar-tagline">Chicago, IL &nbsp;·&nbsp; Since 2026</div>
       <div class="nav-label">Navigation</div>
       <a href="index.html" class="nav-item">Home</a>
-      <a href="games.html" class="nav-item active">Games</a>
-      <a href="blog.html" class="nav-item">Blog</a>
+      <a href="games.html" class="nav-item">Games</a>
+      <a href="blog.html" class="nav-item active">Blog</a>
       <a href="music.html" class="nav-item">Music</a>
       <a href="designs.html" class="nav-item">Designs</a>
       <a href="photos.html" class="nav-item">Photos</a>
       <a href="misc.html" class="nav-item">Misc</a>
       <div class="sidebar-note">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Currently playing: Lorem Ipsum 2 (PS2).
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Writing slowly, reading faster.
       </div>
     </div>
   </aside>
 
   <main>
+    <div class="blog-column">
 
-    <!-- CURRENTLY PLAYING -->
-    <div class="section-label">Currently Playing</div>
-    <div class="paper" style="margin-bottom:20px;">
-      <div class="featured-game">
-        <div class="game-cover">
-          <div class="platform-badge">PS2</div>
-          <span>Cover Art</span>
-        </div>
-        <div>
-          <div class="post-title">Lorem Ipsum: Dawn of the Adipiscing</div>
-          <div class="post-meta">2003 &nbsp;·&nbsp; Action / Adventure &nbsp;·&nbsp; PS2</div>
-          <p style="font-size:14px; color:#3a2e22; line-height:1.65; margin-top:8px;">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.
-          </p>
-          <p style="font-size:14px; color:#3a2e22; line-height:1.65; margin-top:8px;">
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
-          </p>
-          <div style="margin-top:10px; font-family:'Share Tech Mono',monospace; font-size:10px; color:var(--maroon); letter-spacing:0.1em;">
-            RATING: ★★★★☆
-          </div>
-        </div>
-      </div>
-    </div>
+      <div class="section-label">Recent</div>
 
-    <!-- GAME SHELF -->
-    <div class="section-label">The Shelf</div>
-    <div class="game-grid">
-
-      <div class="game-card">
-        <div class="game-cover"><div class="platform-badge">GCN</div><span>Cover</span></div>
-        <div class="game-title">Consectetur Warriors: Siege of Magna Aliqua</div>
-        <div class="game-meta">2002 &nbsp;·&nbsp; Tactical</div>
-        <div class="rating">★★★★★</div>
+      <!-- POST 1 -->
+      <div class="blog-post">
+        <div class="blog-category">Essay</div>
+        <div class="blog-title"><a href="#">On the Persistence of Certain Intersections</a></div>
+        <div class="blog-meta">June 2026 &nbsp;·&nbsp; 2,400 words</div>
+        <p class="blog-excerpt">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </p>
+        <a href="#" class="read-more">Read More →</a>
       </div>
 
-      <div class="game-card">
-        <div class="game-cover"><div class="platform-badge">Wii</div><span>Cover</span></div>
-        <div class="game-title">Adipiscing Rift Zero</div>
-        <div class="game-meta">2007 &nbsp;·&nbsp; Mech Combat</div>
-        <div class="rating">★★★★☆</div>
+      <!-- POST 2 -->
+      <div class="blog-post">
+        <div class="blog-category">Notes</div>
+        <div class="blog-title"><a href="#">Three Observations About the 18 Bus</a></div>
+        <div class="blog-meta">May 2026 &nbsp;·&nbsp; 900 words</div>
+        <p class="blog-excerpt">
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+        </p>
+        <a href="#" class="read-more">Read More →</a>
       </div>
 
-      <div class="game-card">
-        <div class="game-cover"><div class="platform-badge">PS2</div><span>Cover</span></div>
-        <div class="game-title">Tempor Incididunt Road Rage Turbo</div>
-        <div class="game-meta">2004 &nbsp;·&nbsp; Racing</div>
-        <div class="rating">★★★☆☆</div>
+      <!-- POST 3 -->
+      <div class="blog-post">
+        <div class="blog-category">Review</div>
+        <div class="blog-title"><a href="#">What the Building Knows That the Map Does Not</a></div>
+        <div class="blog-meta">April 2026 &nbsp;·&nbsp; 1,800 words</div>
+        <p class="blog-excerpt">
+          At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.
+        </p>
+        <a href="#" class="read-more">Read More →</a>
       </div>
 
-      <div class="game-card">
-        <div class="game-cover"><div class="platform-badge">GCN</div><span>Cover</span></div>
-        <div class="game-title">Dolore Magna: The Phantom Laborum</div>
-        <div class="game-meta">2001 &nbsp;·&nbsp; Stealth / Action</div>
-        <div class="rating">★★★★★</div>
+      <!-- POST 4 -->
+      <div class="blog-post">
+        <div class="blog-category">Dispatch</div>
+        <div class="blog-title"><a href="#">Spring Migration, Backyard Log</a></div>
+        <div class="blog-meta">March 2026 &nbsp;·&nbsp; 600 words</div>
+        <p class="blog-excerpt">
+          Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis.
+        </p>
+        <a href="#" class="read-more">Read More →</a>
       </div>
 
-      <div class="game-card">
-        <div class="game-cover"><div class="platform-badge">PS2</div><span>Cover</span></div>
-        <div class="game-title">Voluptatem Accusantium Drift King</div>
-        <div class="game-meta">2005 &nbsp;·&nbsp; Racing</div>
-        <div class="rating">★★★★☆</div>
+      <!-- POST 5 -->
+      <div class="blog-post">
+        <div class="blog-category">Essay</div>
+        <div class="blog-title"><a href="#">A Theory of the Bungalow as Civic Form</a></div>
+        <div class="blog-meta">February 2026 &nbsp;·&nbsp; 3,100 words</div>
+        <p class="blog-excerpt">
+          Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.
+        </p>
+        <a href="#" class="read-more">Read More →</a>
       </div>
 
-      <div class="game-card">
-        <div class="game-cover"><div class="platform-badge">Wii</div><span>Cover</span></div>
-        <div class="game-title">Natus Error Strike Force</div>
-        <div class="game-meta">2008 &nbsp;·&nbsp; Shooter</div>
-        <div class="rating">★★★☆☆</div>
-      </div>
+      <div class="blog-ornament">✶ &nbsp; ✶ &nbsp; ✶</div>
 
     </div>
-
-    <!-- MINI REVIEWS -->
-    <div class="section-label">Quick Takes</div>
-    <div class="paper ruled" style="margin-bottom:14px;">
-      <div class="post-title">Why Tempor Incididunt Road Rage Turbo Still Holds Up</div>
-      <div class="post-meta">March 2026 &nbsp;·&nbsp; Racing</div>
-      <p style="font-size:14px; color:#3a2e22; line-height:1.65;">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.
-      </p>
-      <a href="#" class="read-more">Read More →</a>
-    </div>
-
-    <div class="paper ruled">
-      <div class="post-title">Consectetur Warriors and the Art of the Comeback Win</div>
-      <div class="post-meta">Feb 2026 &nbsp;·&nbsp; Tactical</div>
-      <p style="font-size:14px; color:#3a2e22; line-height:1.65;">
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
-      <a href="#" class="read-more">Read More →</a>
-    </div>
-
   </main>
 </div>
 
@@ -216,7 +184,7 @@
   <div class="footer-right">
     © 2026 — Cairo Yepez<br>
     Chicago, IL &nbsp;·&nbsp; All rights reserved<br>
-    A tribute to fallen heroes of the era.
+    ✶✶✶✶Made in Chicago, USA✶✶✶✶
   </div>
 </div>
 
