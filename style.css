@@ -1,17 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Special+Elite&family=Share+Tech+Mono&display=swap');
 
-:root {
-  --cream: #f0e8d5;
-  --cream-dark: #e2d8c2;
-  --maroon: #6b0f1a;
-  --maroon-light: #8b1a28;
-  --olive: #5a5430;
-  --olive-light: #8a8050;
-  --ink: #1a1410;
-  --blue-margin-light: #a8b4e8;
-  --paper: #faf6ed;
-}
-
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {

@@ -3,74 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>Cairo Yepez</title>
+  <link rel="stylesheet" href="tokens.css">
   <link rel="stylesheet" href="style.css">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Special+Elite&family=Share+Tech+Mono&display=swap');
-
-    :root {
-      --cream: #f0e8d5;
-      --cream-dark: #e2d8c2;
-      --maroon: #6b0f1a;
-      --maroon-light: #8b1a28;
-      --maroon-faint: #f5eae8;
-      --olive: #5a5430;
-      --olive-light: #8a8050;
-      --ink: #1a1410;
-      --blue-margin: #7080c0;
-      --blue-margin-light: #a8b4e8;
-      --paper: #faf6ed;
-      --scanline: rgba(0,0,0,0.07);
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: 'EB Garamond', serif;
-      background-color: var(--cream);
-      color: var(--ink);
-      font-size: 15px;
-      line-height: 1.6;
-      position: relative;
-    }
-
-    /* Grain overlay */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
-      opacity: 0.045;
-      pointer-events: none;
-      z-index: 9999;
-    }
-
-    /* ─── MASTHEAD ─── */
-    #masthead {
-      background: var(--maroon);
-      border-bottom: 4px double var(--maroon-light);
-      padding: 10px 30px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    #masthead .site-title {
-      font-family: 'Special Elite', cursive;
-      font-size: 13px;
-      color: var(--cream);
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      opacity: 0.7;
-    }
-
-    #masthead .dateline {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 11px;
-      color: var(--cream);
-      opacity: 0.5;
-      letter-spacing: 0.1em;
-    }
-
     /* ─── HERO / CRT ─── */
     #hero {
       width: 100%;
@@ -303,51 +238,7 @@
       margin-top: 4px;
     }
 
-    /* ─── MAIN LAYOUT ─── */
-    #main {
-      max-width: 1000px;
-      margin: 28px auto;
-      padding: 0 20px;
-      display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 24px;
-      align-items: start;
-    }
-
-    /* ─── PAPER PANELS ─── */
-    .paper {
-      background: var(--paper);
-      border: 1px solid #c8b89a;
-      border-left: 3px solid var(--maroon);
-      padding: 16px 18px 16px 28px;
-      position: relative;
-      box-shadow: 2px 2px 0 rgba(0,0,0,0.08), inset 0 0 0 1px rgba(255,255,255,0.5);
-    }
-
-    /* Margin line */
-    .paper::before {
-      content: "";
-      position: absolute;
-      left: 20px;
-      top: 0;
-      bottom: 0;
-      width: 1px;
-      background: var(--blue-margin-light);
-      opacity: 0.7;
-    }
-
-    /* Ruled lines */
-    .paper.ruled {
-      background-image: repeating-linear-gradient(
-        180deg,
-        transparent,
-        transparent 23px,
-        rgba(160,180,220,0.15) 23px,
-        rgba(160,180,220,0.15) 24px
-      );
-    }
-
-    /* ─── SIDEBAR ─── */
+    /* ─── SIDEBAR AVATAR (index-specific) ─── */
     .sidebar-avatar {
       width: 100%;
       aspect-ratio: 1;
@@ -395,99 +286,7 @@
       height: 1px; width: 100%; top: 50%; left: 0;
     }
 
-    .sidebar-name {
-      font-family: 'Special Elite', cursive;
-      font-size: 16px;
-      color: var(--maroon);
-      text-align: center;
-      margin-bottom: 4px;
-    }
-
-    .sidebar-tagline {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 9px;
-      color: var(--olive);
-      text-align: center;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      margin-bottom: 14px;
-      opacity: 0.7;
-    }
-
-    /* Nav */
-    .nav-label {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--olive-light);
-      margin-bottom: 10px;
-      border-bottom: 1px solid var(--cream-dark);
-      padding-bottom: 5px;
-    }
-
-    .nav-item {
-      display: block;
-      padding: 5px 0 5px 10px;
-      color: var(--maroon);
-      text-decoration: none;
-      font-family: 'Special Elite', cursive;
-      font-size: 14px;
-      border-left: 2px solid transparent;
-      transition: all 0.15s ease;
-      position: relative;
-    }
-
-    .nav-item::before {
-      content: "›";
-      position: absolute;
-      left: 0;
-      opacity: 0;
-      transition: opacity 0.15s;
-    }
-
-    .nav-item:hover {
-      border-left-color: var(--maroon);
-      padding-left: 14px;
-      color: var(--ink);
-    }
-
-    .nav-item:hover::before {
-      opacity: 1;
-    }
-
-    /* Sidebar note box */
-    .sidebar-note {
-      margin-top: 18px;
-      border-top: 1px dashed #c8b89a;
-      padding-top: 14px;
-      font-size: 12px;
-      line-height: 1.5;
-      color: #5a4a38;
-      font-style: italic;
-    }
-
-    /* ─── MAIN CONTENT ─── */
-    .section-label {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--olive-light);
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .section-label::after {
-      content: "";
-      flex: 1;
-      height: 1px;
-      background: var(--cream-dark);
-    }
-
-    /* Featured article */
+    /* ─── FEATURED ARTICLE (index-specific) ─── */
     .featured-img {
       width: 100%;
       aspect-ratio: 16/7;
@@ -593,72 +392,13 @@
       margin-bottom: 4px;
     }
 
-    .post-meta {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 9px;
-      color: var(--olive);
-      letter-spacing: 0.12em;
-      margin-bottom: 6px;
-      opacity: 0.65;
-    }
-
     .post-excerpt {
       font-size: 13.5px;
       color: #3a2e22;
       line-height: 1.55;
     }
 
-    .read-more {
-      display: inline-block;
-      margin-top: 6px;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 10px;
-      color: var(--maroon);
-      letter-spacing: 0.1em;
-      text-decoration: none;
-      border-bottom: 1px solid var(--maroon);
-      opacity: 0.7;
-      transition: opacity 0.15s;
-    }
-
-    .read-more:hover { opacity: 1; }
-
-    /* Divider */
-    .divider {
-      border: none;
-      border-top: 1px dashed #c8b89a;
-      margin: 18px 0;
-    }
-
-    /* ─── FOOTER ─── */
-    #footer {
-      background: var(--maroon);
-      border-top: 4px double var(--maroon-light);
-      padding: 22px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 40px;
-    }
-
-    .footer-left {
-      font-family: 'Special Elite', cursive;
-      font-size: 18px;
-      color: var(--cream);
-      opacity: 0.9;
-    }
-
-    .footer-right {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 10px;
-      color: var(--cream);
-      opacity: 0.45;
-      letter-spacing: 0.15em;
-      text-align: right;
-      line-height: 1.8;
-    }
-
-    /* Torn paper effect between sections */
+    /* ─── TORN PAPER + PHOTO STRIP (index-specific) ─── */
     .torn {
       height: 12px;
       background: var(--cream);
@@ -733,7 +473,7 @@
 
 <!-- MASTHEAD -->
 <div id="masthead">
-  <span class="site-title">Cairo Yepez — Personal Site</span>
+  <a href="index.html" class="site-title">Cairo Yepez — Personal Site</a>
   <span class="dateline">EST. 2026 &nbsp;|&nbsp; CHICAGO, IL</span>
 </div>
 
@@ -779,6 +519,7 @@
       <div class="sidebar-tagline">Chicago, IL &nbsp;·&nbsp; Since 2026</div>
 
       <div class="nav-label">Navigation</div>
+      <a href="index.html" class="nav-item active">Home</a>
       <a href="games.html" class="nav-item">Games</a>
       <a href="blog.html" class="nav-item">Blog</a>
       <a href="music.html" class="nav-item">Music</a>
@@ -900,7 +641,7 @@
   <div class="footer-right">
     © 2026 — Cairo Yepez<br>
     Chicago, IL &nbsp;·&nbsp; All rights reserved<br>
-    A tribute to fallen heroes of the era.
+    ✶✶✶✶Made in Chicago, USA✶✶✶✶
   </div>
 </div>
 

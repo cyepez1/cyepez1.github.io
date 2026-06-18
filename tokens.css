@@ -1,0 +1,69 @@
+/* ═══════════════════════════════════════════════
+   DESIGN TOKENS — tokens.css
+   Single source of truth for cairoyepez.com
+   Cairo Yepez · cyepez1.github.io
+
+   STATUS: created Phase 1. Not yet linked anywhere.
+   Phase 2 will migrate style.css, index.html inline
+   <style>, and games-shared.css to import this file.
+
+   RECONCILIATION NOTES
+   ────────────────────
+   Canonical values defined in CLAUDE.md win over
+   per-file :root blocks.
+
+   --blue-margin conflict resolved:
+     index.html inline had --blue-margin: #7080c0  ← rogue
+     games-shared.css and CLAUDE.md both use #a8b4e8 ← canonical adopted
+   style.css uses --blue-margin-light: #a8b4e8 (same
+   value, different name). Both names kept here for
+   backward compat until Phase 2 cleanup.
+
+   Extras below the canonical block are real tokens
+   found in the wild (actively used). They belong
+   here rather than scattered across three files.
+═══════════════════════════════════════════════ */
+
+:root {
+
+  /* ── CANONICAL (CLAUDE.md source of truth) ── */
+  --cream:              #f0e8d5;   /* paper background          */
+  --cream-dark:         #e2d8c2;
+  --maroon:             #6b0f1a;   /* masthead, primary accents */
+  --maroon-light:       #8b1a28;
+  --olive:              #5a5430;
+  --olive-light:        #8a8050;
+  --ink:                #1a1410;   /* body text                 */
+  --blue-margin:        #a8b4e8;   /* ruled-margin rule         */
+  --paper:              #faf6ed;   /* card surface              */
+
+  /* ── ALIASES ── */
+  /* style.css uses this name for the same value as --blue-margin */
+  --blue-margin-light:  #a8b4e8;
+
+  /* ── EXTRAS — main site (index.html inline) ── */
+  --maroon-faint:       #f5eae8;
+  --scanline:           rgba(0, 0, 0, 0.07);
+
+  /* ── EXTRAS — games section (games-shared.css) ── */
+  --cream-mid:          #ede4cf;
+  --maroon-dim:         rgba(107, 15, 26, 0.12);
+  --ink-light:          #3a2f25;
+  --blue-margin-dim:    rgba(168, 180, 232, 0.25);
+  --paper-ruled:        repeating-linear-gradient(
+                          180deg,
+                          transparent,
+                          transparent 23px,
+                          rgba(160, 180, 220, 0.13) 23px,
+                          rgba(160, 180, 220, 0.13) 24px
+                        );
+
+  /* ── CATEGORY TINTS — games section ── */
+  --tint-starwars:      #3d2a12;
+  --tint-halo:          #0d1f35;
+  --tint-openworld:     #1a2d14;
+  --tint-indie:         #2a1a35;
+  --tint-shooters:      #2d1212;
+  --tint-builder:       #1a2818;
+
+}

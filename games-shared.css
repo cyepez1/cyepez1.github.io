@@ -6,31 +6,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Share+Tech+Mono&display=swap');
 
-:root {
-  --cream:            #f0e8d5;
-  --cream-dark:       #e2d8c2;
-  --cream-mid:        #ede4cf;
-  --maroon:           #6b0f1a;
-  --maroon-light:     #8b1a28;
-  --maroon-dim:       rgba(107,15,26,.12);
-  --olive:            #5a5430;
-  --olive-light:      #8a8050;
-  --ink:              #1a1410;
-  --ink-light:        #3a2f25;
-  --blue-margin:      #a8b4e8;
-  --blue-margin-dim:  rgba(168,180,232,.25);
-  --paper:            #faf6ed;
-  --paper-ruled:      repeating-linear-gradient(180deg, transparent, transparent 23px, rgba(160,180,220,.13) 23px, rgba(160,180,220,.13) 24px);
-
-  /* Category tints for placeholders */
-  --tint-starwars:    #3d2a12;
-  --tint-halo:        #0d1f35;
-  --tint-openworld:   #1a2d14;
-  --tint-indie:       #2a1a35;
-  --tint-shooters:    #2d1212;
-  --tint-builder:     #1a2818;
-}
-
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
