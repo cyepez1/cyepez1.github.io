@@ -46,7 +46,7 @@ see that file for the full list. Grain overlay applied via `body::before` in `st
 ## Two design systems
 Main site (`style.css` + per-page inline `<style>`): masthead with maroon double
 border, CRT hero on the index, paper/ruled card layouts. Pages: index, blog, music,
-designs, photos, misc.
+designs, photos, misc, now.
 
 Games section (`style.css` + `games-shared.css` + per-page inline `<style>`):
 late-2000s wiki structure. This section is the current quality bar — preserve it.
@@ -61,7 +61,7 @@ styles in a `<head>` `<style>` block.
 
 ## Navigation
 Every page carries the same sidebar/nav, linking: index, blog, music, photos,
-designs, games, misc. The nav is copy-pasted per page (see Structural debt) —
+designs, games, misc, now. The nav is copy-pasted per page (see Structural debt) —
 adding or renaming a top-level page means editing every page.
 
 ## Guiding aesthetic (condensed)
@@ -86,6 +86,8 @@ Cairo writes all real prose. Claude Code does not generate voice or editorial co
 ## File and naming conventions
 Lowercase hyphenated filenames throughout: `games-shooters.html`, `games-shared.css`.
 Section sub-pages prefixed with section name: `games-halo.html`.
+The Now page lives in its own subdirectory: `now/index.html` — asset and nav
+hrefs from it use the `../` prefix.
 Images in `/images/`. Unused images archived to `/images/archive/`.
 Documentation in `/docs/`.
 
@@ -99,8 +101,9 @@ Keep `CLAUDE.md` and `/docs/` current as decisions are made.
 Ask before any destructive or irreversible action. Archive over delete by default.
 
 ## Structural debt (tracked)
-Masthead and footer nav copy-pasted into all 13 pages — flag on any nav change,
-every page must be edited individually.
+Masthead and footer nav copy-pasted into all 14 pages (the 13 top-level pages plus
+`now/index.html`) — flag on any nav change, every page must be edited individually.
+The nav now carries 8 items: Home, Games, Blog, Music, Designs, Photos, Misc, Now.
 `blog.html` is a stale copy of `games.html` — Phase 4.
 Lorem ipsum and placeholder cells throughout.
 

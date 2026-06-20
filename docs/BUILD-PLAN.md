@@ -53,11 +53,14 @@ One session and branch per page.
 - Misc → corkboard layout
 - Index → refine CRT hero
 
-## Phase 6 — Now page [ ]
+## Phase 6 — Now page [x]
 - New `/now/index.html`
 - Sections: reading, playing, watching the yard, working on
-- Collage layout — index-card blocks, varied weight
-- Inherits `tokens.css`; added to nav across pages
+- Concept C (clean single column) — supersedes the original collage/index-card
+  sketch; a simple reading layout, no rotated cards
+- Inherits `tokens.css`; added to nav across all pages
+- Index gains a "Now:" status ribbon between the CRT hero and the main grid,
+  linking to the full page
 
 ## Phase 7 — Feature builds [ ]
 Sequence to be determined.
