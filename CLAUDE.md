@@ -20,8 +20,9 @@ Google Fonts: EB Garamond (body), Special Elite (display/headers), Share Tech Mo
 
 Stack changes require an explicit decision and their own phase. Default is always
 vanilla. Likely triggers for revisiting: guestbook (needs backend), RSS/email,
-JSON-driven games data, bird-page audio. If a trigger arrives, plan a migration
-phase — don't let the stack drift.
+JSON-driven games data, bird-page audio, real music playback (currently a CSS
+decorative mock), live streaming status (streaming page currently static embed +
+mini window). If a trigger arrives, plan a migration phase — don't let the stack drift.
 
 ## Design tokens
 Single source of truth: `tokens.css`. All pages link it before `style.css`.
@@ -104,10 +105,9 @@ Ask before any destructive or irreversible action. Archive over delete by defaul
 Masthead and footer nav copy-pasted into all 14 pages (the 13 top-level pages plus
 `now/index.html`) — flag on any nav change, every page must be edited individually.
 The nav now carries 8 items: Home, Games, Blog, Music, Designs, Photos, Misc, Now.
-`blog.html` is a stale copy of `games.html` — Phase 4.
 Lorem ipsum and placeholder cells throughout.
 
-Resolved in Phases 1–2 (kept for record):
+Resolved in Phases 1–6 (kept for record):
 - Token `:root` blocks consolidated into `tokens.css` ✓
 - `music.html` wrong name ("Chips Dominguez") fixed ✓
 - Nav label "Writing" → "Blog" everywhere ✓
@@ -116,6 +116,8 @@ Resolved in Phases 1–2 (kept for record):
 - Footer tagline set to "✶✶✶✶Made in Chicago, USA✶✶✶✶" ✓
 - Dead `.s-jump` CSS removed from `games-shooters.html` ✓
 - `index.html` inline `<style>` slimmed from ~723 to ~462 lines ✓
+- `blog.html` rebuilt as long-form reading space (Phase 4) ✓
+- `now/index.html` created; status ribbon added to index (Phase 6, Concept C) ✓
 
 ## Verification
 No automated tests, linter, or build step. Changes are verified by opening the
