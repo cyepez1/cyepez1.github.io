@@ -45,13 +45,15 @@ Single source of truth for color and type.
 - New banner, post-list structure, single-column layout, generous type
 - First page fully specific to its medium
 
-## Phase 5 — Per-page redesigns [ ]
+## Phase 5 — Per-page redesigns [~]
 One session and branch per page.
-- Designs → drafting table treatment
-- Music → liner-note typography
-- Photos → contact sheet layout
-- Misc → corkboard layout
-- Index → refine CRT hero
+- [x] Designs → drafting table treatment — done as Portfolio: `designs.html`
+      renamed to `portfolio.html` (nav relabeled Designs → Portfolio across all
+      pages), rebuilt with blueprint-frame layout and olive page accent
+- [ ] Music → liner-note typography
+- [ ] Photos → contact sheet layout
+- [ ] Misc → corkboard layout
+- [ ] Index → refine CRT hero
 
 ## Phase 6 — Now page [x]
 - New `/now/index.html`

@@ -47,7 +47,7 @@ see that file for the full list. Grain overlay applied via `body::before` in `st
 ## Two design systems
 Main site (`style.css` + per-page inline `<style>`): masthead with maroon double
 border, CRT hero on the index, paper/ruled card layouts. Pages: index, blog, music,
-designs, photos, misc, now.
+portfolio, photos, misc, now.
 
 Games section (`style.css` + `games-shared.css` + per-page inline `<style>`):
 late-2000s wiki structure. This section is the current quality bar — preserve it.
@@ -62,7 +62,7 @@ styles in a `<head>` `<style>` block.
 
 ## Navigation
 Every page carries the same sidebar/nav, linking: index, blog, music, photos,
-designs, games, misc, now. The nav is copy-pasted per page (see Structural debt) —
+portfolio, games, misc, now. The nav is copy-pasted per page (see Structural debt) —
 adding or renaming a top-level page means editing every page.
 
 ## Guiding aesthetic (condensed)
@@ -104,7 +104,7 @@ Ask before any destructive or irreversible action. Archive over delete by defaul
 ## Structural debt (tracked)
 Masthead and footer nav copy-pasted into all 14 pages (the 13 top-level pages plus
 `now/index.html`) — flag on any nav change, every page must be edited individually.
-The nav now carries 8 items: Home, Games, Blog, Music, Designs, Photos, Misc, Now.
+The nav now carries 8 items: Home, Games, Blog, Music, Portfolio, Photos, Misc, Now.
 Lorem ipsum and placeholder cells throughout.
 
 Resolved in Phases 1–6 (kept for record):

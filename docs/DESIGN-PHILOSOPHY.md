@@ -61,7 +61,7 @@ specific to the medium.
 | Games | Wiki density. Card catalog logic. Computer lab energy. |
 | Photos | Contact sheets. Chicago subject matter. Darkroom feel. |
 | Music | Physical media. Liner note typography. |
-| Designs | Technical. Blueprint and drafting table. |
+| Portfolio | Technical. Blueprint and drafting table. (Formerly "Designs".) |
 | Misc | Junk drawer. Corkboard. Things that don't fit elsewhere. |
 | Now | Ephemera. Current state. Collage rather than grid. |
 | Civic | Commentary and urbanism. Editorial register. |
