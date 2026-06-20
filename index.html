@@ -238,6 +238,37 @@
       margin-top: 4px;
     }
 
+    /* ─── NOW RIBBON (index-specific) ─── */
+    #now-ribbon {
+      background: var(--paper);
+      border-bottom: 1px solid #c8b89a;
+      padding: 5px 30px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-family: 'EB Garamond', serif;
+      font-size: 14px;
+      color: var(--ink-light);
+    }
+    .ribbon-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--olive-light);
+    }
+    .ribbon-sep { color: var(--cream-dark); }
+    .ribbon-link {
+      margin-left: auto;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      color: var(--maroon);
+      text-decoration: none;
+      border-bottom: 1px solid var(--maroon);
+      opacity: 0.7;
+    }
+    .ribbon-link:hover { opacity: 1; }
+
     /* ─── SIDEBAR AVATAR (index-specific) ─── */
     .sidebar-avatar {
       width: 100%;
@@ -504,6 +535,15 @@
   </div>
   <div class="hero-title">CAIRO YEPEZ</div>
   <div class="hero-sub">Games &nbsp;·&nbsp; Music &nbsp;·&nbsp; Design &nbsp;·&nbsp; Misc</div>
+</div>
+
+<!-- NOW RIBBON -->
+<div id="now-ribbon">
+  <span class="ribbon-label">Now:</span>
+  <span class="ribbon-item">Reading — Notes Toward a Field Guide</span>
+  <span class="ribbon-sep">·</span>
+  <span class="ribbon-item">Playing — Verdant Hollow</span>
+  <a href="now/" class="ribbon-link">Full page →</a>
 </div>
 
 <!-- MAIN LAYOUT -->
