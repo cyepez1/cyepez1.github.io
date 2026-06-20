@@ -2,96 +2,141 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Designs — Cairo Yepez</title>
+  <title>Portfolio — Cairo Yepez</title>
   <link rel="stylesheet" href="tokens.css">
   <link rel="stylesheet" href="style.css">
   <style>
-    .design-grid {
+    /* ─── PORTFOLIO ─── olive replaces maroon as the page accent (page-scoped) */
+    .section-label { color: var(--olive); }
+
+    /* CURRENT block — highlighted .paper with olive left border */
+    .pf-current { border-left-color: var(--olive); }
+    .pf-current-badge {
+      display: inline-block;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 8px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      background: var(--olive);
+      color: var(--cream);
+      padding: 2px 8px;
+      margin-bottom: 10px;
+    }
+    .pf-current-title {
+      font-family: 'Special Elite', cursive;
+      font-size: 22px;
+      color: var(--olive);
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+    .pf-current-meta {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 9px;
+      color: var(--olive-light);
+      letter-spacing: 0.12em;
+      margin-bottom: 10px;
+    }
+    .pf-current-body { font-size: 14px; color: #3a2e22; line-height: 1.65; }
+
+    /* INDEX table */
+    .pf-table-wrap { border-top: 2px solid var(--olive); }
+    table.pf-table { width: 100%; border-collapse: collapse; }
+    table.pf-table thead th {
+      background: var(--olive);
+      color: var(--cream);
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-align: left;
+      padding: 7px 10px;
+    }
+    table.pf-table tbody td {
+      border-bottom: 1px solid var(--cream-dark);
+      padding: 9px 10px;
+      vertical-align: middle;
+    }
+    .pf-row-title {
+      font-family: 'Special Elite', cursive;
+      font-size: 15px;
+      color: var(--olive);
+    }
+    .pf-cell-mono {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 9px;
+      color: var(--ink-light);
+      letter-spacing: 0.1em;
+    }
+    .pf-status {
+      display: inline-block;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 8px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: var(--olive);
+      color: var(--cream);
+      padding: 2px 7px;
+      white-space: nowrap;
+    }
+
+    /* ALL WORK grid */
+    .pf-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 18px;
       margin-bottom: 20px;
     }
-    .design-card {
+    .pf-card {
       background: var(--paper);
-      border: 1px solid #c8b89a;
+      border: 0.5px solid #c8b89a;
+      border-top: 2px solid var(--olive);
       overflow: hidden;
       transition: transform 0.15s;
     }
-    .design-card:hover { transform: translateY(-3px); }
-    .design-preview {
-      width: 100%;
-      aspect-ratio: 4/3;
-      background: repeating-linear-gradient(-45deg, #e2d8c2 0px, #e2d8c2 2px, #ede5d0 2px, #ede5d0 12px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 9px;
-      color: var(--maroon);
-      opacity: 0.4;
-      letter-spacing: 0.15em;
-      position: relative;
-    }
-    .design-type-badge {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background: var(--maroon);
-      color: var(--cream);
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 8px;
-      padding: 2px 7px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      opacity: 0.85;
-    }
-    .design-info {
-      padding: 12px 14px;
-      border-top: 2px solid var(--maroon);
-    }
-    .design-title {
+    .pf-card:hover { transform: translateY(-3px); }
+    .pf-card-info { padding: 12px 14px; }
+    .pf-card-title {
       font-family: 'Special Elite', cursive;
-      font-size: 16px;
-      color: var(--maroon);
+      font-size: 14px;
+      color: var(--olive);
       margin-bottom: 3px;
     }
-    .design-meta {
+    .pf-card-meta {
       font-family: 'Share Tech Mono', monospace;
       font-size: 8px;
-      color: var(--olive);
+      color: var(--olive-light);
       letter-spacing: 0.12em;
-      opacity: 0.65;
       margin-bottom: 8px;
     }
-    .design-desc {
+    .pf-card-desc {
+      font-family: 'EB Garamond', serif;
       font-size: 13px;
       color: #3a2e22;
       line-height: 1.55;
     }
-    .process-strip {
-      display: flex;
-      gap: 10px;
-      margin-top: 12px;
-      overflow-x: auto;
-      padding-bottom: 4px;
+
+    /* Blueprint preview frame (replaces the hatched .design-preview) */
+    .bp-frame {
+      background: #e8eef5;
+      border-bottom: 0.5px solid var(--blue-margin);
+      width: 100%; aspect-ratio: 4/3;
+      position: relative;
+      display: flex; align-items: center; justify-content: center;
     }
-    .process-cell {
-      flex: 0 0 90px;
-      aspect-ratio: 1;
-      background: repeating-linear-gradient(45deg, #e2d8c2 0px, #e2d8c2 1px, #ede5d0 1px, #ede5d0 7px);
-      border: 1px solid #c8b89a;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .bp-frame::before {
+      content: '';
+      position: absolute; inset: 6px;
+      border: 0.5px dashed var(--blue-margin);
+      opacity: 0.7; pointer-events: none;
+    }
+    .bp-frame-wide { aspect-ratio: 16/5; margin-bottom: 14px; }
+    .bp-type {
       font-family: 'Share Tech Mono', monospace;
-      font-size: 7px;
-      color: var(--maroon);
-      opacity: 0.4;
-      letter-spacing: 0.1em;
-      flex-direction: column;
-      gap: 4px;
+      font-size: 8px; color: var(--blue-margin);
+      letter-spacing: 0.15em; opacity: 0.6;
     }
+
+    @media(max-width:700px){ .pf-grid{grid-template-columns:1fr;} }
   </style>
 </head>
 <body>
@@ -103,8 +148,8 @@
 
 <div class="page-banner">
   <div class="page-banner-inner">
-    <div class="page-banner-label">Cairo Yepez / Designs</div>
-    <div class="page-banner-title">The Blueprint Drawer</div>
+    <div class="page-banner-label">Cairo Yepez / Portfolio</div>
+    <div class="page-banner-title">The Portfolio</div>
     <div class="page-banner-sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
   </div>
 </div>
@@ -132,79 +177,93 @@
 
   <main>
 
-    <!-- FEATURED -->
-    <div class="section-label">Featured Work</div>
-    <div class="paper" style="margin-bottom:20px;">
-      <div class="ph-img" style="width:100%; aspect-ratio:16/6; margin-bottom:12px;">
-        <div class="corner tl"></div><div class="corner tr"></div>
-        <div class="corner bl"></div><div class="corner br"></div>
-        <span>Featured Design Placeholder</span>
+    <!-- CURRENT -->
+    <div class="section-label">Current</div>
+    <div class="paper pf-current" style="margin-bottom:22px;">
+      <div class="bp-frame bp-frame-wide">
+        <span class="bp-type">ID</span>
       </div>
-      <div class="post-title" style="font-size:22px;">Voluptatem Identity System for Accusantium Co.</div>
-      <div class="post-meta">March 2026 &nbsp;·&nbsp; Branding / Print</div>
-      <p style="font-size:14px; color:#3a2e22; line-height:1.65; margin-top:8px;">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.
+      <span class="pf-current-badge">Active Project</span>
+      <div class="pf-current-title">Lorem Ipsum Dolor Sit</div>
+      <div class="pf-current-meta">Lorem ipsum &nbsp;·&nbsp; dolor sit amet</div>
+      <p class="pf-current-body">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
       </p>
-      <div style="margin-top:10px; font-family:'Share Tech Mono',monospace; font-size:9px; color:var(--olive); letter-spacing:0.15em; opacity:0.7;">
-        PROCESS SKETCHES ↓
-      </div>
-      <div class="process-strip">
-        <div class="process-cell"><span>SKETCH</span><span>01</span></div>
-        <div class="process-cell"><span>DRAFT</span><span>02</span></div>
-        <div class="process-cell"><span>DRAFT</span><span>03</span></div>
-        <div class="process-cell"><span>FINAL</span><span>04</span></div>
-      </div>
     </div>
 
-    <!-- DESIGN GRID -->
-    <div class="section-label">Recent Projects</div>
-    <div class="design-grid">
+    <!-- INDEX -->
+    <div class="section-label">Index</div>
+    <div class="paper pf-table-wrap" style="margin-bottom:22px;">
+      <table class="pf-table">
+        <thead>
+          <tr><th>Project</th><th>Type</th><th>Date</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="pf-row-title">Lorem ipsum dolor</td>
+            <td class="pf-cell-mono">POSTER</td>
+            <td class="pf-cell-mono">2026</td>
+            <td><span class="pf-status">Done</span></td>
+          </tr>
+          <tr>
+            <td class="pf-row-title">Sit amet consectetur</td>
+            <td class="pf-cell-mono">WEB</td>
+            <td class="pf-cell-mono">2026</td>
+            <td><span class="pf-status">In Progress</span></td>
+          </tr>
+          <tr>
+            <td class="pf-row-title">Adipiscing elit sed</td>
+            <td class="pf-cell-mono">PRINT</td>
+            <td class="pf-cell-mono">2025</td>
+            <td><span class="pf-status">Done</span></td>
+          </tr>
+          <tr>
+            <td class="pf-row-title">Eiusmod tempor incididunt</td>
+            <td class="pf-cell-mono">ID</td>
+            <td class="pf-cell-mono">2025</td>
+            <td><span class="pf-status">Archived</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-      <div class="design-card">
-        <div class="design-preview">
-          <div class="design-type-badge">Poster</div>
-          <span>Preview</span>
-        </div>
-        <div class="design-info">
-          <div class="design-title">Natus Error Annual Poster Series</div>
-          <div class="design-meta">Feb 2026 &nbsp;·&nbsp; Screen Print</div>
-          <div class="design-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</div>
+    <!-- ALL WORK -->
+    <div class="section-label">All Work</div>
+    <div class="pf-grid">
+
+      <div class="pf-card">
+        <div class="bp-frame"><span class="bp-type">POSTER</span></div>
+        <div class="pf-card-info">
+          <div class="pf-card-title">Lorem Ipsum</div>
+          <div class="pf-card-meta">POSTER &nbsp;·&nbsp; 2026</div>
+          <div class="pf-card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
         </div>
       </div>
 
-      <div class="design-card">
-        <div class="design-preview">
-          <div class="design-type-badge">Web</div>
-          <span>Preview</span>
-        </div>
-        <div class="design-info">
-          <div class="design-title">Laudantium Digital Interface Concept</div>
-          <div class="design-meta">Jan 2026 &nbsp;·&nbsp; UI / Mockup</div>
-          <div class="design-desc">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex commodo.</div>
+      <div class="pf-card">
+        <div class="bp-frame"><span class="bp-type">WEB</span></div>
+        <div class="pf-card-info">
+          <div class="pf-card-title">Dolor Sit Amet</div>
+          <div class="pf-card-meta">WEB &nbsp;·&nbsp; 2026</div>
+          <div class="pf-card-desc">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</div>
         </div>
       </div>
 
-      <div class="design-card">
-        <div class="design-preview">
-          <div class="design-type-badge">Print</div>
-          <span>Preview</span>
-        </div>
-        <div class="design-info">
-          <div class="design-title">Perspiciatis Zine No. 3: The Inventory Issue</div>
-          <div class="design-meta">Dec 2025 &nbsp;·&nbsp; Zine / Editorial</div>
-          <div class="design-desc">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
+      <div class="pf-card">
+        <div class="bp-frame"><span class="bp-type">PRINT</span></div>
+        <div class="pf-card-info">
+          <div class="pf-card-title">Consectetur Elit</div>
+          <div class="pf-card-meta">PRINT &nbsp;·&nbsp; 2025</div>
+          <div class="pf-card-desc">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</div>
         </div>
       </div>
 
-      <div class="design-card">
-        <div class="design-preview">
-          <div class="design-type-badge">Branding</div>
-          <span>Preview</span>
-        </div>
-        <div class="design-info">
-          <div class="design-title">Omnis Iste Natus Logo &amp; Type Treatment</div>
-          <div class="design-meta">Nov 2025 &nbsp;·&nbsp; Identity</div>
-          <div class="design-desc">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.</div>
+      <div class="pf-card">
+        <div class="bp-frame"><span class="bp-type">ID</span></div>
+        <div class="pf-card-info">
+          <div class="pf-card-title">Eiusmod Tempor</div>
+          <div class="pf-card-meta">ID &nbsp;·&nbsp; 2025</div>
+          <div class="pf-card-desc">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</div>
         </div>
       </div>
 
