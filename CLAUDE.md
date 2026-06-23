@@ -47,7 +47,7 @@ see that file for the full list. Grain overlay applied via `body::before` in `st
 ## Two design systems
 Main site (`style.css` + per-page inline `<style>`): masthead with maroon double
 border, CRT hero on the index, paper/ruled card layouts. Pages: index, blog, music,
-portfolio, photos, misc, now.
+portfolio, photos, misc, now, 404.
 
 Games section (`style.css` + `games-shared.css` + per-page inline `<style>`):
 late-2000s wiki structure. This section is the current quality bar — preserve it.
@@ -102,7 +102,7 @@ Keep `CLAUDE.md` and `/docs/` current as decisions are made.
 Ask before any destructive or irreversible action. Archive over delete by default.
 
 ## Structural debt (tracked)
-Masthead and footer nav copy-pasted into all 14 pages (the 13 top-level pages plus
+Masthead and footer nav copy-pasted into all 15 pages (the 14 top-level pages plus
 `now/index.html`) — flag on any nav change, every page must be edited individually.
 The nav now carries 8 items: Home, Games, Blog, Music, Portfolio, Photos, Misc, Now.
 Lorem ipsum and placeholder cells throughout.
@@ -118,6 +118,7 @@ Resolved in Phases 1–6 (kept for record):
 - `index.html` inline `<style>` slimmed from ~723 to ~462 lines ✓
 - `blog.html` rebuilt as long-form reading space (Phase 4) ✓
 - `now/index.html` created; status ribbon added to index (Phase 6, Concept C) ✓
+- `404.html` shipped — GitHub Pages error page, main-site chrome (Phase 5) ✓
 
 ## Verification
 No automated tests, linter, or build step. Changes are verified by opening the
