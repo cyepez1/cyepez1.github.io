@@ -26,7 +26,7 @@ Live: cairoyepez.com · Repo: github.com/cyepez1/cyepez1.github.io
 | 3 | Document the system | ✓ Done | CLAUDE.md, DESIGN-AUDIT.md, REPO-AUDIT.md all updated with resolution tables |
 | 4 | Blog rebuild | ✓ Done | "The Long Room"; single-column Garamond reading list; blog.html was a stale games.html copy |
 | 5 (was 6) | Now page | ✓ Done | Concept C: status ribbon on index + clean single-column /now/index.html; collage layout rejected |
-| 5 | Per-page redesigns | ~ In progress | Portfolio first; order: Portfolio → Music → Index → Misc → Photos → Streaming |
+| 5 | Per-page redesigns | ~ In progress | General Restructure DONE (canonical chrome locked); rebuild loop next: photos → music → misc → index |
 | 6 | Feature builds | Not started | See BUILD-PLAN.md |
 
 ---
@@ -74,6 +74,23 @@ NOT relocated to the sidebar.
 
 **404 page shipped.** `404.html` built, merged to main, and live (GitHub Pages
 auto-serves it for dead URLs). Main-site chrome; placeholder body + TBD graphic slot.
+
+**General Restructure complete.** The one-time pre-loop pass locked the canonical chrome:
+one main-site system + one games system, hand-propagated to all 15 pages (shared partials
+still deferred, G1). Canonical snippets in `docs/canonical/` (`masthead-main`,
+`footer-main`, `nav-main`, `masthead-games`, `footer-games`) are the source of truth;
+full write-up in `docs/GENERAL-RESTRUCTURE-PROPOSAL.md`. Locked facts: masthead dateline
+`Chicago, IL` (no year); main footer `© 2026 — Cairo Yepez` (year kept, em dash); games
+footer `© 2026 · Chicago, IL · All rights reserved` (divergent, year kept); tagline
+✶✶✶✶Made in Chicago, USA✶✶✶✶ unchanged. Component vocabulary now also includes the
+corkboard layout (misc) and the CRT set-piece/vignette (index) — structure defined,
+visual treatment deferred to those rebuilds.
+
+**Phase 5 rebuild loop is the next live step.** Restructure done; loop order:
+photos → music → misc → index. Mode B. Quality bar = games + blog + portfolio. Per-page
+treatment: photos = rebuild (contact sheet); music = hybrid (keep custom components,
+align chrome, add page accent + denser index tier); misc = corkboard rebuild;
+index = hybrid with the CRT as an anchored set-piece (not sidebar).
 
 ---
 

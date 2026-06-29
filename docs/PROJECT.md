@@ -5,42 +5,44 @@ Archive completed entries to MEMORY.md, then clear the checklist.
 
 ---
 
-## Current sub-project: Portfolio page rebuild
+## Current state: General Restructure complete — rebuild loop is next
 
 **Phase:** 5 — Per-page redesigns
-**File:** designs.html → portfolio.html
-**Branch:** (Claude Code's branch)
+**Branch:** feature/canonical-chrome (chrome restructure; these doc updates ride the same PR)
 
-### Design decisions locked
-- Accent: --olive replaces --maroon (page-specific inline <style> only)
-- Layout: Current block → Index table → 2-col blueprint grid
-- Blueprint frame: #e8eef5 bg, 0.5px solid --blue-margin, dashed inset ::before
-- Content override: lorem ipsum for all placeholder text including titles
-- Type labels (POSTER / WEB / PRINT / ID) retained as category labels
+### General Restructure — DONE
+One-time pre-loop pass complete: canonical chrome locked and hand-propagated to all 15
+pages (the Portfolio rebuild landed earlier in Phase 5). Shared partials deferred (G1).
 
-### Checklist
-- [ ] Pre-flight: commit 4 pending dirty files (designs.html, misc.html, music.html, CLAUDE.md)
-- [ ] Rename designs.html → portfolio.html via git mv
-- [ ] Update nav on all 14 pages: href + label Designs → Portfolio
-- [ ] Rebuild portfolio.html per spec
-- [ ] Update CLAUDE.md (nav item, filename)
-- [ ] Update docs/BUILD-PLAN.md (Phase 5 progress)
-- [ ] Update docs/DESIGN-PHILOSOPHY.md (per-page table row)
-- [ ] Browser verify before each push
+Source of truth = `docs/canonical/` (`masthead-main`, `footer-main`, `nav-main`,
+`masthead-games`, `footer-games`); full write-up in
+`docs/GENERAL-RESTRUCTURE-PROPOSAL.md`. Copy chrome from there on every page build.
 
-### On completion
-- Move decisions to MEMORY.md per-page table
-- Reset this file for next sub-project (Music)
+Locked chrome facts:
+- masthead dateline = `Chicago, IL` (NO year)
+- main-site footer = `© 2026 — Cairo Yepez` (year kept, em dash)
+- games footer = `© 2026 · Chicago, IL · All rights reserved` (divergent system, year kept)
+- tagline ✶✶✶✶Made in Chicago, USA✶✶✶✶ (U+2726, no spaces) — unchanged on all 15
+
+Component vocabulary additions (structure defined; visual treatment deferred to the
+rebuilds): corkboard layout (misc), CRT set-piece/vignette (index).
+
+### Next live step: the rebuild loop
+Order: photos → music → misc → index. Mode B. Quality bar = games + blog + portfolio.
+Reset this file when the first rebuild (photos) starts.
 
 ---
 
-## Queued sub-projects (Phase 5)
+## Rebuild loop (Phase 5) — order: photos → music → misc → index
 
-2. Music — liner-note typography + fake CSS player corner widget
-3. Index — hybrid; CRT becomes an anchored set-piece/vignette (CRT-on-a-stand + scene elements), not sidebar; fake player persistent element
-4. Misc — corkboard layout (rebuild)
-5. Photos — contact sheet layout
-6. Streaming page — static embed + mini window above player
+1. Photos — rebuild; contact sheet layout (formalize the existing film-strip)
+2. Music — hybrid; keep custom components (waveform, counter tracklist, crate), align
+   chrome to canonical, add a page accent + a denser index/catalog tier
+3. Misc — corkboard layout (rebuild); structure defined, visual treatment TBD
+4. Index — hybrid; CRT becomes an anchored set-piece/vignette (CRT-on-a-stand + scene
+   elements), NOT sidebar; fake player persistent element
+
+After the loop: Streaming page — static embed + mini window above player.
 
 ---
 
