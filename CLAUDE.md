@@ -65,6 +65,25 @@ Every page carries the same sidebar/nav, linking: index, blog, music, photos,
 portfolio, games, misc, now. The nav is copy-pasted per page (see Structural debt) —
 adding or renaming a top-level page means editing every page.
 
+## Canonical chrome (source of truth)
+The General Restructure (final Phase 5 pre-loop step) is DONE: one canonical main-site
+chrome and one canonical games chrome, hand-propagated across all 15 pages. Shared
+partials (11ty) remain deferred (G1).
+
+The canonical versions live as reference snippets in `docs/canonical/`: `masthead-main`,
+`footer-main`, `nav-main`, `masthead-games`, `footer-games`. These are the source of
+truth — copy chrome from there on every page build/rebuild. Full write-up:
+`docs/GENERAL-RESTRUCTURE-PROPOSAL.md`.
+
+Locked chrome facts:
+- masthead dateline = `Chicago, IL` (NO year)
+- main-site footer = `© 2026 — Cairo Yepez` (year kept, em dash)
+- games footer = `© 2026 · Chicago, IL · All rights reserved` (divergent system, year kept)
+- footer tagline ✶✶✶✶Made in Chicago, USA✶✶✶✶ (U+2726, no spaces) — unchanged on all 15
+
+Rule: if chrome ever changes, update `docs/canonical/` AND every page in the same pass —
+the snippets and live pages must not drift (G1's standing cost).
+
 ## Guiding aesthetic (condensed)
 The site occupies a specific tonal register: analog-warm, institutionally serious,
 handmade without being precious. The visual language draws on print and archival
@@ -98,6 +117,9 @@ One concern per commit.
 Preview locally before pushing.
 One page at a time for visual changes.
 Feature branches; merge when stable.
+Build/rebuild pages by copying chrome from `docs/canonical/` (see Canonical chrome).
+When a content/design decision changes, check whether any planning/proposal doc that
+records the old decision also needs correcting — doc/code drift is the live failure mode.
 Keep `CLAUDE.md` and `/docs/` current as decisions are made.
 Ask before any destructive or irreversible action. Archive over delete by default.
 
@@ -119,6 +141,9 @@ Resolved in Phases 1–6 (kept for record):
 - `blog.html` rebuilt as long-form reading space (Phase 4) ✓
 - `now/index.html` created; status ribbon added to index (Phase 6, Concept C) ✓
 - `404.html` shipped — GitHub Pages error page, main-site chrome (Phase 5) ✓
+- General Restructure complete — canonical main-site + games chrome locked in
+  `docs/canonical/` and propagated to all 15 pages; masthead dateline year dropped,
+  footer year kept ✓
 
 ## Verification
 No automated tests, linter, or build step. Changes are verified by opening the
