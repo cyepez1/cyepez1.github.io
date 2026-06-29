@@ -61,13 +61,13 @@ reference snippets live in `docs/canonical/`. Open questions at the bottom await
 <div id="footer">
   <a href="index.html" class="footer-left">Cairo Yepez</a>
   <div class="footer-right">
-    © Cairo Yepez<br>
+    © 2026 — Cairo Yepez<br>
     Chicago, IL &nbsp;·&nbsp; All rights reserved<br>
     ✶✶✶✶Made in Chicago, USA✶✶✶✶
   </div>
 </div>
 ```
-- Year removed (LOCKED): no `2026` in the footer.
+- Footer year kept (OQ2, LOCKED): `© 2026` stays; only the masthead dateline drops the year.
 - `now/index.html`: `href="../index.html"`.
 - **index divergence:** `footer-left` is a `<div>` (the other 7 use `<a href="index.html">`).
   Resolve to the anchor.
@@ -79,11 +79,11 @@ reference snippets live in `docs/canonical/`. Open questions at the bottom await
 ```html
 <footer class="g-footer">
   <a href="index.html" class="g-footer-left">Cairo Yepez</a>
-  <div class="g-footer-right">© Chicago, IL · All rights reserved<br/>✶✶✶✶Made in Chicago, USA✶✶✶✶</div>
+  <div class="g-footer-right">© 2026 · Chicago, IL · All rights reserved<br/>✶✶✶✶Made in Chicago, USA✶✶✶✶</div>
 </footer>
 ```
 - Intentional cross-system difference KEPT: one line, `·` not `—`, no repeated name.
-  Year removed here too (LOCKED).
+  Year kept here too (OQ2, LOCKED).
 
 ## 3. Canonical nav / sitemap
 
@@ -180,10 +180,11 @@ All 15 HTML files. "Chrome edit" = masthead/footer/nav only.
 ## Open questions — resolutions
 1. **Dateline year — RESOLVED.** Year removed on ALL 8 main pages: masthead dateline →
    `Chicago, IL`, index matching.
-2. **Footer year — RESOLVED.** Year removed from the footer: `© 2026 — Cairo Yepez` →
-   `© Cairo Yepez` (main); `© 2026 · …` → `© Chicago, IL · All rights reserved` (games).
+2. **Footer year — RESOLVED.** Year KEPT in the footer: `© 2026 — Cairo Yepez` (main)
+   and `© 2026 · Chicago, IL · All rights reserved` (games). Only the masthead dateline
+   drops the year (OQ1).
 3. **Games footer copy — RESOLVED.** Kept divergent (one line, `·`, no repeated name);
-   year dropped to match the no-year decision.
+   year retained, matching the OQ2 footer-year decision.
 4. **Corkboard look — DEFERRED.** Cork texture / pins / rotation decided at the misc
    rebuild. Structure proposed above stands.
 5. **Index CRT set-piece — DEFERRED.** Surrounding motifs, CRT resize from 560px, and the
