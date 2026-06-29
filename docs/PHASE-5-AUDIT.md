@@ -202,3 +202,12 @@ token-purity. Rebuilds should prefer existing tokens (notably `#3a2e22` → `--i
   → `--cream-dark` site-wide. `TBD — resolve in Layer-3`.
 - misc corkboard vs refresh — Cairo's editorial decision.
 - index CRT-vs-avatar side-slot resolution and CRT resize — Layer-2 execution detail.
+
+---
+
+## Closing note — General Restructure complete
+The General Restructure (this audit's final pre-loop step) is DONE: chrome is
+canonicalized into two locked systems (main-site + games) and hand-propagated across all
+15 pages. See `docs/GENERAL-RESTRUCTURE-PROPOSAL.md` and the reference snippets in
+`docs/canonical/` for detail. The rebuild loop (photos → music → misc → index) is the
+next live step. This audit is closed.
