@@ -3,11 +3,11 @@
    Single source of truth for cairoyepez.com
    Cairo Yepez · cyepez1.github.io
 
-   STATUS: created Phase 1. Not yet linked anywhere.
-   Phase 2 will migrate style.css, index.html inline
-   <style>, and games-shared.css to import this file.
+   Linked by every page, before style.css (and
+   games-shared.css on games pages). Do not add
+   :root blocks anywhere else.
 
-   RECONCILIATION NOTES
+   RECONCILIATION NOTES (historical, Phase 1–2)
    ────────────────────
    Canonical values defined in CLAUDE.md win over
    per-file :root blocks.

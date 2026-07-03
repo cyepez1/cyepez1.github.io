@@ -5,8 +5,9 @@ component vocabulary before the photos → music → misc → index rebuild loop
 partials (11ty) remain deferred (G1), so the canonical versions are hand-copied per
 page — this doc defines the ONE version to propagate.
 
-**Status:** PROPOSAL + DRAFT. Nothing on any live page has been propagated. Draft
-reference snippets live in `docs/canonical/`. Open questions at the bottom await Cairo.
+**Status:** COMPLETE. Canonical chrome propagated to all 15 pages (`b4e6415`) and
+merged to `main`. Reference snippets live in `docs/canonical/`. All open questions
+resolved (see bottom). Kept as the historical record of this pass.
 
 ## Decisions already settled (this pass)
 1. **Index conforms.** Index is the prototype; the establishment year/date is removed
@@ -197,4 +198,5 @@ All 15 HTML files. "Chrome edit" = masthead/footer/nav only.
 - NUL bytes stripped from `music.html`, `games.html`, `games-shooters.html` (all → 0),
   line endings preserved.
 - This doc + 5 `docs/canonical/*.html` snippets written for review.
-- NO live-page chrome propagated. NO branch/commit/push. Awaiting review + Open Q answers.
+- Chrome propagated to all 15 pages (`b4e6415`) on `feature/canonical-chrome`;
+  branch merged to `main` 2026-07-02. Pass closed.
