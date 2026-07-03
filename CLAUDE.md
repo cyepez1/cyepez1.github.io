@@ -162,4 +162,10 @@ links and missing images while keeping the site buildless.
 ## Project docs
 `docs/DESIGN-PHILOSOPHY.md` — aesthetic reference, hard NOs, contributor rules
 `docs/BUILD-PLAN.md` — phased plan, live status
-`docs/DESIGN-AUDIT.md`, `docs/REPO-AUDIT.md` — source audits
+`docs/PROJECT.md` — current sub-project state
+`docs/MEMORY.md` — history, rationale, decisions
+`docs/AUDIT-2026-07.md` — July 2026 full audit (current-state truth + drift record)
+`docs/canonical/` — chrome source-of-truth snippets
+`docs/archive/` — superseded docs kept for record: original project brief,
+source audits (REPO, DESIGN, PHASE-5), restructure proposal, future-builds
+(Garcia Ridge + satirical civic publication, deferred to Phase 7)
