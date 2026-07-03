@@ -165,6 +165,8 @@ links and missing images while keeping the site buildless.
 `docs/PROJECT.md` — current sub-project state
 `docs/MEMORY.md` — history, rationale, decisions
 `docs/AUDIT-2026-07.md` — July 2026 full audit (current-state truth + drift record)
+`docs/DESIGN-DIRECTION-2026.md` — APPROVED fusion direction (Golden Age structure,
+zine materials); governs the rebuild loop, JS moments, and the post-loop 11ty phase
 `docs/canonical/` — chrome source-of-truth snippets
 `docs/archive/` — superseded docs kept for record: original project brief,
 source audits (REPO, DESIGN, PHASE-5), restructure proposal, future-builds
