@@ -7,8 +7,9 @@ Archive completed entries to MEMORY.md, then clear the checklist.
 
 ## Current state: General Restructure complete — rebuild loop is next
 
-**Phase:** 5 — Per-page redesigns
-**Branch:** feature/canonical-chrome (chrome restructure; these doc updates ride the same PR)
+**Phase:** 5 — Per-page redesigns (governed by `docs/BUILD-PLAN-2026-REFRESH.md`)
+**Branch:** main (feature/canonical-chrome merged 2026-07-02; per-page work gets
+its own `feature/<page>-rebuild` branch)
 
 ### General Restructure — DONE
 One-time pre-loop pass complete: canonical chrome locked and hand-propagated to all 15
@@ -42,7 +43,8 @@ Reset this file when the first rebuild (photos) starts.
 4. Index — hybrid; CRT becomes an anchored set-piece/vignette (CRT-on-a-stand + scene
    elements), NOT sidebar; fake player persistent element
 
-After the loop: Streaming page — static embed + mini window above player.
+After the loop (per BUILD-PLAN-2026-REFRESH, F3 resolution): 11ty+CMS phase,
+then games light-touch → links → streaming page (static embed + mini window).
 
 ---
 

@@ -161,13 +161,16 @@ links and missing images while keeping the site buildless.
 
 ## Project docs
 `docs/DESIGN-PHILOSOPHY.md` — aesthetic reference, hard NOs, contributor rules
-`docs/BUILD-PLAN.md` — phased plan, live status
+`docs/BUILD-PLAN-2026-REFRESH.md` — THE execution plan (workstreams, models,
+branches, gates); supersedes the archived original BUILD-PLAN
 `docs/PROJECT.md` — current sub-project state
 `docs/MEMORY.md` — history, rationale, decisions
 `docs/AUDIT-2026-07.md` — July 2026 full audit (current-state truth + drift record)
 `docs/DESIGN-DIRECTION-2026.md` — APPROVED fusion direction (Golden Age structure,
-zine materials); governs the rebuild loop, JS moments, and the post-loop 11ty phase
+zine materials); governs the rebuild loop and the 11ty+CMS phase
+`docs/CMS-DASHBOARD-2026.md` — APPROVED CMS + analytics architecture (Sveltia,
+PAT, the silo entrance, GoatCounter private-only); decisions resolved 2026-07
 `docs/canonical/` — chrome source-of-truth snippets
 `docs/archive/` — superseded docs kept for record: original project brief,
-source audits (REPO, DESIGN, PHASE-5), restructure proposal, future-builds
-(Garcia Ridge + satirical civic publication, deferred to Phase 7)
+original BUILD-PLAN, source audits (REPO, DESIGN, PHASE-5), restructure
+proposal, future-builds (Garcia Ridge + satirical civic publication, deferred)

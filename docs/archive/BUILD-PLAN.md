@@ -1,5 +1,8 @@
 # Build Plan — cairoyepez.com
 
+> _Archival (2026-07): superseded by `docs/BUILD-PLAN-2026-REFRESH.md`, which
+> accounts for every line of this plan in its disposition table. Kept for record._
+
 Phased plan. Update status marks as work completes.
 Legend: `[x]` done · `[~]` in progress · `[ ]` not started
 
