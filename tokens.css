@@ -66,4 +66,26 @@
   --tint-shooters:      #2d1212;
   --tint-builder:       #1a2818;
 
+  /* ── FUSION 2026 — saturated spot-color accents ── */
+  /* Golden Age saturation, held inside the site's warm print temperature.
+     Spot-color discipline: one or two moments per viewport, never fields.
+     See docs/DESIGN-DIRECTION-2026.md §1. */
+  --gold:          #c9920e;   /* spot gold — badges, stamps, "new!" energy     */
+  --gold-dark:     #8f6708;
+  --teal-ink:      #1d5f5a;   /* the one cool accent — link/visited pairing,
+                                 tinted table headers; teal-as-ink, not cyan   */
+  --rust:          #b23a1d;   /* saturated warm pop between maroon and gold    */
+
+  /* ── FUSION 2026 — skeuomorphic bevel/gloss (ink-drawn, not plastic) ── */
+  --bevel-hi:      rgba(250, 246, 237, 0.85);  /* paper-light top/left edge    */
+  --bevel-lo:      rgba(26, 20, 16, 0.35);     /* ink-shade bottom/right edge  */
+  --gloss:         linear-gradient(180deg, rgba(255,255,255,.28), transparent 55%);
+  --inset-well:    inset 1px 1px 3px rgba(26, 20, 16, 0.25);
+
+  /* ── FUSION 2026 — table-grid chrome ── */
+  --grid-rule:     2px solid var(--ink);       /* bold outer table borders     */
+  --grid-rule-in:  1px solid var(--cream-dark);/* interior cell rules          */
+  --cell-shade:    #e9dfc9;                    /* alternating row/header tint  */
+  --titlebar:      var(--maroon);              /* module-box header strip      */
+
 }
