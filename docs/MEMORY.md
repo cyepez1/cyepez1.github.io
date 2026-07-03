@@ -58,8 +58,11 @@ phase.
 tints, the Portfolio page uses --olive instead of --maroon as its primary accent. This
 is page-specific via inline <style> — not in tokens.css.
 
-**No JS on the site.** The site is and remains vanilla HTML + CSS. Any feature
-requiring JS is a named stack trigger and gets its own migration phase.
+**JS policy (corrected 2026-07).** The earlier "no JS on the site" claim was never
+accurate — the games section has always carried small inline vanilla JS (scroll bar,
+hamburger toggle, carousel, tilt). That is the baseline. Minimal hand-written vanilla
+JS is now permitted sitewide where it earns its keep; frameworks, libraries, or
+anything needing a build step remain stack triggers with their own migration phase.
 
 **Phase 5 Layer-2 audit complete.** Quality bar extracted from the reference exemplars
 (games, blog, portfolio); the four rebuild pages (photos, music, misc, index) audited

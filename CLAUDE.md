@@ -13,10 +13,18 @@ Live at cairoyepez.com (GitHub Pages, auto-deploys from `main`).
 Repo: `github.com/cyepez1/cyepez1.github.io`
 
 ## Stack
-Vanilla HTML + CSS. No JavaScript, no build step, no framework, no package manager.
-Jekyll nominally enabled (empty `_config.yml`) but bypassed — `.nojekyll` at root.
-Google Fonts: EB Garamond (body), Special Elite (display/headers), Share Tech Mono
-(terminal accents).
+Vanilla HTML + CSS + minimal vanilla JS. No build step, no framework, no package
+manager. Jekyll nominally enabled (empty `_config.yml`) but bypassed — `.nojekyll`
+at root. Google Fonts: EB Garamond (body), Special Elite (display/headers),
+Share Tech Mono (terminal accents) — loaded via `@import` in `style.css` and
+`games-shared.css`.
+
+JavaScript: the 7 games pages already carry small inline vanilla JS (scroll-progress
+bar, hamburger `toggleNav()`, carousel on `games.html`, card tilt) — that is the
+existing baseline, not an exception. Going forward, minimal hand-written vanilla JS
+is permitted sitewide where it earns its keep. Still no frameworks, no libraries,
+and no build step introduced by JS alone — anything heavier is a stack trigger and
+gets its own migration phase.
 
 Stack changes require an explicit decision and their own phase. Default is always
 vanilla. Likely triggers for revisiting: guestbook (needs backend), RSS/email,
