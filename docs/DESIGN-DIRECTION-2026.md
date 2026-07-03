@@ -25,10 +25,10 @@ through a letterpress. So the fusion rule that keeps both legible:
 
 > **Golden Age structure, zine materials.**
 > The *shapes* come from 2000–2005 — table grids, title-bar module boxes,
-> badge walls, tickers, counters, beveled buttons. The *surfaces* stay ours —
+> badge walls, tickers, beveled buttons. The *surfaces* stay ours —
 > ink on paper, spot-color saturation, grain, ruled margins. A bevel is drawn
 > the way a woodcut renders volume: ink highlight and ink shadow, not gray
-> plastic. A badge is a stamp. A counter is a library due-date wheel.
+> plastic. A badge is a stamp; a ticker is a wire-service strip.
 
 What this is NOT: pastel web-nostalgia, vaporwave, Times-New-Roman irony, or
 gray Windows-98 chrome dropped onto cream paper. Both parents must be visible
@@ -42,7 +42,7 @@ The existing 9 canonical tokens stay untouched. Proposed additions (a new
 ```css
 /* ── FUSION 2026 — saturated spot-color accents ── */
 /* Golden Age saturation, held inside the site's warm print temperature. */
---gold:          #c9920e;   /* spot gold — badges, counters, "new!" energy   */
+--gold:          #c9920e;   /* spot gold — badges, stamps, "new!" energy     */
 --gold-dark:     #8f6708;
 --teal-ink:      #1d5f5a;   /* the one cool accent — link/visited pairing,
                                tinted table headers; teal-as-ink, not cyan    */
@@ -73,7 +73,7 @@ No new fonts. The Golden Age roles are distributed across the existing voices:
 | Voice | Current role | Added Golden-Age role |
 |---|---|---|
 | **Special Elite** | display/mastheads | Module-box **title bars** (small caps, cream-on-maroon strip); badge/stamp text |
-| **Share Tech Mono** | terminal accents | **Counters, tickers, "site stats" blocks, button labels, breadcrumbs** — the entire "machine chrome" layer is mono |
+| **Share Tech Mono** | terminal accents | **Tickers, button labels, breadcrumbs, readouts** — the entire "machine chrome" layer is mono |
 | **EB Garamond** | body | Unchanged — body never participates in the maximalism; it's the restraint that keeps the fusion from tipping |
 
 One optional addition, flagged for a decision at execution: a **pixel/bitmap
@@ -101,9 +101,9 @@ The buildable vocabulary, expressed in modern CSS but reading as 2000–2005:
 4. **Ticker strips** — the CRT ticker and Now-ribbon generalized into a
    masthead-adjacent mono strip component (static by default, JS-rotated
    where approved — §4).
-5. **Counter block** — odometer-style visit/stat counter (mono digits in an
-   `--inset-well` well). Decorative/static or localStorage (§4); never a fake
-   claim of real analytics.
+5. ~~Counter block~~ — **struck (2026-07, CMS-DASHBOARD decision #4):** no
+   public-facing counter or odometer of any kind; visitor stats live only in
+   the private CMS dashboard. See `docs/CMS-DASHBOARD-2026.md` §3.
 6. **Beveled controls** — links-as-buttons in nav/footer contexts get the
    ink-bevel treatment; body links stay classic underlined, with
    `--teal-ink` link / `--olive` visited as the fused nod to default-blue.
@@ -119,7 +119,7 @@ games section is already the site's closest relative to the target (late-2000s
 wiki = the Golden Age's immediate descendant), and it's the current quality
 bar — the fusion should be *proven on the four rebuild pages first*, then the
 games section adopts only what wins: the fused tokens (gold/teal/rust where
-its tints allow), badge/stamp vocabulary, and counter blocks. Its structure
+its tints allow) and badge/stamp vocabulary. Its structure
 (`g-masthead`, `g-jumpnav`, `g-sidebar`, tints) does not change. It remains a
 separate locked system with its own canonical chrome — no homogenization. If
 the fusion and the games section ever conflict, the games section wins until
@@ -137,7 +137,7 @@ with JS off.
 |---|---|---|---|---|---|
 | Photo **lightbox** (click-to-enlarge, ESC/overlay close) | photos rebuild | ~40 lines | Low — self-contained, no state | High — contact sheet begs for it | **Recommend** |
 | **Now-ribbon rotation** (cycle 2–3 status lines every ~6s) | index | ~15 lines | Trivial | Medium-high — pure ticker energy, cheap | **Recommend** |
-| **Hit counter** (localStorage per-visitor count in the counter block) | index footer | ~10 lines | Trivial — honest "your visits" label | Medium — period-perfect; static-decorative also acceptable | Recommend either |
+| ~~Hit counter~~ | — | — | — | — | **Struck (2026-07):** no public counter of any kind — CMS-DASHBOARD decision #4 |
 | **CRT power-on** (replay button re-triggers CSS animation) | index rebuild | ~10 lines (JS is just a class toggle) | Trivial | Medium — sells the set-piece | Recommend with index rebuild |
 | **Music player mock interactions** (play toggles waveform CSS state, fake progress) | music rebuild | ~30 lines | Medium — risks implying real playback; must stay visibly decorative | Medium | Optional — decide at music rebuild |
 | **Konami-style easter egg** (key sequence reveals a hidden stamp/page) | sitewide | ~20 lines | Low | Low-medium — but on-thesis ("substance below the surface") | Optional, fun |
@@ -189,7 +189,7 @@ Rebuild-loop pages, under the fusion (order unchanged):
   rotation, badge scatter. Run maximalist — this page is the pressure valve.
 - **Index — CRT set-piece + splash energy.** The planned CRT-on-a-stand reads
   as the Golden Age "enter site" splash object, surrounded by module boxes,
-  ticker, counter block, badge row in the footer. Homepage-as-portal.
+  ticker, badge row in the footer. Homepage-as-portal.
 
 **One new page proposed: `links.html` ("The Directory").** A blogroll/badge
 wall — the single most Golden Age genre there is, and it serves the site's

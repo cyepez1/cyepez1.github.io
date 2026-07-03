@@ -120,11 +120,8 @@ in one place only: behind the silo door — GoatCounter integrates into the
 private CMS dashboard (a stats panel/link inside
 `/top-secret-civil-defense-silo/` pointing at the GoatCounter dashboard),
 never on a public page. This supersedes both the localStorage odometer and
-the "counter block" component in DESIGN-DIRECTION-2026.md §3/§5 — strike the
-hit-counter from the JS candidate list and the counter block from the layout
-grammar when those sections are next touched (doc-currency note: the
-DESIGN-DIRECTION doc still shows them; correct it at the next edit of that
-file).
+the "counter block" component in DESIGN-DIRECTION-2026.md §3/§5 — both struck
+from that doc 2026-07 (same pass as this decision).
 
 ---
 
