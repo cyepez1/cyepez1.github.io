@@ -89,6 +89,17 @@ footer `© 2026 · Chicago, IL · All rights reserved` (divergent, year kept); t
 corkboard layout (misc) and the CRT set-piece/vignette (index) — structure defined,
 visual treatment deferred to those rebuilds.
 
+**Photos rebuild (2026-07): Concept B chosen, Concept A SAVED.** Three fusion
+concepts were mocked: A "The Proof Sheet" (the whole page as one bordered
+contact-sheet table-grid; featured shot as a 2×2 circled frame), B "Editor's
+Desk" (module boxes: mini contact sheets + pulled beveled prints with gold
+stamps), C "The Archive Drawer" (photo-database table register). **B approved
+and built. A is saved — not rejected** — kept available for a future denser
+photos tier or another page. C discarded. The lightbox is the first approved
+main-site JS moment (decided at this mockup gate per the F6 rule); it binds
+to `data-src` attributes only and stays inert until real images land via the
+CMS.
+
 **Phase 5 rebuild loop is the next live step.** Restructure done; loop order:
 photos → music → misc → index. Mode B. Quality bar = games + blog + portfolio. Per-page
 treatment: photos = rebuild (contact sheet); music = hybrid (keep custom components,
@@ -139,7 +150,7 @@ is complete. It is not permanently part of the repo.
 | Portfolio | olive | Blueprint grid + project index table | In progress (Phase 5) |
 | Music | maroon | Liner-note typography + fake player corner widget | Queued |
 | Designs | — | Renamed to Portfolio | — |
-| Photos | maroon | Contact sheet layout | Queued |
+| Photos | maroon + gold stamps | "Editor's Desk" — featured-print module box, roll boxes w/ mini contact sheets + pulled beveled prints; lightbox JS | Built (Phase 5 fusion) — on feature/photos-rebuild, awaiting browser preview + merge |
 | Misc | maroon | Corkboard layout | Queued |
 | Now | maroon | Clean single column, status ribbon on index | Done (Phase 5/6) |
 | 404 | maroon | Main-site chrome + 404 shell, TBD graphic slot | Shipped (Phase 5), live |
