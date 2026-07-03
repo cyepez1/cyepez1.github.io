@@ -41,7 +41,7 @@ from page *markup* — which is exactly what the approved 11ty migration does
 | **TinaCMS** | React-based editing with Tina Cloud | Requires their cloud account + build integration — over-tooled here, violates "no frameworks" spirit |
 | **Build custom** | Hand-written dashboard calling the GitHub Contents API | Rejected: it converges on rebuilding Sveltia badly — auth handling, media uploads, YAML editing, conflict handling are all solved problems. Custom code budget is better spent on the site itself |
 
-### Recommendation — not a hedge
+### Recommendation — APPROVED
 
 **Sveltia CMS.** One static HTML page in the repo (in-universe path, §2) plus
 one `config.yml` describing the collections. No OAuth proxy, no external
@@ -55,7 +55,7 @@ dies, the config migrates to Decap (plus an OAuth worker) with minimal change
 
 ## 2. Auth + secret entry
 
-### Auth — confirm/challenge the GitHub OAuth default
+### Auth — confirm/challenge the GitHub OAuth default (APPROVED: PAT)
 
 **Challenged, with a better answer for this stack.** OAuth via the CMS tool is
 the default on Netlify-style hosts, but on plain GitHub Pages, OAuth requires
@@ -74,38 +74,30 @@ the whole design, existing solely to avoid a token paste. Instead:
 - If PAT-pasting ever annoys, the upgrade path is a ~30-line Cloudflare Worker
   OAuth proxy (free tier) — a later decision, not needed for MVP.
 
-### Secret entry — in-universe doors (concrete options)
+### Secret entry — DECIDED: the bunker
 
-The path itself is never `/admin`. Whichever door is chosen, the destination
-is an unlinked, `robots.txt`-ignored path with a diegetic name — proposed:
-**`/pressroom/`** (where a zine gets pasted up) or `/darkroom/` or `/desk/`.
+**Theme: civil-defense bunker. Path: `/top-secret-civil-defense-silo/`.**
+(Supersedes the pressroom/darkroom/desk candidates.) The dashboard is framed
+as a Cold War civil-defense installation under the building — top-secret
+signage register, not newsroom register. Unlinked in the nav, ignored in
+`robots.txt`; the name itself is part of the joke (a "top secret" door with
+its designation stenciled on it, exactly how period civil-defense signage
+worked).
 
-1. **The colophon stamp (recommended).** The fusion direction adds a footer
-   badge wall (DESIGN-DIRECTION §3). One 88×31 badge reads `STAFF ONLY —
-   PRESSROOM` in Special Elite, visually identical in weight to the other
-   stamps — a real link, hidden in plain sight the way zines credit their
-   paste-up room. Golden-age sites *always* had a webmaster badge; this is
-   period-correct, discoverable only by reading the footer like a colophon.
-2. **The masthead long-press.** Clicking the footer tagline
-   `✶✶✶✶Made in Chicago, USA✶✶✶✶` three times within a second (tiny JS,
-   ~10 lines, within the approved JS budget) navigates to the pressroom.
-   Fully invisible; pairs with the already-proposed easter-egg culture.
-3. **The CRT password.** On the index CRT set-piece, typing `edit` (or a
-   chosen word) makes the ticker respond `PRESS PASS?` and navigate. Most
-   theatrical, most fun, most JS (~25 lines); only exists on the index.
-4. **The 404 service door.** The generic 404 page's decorative graphic slot
-   contains an unlabeled maintenance-hatch glyph that links to the pressroom.
-   Cheeky, but conflicts with "404 stays generic" — listed for completeness,
-   **not recommended.**
+Door mechanism (how a visitor who knows reaches it): the footer badge wall
+(DESIGN-DIRECTION §3) carries one 88×31 badge styled as a fallout-shelter /
+CD-triangle sign — the civil-defense yellow-black pictogram vocabulary,
+rendered in the site's ink-and-paper materials. Works on every page, no JS.
+The CRT typed-password flourish (ticker responds `CLEARANCE?` and navigates)
+remains an optional add-on at the index rebuild.
 
-Recommendation: **option 1** as the everyday door (works on every page, no
-JS), with **option 3** as an optional flourish added during the index rebuild.
+Honest note stands: the entrance is theater; the PAT is the lock.
 
 ---
 
 ## 3. Visitor analytics
 
-### Recommendation: GoatCounter
+### Recommendation: GoatCounter (APPROVED)
 
 - **Why:** free hosted tier, open source, no cookies and no consent-banner
   obligation, single `<script>` tag (~3 KB), counts what matters (pageviews,
@@ -121,23 +113,24 @@ JS), with **option 3** as an optional flourish added during the index rebuild.
   include), 15-file paste before it. **Add it during/after the 11ty
   migration**, same reasoning as §4.
 
-### The cosmetic counter — keep it, and make it real
+### The cosmetic counter — DECIDED: dropped entirely
 
-DESIGN-DIRECTION §5 proposed a localStorage odometer ("your visits"). Now that
-real analytics exists, **upgrade rather than drop it**: GoatCounter exposes a
-public per-site visitor-count endpoint (JSON/image) that a static page can
-display with no backend. The period-accurate hit-counter block on the index
-can show the *actual* running total — the golden-age artifact with honest
-numbers. Label it plainly (`visitors counted since 2026`). This replaces the
-localStorage idea; one decorative counter, clearly labeled, backed by the same
-analytics — no second fake system to maintain. If Cairo prefers the counter
-purely decorative, static digits are also fine — her call, queued below.
+**No public-facing counter or odometer of any kind.** Visitor numbers surface
+in one place only: behind the silo door — GoatCounter integrates into the
+private CMS dashboard (a stats panel/link inside
+`/top-secret-civil-defense-silo/` pointing at the GoatCounter dashboard),
+never on a public page. This supersedes both the localStorage odometer and
+the "counter block" component in DESIGN-DIRECTION-2026.md §3/§5 — strike the
+hit-counter from the JS candidate list and the counter block from the layout
+grammar when those sections are next touched (doc-currency note: the
+DESIGN-DIRECTION doc still shows them; correct it at the next edit of that
+file).
 
 ---
 
 ## 4. Content model + scaling — and the sequencing call
 
-### MVP scope: "simple pages"
+### MVP scope: "simple pages" (APPROVED as listed)
 
 MVP = pages whose editable content is **flat fields**: headings, prose blocks,
 captions, single image drops. Qualifying today:
@@ -173,13 +166,13 @@ rebuild work. Adding a new editable content type later = one `config.yml`
 block + one template include — **no page rebuild, no CMS change.** The CMS
 never knows about layout; it only edits fields.
 
-### The consequential call: sequencing vs the approved 11ty plan
+### The consequential call: sequencing vs the approved 11ty plan — CONFIRMED
 
 **The CMS cannot meaningfully precede 11ty** — without templates/data
 separation there is nothing form-shaped to edit (§1). And doing CMS *long
 after* 11ty means designing data files twice. Therefore:
 
-> **Recommendation: fold CMS into the 11ty migration as one combined
+> **CONFIRMED: fold CMS into the 11ty migration as one combined
 > "content platform" phase — after the rebuild loop, exactly where 11ty
 > already sits in the approved sequencing.** The migration's job description
 > gains one clause: as each page converts to templates, its placeholder text
@@ -230,20 +223,19 @@ Nothing here builds them; this ensures the architecture never blocks them.
 
 ---
 
-## Decisions queued for Cairo
+## Decisions — RESOLVED (2026-07)
 
-1. **Sveltia CMS as the tool** (§1) — approve, or ask for a deeper look at
-   Decap/Pages CMS.
-2. **PAT login** (§2) — accept token-paste auth, or commission the
-   Cloudflare-Worker OAuth proxy for a cleaner login later.
-3. **Entrance** (§2) — pressroom badge (recommended), tagline triple-click,
-   CRT password, or a combination; and pick the path name (`/pressroom/`,
-   `/darkroom/`, `/desk/`, other).
-4. **GoatCounter** (§3) — approve; and choose counter mode: live GoatCounter
-   digits (recommended) vs purely decorative static digits.
-5. **Sequencing** (§4) — confirm the 11ty phase becomes "11ty + CMS,"
-   keeping the approved order otherwise.
-6. **MVP page list** (§4) — confirm which simple pages are in the first
-   editable batch.
+1. **Sveltia CMS** (§1) — approved as proposed.
+2. **PAT login** (§2) — approved as proposed; OAuth-proxy upgrade remains a
+   later option.
+3. **Entrance** (§2) — bunker theme, path `/top-secret-civil-defense-silo/`
+   (top-secret/civil-defense framing; pressroom/darkroom/desk candidates
+   superseded).
+4. **Analytics** (§3) — GoatCounter approved. **No public counter or
+   odometer of any kind**; stats live only in the private CMS dashboard.
+5. **Sequencing** (§4) — confirmed: the 11ty phase becomes "11ty + CMS,"
+   approved order otherwise unchanged.
+6. **MVP page list** (§4) — approved as listed.
 
-*Awaiting approval — no code, no accounts, no installs.*
+*No code, no accounts, no installs yet — implementation lands in the
+"11ty + CMS" phase per the confirmed sequencing.*
