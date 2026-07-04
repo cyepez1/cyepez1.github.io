@@ -127,6 +127,18 @@ approved and built**; B and C discarded. The long-deferred OQ4 aesthetic
 calls (cork texture yes, thumbtack pins yes, item rotation yes, tape yes)
 are now decided. No JS on this page.
 
+**Index rebuild (2026-07): Concept A "The Study" chosen — OQ5 resolved.**
+Three concepts mocked: A "The Study" (CRT on a drawn side table in a paper
+scene band, printmaking flat-ink props), B "The Broadcast Desk" (CRT inside a
+SIGNAL module), C "The Storefront" (portal splash with wall-hung section
+frames). **A approved and built**; B and C discarded. OQ5 calls: CRT resized
+560→320px; dark hero band eliminated (the page's only full-bleed dark band —
+accepted); **sidebar avatar subordinated to a 96px woodcut portrait stamp,
+and the previous full-width avatar treatment is SAVED as a revisit option**
+(not rejected). JS: power-on replay + now-ribbon rotation shipped; **the
+CLEARANCE? typing→silo flourish is PINNED — approved but deferred to W3,
+inert until the silo page exists.**
+
 **Phase 5 rebuild loop is the next live step.** Restructure done; loop order:
 photos → music → misc → index. Mode B. Quality bar = games + blog + portfolio. Per-page
 treatment: photos = rebuild (contact sheet); music = hybrid (keep custom components,
@@ -172,7 +184,7 @@ is complete. It is not permanently part of the repo.
 
 | Page | Accent | Layout personality | Status |
 |---|---|---|---|
-| Index | maroon | CRT hero + newspaper digest + Now ribbon | Built; Phase 5 hybrid — CRT to become anchored set-piece, not sidebar |
+| Index | maroon | "The Study" — CRT (320px) on flat-ink side table w/ zine stack, headline + Digest box, module sections, badge row; power-on + ribbon-rotation JS | Built (Phase 5 fusion) — on feature/index-rebuild, awaiting browser preview + merge |
 | Blog | maroon | Single-column Garamond reading list | Done (Phase 4) |
 | Portfolio | olive | Blueprint grid + project index table | In progress (Phase 5) |
 | Music | maroon + rust accent | "The Deck" — Now Spinning player set-piece (LCD well, beveled transport, waveform seek bar), boxed crate, catalog table tier; decorative deck JS | Built (Phase 5 fusion) — on feature/music-rebuild, awaiting browser preview + merge |

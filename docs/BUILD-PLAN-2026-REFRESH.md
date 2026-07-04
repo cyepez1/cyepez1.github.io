@@ -131,6 +131,9 @@ Commit-bounded tasks (one concern each):
 4. Sveltia: admin page + `config.yml` at `/top-secret-civil-defense-silo/`
    ("bunker" is the page's vibe/signage, not the path); `robots.txt`
    ignore. PAT setup is Cairo's (account-side; instructions in CMS doc §2).
+   ⚑ PINNED here from W1.4: activate the approved CLEARANCE? flourish on
+   the index (typing → CRT ticker responds → navigates to the silo) —
+   deferred/inert until this task makes the silo real.
 5. GoatCounter: snippet into the shared chrome partial; dashboard link
    inside the silo page. Account creation is Cairo's. **No public counter
    anywhere** (locked decision).
