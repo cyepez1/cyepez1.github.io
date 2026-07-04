@@ -273,42 +273,59 @@
 
   <main>
 
-    <!-- FEATURED LISTEN -->
-    <div class="section-label">Featured Listen</div>
-    <div class="paper" style="margin-bottom:20px;">
-      <div style="display:grid; grid-template-columns:140px 1fr; gap:16px; align-items:start;">
-        <div class="ph-img" style="aspect-ratio:1; width:100%;">
-          <div class="corner tl"></div><div class="corner br"></div>
-          <span>Album Art</span>
+    <!-- NOW SPINNING — the deck -->
+    <div class="module-box" id="deck">
+      <div class="module-titlebar">Now Spinning</div>
+      <div class="module-body">
+        <div class="deck-head">
+          <div class="ph-img" style="aspect-ratio:1; width:100%;">
+            <div class="corner tl"></div><div class="corner br"></div>
+            <span>Album Art</span>
+          </div>
+          <div>
+            <div class="lcd">
+              <div class="lcd-title">Consectetur — Nocturne for the Unfinished City</div>
+              <div class="lcd-time"><span id="lcd-state">■</span> <span id="lcd-clock">00:00</span> / 4:18</div>
+              <div class="lcd-note">NO AUDIO — ORNAMENT</div>
+            </div>
+            <div class="transport">
+              <button class="t-btn" type="button">◄◄</button>
+              <button class="t-btn" type="button" id="t-play">▶</button>
+              <button class="t-btn" type="button" id="t-stop">■</button>
+              <button class="t-btn" type="button">►►</button>
+              <span class="vol">VOL ▓▓▓░░</span>
+            </div>
+          </div>
         </div>
-        <div>
-          <div class="post-title">Consectetur: <em>Nocturne for the Unfinished City</em></div>
-          <div class="post-meta">2003 &nbsp;·&nbsp; Drum &amp; Bass / Electronic</div>
-          <div class="waveform"></div>
-          <p style="font-size:14px; color:#3a2e22; line-height:1.65;">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
-          </p>
-        </div>
+        <div class="post-title">Consectetur: <em>Nocturne for the Unfinished City</em></div>
+        <div class="post-meta">2003 &nbsp;·&nbsp; Drum &amp; Bass / Electronic</div>
+        <div class="waveform"></div>
+        <p style="font-size:14px; color:#3a2e22; line-height:1.65;">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
+        </p>
+        <hr class="divider">
+        <ul class="tracklist">
+          <li>Lorem Intro <span class="track-duration">1:42</span></li>
+          <li>Ipsum Nocturne in D Minor <span class="track-duration">4:18</span></li>
+          <li>Dolor Sit (feat. Magna) <span class="track-duration">5:03</span></li>
+          <li>Amet Reprise <span class="track-duration">3:55</span></li>
+          <li>Consectetur Drive <span class="track-duration">6:21</span></li>
+          <li>Adipiscing Outro <span class="track-duration">2:10</span></li>
+        </ul>
       </div>
-      <hr class="divider">
-      <ul class="tracklist">
-        <li>Lorem Intro <span class="track-duration">1:42</span></li>
-        <li>Ipsum Nocturne in D Minor <span class="track-duration">4:18</span></li>
-        <li>Dolor Sit (feat. Magna) <span class="track-duration">5:03</span></li>
-        <li>Amet Reprise <span class="track-duration">3:55</span></li>
-        <li>Consectetur Drive <span class="track-duration">6:21</span></li>
-        <li>Adipiscing Outro <span class="track-duration">2:10</span></li>
-      </ul>
     </div>
 
     <!-- RECORD SHELF -->
-    <div class="section-label">The Crate</div>
+    <div class="module-box">
+      <div class="module-titlebar">The Crate</div>
+      <div class="module-body">
     <div class="record-grid">
 
       <div class="record-card">
         <div class="record-cover"><span>Cover</span></div>
         <div class="record-title">Eiusmod Tempor LP</div>
         <div class="record-artist">DJ Labore · 2001</div>
+        <div class="stamp">New Arrival</div>
       </div>
 
       <div class="record-card">
@@ -353,6 +370,24 @@
         <div class="record-artist">Anim Id Est · 2003</div>
       </div>
 
+    </div>
+      </div>
+    </div>
+
+    <!-- CATALOG — dense index tier -->
+    <div class="module-box">
+      <div class="module-titlebar">Catalog</div>
+      <table class="catalog-table">
+        <tr><th>Title</th><th>Artist</th><th>Year</th><th>Genre</th></tr>
+        <tr><td>Eiusmod Tempor LP</td><td>DJ Labore</td><td class="mono">2001</td><td class="mono">D&amp;B</td></tr>
+        <tr><td>Ullamco Sessions Vol. II</td><td>Exercitation</td><td class="mono">2003</td><td class="mono">Electronic</td></tr>
+        <tr><td>Aliquip Ex Commodo</td><td>The Consequats</td><td class="mono">2004</td><td class="mono">House</td></tr>
+        <tr><td>Irure Dolor Remixed</td><td>Reprehenderit</td><td class="mono">2002</td><td class="mono">Remix</td></tr>
+        <tr><td>Voluptate Velit EP</td><td>Cillum &amp; Dolore</td><td class="mono">2005</td><td class="mono">Dub</td></tr>
+        <tr><td>Fugiat Nulla Pariatur</td><td>Occaecat</td><td class="mono">2000</td><td class="mono">D&amp;B</td></tr>
+        <tr><td>Proident Live Set</td><td>Deserunt Mollit</td><td class="mono">2006</td><td class="mono">Live</td></tr>
+        <tr><td>Laborum Dub Collection</td><td>Anim Id Est</td><td class="mono">2003</td><td class="mono">Dub</td></tr>
+      </table>
     </div>
 
     <!-- WRITING -->
