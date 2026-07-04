@@ -185,7 +185,7 @@ is complete. It is not permanently part of the repo.
 | Page | Accent | Layout personality | Status |
 |---|---|---|---|
 | Index | maroon | "The Study" — CRT (320px) on flat-ink side table w/ zine stack, headline + Digest box, module sections, badge row; power-on + ribbon-rotation JS | Built (Phase 5 fusion) — on feature/index-rebuild, awaiting browser preview + merge |
-| Blog | maroon | Single-column Garamond reading list | Done (Phase 4) |
+| Blog | maroon + teal chips | Single-column Garamond reading list + the Ledger index box (W2 light pass — quiet room preserved) | Done (Phase 4; W2 pass 2026-07) |
 | Portfolio | olive | Blueprint grid + project index table | In progress (Phase 5) |
 | Music | maroon + rust accent | "The Deck" — Now Spinning player set-piece (LCD well, beveled transport, waveform seek bar), boxed crate, catalog table tier; decorative deck JS | Built (Phase 5 fusion) — on feature/music-rebuild, awaiting browser preview + merge |
 | Designs | — | Renamed to Portfolio | — |
