@@ -111,6 +111,14 @@ Waveform/counter-tracklist/crate custom components all preserved per the
 hybrid brief. Page accent: --rust (second per-page accent after Portfolio's
 olive).
 
+**Games hub adopted FULL fusion (2026-07-03).** Cairo requested a prototype of
+the road-not-taken (full fusion vs the approved light-touch), built as a
+throwaway on the hub only, previewed, loved, merged. DESIGN-DIRECTION §4
+amended: hub = full fusion (module boxes, table-grid categories, gold stamps,
+beveled covers; g- chrome untouched); the six category pages stay light-touch
+pending their own W4 mockup gate. This also served as the W0 games-page
+browser spot-check.
+
 **Phase 5 rebuild loop is the next live step.** Restructure done; loop order:
 photos → music → misc → index. Mode B. Quality bar = games + blog + portfolio. Per-page
 treatment: photos = rebuild (contact sheet); music = hybrid (keep custom components,

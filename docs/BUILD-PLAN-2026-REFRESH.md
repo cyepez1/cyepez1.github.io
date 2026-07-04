@@ -144,9 +144,11 @@ changed except the build step.
 
 ## W4 — Post-migration pages `[ ]` (Sonnet each, in order)
 
-1. **Games light-touch fusion pass** (`feature/games-fusion-pass`): fused
-   tokens where the tints allow + badge/stamp vocabulary only; structure
-   untouched; template edits now cheap. Games remains its own locked system.
+1. **Games fusion pass** (`feature/games-fusion-pass`): the hub already
+   adopted FULL fusion (2026-07-03 experiment, merged). This task now covers
+   the six category pages — decide at its mockup gate whether they follow
+   the hub (full) or stay light-touch (fused tokens + stamps only). Chrome
+   stays canonical either way.
 2. **links.html — "The Directory"** (`feature/links-page`): module boxes +
    badge wall; nav 8 → 9 items — one partial edit (free post-W3).
 3. **Streaming page** (`feature/streaming-page`): static embed + mini

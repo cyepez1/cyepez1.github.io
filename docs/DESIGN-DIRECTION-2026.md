@@ -114,6 +114,12 @@ the quiet room** — it takes the tokens and maybe one module box, nothing more.
 
 ## 4. Games section — explicit verdict
 
+> **AMENDED 2026-07-03:** a full-fusion prototype on the games hub was
+> requested, previewed, and **adopted** — `games.html` now carries module
+> boxes, table-grid categories, gold stamps, and beveled covers (chrome
+> untouched). The six category pages remain on the original light-touch
+> verdict below; whether they follow the hub is decided at W4.
+
 **Evolves under the fusion, deliberately last, light touch.** Reasoning: the
 games section is already the site's closest relative to the target (late-2000s
 wiki = the Golden Age's immediate descendant), and it's the current quality
