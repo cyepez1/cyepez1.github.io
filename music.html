@@ -6,19 +6,98 @@
   <link rel="stylesheet" href="tokens.css">
   <link rel="stylesheet" href="style.css">
   <style>
+    /* ─── THE DECK — fusion vocabulary (DESIGN-DIRECTION §3/§7) ───
+       Page accent: --rust (transport glyphs, hovers, read-more). */
+
+    .module-box {
+      border: var(--grid-rule);
+      background: var(--paper);
+      margin-bottom: 24px;
+    }
+    .module-titlebar {
+      background: var(--titlebar);
+      color: var(--cream);
+      font-family: 'Special Elite', cursive;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 7px 12px;
+      border-bottom: var(--grid-rule);
+    }
+    .module-body { padding: 14px; }
+
+    /* player face */
+    .deck-head {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 16px;
+      align-items: start;
+      margin-bottom: 12px;
+    }
+    .lcd {
+      background: var(--cream-dark);
+      box-shadow: var(--inset-well);
+      border: var(--grid-rule-in);
+      font-family: 'Share Tech Mono', monospace;
+      color: var(--teal-ink);
+      padding: 10px 12px;
+      letter-spacing: 0.12em;
+    }
+    .lcd .lcd-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      line-height: 1.5;
+    }
+    .lcd .lcd-time { font-size: 14px; }
+    .lcd .lcd-note {
+      font-size: 8px;
+      opacity: 0.55;
+      margin-top: 8px;
+      letter-spacing: 0.2em;
+    }
+    .transport {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 12px 0 4px;
+    }
+    .t-btn {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      color: var(--rust);
+      background: linear-gradient(180deg, rgba(255,255,255,.28), transparent 55%), var(--paper);
+      border: 3px solid;
+      border-color: var(--bevel-hi) var(--bevel-lo) var(--bevel-lo) var(--bevel-hi);
+      padding: 5px 12px;
+      cursor: pointer;
+    }
+    .t-btn:active {
+      border-color: var(--bevel-lo) var(--bevel-hi) var(--bevel-hi) var(--bevel-lo);
+    }
+    .vol {
+      margin-left: auto;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      color: var(--olive);
+      letter-spacing: 0.1em;
+      opacity: 0.7;
+    }
+
+    /* crate (kept components, shelf-edge alignment) */
     .record-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 12px;
-      margin-bottom: 20px;
     }
     .record-card {
       background: var(--paper);
       border: 1px solid #c8b89a;
+      border-bottom: 4px solid var(--cell-shade);
       padding: 0 0 10px;
       transition: transform 0.15s;
     }
-    .record-card:hover { transform: translateY(-3px); }
+    .record-card:hover { transform: translateY(-3px); border-color: var(--rust); }
     .record-cover {
       width: 100%;
       aspect-ratio: 1;
@@ -105,6 +184,54 @@
       color: var(--maroon);
       letter-spacing: 0.15em;
       opacity: 0.5;
+    }
+
+    /* gold stamp chip (spot color — one per viewport) */
+    .stamp {
+      display: inline-block;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      border: 1px solid var(--gold);
+      padding: 2px 7px;
+      margin: 6px 8px 0;
+    }
+
+    /* catalog tier — dense mono table */
+    .catalog-table {
+      width: 100%;
+      border-collapse: collapse;
+      border: var(--grid-rule);
+      font-size: 12px;
+    }
+    .catalog-table th {
+      background: var(--teal-ink);
+      color: var(--cream);
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 9px;
+      font-weight: normal;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-align: left;
+      padding: 6px 10px;
+    }
+    .catalog-table td {
+      border: var(--grid-rule-in);
+      padding: 5px 10px;
+      font-family: 'EB Garamond', serif;
+    }
+    .catalog-table td.mono {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      color: var(--olive);
+    }
+    .catalog-table tr:nth-child(even) td { background: var(--cell-shade); }
+
+    @media (max-width: 640px) {
+      .record-grid { grid-template-columns: repeat(2, 1fr); }
+      .deck-head { grid-template-columns: 1fr; }
     }
   </style>
 </head>
