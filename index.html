@@ -75,11 +75,16 @@
       margin-right: 14px;
     }
 
-    /* power button + power-on replay (approved JS moment) */
-    .power-btn {
+    /* CRT controls: power toggle + slideshow arrows (gate feedback) */
+    .crt-ctrl {
       position: absolute;
-      bottom: 12px;
+      bottom: 9px;
       left: 22px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .power-btn {
       width: 14px;
       height: 14px;
       border-radius: 50%;
@@ -90,6 +95,34 @@
       padding: 0;
     }
     .power-btn:active { background: #151210; }
+    .crt-arrow {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 9px;
+      line-height: 1;
+      color: #6a5f52;
+      background: #2a2420;
+      border: 2px solid #3a3028;
+      border-radius: 3px;
+      padding: 2px 6px 3px;
+      cursor: pointer;
+    }
+    .crt-arrow:active { background: #151210; }
+    /* screen OFF state: dead tube */
+    .crt-screen.off .crt-image,
+    .crt-screen.off .crt-ticker { display: none; }
+    .crt-screen.off { background: #000; }
+    .crt-shell.off .crt-led {
+      background: #3a3028;
+      box-shadow: none;
+      animation: none;
+    }
+    /* real slide image fills the tube */
+    .crt-image.has-img {
+      background-size: cover !important;
+      background-position: center;
+    }
+    .crt-image.has-img .ph-crosshair,
+    .crt-image.has-img .ph-label { display: none; }
     @media (prefers-reduced-motion: no-preference) {
       .crt-screen.power-on .crt-image {
         animation: crt-on 700ms ease-out;
@@ -278,7 +311,7 @@
 
     .ticker-inner {
       display: inline-block;
-      animation: ticker-scroll 18s linear infinite;
+      animation: ticker-scroll 27s linear infinite; /* 33% slower per gate feedback */
     }
 
     @keyframes ticker-scroll {
@@ -631,7 +664,11 @@
             </div>
           </div>
         </div>
-        <button class="power-btn" id="power-btn" type="button" aria-label="Power — replay the turn-on"></button>
+        <div class="crt-ctrl">
+          <button class="power-btn" id="power-btn" type="button" aria-label="Power on/off"></button>
+          <button class="crt-arrow" id="crt-prev" type="button" aria-label="Previous slide">◄</button>
+          <button class="crt-arrow" id="crt-next" type="button" aria-label="Next slide">►</button>
+        </div>
         <div class="crt-led"></div>
       </div>
       <div class="crt-foot"></div>
@@ -786,32 +823,59 @@
 </div>
 
 <script>
-  // Two approved JS moments (W1.4 mockup gate). The CLEARANCE? silo
+  // Index JS moments (W1.4 gate + revisions). The CLEARANCE? silo
   // flourish is deferred to W3 — inert until the silo exists.
   (function () {
-    // 1. CRT power-on replay: fires once on load, replays via the power
-    //    button. Animation itself is CSS, gated by prefers-reduced-motion.
+    // ── CRT SLIDESHOW ──
+    // Add images by dropping files into images/crt-slides/ and listing
+    // their filenames here (see images/crt-slides/README.md). Empty list
+    // = the placeholder screen. W3's CMS will manage this automatically.
+    var CRT_SLIDES = [
+      // 'images/crt-slides/example.jpg',
+    ];
+
     var screen = document.getElementById('crt-screen');
+    var shell = screen.closest('.crt-shell');
+    var img = screen.querySelector('.crt-image');
+    var on = true, cur = 0;
+
     function powerOn() {
       screen.classList.remove('power-on');
       void screen.offsetWidth; // restart the animation
       screen.classList.add('power-on');
     }
-    document.getElementById('power-btn').addEventListener('click', powerOn);
+    function showSlide(i) {
+      if (!CRT_SLIDES.length) return; // placeholder stays
+      cur = (i + CRT_SLIDES.length) % CRT_SLIDES.length;
+      img.classList.add('has-img');
+      img.style.backgroundImage = "url('" + CRT_SLIDES[cur] + "')";
+    }
+    document.getElementById('power-btn').addEventListener('click', function () {
+      on = !on;
+      screen.classList.toggle('off', !on);
+      shell.classList.toggle('off', !on);
+      if (on) powerOn();
+    });
+    document.getElementById('crt-prev').addEventListener('click', function () {
+      if (on) showSlide(cur - 1);
+    });
+    document.getElementById('crt-next').addEventListener('click', function () {
+      if (on) showSlide(cur + 1);
+    });
+    showSlide(0);
     powerOn();
 
-    // 2. Now-ribbon rotation: cycles the status items one at a time.
-    //    Without JS, all items render side by side (markup unchanged).
+    // ── Now-ribbon rotation ── (all items render statically without JS)
     var items = document.querySelectorAll('#now-ribbon .ribbon-item');
     var seps = document.querySelectorAll('#now-ribbon .ribbon-sep');
     if (items.length > 1 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      var cur = 0;
+      var r = 0;
       seps.forEach(function (s) { s.style.display = 'none'; });
       items.forEach(function (el, i) { if (i !== 0) el.style.display = 'none'; });
       setInterval(function () {
-        items[cur].style.display = 'none';
-        cur = (cur + 1) % items.length;
-        items[cur].style.display = '';
+        items[r].style.display = 'none';
+        r = (r + 1) % items.length;
+        items[r].style.display = '';
       }, 6000);
     }
   })();
