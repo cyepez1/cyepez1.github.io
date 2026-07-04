@@ -1,0 +1,14 @@
+{
+  "name": "cairoyepez.com",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Personal site of Cairo Yepez — 11ty build, GitHub Pages deploy",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "js-yaml": "^5.2.1"
+  }
+}

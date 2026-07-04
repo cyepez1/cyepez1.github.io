@@ -1,3 +1,6 @@
+---
+active: "misc"
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -188,16 +191,13 @@
 </head>
 <body>
 
-<div id="masthead">
-  <a href="index.html" class="site-title">Cairo Yepez</a>
-  <span class="dateline">Chicago, IL</span>
-</div>
+{% include "masthead-main.html" %}
 
 <div class="page-banner">
   <div class="page-banner-inner">
     <div class="page-banner-label">Cairo Yepez / Misc</div>
     <div class="page-banner-title">The Junk Drawer</div>
-    <div class="page-banner-sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+    <div class="page-banner-sub">{{ chrome_text[active].banner_sub }}</div>
   </div>
 </div>
 
@@ -207,17 +207,9 @@
     <div class="paper ruled">
       <div class="sidebar-name">Cairo Yepez</div>
       <div class="sidebar-tagline">Chicago, IL &nbsp;·&nbsp; Since 2026</div>
-      <div class="nav-label">Navigation</div>
-      <a href="index.html" class="nav-item">Home</a>
-      <a href="games.html" class="nav-item">Games</a>
-      <a href="blog.html" class="nav-item">Blog</a>
-      <a href="music.html" class="nav-item">Music</a>
-      <a href="portfolio.html" class="nav-item">Portfolio</a>
-      <a href="photos.html" class="nav-item">Photos</a>
-      <a href="misc.html" class="nav-item active">Misc</a>
-      <a href="now/" class="nav-item">Now</a>
+      {% include "nav-main.html" %}
       <div class="sidebar-note">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        {{ chrome_text[active].sidebar_note }}
       </div>
     </div>
   </aside>
@@ -230,75 +222,32 @@
     <div class="board-label">Scraps &amp; Notes</div>
 
     <div class="scrap-row">
-    <div class="scrap pinned r1">
-      <div class="scrap-label">Note — March 2026</div>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis nostrud exercitation ullamco laboris.
+{% assign scrap_rots = "r1,r2,r3" | split: "," %}
+{% for sc in misc_page.scraps %}    <div class="scrap pinned {{ scrap_rots[forloop.index0] }}{% if forloop.last %} taped{% endif %}">
+      <div class="scrap-label">{{ sc.label }}</div>
+      {{ sc.text }}
     </div>
-
-    <div class="scrap pinned r2">
-      <div class="scrap-label">Note — Feb 2026</div>
-      Ut enim ad minim veniam. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.
-    </div>
-
-    <div class="scrap pinned r3 taped">
-      <div class="scrap-label">Note — Jan 2026</div>
-      At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias.
-    </div>
-    </div>
+{% endfor %}    </div>
 
     <!-- MISC GRID -->
     <div class="board-label">Collected Things</div>
     <div class="misc-grid">
-
-      <div class="misc-card pinned r2">
-        <div class="misc-card-icon">▸ Bookmarks</div>
-        <div class="misc-card-title">Sites Worth Revisiting Every Few Months</div>
-        <div class="misc-card-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</div>
+{% assign card_rots = "r2,r3,r1,r4,r3,r2" | split: "," %}
+{% for c in misc_page.cards %}
+      <div class="misc-card pinned {{ card_rots[forloop.index0] }}{% if forloop.index == 5 %} taped{% endif %}">
+        <div class="misc-card-icon">{{ c.icon }}</div>
+        <div class="misc-card-title">{{ c.title }}</div>
+        <div class="misc-card-body">{{ c.body }}</div>
       </div>
-
-      <div class="misc-card pinned r3">
-        <div class="misc-card-icon">▸ Fragrance</div>
-        <div class="misc-card-title">Bottles on the Shelf: Running Notes</div>
-        <div class="misc-card-body">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</div>
-      </div>
-
-      <div class="misc-card pinned r1">
-        <div class="misc-card-icon">▸ Hardware</div>
-        <div class="misc-card-title">Machines I've Owned and What Happened to Them</div>
-        <div class="misc-card-body">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</div>
-      </div>
-
-      <div class="misc-card pinned r4">
-        <div class="misc-card-icon">▸ Reading</div>
-        <div class="misc-card-title">The Unfinished Stack: Books I Owe Endings To</div>
-        <div class="misc-card-body">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.</div>
-      </div>
-
-      <div class="misc-card pinned r3 taped">
-        <div class="misc-card-icon">▸ Food</div>
-        <div class="misc-card-title">Southwest Side Spots That Don't Need a Review</div>
-        <div class="misc-card-body">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</div>
-      </div>
-
-      <div class="misc-card pinned r2">
-        <div class="misc-card-icon">▸ Links</div>
-        <div class="misc-card-title">Corners of the Internet That Still Feel Like 2003</div>
-        <div class="misc-card-body">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium.</div>
-      </div>
-
+{% endfor %}
     </div>
 
     <!-- CURRENT LIST -->
     <div class="board-label">Currently / Recently</div>
     <div class="notepage pinned r4">
       <ul class="list-block">
-        <li>Watching <em style="color:var(--maroon);">Lorem Ipsum: The Series</em> <span class="list-note">Season 5</span></li>
-        <li>Reading <em style="color:var(--maroon);">Consectetur Adipiscing: A History</em> <span class="list-note">pg. 142</span></li>
-        <li>Listening to <em style="color:var(--maroon);">Eiusmod Tempor Recordings</em> <span class="list-note">on repeat</span></li>
-        <li>Working on <em style="color:var(--maroon);">This website, clearly</em> <span class="list-note">ongoing</span></li>
-        <li>Thinking about <em style="color:var(--maroon);">Labore et dolore magna</em> <span class="list-note">too much</span></li>
-        <li>Avoiding <em style="color:var(--maroon);">Reprehenderit in voluptate</em> <span class="list-note">as usual</span></li>
-      </ul>
+{% for c in misc_page.currently %}        <li>{{ c.verb }} <em style="color:var(--maroon);">{{ c.item }}</em> <span class="list-note">{{ c.note }}</span></li>
+{% endfor %}      </ul>
     </div>
 
     </div><!-- /corkboard -->
@@ -306,14 +255,7 @@
   </main>
 </div>
 
-<div id="footer">
-  <a href="index.html" class="footer-left">Cairo Yepez</a>
-  <div class="footer-right">
-    © 2026 — Cairo Yepez<br>
-    Chicago, IL &nbsp;·&nbsp; All rights reserved<br>
-    ✶✶✶✶Made in Chicago, USA✶✶✶✶
-  </div>
-</div>
+{% include "footer-main.html" %}
 
 </body>
 </html>

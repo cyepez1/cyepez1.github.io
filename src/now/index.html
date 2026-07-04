@@ -1,0 +1,94 @@
+---
+root: "../"
+active: "now"
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Now — Cairo Yepez</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    /* ─── NOW COLUMN (Concept C: clean single column) ─── */
+    .now-column { max-width: 620px; }
+
+    .now-title {
+      font-family: 'Special Elite', cursive;
+      font-size: 22px;
+      color: var(--maroon);
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+
+    .now-sub {
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+      font-size: 14px;
+      color: var(--ink-light);
+      margin-bottom: 10px;
+    }
+
+    .now-ornament {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.35em;
+      color: var(--olive-light);
+      opacity: 0.6;
+      text-align: center;
+      margin-top: 28px;
+    }
+  </style>
+</head>
+<body>
+
+{% include "masthead-main.html" %}
+
+<div class="page-banner">
+  <div class="page-banner-inner">
+    <div class="page-banner-label">Cairo Yepez / Now</div>
+    <div class="page-banner-title">Currently</div>
+    <div class="page-banner-sub">{{ chrome_text[active].banner_sub }}</div>
+  </div>
+</div>
+
+<div id="main">
+
+  <aside>
+    <div class="paper ruled">
+      <div class="sidebar-name">Cairo Yepez</div>
+      <div class="sidebar-tagline">Chicago, IL &nbsp;·&nbsp; Since 2026</div>
+      {% include "nav-main.html" %}
+      <div class="sidebar-note">
+        {{ chrome_text[active].sidebar_note }}
+      </div>
+    </div>
+  </aside>
+
+  <main>
+    <div class="now-column">
+
+      {% for s in now_page.sections %}
+      <div class="section-label">{{ s.label }}</div>
+      <div class="paper">
+        <div class="now-title">{{ s.title }}</div>
+        <div class="now-sub">{{ s.sub }}</div>
+        <p style="font-size:14px; color:#3a2e22; line-height:1.65;">
+          {{ s.body }}
+        </p>
+      </div>
+{% unless forloop.last %}
+      <hr class="divider">
+{% endunless %}
+{% endfor %}
+
+      <div class="now-ornament">✶ &nbsp; ✶ &nbsp; ✶</div>
+
+    </div>
+  </main>
+</div>
+
+{% include "footer-main.html" %}
+
+</body>
+</html>

@@ -13,11 +13,17 @@ Live at cairoyepez.com (GitHub Pages, auto-deploys from `main`).
 Repo: `github.com/cyepez1/cyepez1.github.io`
 
 ## Stack
-Vanilla HTML + CSS + minimal vanilla JS. No build step, no framework, no package
-manager. Jekyll nominally enabled (empty `_config.yml`) but bypassed — `.nojekyll`
-at root. Google Fonts: EB Garamond (body), Special Elite (display/headers),
-Share Tech Mono (terminal accents) — loaded via `@import` in `style.css` and
-`games-shared.css`.
+HTML + CSS + minimal vanilla JS, built with **11ty** (Eleventy 3, Liquid
+templates) since the W3 migration (2026-07). No frameworks on the page — the
+build has exactly two dev dependencies (`@11ty/eleventy`, `js-yaml`). Output
+is pure static HTML/CSS/JS in `_site/`, deployed by GitHub Actions to GitHub
+Pages on push to `main`. Google Fonts: EB Garamond (body), Special Elite
+(display/headers), Share Tech Mono (terminal accents), Pirata One (blackletter,
+Chicago mark only) — via `@import` in `style.css` / `games-shared.css`.
+
+Build: `npm ci` once, then `npx @11ty/eleventy` (build) or
+`npx @11ty/eleventy --serve` (local preview). `_site/` and `node_modules/`
+are gitignored.
 
 JavaScript: the 7 games pages already carry small inline vanilla JS (scroll-progress
 bar, hamburger `toggleNav()`, carousel on `games.html`, card tilt) — that is the
@@ -69,19 +75,15 @@ When adding or editing a games page: link `tokens.css`, then `style.css`, then
 styles in a `<head>` `<style>` block.
 
 ## Navigation
-Every page carries the same sidebar/nav, linking: index, blog, music, photos,
-portfolio, games, misc, now. The nav is copy-pasted per page (see Structural debt) —
-adding or renaming a top-level page means editing every page.
+Every main-site page carries the same sidebar/nav (8 items). It lives ONCE in
+`src/_includes/nav-main.html`; pages set `active` (and `now/` sets `root`) in
+front matter. Adding or renaming a top-level page = one partial edit.
 
 ## Canonical chrome (source of truth)
-The General Restructure (final Phase 5 pre-loop step) is DONE: one canonical main-site
-chrome and one canonical games chrome, hand-propagated across all 15 pages. Shared
-partials (11ty) remain deferred (G1).
-
-The canonical versions live as reference snippets in `docs/canonical/`: `masthead-main`,
-`footer-main`, `nav-main`, `masthead-games`, `footer-games`. These are the source of
-truth — copy chrome from there on every page build/rebuild. Full write-up:
-`docs/GENERAL-RESTRUCTURE-PROPOSAL.md`.
+Chrome lives as 11ty partials in `src/_includes/`: `masthead-main`, `nav-main`,
+`footer-main`, `masthead-games`, `footer-games`. Edit a partial once and every
+page gets it — the G1 hand-propagation debt is resolved (W3, 2026-07).
+`docs/canonical/` snippets are HISTORICAL reference only.
 
 Locked chrome facts:
 - masthead dateline = `Chicago, IL` (NO year)
@@ -89,8 +91,8 @@ Locked chrome facts:
 - games footer = `© 2026 · Chicago, IL · All rights reserved` (divergent system, year kept)
 - footer tagline ✶✶✶✶Made in Chicago, USA✶✶✶✶ (U+2726, no spaces) — unchanged on all 15
 
-Rule: if chrome ever changes, update `docs/canonical/` AND every page in the same pass —
-the snippets and live pages must not drift (G1's standing cost).
+Rule: chrome changes are made in `src/_includes/` only. Never paste chrome
+into a page template.
 
 ## Guiding aesthetic (condensed)
 The site occupies a specific tonal register: analog-warm, institutionally serious,
@@ -114,28 +116,30 @@ Cairo writes all real prose. Claude Code does not generate voice or editorial co
 ## File and naming conventions
 Lowercase hyphenated filenames throughout: `games-shooters.html`, `games-shared.css`.
 Section sub-pages prefixed with section name: `games-halo.html`.
-The Now page lives in its own subdirectory: `now/index.html` — asset and nav
-hrefs from it use the `../` prefix.
+Page templates live in `src/` (the Now page at `src/now/index.html`, whose
+partials receive `root: "../"` via front matter). Editable content lives in
+`src/_data/*.yaml` — the CMS edits those files. URLs are unchanged from the
+pre-11ty era (flat `.html` paths, enforced by `src/src.11tydata.js`).
 Images in `/images/`. Unused images archived to `/images/archive/`.
 Documentation in `/docs/`.
 
 ## Working method
 Audit → propose → approve → execute. One approval per action.
 One concern per commit.
-Preview locally before pushing.
+Preview locally before pushing (`npx @11ty/eleventy --serve`).
 One page at a time for visual changes.
 Feature branches; merge when stable.
-Build/rebuild pages by copying chrome from `docs/canonical/` (see Canonical chrome).
+Chrome comes from `src/_includes/` partials — never copy it into a page.
 When a content/design decision changes, check whether any planning/proposal doc that
 records the old decision also needs correcting — doc/code drift is the live failure mode.
 Keep `CLAUDE.md` and `/docs/` current as decisions are made.
 Ask before any destructive or irreversible action. Archive over delete by default.
 
 ## Structural debt (tracked)
-Masthead and footer nav copy-pasted into all 15 pages (the 14 top-level pages plus
-`now/index.html`) — flag on any nav change, every page must be edited individually.
-The nav now carries 8 items: Home, Games, Blog, Music, Portfolio, Photos, Misc, Now.
-Lorem ipsum and placeholder cells throughout.
+Lorem ipsum and placeholder cells throughout (by design — Cairo replaces them
+via the CMS). Games/music complex collections not yet data-driven (deferred).
+GoatCounter is live (site code `cyepez1`, dashboard-only — no public counter).
+Sveltia login awaits Cairo's first PAT sign-in + round-trip edit at the silo.
 
 Resolved in Phases 1–6 (kept for record):
 - Token `:root` blocks consolidated into `tokens.css` ✓
@@ -154,10 +158,10 @@ Resolved in Phases 1–6 (kept for record):
   footer year kept ✓
 
 ## Verification
-No automated tests, linter, or build step. Changes are verified by opening the
-affected page(s) in a browser before committing. Optional future (not yet adopted,
-its own decision): a CI-only link/image checker via GitHub Actions — catches broken
-links and missing images while keeping the site buildless.
+`npx @11ty/eleventy` must build clean; preview affected pages in the browser
+(`--serve`) before committing. GitHub Actions builds and deploys atomically —
+a failed build never touches the live site. No test suite (future option:
+CI link/image checker).
 
 ## Project docs
 `docs/DESIGN-PHILOSOPHY.md` — aesthetic reference, hard NOs, contributor rules
