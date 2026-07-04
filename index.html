@@ -422,6 +422,28 @@
       position: relative;
     }
 
+    /* Chicago mark under the portrait (gate feedback): four flag stars +
+       CHICAGO, USA in the blackletter display face */
+    .chicago-mark {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+    .chicago-mark .cm-stars {
+      display: block;
+      color: var(--maroon);
+      font-size: 13px;
+      letter-spacing: 0.35em;
+      margin-bottom: 2px;
+    }
+    .chicago-mark .cm-text {
+      display: block;
+      font-family: 'Pirata One', 'Special Elite', cursive;
+      font-weight: bold;
+      font-size: 16px;
+      letter-spacing: 0.08em;
+      color: var(--ink);
+    }
+
     .sidebar-avatar .avatar-frame::before,
     .sidebar-avatar .avatar-frame::after {
       content: "";
@@ -697,7 +719,10 @@
         <div class="avatar-frame"></div>
       </div>
       <div class="sidebar-name">CAIRO YEPEZ</div>
-      <div class="sidebar-tagline">Chicago, IL &nbsp;·&nbsp; Since 2026</div>
+      <div class="chicago-mark">
+        <span class="cm-stars">✶✶✶✶</span>
+        <span class="cm-text">CHICAGO, USA</span>
+      </div>
 
       <div class="nav-label">Navigation</div>
       <a href="index.html" class="nav-item active">Home</a>
@@ -883,8 +908,6 @@
 
 <!-- BADGE ROW -->
 <div class="badge-row">
-  <span class="badge">Hand-set HTML &amp; CSS</span>
-  <span class="badge gold">Est. 2026</span>
   <span class="badge">✶ Made in Chicago ✶</span>
 </div>
 
