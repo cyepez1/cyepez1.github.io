@@ -1,3 +1,6 @@
+---
+active: "home"
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -645,10 +648,7 @@
 <body>
 
 <!-- MASTHEAD -->
-<div id="masthead">
-  <a href="index.html" class="site-title">Cairo Yepez</a>
-  <span class="dateline">Chicago, IL</span>
-</div>
+{% include "masthead-main.html" %}
 
 <!-- THE STUDY — scene band -->
 <div id="study">
@@ -724,16 +724,7 @@
         <span class="cm-text">CHICAGO, USA</span>
       </div>
 
-      <div class="nav-label">Navigation</div>
-      <a href="index.html" class="nav-item active">Home</a>
-      <a href="games.html" class="nav-item">Games</a>
-      <a href="blog.html" class="nav-item">Blog</a>
-      <a href="music.html" class="nav-item">Music</a>
-      <a href="portfolio.html" class="nav-item">Portfolio</a>
-      <a href="photos.html" class="nav-item">Photos</a>
-      <a href="misc.html" class="nav-item">Misc</a>
-      <a href="now/" class="nav-item">Now</a>
-
+      {% include "nav-main.html" %}
       <div class="sidebar-note">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus.
       </div>
@@ -912,14 +903,7 @@
 </div>
 
 <!-- FOOTER -->
-<div id="footer">
-  <a href="index.html" class="footer-left">Cairo Yepez</a>
-  <div class="footer-right">
-    © 2026 — Cairo Yepez<br>
-    Chicago, IL &nbsp;·&nbsp; All rights reserved<br>
-    ✶✶✶✶Made in Chicago, USA✶✶✶✶
-  </div>
-</div>
+{% include "footer-main.html" %}
 
 </body>
 </html>
