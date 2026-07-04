@@ -14,7 +14,16 @@ JS (decisions archived to MEMORY.md). **Awaiting Cairo's browser preview,
 then merge to main.** Photos (W1.1) merged earlier this session. Still riding
 the next preview: the W0 games-page spot-check. Push to origin remains HELD.
 
-## Current sub-project: Misc rebuild (W1.3)
+## ⚑ INTERLUDE (2026-07-03): games full-fusion experiment — loop PINNED here
+
+Cairo requested a look at the road-not-taken: the FULL fusion treatment
+(rejected by DESIGN-DIRECTION §4 in favor of light-touch) prototyped on
+`games.html` only, branch `experiment/games-fusion-full`, **throwaway** —
+exists to inform the standing "games wins" verdict, merges only on Cairo's
+explicit call. **REMINDER: when the experiment is reviewed, return to the
+misc mockup gate (W1.3) below.**
+
+## Current sub-project: Misc rebuild (W1.3) — PINNED, resume after interlude
 
 **Phase:** 5 — Per-page redesigns (rebuild loop: photos → music → misc → index)
 **File:** misc.html
