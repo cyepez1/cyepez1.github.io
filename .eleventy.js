@@ -2,7 +2,12 @@
 // Input: src/ (page templates). Output: _site/ (what GitHub Pages serves).
 // CSS/images/CNAME/.nojekyll are passthrough-copied untouched so the built
 // site references the same asset paths as before the migration.
+const yaml = require("js-yaml");
+
 module.exports = function (eleventyConfig) {
+  // YAML data files (11ty only reads JSON/JS natively)
+  eleventyConfig.addDataExtension("yaml", (contents) => yaml.load(contents));
+
   // assets, verbatim
   eleventyConfig.addPassthroughCopy({ "tokens.css": "tokens.css" });
   eleventyConfig.addPassthroughCopy({ "style.css": "style.css" });

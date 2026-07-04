@@ -659,9 +659,7 @@ active: "home"
       <div class="module-titlebar">The Digest</div>
       <div class="module-body">
         <p style="font-size:14px; color:#3a2e22; line-height:1.65; margin:0;">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-          veniam, quis nostrud exercitation ullamco laboris.
+          {{ home.digest }}
         </p>
       </div>
     </div>
@@ -678,10 +676,7 @@ active: "home"
             </div>
             <div class="crt-ticker">
               <span class="ticker-inner">
-                ★ CAIRO YEPEZ &nbsp;&nbsp;·&nbsp;&nbsp; GAMES · MUSIC · DESIGN · MISC &nbsp;&nbsp;·&nbsp;&nbsp;
-                Lorem ipsum dolor sit amet — consectetur adipiscing elit &nbsp;&nbsp;·&nbsp;&nbsp;
-                WELCOME TO THE SITE &nbsp;&nbsp;·&nbsp;&nbsp; NEW POST: Update Two &nbsp;&nbsp;·&nbsp;&nbsp;
-                ★ CAIRO YEPEZ &nbsp;&nbsp;·&nbsp;&nbsp;
+                {{ home.ticker }}
               </span>
             </div>
           </div>
@@ -703,9 +698,9 @@ active: "home"
 <!-- NOW RIBBON -->
 <div id="now-ribbon">
   <span class="ribbon-label">Now:</span>
-  <span class="ribbon-item">Reading — Notes Toward a Field Guide</span>
-  <span class="ribbon-sep">·</span>
-  <span class="ribbon-item">Playing — Verdant Hollow</span>
+  {% for r in home.ribbon %}<span class="ribbon-item">{{ r }}</span>
+  {% unless forloop.last %}<span class="ribbon-sep">·</span>
+  {% endunless %}{% endfor %}
   <a href="now/" class="ribbon-link">Full page →</a>
 </div>
 
@@ -726,7 +721,7 @@ active: "home"
 
       {% include "nav-main.html" %}
       <div class="sidebar-note">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus.
+        {{ chrome_text[active].sidebar_note }}
       </div>
     </div>
   </aside>
@@ -846,9 +841,7 @@ active: "home"
     // Add images by dropping files into images/crt-slides/ and listing
     // their filenames here (see images/crt-slides/README.md). Empty list
     // = the placeholder screen. W3's CMS will manage this automatically.
-    var CRT_SLIDES = [
-      // 'images/crt-slides/example.jpg',
-    ];
+    var CRT_SLIDES = [{% for sl in crt_slides %}'{{ sl }}',{% endfor %}];
 
     var screen = document.getElementById('crt-screen');
     var shell = screen.closest('.crt-shell');

@@ -1,0 +1,18 @@
+# Now page sections — CMS collection "now" (see CMS-DASHBOARD-2026 §4)
+sections:
+  - label: "Reading"
+    title: "Notes Toward a Field Guide"
+    sub: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  - label: "Playing"
+    title: "Verdant Hollow"
+    sub: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    body: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+  - label: "Watching the Yard"
+    title: "House Sparrows at the Feeder"
+    sub: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    body: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident."
+  - label: "Working On"
+    title: "Garcia Ridge Field Cards"
+    sub: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    body: "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus temporibus autem quibusdam."

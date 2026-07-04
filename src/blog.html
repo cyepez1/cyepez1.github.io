@@ -117,7 +117,7 @@ active: "blog"
   <div class="page-banner-inner">
     <div class="page-banner-label">Cairo Yepez / Blog</div>
     <div class="page-banner-title">The Long Room</div>
-    <div class="page-banner-sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+    <div class="page-banner-sub">{{ chrome_text[active].banner_sub }}</div>
   </div>
 </div>
 
@@ -129,7 +129,7 @@ active: "blog"
       <div class="sidebar-tagline">Chicago, IL &nbsp;·&nbsp; Since 2026</div>
       {% include "nav-main.html" %}
       <div class="sidebar-note">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        {{ chrome_text[active].sidebar_note }}
       </div>
     </div>
   </aside>
@@ -139,60 +139,17 @@ active: "blog"
 
       <div class="section-label">Recent</div>
 
-      <!-- POST 1 -->
+      {% for post in blog_posts %}
       <div class="blog-post">
-        <div class="blog-category">Essay</div>
-        <div class="blog-title"><a href="#">On the Persistence of Certain Intersections</a></div>
-        <div class="blog-meta">June 2026 &nbsp;·&nbsp; 2,400 words</div>
+        <div class="blog-category">{{ post.category }}</div>
+        <div class="blog-title"><a href="#">{{ post.title }}</a></div>
+        <div class="blog-meta">{{ post.month_long }} &nbsp;·&nbsp; {{ post.words_long }}</div>
         <p class="blog-excerpt">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          {{ post.excerpt }}
         </p>
         <a href="#" class="read-more">Read More →</a>
       </div>
-
-      <!-- POST 2 -->
-      <div class="blog-post">
-        <div class="blog-category">Notes</div>
-        <div class="blog-title"><a href="#">Three Observations About the 18 Bus</a></div>
-        <div class="blog-meta">May 2026 &nbsp;·&nbsp; 900 words</div>
-        <p class="blog-excerpt">
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
-        </p>
-        <a href="#" class="read-more">Read More →</a>
-      </div>
-
-      <!-- POST 3 -->
-      <div class="blog-post">
-        <div class="blog-category">Review</div>
-        <div class="blog-title"><a href="#">What the Building Knows That the Map Does Not</a></div>
-        <div class="blog-meta">April 2026 &nbsp;·&nbsp; 1,800 words</div>
-        <p class="blog-excerpt">
-          At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.
-        </p>
-        <a href="#" class="read-more">Read More →</a>
-      </div>
-
-      <!-- POST 4 -->
-      <div class="blog-post">
-        <div class="blog-category">Dispatch</div>
-        <div class="blog-title"><a href="#">Spring Migration, Backyard Log</a></div>
-        <div class="blog-meta">March 2026 &nbsp;·&nbsp; 600 words</div>
-        <p class="blog-excerpt">
-          Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis.
-        </p>
-        <a href="#" class="read-more">Read More →</a>
-      </div>
-
-      <!-- POST 5 -->
-      <div class="blog-post">
-        <div class="blog-category">Essay</div>
-        <div class="blog-title"><a href="#">A Theory of the Bungalow as Civic Form</a></div>
-        <div class="blog-meta">February 2026 &nbsp;·&nbsp; 3,100 words</div>
-        <p class="blog-excerpt">
-          Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.
-        </p>
-        <a href="#" class="read-more">Read More →</a>
-      </div>
+{% endfor %}
 
       <div class="blog-ornament">✶ &nbsp; ✶ &nbsp; ✶</div>
 
@@ -200,12 +157,8 @@ active: "blog"
       <div class="module-box">
         <div class="module-titlebar">The Ledger</div>
         <table class="ledger-table">
-          <tr><td>On the Persistence of Certain Intersections</td><td class="mono">JUN 2026</td><td class="mono">2,400 W</td></tr>
-          <tr><td>Three Observations About the 18 Bus</td><td class="mono">MAY 2026</td><td class="mono">900 W</td></tr>
-          <tr><td>What the Building Knows That the Map Does Not</td><td class="mono">APR 2026</td><td class="mono">1,800 W</td></tr>
-          <tr><td>Spring Migration, Backyard Log</td><td class="mono">MAR 2026</td><td class="mono">600 W</td></tr>
-          <tr><td>A Theory of the Bungalow as Civic Form</td><td class="mono">FEB 2026</td><td class="mono">3,100 W</td></tr>
-        </table>
+{% for post in blog_posts %}          <tr><td>{{ post.title }}</td><td class="mono">{{ post.month_short }}</td><td class="mono">{{ post.words_short }}</td></tr>
+{% endfor %}        </table>
       </div>
 
     </div>

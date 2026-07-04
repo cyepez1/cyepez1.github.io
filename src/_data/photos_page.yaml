@@ -1,0 +1,32 @@
+# Photos page — CMS collection "photos" (Editor's Desk structure)
+featured:
+  title: "Somewhere Along the Fence Line"
+  meta: "March 2026 &nbsp;·&nbsp; 35mm"
+  caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+rolls:
+  - label: "Roll 01 — Winter 2026"
+    frames: ["FR 01", "FR 02", "FR 03", "FR 04", "FR 05", "FR 06"]
+    prints:
+      - ph: "Photo 01"
+        title: "The Corner at Dusk"
+        caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
+        meta: "Feb 2026 &nbsp;·&nbsp; Digital"
+        stamp: "Roll 01 / FR 02"
+      - ph: "Photo 02"
+        title: "Backyard Study No. 4"
+        caption: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi."
+        meta: "Feb 2026 &nbsp;·&nbsp; 35mm"
+        stamp: "Roll 01 / FR 05"
+  - label: "Roll 02 — Fall 2025"
+    frames: ["FR 07", "FR 08", "FR 09", "FR 10", "FR 11", "FR 12"]
+    prints:
+      - ph: "Photo 03"
+        title: "January Light on Concrete"
+        caption: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore."
+        meta: "Jan 2026 &nbsp;·&nbsp; Digital"
+        stamp: "Roll 02 / FR 09"
+      - ph: "Photo 04"
+        title: "Still Life With Transit Card"
+        caption: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia."
+        meta: "Dec 2025 &nbsp;·&nbsp; 35mm"
+        stamp: "Roll 02 / FR 11"

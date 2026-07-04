@@ -48,7 +48,7 @@ active: "now"
   <div class="page-banner-inner">
     <div class="page-banner-label">Cairo Yepez / Now</div>
     <div class="page-banner-title">Currently</div>
-    <div class="page-banner-sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+    <div class="page-banner-sub">{{ chrome_text[active].banner_sub }}</div>
   </div>
 </div>
 
@@ -60,7 +60,7 @@ active: "now"
       <div class="sidebar-tagline">Chicago, IL &nbsp;·&nbsp; Since 2026</div>
       {% include "nav-main.html" %}
       <div class="sidebar-note">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        {{ chrome_text[active].sidebar_note }}
       </div>
     </div>
   </aside>
@@ -68,51 +68,19 @@ active: "now"
   <main>
     <div class="now-column">
 
-      <!-- READING -->
-      <div class="section-label">Reading</div>
+      {% for s in now_page.sections %}
+      <div class="section-label">{{ s.label }}</div>
       <div class="paper">
-        <div class="now-title">Notes Toward a Field Guide</div>
-        <div class="now-sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+        <div class="now-title">{{ s.title }}</div>
+        <div class="now-sub">{{ s.sub }}</div>
         <p style="font-size:14px; color:#3a2e22; line-height:1.65;">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          {{ s.body }}
         </p>
       </div>
-
+{% unless forloop.last %}
       <hr class="divider">
-
-      <!-- PLAYING -->
-      <div class="section-label">Playing</div>
-      <div class="paper">
-        <div class="now-title">Verdant Hollow</div>
-        <div class="now-sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-        <p style="font-size:14px; color:#3a2e22; line-height:1.65;">
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-        </p>
-      </div>
-
-      <hr class="divider">
-
-      <!-- WATCHING THE YARD -->
-      <div class="section-label">Watching the Yard</div>
-      <div class="paper">
-        <div class="now-title">House Sparrows at the Feeder</div>
-        <div class="now-sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-        <p style="font-size:14px; color:#3a2e22; line-height:1.65;">
-          At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.
-        </p>
-      </div>
-
-      <hr class="divider">
-
-      <!-- WORKING ON -->
-      <div class="section-label">Working On</div>
-      <div class="paper">
-        <div class="now-title">Garcia Ridge Field Cards</div>
-        <div class="now-sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-        <p style="font-size:14px; color:#3a2e22; line-height:1.65;">
-          Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus temporibus autem quibusdam.
-        </p>
-      </div>
+{% endunless %}
+{% endfor %}
 
       <div class="now-ornament">✶ &nbsp; ✶ &nbsp; ✶</div>
 

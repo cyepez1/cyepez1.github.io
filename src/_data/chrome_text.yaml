@@ -1,0 +1,24 @@
+# Per-page sidebar notes + banner subs — CMS collection "chrome_text"
+home:
+  sidebar_note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus."
+blog:
+  sidebar_note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  banner_sub: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+music:
+  sidebar_note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  banner_sub: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+photos:
+  sidebar_note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique."
+  banner_sub: "A running archive of things worth keeping."
+portfolio:
+  sidebar_note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  banner_sub: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+misc:
+  sidebar_note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  banner_sub: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+now:
+  sidebar_note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  banner_sub: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+notfound:
+  sidebar_note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  banner_sub: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."

@@ -1,4 +1,5 @@
 ---
+active: "notfound"
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -73,7 +74,7 @@
   <div class="page-banner-inner">
     <div class="page-banner-label">Cairo Yepez / 404</div>
     <div class="page-banner-title">Not Found</div>
-    <div class="page-banner-sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+    <div class="page-banner-sub">{{ chrome_text[active].banner_sub }}</div>
   </div>
 </div>
 
@@ -85,7 +86,7 @@
       <div class="sidebar-tagline">Chicago, IL &nbsp;·&nbsp; Since 2026</div>
       {% include "nav-main.html" %}
       <div class="sidebar-note">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        {{ chrome_text[active].sidebar_note }}
       </div>
     </div>
   </aside>
