@@ -139,7 +139,7 @@ active: "blog"
 
       <div class="section-label">Recent</div>
 
-      {% for post in blog_posts %}
+      {% for post in blog_posts.posts %}
       <div class="blog-post">
         <div class="blog-category">{{ post.category }}</div>
         <div class="blog-title"><a href="#">{{ post.title }}</a></div>
@@ -157,7 +157,7 @@ active: "blog"
       <div class="module-box">
         <div class="module-titlebar">The Ledger</div>
         <table class="ledger-table">
-{% for post in blog_posts %}          <tr><td>{{ post.title }}</td><td class="mono">{{ post.month_short }}</td><td class="mono">{{ post.words_short }}</td></tr>
+{% for post in blog_posts.posts %}          <tr><td>{{ post.title }}</td><td class="mono">{{ post.month_short }}</td><td class="mono">{{ post.words_short }}</td></tr>
 {% endfor %}        </table>
       </div>
 

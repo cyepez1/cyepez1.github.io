@@ -1,4 +1,4 @@
 # CRT slideshow images (index). Add entries like:
 #   - images/crt-slides/backyard-winter.jpg
 # CMS-managed once Sveltia is live (media folder images/crt-slides/).
-[]
+slides: []

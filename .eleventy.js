@@ -16,6 +16,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "CNAME": "CNAME" });
   eleventyConfig.addPassthroughCopy({ ".nojekyll": ".nojekyll" });
   eleventyConfig.addPassthroughCopy({ "robots.txt": "robots.txt" });
+  eleventyConfig.addPassthroughCopy({
+    "src/top-secret-civil-defense-silo/config.yml":
+      "top-secret-civil-defense-silo/config.yml",
+  });
 
   return {
     dir: {

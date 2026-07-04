@@ -841,7 +841,7 @@ active: "home"
     // Add images by dropping files into images/crt-slides/ and listing
     // their filenames here (see images/crt-slides/README.md). Empty list
     // = the placeholder screen. W3's CMS will manage this automatically.
-    var CRT_SLIDES = [{% for sl in crt_slides %}'{{ sl }}',{% endfor %}];
+    var CRT_SLIDES = [{% for sl in crt_slides.slides %}'{{ sl }}',{% endfor %}];
 
     var screen = document.getElementById('crt-screen');
     var shell = screen.closest('.crt-shell');

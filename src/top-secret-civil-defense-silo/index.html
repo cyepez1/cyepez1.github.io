@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <title>CIVIL DEFENSE SILO — AUTHORIZED PERSONNEL ONLY</title>
+  <link href="/top-secret-civil-defense-silo/config.yml" type="text/yaml" rel="cms-config-url">
+  <style>
+    /* Bunker signage shell — shown until Sveltia takes over the body */
+    body {
+      margin: 0;
+      background: #14120e;
+      color: #d8cfae;
+      font-family: 'Courier New', monospace;
+    }
+    #silo-door {
+      max-width: 560px;
+      margin: 8vh auto 0;
+      padding: 28px;
+      border: 3px double #8a8050;
+      text-align: center;
+    }
+    #silo-door .cd-mark {
+      font-size: 40px;
+      color: #c9920e;
+      letter-spacing: 0.2em;
+    }
+    #silo-door h1 {
+      font-size: 17px;
+      letter-spacing: 0.3em;
+      border-top: 1px solid #8a8050;
+      border-bottom: 1px solid #8a8050;
+      padding: 10px 0;
+    }
+    #silo-door p { font-size: 12px; letter-spacing: 0.12em; line-height: 1.7; }
+    #silo-door .stencil { color: #b23a1d; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div id="silo-door">
+    <div class="cd-mark">▲</div>
+    <h1>TOP SECRET — CIVIL DEFENSE SILO</h1>
+    <p class="stencil">AUTHORIZED PERSONNEL ONLY</p>
+    <p>Paste-up room, records office, and surveillance desk for
+       cairoyepez.com. Sign in with a repository access token
+       (fine-grained PAT, Contents read/write) to open the blast door.</p>
+    <p>Loading the console…</p>
+  </div>
+  <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js" type="module"></script>
+</body>
+</html>

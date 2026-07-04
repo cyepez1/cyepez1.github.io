@@ -1,0 +1,157 @@
+# Sveltia CMS configuration — cairoyepez.com content silo
+# Collections map 1:1 to src/_data/*.yaml (see docs/CMS-DASHBOARD-2026.md §4).
+# Content rule: placeholders stay until Cairo replaces them herself.
+
+backend:
+  name: github
+  repo: cyepez1/cyepez1.github.io
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "content"
+    label: "Site Content"
+    files:
+      - name: "home"
+        label: "Index — ribbon, digest, ticker"
+        file: "src/_data/home.yaml"
+        fields:
+          - { label: "Now-ribbon lines", name: "ribbon", widget: "list", field: { label: "Line", name: "line", widget: "string" } }
+          - { label: "Digest", name: "digest", widget: "text" }
+          - { label: "CRT ticker (HTML entities allowed)", name: "ticker", widget: "text" }
+      - name: "crt_slides"
+        label: "Index — CRT slideshow"
+        file: "src/_data/crt_slides.yaml"
+        fields:
+          - { label: "Slides", name: "slides", widget: "list", field: { label: "Image", name: "image", widget: "image", media_folder: "images/crt-slides", public_folder: "images/crt-slides" } }
+      - name: "now"
+        label: "Now page"
+        file: "src/_data/now_page.yaml"
+        fields:
+          - label: "Sections"
+            name: "sections"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Subtitle", name: "sub", widget: "string" }
+              - { label: "Body", name: "body", widget: "text" }
+      - name: "blog"
+        label: "Blog — post list"
+        file: "src/_data/blog_posts.yaml"
+        fields:
+          - label: "Posts"
+            name: "posts"
+            widget: "list"
+            fields:
+              - { label: "Category", name: "category", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Month (long, e.g. June 2026)", name: "month_long", widget: "string" }
+              - { label: "Month (short, e.g. JUN 2026)", name: "month_short", widget: "string" }
+              - { label: "Words (long, e.g. 2,400 words)", name: "words_long", widget: "string" }
+              - { label: "Words (short, e.g. 2,400 W)", name: "words_short", widget: "string" }
+              - { label: "Date (for the feed)", name: "date", widget: "datetime", format: "YYYY-MM-DD", time_format: false }
+              - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - name: "photos"
+        label: "Photos page"
+        file: "src/_data/photos_page.yaml"
+        fields:
+          - label: "Featured print"
+            name: "featured"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Meta", name: "meta", widget: "string" }
+              - { label: "Caption", name: "caption", widget: "text" }
+          - label: "Rolls"
+            name: "rolls"
+            widget: "list"
+            fields:
+              - { label: "Roll label", name: "label", widget: "string" }
+              - { label: "Frame numbers", name: "frames", widget: "list", field: { label: "Frame", name: "frame", widget: "string" } }
+              - label: "Pulled prints"
+                name: "prints"
+                widget: "list"
+                fields:
+                  - { label: "Placeholder text", name: "ph", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Caption", name: "caption", widget: "text" }
+                  - { label: "Meta", name: "meta", widget: "string" }
+                  - { label: "Stamp", name: "stamp", widget: "string" }
+      - name: "misc"
+        label: "Misc page (corkboard)"
+        file: "src/_data/misc_page.yaml"
+        fields:
+          - label: "Scraps"
+            name: "scraps"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+          - label: "Cards"
+            name: "cards"
+            widget: "list"
+            fields:
+              - { label: "Icon line", name: "icon", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Body", name: "body", widget: "text" }
+          - label: "Currently / Recently"
+            name: "currently"
+            widget: "list"
+            fields:
+              - { label: "Verb", name: "verb", widget: "string" }
+              - { label: "Item", name: "item", widget: "string" }
+              - { label: "Note", name: "note", widget: "string" }
+      - name: "chrome_text"
+        label: "Sidebar notes + banner subs"
+        file: "src/_data/chrome_text.yaml"
+        fields:
+          - label: "Home"
+            name: "home"
+            widget: "object"
+            fields:
+              - { label: "Sidebar note", name: "sidebar_note", widget: "text" }
+          - label: "Blog"
+            name: "blog"
+            widget: "object"
+            fields:
+              - { label: "Sidebar note", name: "sidebar_note", widget: "text" }
+              - { label: "Banner sub", name: "banner_sub", widget: "string" }
+          - label: "Music"
+            name: "music"
+            widget: "object"
+            fields:
+              - { label: "Sidebar note", name: "sidebar_note", widget: "text" }
+              - { label: "Banner sub", name: "banner_sub", widget: "string" }
+          - label: "Photos"
+            name: "photos"
+            widget: "object"
+            fields:
+              - { label: "Sidebar note", name: "sidebar_note", widget: "text" }
+              - { label: "Banner sub", name: "banner_sub", widget: "string" }
+          - label: "Portfolio"
+            name: "portfolio"
+            widget: "object"
+            fields:
+              - { label: "Sidebar note", name: "sidebar_note", widget: "text" }
+              - { label: "Banner sub", name: "banner_sub", widget: "string" }
+          - label: "Misc"
+            name: "misc"
+            widget: "object"
+            fields:
+              - { label: "Sidebar note", name: "sidebar_note", widget: "text" }
+              - { label: "Banner sub", name: "banner_sub", widget: "string" }
+          - label: "Now"
+            name: "now"
+            widget: "object"
+            fields:
+              - { label: "Sidebar note", name: "sidebar_note", widget: "text" }
+              - { label: "Banner sub", name: "banner_sub", widget: "string" }
+          - label: "404"
+            name: "notfound"
+            widget: "object"
+            fields:
+              - { label: "Sidebar note", name: "sidebar_note", widget: "text" }
+              - { label: "Banner sub", name: "banner_sub", widget: "string" }
