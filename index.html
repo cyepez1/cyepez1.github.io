@@ -785,6 +785,38 @@
 
 </div>
 
+<script>
+  // Two approved JS moments (W1.4 mockup gate). The CLEARANCE? silo
+  // flourish is deferred to W3 — inert until the silo exists.
+  (function () {
+    // 1. CRT power-on replay: fires once on load, replays via the power
+    //    button. Animation itself is CSS, gated by prefers-reduced-motion.
+    var screen = document.getElementById('crt-screen');
+    function powerOn() {
+      screen.classList.remove('power-on');
+      void screen.offsetWidth; // restart the animation
+      screen.classList.add('power-on');
+    }
+    document.getElementById('power-btn').addEventListener('click', powerOn);
+    powerOn();
+
+    // 2. Now-ribbon rotation: cycles the status items one at a time.
+    //    Without JS, all items render side by side (markup unchanged).
+    var items = document.querySelectorAll('#now-ribbon .ribbon-item');
+    var seps = document.querySelectorAll('#now-ribbon .ribbon-sep');
+    if (items.length > 1 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      var cur = 0;
+      seps.forEach(function (s) { s.style.display = 'none'; });
+      items.forEach(function (el, i) { if (i !== 0) el.style.display = 'none'; });
+      setInterval(function () {
+        items[cur].style.display = 'none';
+        cur = (cur + 1) % items.length;
+        items[cur].style.display = '';
+      }, 6000);
+    }
+  })();
+</script>
+
 <!-- BADGE ROW -->
 <div class="badge-row">
   <span class="badge">Hand-set HTML &amp; CSS</span>
