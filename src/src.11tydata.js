@@ -2,6 +2,7 @@
 // flat-file URLs exactly (photos.html stays /photos.html, etc.).
 module.exports = {
   eleventyComputed: {
-    permalink: (data) => `${data.page.filePathStem}.html`,
+    permalink: (data) =>
+      data.permalink || `${data.page.filePathStem}.html`,
   },
 };

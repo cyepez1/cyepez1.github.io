@@ -1,0 +1,21 @@
+---
+permalink: /feed.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Cairo Yepez — Blog</title>
+  <link href="https://cairoyepez.com/feed.xml" rel="self"/>
+  <link href="https://cairoyepez.com/blog.html"/>
+  <updated>{{ blog_posts[0].date | date: "%Y-%m-%dT00:00:00Z" }}</updated>
+  <id>https://cairoyepez.com/</id>
+  <author><name>Cairo Yepez</name></author>
+{% for post in blog_posts %}  <entry>
+    <title>{{ post.title | escape }}</title>
+    <link href="https://cairoyepez.com/blog.html"/>
+    <id>https://cairoyepez.com/blog.html#{{ post.date | date: "%Y-%m" }}</id>
+    <updated>{{ post.date | date: "%Y-%m-%dT00:00:00Z" }}</updated>
+    <category term="{{ post.category }}"/>
+    <summary>{{ post.excerpt | escape }}</summary>
+  </entry>
+{% endfor %}</feed>
