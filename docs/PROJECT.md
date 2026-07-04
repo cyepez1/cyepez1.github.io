@@ -14,13 +14,14 @@ Ten-commit migration; see MEMORY. **Awaiting the W3 merge gate:**
 - [ ] Cairo: local preview — `npm ci` then `npx @11ty/eleventy --serve`
       (check index CRT + flourish word, photos, blog Ledger, a games page,
       the silo door at /top-secret-civil-defense-silo/)
-- [ ] Merge feature/eleventy-cms → main, push
+- [x] Merge feature/eleventy-cms → main, push (2026-07-04)
 - [ ] Cairo: repo Settings → Pages → Source = "GitHub Actions"
       (the real go-live of the new pipeline; do it right after the push)
 - [ ] Cairo: fine-grained PAT (this repo, Contents read/write) → sign in
       at the silo; first CMS round-trip edit
-- [ ] Cairo: GoatCounter account → fill SITE_CODE in the two footer
-      partials + silo page, uncomment
+- [x] Cairo: GoatCounter account → fill SITE_CODE in the two footer
+      partials + silo page, uncomment (done 2026-07-04, site code `cyepez1`;
+      dashboard link live behind the silo door, no public counter)
 
 ## Next: W4 (after W3 gate clears)
 

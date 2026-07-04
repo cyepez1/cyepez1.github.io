@@ -138,7 +138,8 @@ Ask before any destructive or irreversible action. Archive over delete by defaul
 ## Structural debt (tracked)
 Lorem ipsum and placeholder cells throughout (by design — Cairo replaces them
 via the CMS). Games/music complex collections not yet data-driven (deferred).
-GoatCounter + Sveltia login are inert until Cairo supplies SITE_CODE and a PAT.
+GoatCounter is live (site code `cyepez1`, dashboard-only — no public counter).
+Sveltia login awaits Cairo's first PAT sign-in + round-trip edit at the silo.
 
 Resolved in Phases 1–6 (kept for record):
 - Token `:root` blocks consolidated into `tokens.css` ✓
