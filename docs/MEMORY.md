@@ -100,6 +100,17 @@ main-site JS moment (decided at this mockup gate per the F6 rule); it binds
 to `data-src` attributes only and stays inert until real images land via the
 CMS.
 
+**Music rebuild (2026-07): Concept A "The Deck" chosen.** Three concepts mocked:
+A "The Deck" (player-skin set-piece — LCD well in --inset-well/--teal-ink,
+beveled --rust transport, waveform as seek bar, catalog table tier), B "Liner
+Notes" (gatefold typographic spread), C "The Record Shop" (crate-first, genre
+bins). **A approved and built**; B and C discarded. The deck mock JS was
+approved at this gate (F6): decorative only, LCD carries a permanent
+"NO AUDIO — ORNAMENT" label — real playback remains a named stack trigger.
+Waveform/counter-tracklist/crate custom components all preserved per the
+hybrid brief. Page accent: --rust (second per-page accent after Portfolio's
+olive).
+
 **Phase 5 rebuild loop is the next live step.** Restructure done; loop order:
 photos → music → misc → index. Mode B. Quality bar = games + blog + portfolio. Per-page
 treatment: photos = rebuild (contact sheet); music = hybrid (keep custom components,
@@ -148,7 +159,7 @@ is complete. It is not permanently part of the repo.
 | Index | maroon | CRT hero + newspaper digest + Now ribbon | Built; Phase 5 hybrid — CRT to become anchored set-piece, not sidebar |
 | Blog | maroon | Single-column Garamond reading list | Done (Phase 4) |
 | Portfolio | olive | Blueprint grid + project index table | In progress (Phase 5) |
-| Music | maroon | Liner-note typography + fake player corner widget | Queued |
+| Music | maroon + rust accent | "The Deck" — Now Spinning player set-piece (LCD well, beveled transport, waveform seek bar), boxed crate, catalog table tier; decorative deck JS | Built (Phase 5 fusion) — on feature/music-rebuild, awaiting browser preview + merge |
 | Designs | — | Renamed to Portfolio | — |
 | Photos | maroon + gold stamps | "Editor's Desk" — featured-print module box, roll boxes w/ mini contact sheets + pulled beveled prints; lightbox JS | Built (Phase 5 fusion) — on feature/photos-rebuild, awaiting browser preview + merge |
 | Misc | maroon | Corkboard layout | Queued |
