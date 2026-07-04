@@ -233,6 +233,15 @@
       .record-grid { grid-template-columns: repeat(2, 1fr); }
       .deck-head { grid-template-columns: 1fr; }
     }
+
+    /* deck "playing" state — decorative only (NO AUDIO — ORNAMENT) */
+    #deck.playing .waveform::after { content: "▶ PLAYING (ORNAMENT)"; opacity: 0.8; }
+    @media (prefers-reduced-motion: no-preference) {
+      #deck.playing .waveform {
+        animation: seek-scroll 2.4s linear infinite;
+      }
+      @keyframes seek-scroll { to { background-position: 96px 0; } }
+    }
   </style>
 </head>
 <body>
@@ -403,6 +412,37 @@
 
   </main>
 </div>
+
+<script>
+  // Deck mock — decorative only, clearly labeled (LCD reads NO AUDIO —
+  // ORNAMENT). Play ticks the fake clock to 4:18 and loops; stop resets.
+  // Page fully functional with JS off (buttons are inert set dressing).
+  (function () {
+    var deck = document.getElementById('deck');
+    var clock = document.getElementById('lcd-clock');
+    var state = document.getElementById('lcd-state');
+    var t = 0, timer = null, TOTAL = 258; // 4:18
+    function fmt(s) {
+      var m = Math.floor(s / 60), r = s % 60;
+      return (m < 10 ? '0' + m : m) + ':' + (r < 10 ? '0' + r : r);
+    }
+    function render() { clock.textContent = fmt(t); }
+    document.getElementById('t-play').addEventListener('click', function () {
+      if (timer) return;
+      deck.classList.add('playing');
+      state.textContent = '▶';
+      timer = setInterval(function () {
+        t = (t + 1) % (TOTAL + 1);
+        render();
+      }, 1000);
+    });
+    document.getElementById('t-stop').addEventListener('click', function () {
+      clearInterval(timer); timer = null; t = 0; render();
+      deck.classList.remove('playing');
+      state.textContent = '■';
+    });
+  })();
+</script>
 
 <div id="footer">
   <a href="index.html" class="footer-left">Cairo Yepez</a>
