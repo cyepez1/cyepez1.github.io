@@ -1,42 +1,41 @@
-# Blog post list — CMS collection "blog"; also feeds /feed.xml
 posts:
-  - category: "Essay"
-    title: "On the Persistence of Certain Intersections"
-    month_long: "June 2026"
-    month_short: "JUN 2026"
-    words_long: "2,400 words"
-    words_short: "2,400 W"
-    date: 2026-06-01
-    excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-  - category: "Notes"
-    title: "Three Observations About the 18 Bus"
-    month_long: "May 2026"
-    month_short: "MAY 2026"
-    words_long: "900 words"
-    words_short: "900 W"
+  - category: Essay
+    title: On the Freedom of The Soul
+    month_long: July 4 2026
+    month_short: JUL26
+    words_long: '200'
+    words_short: '200'
+    date: 2026-07-04
+    excerpt: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+  - category: Notes
+    title: Three Observations About the 18 Bus
+    month_long: May 2026
+    month_short: MAY 2026
+    words_long: 900 words
+    words_short: 900 W
     date: 2026-05-01
-    excerpt: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit."
-  - category: "Review"
-    title: "What the Building Knows That the Map Does Not"
-    month_long: "April 2026"
-    month_short: "APR 2026"
-    words_long: "1,800 words"
-    words_short: "1,800 W"
+    excerpt: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+  - category: Review
+    title: What the Building Knows That the Map Does Not
+    month_long: April 2026
+    month_short: APR 2026
+    words_long: 1,800 words
+    words_short: 1,800 W
     date: 2026-04-01
-    excerpt: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi."
-  - category: "Dispatch"
-    title: "Spring Migration, Backyard Log"
-    month_long: "March 2026"
-    month_short: "MAR 2026"
-    words_long: "600 words"
-    words_short: "600 W"
+    excerpt: At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.
+  - category: Dispatch
+    title: Spring Migration, Backyard Log
+    month_long: March 2026
+    month_short: MAR 2026
+    words_long: 600 words
+    words_short: 600 W
     date: 2026-03-01
-    excerpt: "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis."
-  - category: "Essay"
-    title: "A Theory of the Bungalow as Civic Form"
-    month_long: "February 2026"
-    month_short: "FEB 2026"
-    words_long: "3,100 words"
-    words_short: "3,100 W"
+    excerpt: Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis.
+  - category: Essay
+    title: A Theory of the Bungalow as Civic Form
+    month_long: February 2026
+    month_short: FEB 2026
+    words_long: 3,100 words
+    words_short: 3,100 W
     date: 2026-02-01
-    excerpt: "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur."
+    excerpt: Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.
