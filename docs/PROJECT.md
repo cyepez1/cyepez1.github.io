@@ -7,33 +7,23 @@ Governing plan: `docs/BUILD-PLAN-2026-REFRESH.md`.
 
 ---
 
-## Just completed: W1 rebuild loop + W2 blog light pass — ALL DONE
+## Just completed: W3 — 11ty + CMS (built, on feature/eleventy-cms)
 
-- W1.1 Photos "Editor's Desk" — merged, LIVE
-- W1.2 Music "The Deck" — merged, LIVE
-- Games hub full fusion (interlude) — merged, LIVE
-- W1.3 Misc "The Corkboard" — merged, NOT yet pushed
-- W1.4 Index "The Study" (+ gate revisions: CRT power toggle, slideshow
-  arrows + images/crt-slides/, slower ticker, Chicago mark, single badge)
-  — merged, NOT yet pushed
-- W2 Blog light pass (teal chips, gold ornament, the Ledger) — merged,
-  NOT yet pushed
+Ten-commit migration; see MEMORY. **Awaiting the W3 merge gate:**
 
-**Pending Cairo:** push decision for the misc + index + blog batch
-(one deploy closes out the whole loop visually).
+- [ ] Cairo: local preview — `npm ci` then `npx @11ty/eleventy --serve`
+      (check index CRT + flourish word, photos, blog Ledger, a games page,
+      the silo door at /top-secret-civil-defense-silo/)
+- [ ] Merge feature/eleventy-cms → main, push
+- [ ] Cairo: repo Settings → Pages → Source = "GitHub Actions"
+      (the real go-live of the new pipeline; do it right after the push)
+- [ ] Cairo: fine-grained PAT (this repo, Contents read/write) → sign in
+      at the silo; first CMS round-trip edit
+- [ ] Cairo: GoatCounter account → fill SITE_CODE in the two footer
+      partials + silo page, uncomment
 
-## Next phase: W3 — 11ty + CMS (THE BIG ONE)
+## Next: W4 (after W3 gate clears)
 
-**Model:** Opus per plan. **Branch:** feature/eleventy-cms.
-**Gate:** one approval per phase — W3 does NOT start until Cairo says go.
-Scope (BUILD-PLAN W3): 11ty scaffold → chrome partials (kills G1) → page
-templates + data extraction (placeholders verbatim) → Sveltia at
-/top-secret-civil-defense-silo/ → GoatCounter (private-only) → RSS →
-Actions workflow → ⚑ activate the pinned CLEARANCE? flourish.
-Cairo-side prerequisites before/during: GitHub fine-grained PAT +
-GoatCounter account (instructions in CMS-DASHBOARD-2026 §2/§3).
-
----
-
-## After W3
-W4 games category pages / links.html / streaming page → W5 deferred.
+Games category pages fusion pass (decide full vs light at its mockup
+gate) → links.html "The Directory" (nav 8→9, now a one-partial edit) →
+streaming page. All Sonnet per plan.

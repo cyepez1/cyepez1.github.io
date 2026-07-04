@@ -139,6 +139,18 @@ and the previous full-width avatar treatment is SAVED as a revisit option**
 CLEARANCE? typing→silo flourish is PINNED — approved but deferred to W3,
 inert until the silo page exists.**
 
+**W3: 11ty + CMS migration built (2026-07-04).** The site is now an Eleventy 3
+project: templates in `src/`, chrome as `_includes/` partials (**G1 resolved —
+chrome edits are one-file edits now**), MVP content extracted verbatim into
+`src/_data/*.yaml`, Sveltia CMS at `/top-secret-civil-defense-silo/` (PAT
+login), GoatCounter shipped inert (commented, SITE_CODE pending), Atom feed at
+/feed.xml, Actions Pages workflow, CLEARANCE? flourish live (typing "bunker"
+on the index), fallout-shelter door badge in the index badge row. Built output
+verified content-identical to the pre-migration pages. Cairo-side to finish:
+Pages source → "GitHub Actions" (Settings → Pages), fine-grained PAT,
+GoatCounter account. Games/music complex collections deliberately not yet
+data-driven (W4/W5).
+
 **Phase 5 rebuild loop is the next live step.** Restructure done; loop order:
 photos → music → misc → index. Mode B. Quality bar = games + blog + portfolio. Per-page
 treatment: photos = rebuild (contact sheet); music = hybrid (keep custom components,
