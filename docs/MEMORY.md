@@ -119,6 +119,14 @@ beveled covers; g- chrome untouched); the six category pages stay light-touch
 pending their own W4 mockup gate. This also served as the W0 games-page
 browser spot-check.
 
+**Misc rebuild (2026-07): Concept A "The Corkboard" chosen — OQ4 resolved in
+full.** Three concepts mocked: A "The Corkboard" (full skeuomorph: cork
+texture, pins, rotation, tape), B "The Bulletin Case" (board framed in a
+fusion module box), C "The Scatter Board" (pins/rotation, no cork). **A
+approved and built**; B and C discarded. The long-deferred OQ4 aesthetic
+calls (cork texture yes, thumbtack pins yes, item rotation yes, tape yes)
+are now decided. No JS on this page.
+
 **Phase 5 rebuild loop is the next live step.** Restructure done; loop order:
 photos → music → misc → index. Mode B. Quality bar = games + blog + portfolio. Per-page
 treatment: photos = rebuild (contact sheet); music = hybrid (keep custom components,
@@ -170,7 +178,7 @@ is complete. It is not permanently part of the repo.
 | Music | maroon + rust accent | "The Deck" — Now Spinning player set-piece (LCD well, beveled transport, waveform seek bar), boxed crate, catalog table tier; decorative deck JS | Built (Phase 5 fusion) — on feature/music-rebuild, awaiting browser preview + merge |
 | Designs | — | Renamed to Portfolio | — |
 | Photos | maroon + gold stamps | "Editor's Desk" — featured-print module box, roll boxes w/ mini contact sheets + pulled beveled prints; lightbox JS | Built (Phase 5 fusion) — on feature/photos-rebuild, awaiting browser preview + merge |
-| Misc | maroon | Corkboard layout | Queued |
+| Misc | maroon + olive board labels | "The Corkboard" — full skeuomorph: cork board, thumbtack pins, ±rotation, tape accents, torn-notepage list. No JS | Built (Phase 5 fusion) — on feature/misc-rebuild, awaiting browser preview + merge |
 | Now | maroon | Clean single column, status ribbon on index | Done (Phase 5/6) |
 | 404 | maroon | Main-site chrome + 404 shell, TBD graphic slot | Shipped (Phase 5), live |
 | Games (section) | per-category tints | Wiki density, card catalog | Reference quality bar |
