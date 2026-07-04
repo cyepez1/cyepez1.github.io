@@ -595,33 +595,50 @@
   <span class="dateline">Chicago, IL</span>
 </div>
 
-<!-- HERO / CRT -->
-<div id="hero">
-  <div class="crt-wrap">
-    <div class="crt-shell">
-      <div class="crt-bezel">
-        <div class="crt-screen">
-          <div class="crt-image">
-            <div class="ph-crosshair"></div>
-            <span class="ph-label">Image Placeholder</span>
-          </div>
-          <div class="crt-ticker">
-            <span class="ticker-inner">
-              ★ CAIRO YEPEZ &nbsp;&nbsp;·&nbsp;&nbsp; GAMES · MUSIC · DESIGN · MISC &nbsp;&nbsp;·&nbsp;&nbsp;
-              Lorem ipsum dolor sit amet — consectetur adipiscing elit &nbsp;&nbsp;·&nbsp;&nbsp;
-              WELCOME TO THE SITE &nbsp;&nbsp;·&nbsp;&nbsp; NEW POST: Update Two &nbsp;&nbsp;·&nbsp;&nbsp;
-              ★ CAIRO YEPEZ &nbsp;&nbsp;·&nbsp;&nbsp;
-            </span>
+<!-- THE STUDY — scene band -->
+<div id="study">
+  <div class="study-left">
+    <div class="study-title">CAIRO YEPEZ</div>
+    <div class="study-sub">Games &nbsp;·&nbsp; Music &nbsp;·&nbsp; Design &nbsp;·&nbsp; Misc</div>
+    <div class="module-box" style="margin:20px 0 0;">
+      <div class="module-titlebar">The Digest</div>
+      <div class="module-body">
+        <p style="font-size:14px; color:#3a2e22; line-height:1.65; margin:0;">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+          veniam, quis nostrud exercitation ullamco laboris.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="study-scene">
+    <div class="zine-stack"><i></i><i></i><i></i></div>
+    <div class="crt-wrap">
+      <div class="crt-shell">
+        <div class="crt-bezel">
+          <div class="crt-screen" id="crt-screen">
+            <div class="crt-image">
+              <div class="ph-crosshair"></div>
+              <span class="ph-label">Image Placeholder</span>
+            </div>
+            <div class="crt-ticker">
+              <span class="ticker-inner">
+                ★ CAIRO YEPEZ &nbsp;&nbsp;·&nbsp;&nbsp; GAMES · MUSIC · DESIGN · MISC &nbsp;&nbsp;·&nbsp;&nbsp;
+                Lorem ipsum dolor sit amet — consectetur adipiscing elit &nbsp;&nbsp;·&nbsp;&nbsp;
+                WELCOME TO THE SITE &nbsp;&nbsp;·&nbsp;&nbsp; NEW POST: Update Two &nbsp;&nbsp;·&nbsp;&nbsp;
+                ★ CAIRO YEPEZ &nbsp;&nbsp;·&nbsp;&nbsp;
+              </span>
+            </div>
           </div>
         </div>
+        <button class="power-btn" id="power-btn" type="button" aria-label="Power — replay the turn-on"></button>
+        <div class="crt-led"></div>
       </div>
-      <div class="crt-led"></div>
+      <div class="crt-foot"></div>
+      <div class="crt-foot-base"></div>
     </div>
-    <div class="crt-foot"></div>
-    <div class="crt-foot-base"></div>
+    <div class="side-table"></div>
   </div>
-  <div class="hero-title">CAIRO YEPEZ</div>
-  <div class="hero-sub">Games &nbsp;·&nbsp; Music &nbsp;·&nbsp; Design &nbsp;·&nbsp; Misc</div>
 </div>
 
 <!-- NOW RIBBON -->
@@ -665,8 +682,9 @@
   <main>
 
     <!-- FEATURED -->
-    <div class="section-label">Featured Article</div>
-    <div class="paper">
+    <div class="module-box">
+      <div class="module-titlebar">Featured Article</div>
+      <div class="module-body">
       <div class="featured-img">
         <div class="img-corner tl"></div>
         <div class="img-corner tr"></div>
@@ -679,14 +697,14 @@
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
       </p>
       <a href="#" class="read-more">Read More →</a>
+      </div>
     </div>
 
-    <br>
-
     <!-- PHOTO STRIP TEASER -->
-    <div class="section-label">Photos</div>
-    <div class="paper">
-      <div class="photo-strip">
+    <div class="module-box">
+      <div class="module-titlebar">Photos</div>
+      <div class="module-body">
+      <div class="photo-strip" style="margin-top:0;">
         <div class="photo-cell"><span class="cell-label">Photo 01</span></div>
         <div class="photo-cell"><span class="cell-label">Photo 02</span></div>
         <div class="photo-cell"><span class="cell-label">Photo 03</span></div>
@@ -695,12 +713,13 @@
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi.
         <a href="photos.html" class="read-more" style="margin-left:10px;">View All →</a>
       </div>
+      </div>
     </div>
 
-    <br>
-
     <!-- LATEST POSTS -->
-    <div class="section-label">Latest Posts</div>
+    <div class="module-box">
+      <div class="module-titlebar">Latest Posts</div>
+      <div class="module-body">
 
     <div class="post">
       <div class="paper ruled">
@@ -759,8 +778,18 @@
       </div>
     </div>
 
+      </div>
+    </div>
+
   </main>
 
+</div>
+
+<!-- BADGE ROW -->
+<div class="badge-row">
+  <span class="badge">Hand-set HTML &amp; CSS</span>
+  <span class="badge gold">Est. 2026</span>
+  <span class="badge">✶ Made in Chicago ✶</span>
 </div>
 
 <!-- FOOTER -->
