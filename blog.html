@@ -28,8 +28,8 @@
       font-size: 9px;
       letter-spacing: 0.3em;
       text-transform: uppercase;
-      color: var(--maroon);
-      opacity: 0.6;
+      color: var(--teal-ink);   /* fusion token (W2 light pass) */
+      opacity: 0.75;
       margin-bottom: 6px;
     }
 
@@ -71,11 +71,39 @@
       font-family: 'Share Tech Mono', monospace;
       font-size: 9px;
       letter-spacing: 0.35em;
-      color: var(--olive-light);
-      opacity: 0.5;
+      color: var(--gold-dark);   /* fusion token (W2 light pass) */
+      opacity: 0.6;
       margin: 32px 0 0;
       text-align: left;
     }
+
+    /* ─── THE LEDGER — the quiet room's one module box (W2) ─── */
+    .module-box { border: var(--grid-rule); background: var(--paper); margin-top: 28px; }
+    .module-titlebar {
+      background: var(--titlebar);
+      color: var(--cream);
+      font-family: 'Special Elite', cursive;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      border-bottom: var(--grid-rule);
+    }
+    .ledger-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .ledger-table td {
+      border-bottom: var(--grid-rule-in);
+      padding: 6px 12px;
+      font-family: 'EB Garamond', serif;
+      color: var(--ink-light);
+    }
+    .ledger-table tr:last-child td { border-bottom: none; }
+    .ledger-table td.mono {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 9.5px;
+      color: var(--olive);
+      white-space: nowrap;
+    }
+    .ledger-table tr:nth-child(even) td { background: var(--cell-shade); }
   </style>
 </head>
 <body>
@@ -175,6 +203,18 @@
       </div>
 
       <div class="blog-ornament">✶ &nbsp; ✶ &nbsp; ✶</div>
+
+      <!-- THE LEDGER — index of the posts above (W2's one module box) -->
+      <div class="module-box">
+        <div class="module-titlebar">The Ledger</div>
+        <table class="ledger-table">
+          <tr><td>On the Persistence of Certain Intersections</td><td class="mono">JUN 2026</td><td class="mono">2,400 W</td></tr>
+          <tr><td>Three Observations About the 18 Bus</td><td class="mono">MAY 2026</td><td class="mono">900 W</td></tr>
+          <tr><td>What the Building Knows That the Map Does Not</td><td class="mono">APR 2026</td><td class="mono">1,800 W</td></tr>
+          <tr><td>Spring Migration, Backyard Log</td><td class="mono">MAR 2026</td><td class="mono">600 W</td></tr>
+          <tr><td>A Theory of the Bungalow as Civic Form</td><td class="mono">FEB 2026</td><td class="mono">3,100 W</td></tr>
+        </table>
+      </div>
 
     </div>
   </main>
