@@ -35,6 +35,45 @@
     .recent-cover { width:82px; height:110px; border:1.5px solid var(--maroon); display:flex; align-items:center; justify-content:center; font-family:'Share Tech Mono',monospace; font-size:.45rem; color:rgba(90,84,48,.6); text-align:center; padding:4px; margin-bottom:5px; }
     .recent-name { font-family:'Special Elite',cursive; font-size:.68rem; color:var(--ink); line-height:1.3; }
     @media(max-width:700px){.cat-grid{grid-template-columns:1fr 1fr;}}
+
+    /* ═══ EXPERIMENT: FULL FUSION (throwaway — informs the light-touch
+       verdict; g- chrome untouched) ═══ */
+    .module-box { border: var(--grid-rule); background: var(--paper); margin-bottom: 30px; }
+    .module-titlebar {
+      background: var(--titlebar); color: var(--cream);
+      font-family: 'Special Elite', cursive; font-size: 13px;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 7px 12px; border-bottom: var(--grid-rule);
+      display: flex; align-items: baseline; justify-content: space-between;
+    }
+    .module-titlebar .tb-count {
+      font-family: 'Share Tech Mono', monospace; font-size: 9px;
+      letter-spacing: 0.2em; opacity: 0.75;
+    }
+    .module-body { padding: 14px; }
+
+    /* slideshow: grid-rule frame replaces olive drop-shadow */
+    .slideshow-wrap { border: var(--grid-rule); box-shadow: none; margin-bottom: 0; }
+
+    /* cat-grid becomes a bordered table-grid: shared rules, shaded alternation */
+    .cat-grid { gap: 0; border: var(--grid-rule); margin-bottom: 0; }
+    .cat-card { border: none; border-right: var(--grid-rule-in); border-bottom: var(--grid-rule-in); border-top: 4px solid var(--maroon); }
+    .cat-card:nth-child(3n) { border-right: none; }
+    .cat-card:nth-child(even) { background: var(--cell-shade); }
+    .cat-card:hover { transform: none; box-shadow: var(--inset-well); }
+    .cc-label { color: var(--teal-ink); opacity: 0.85; }
+    .cc-count {
+      display: inline-block; align-self: flex-start;
+      color: var(--gold-dark); border: 1px solid var(--gold);
+      padding: 1px 6px; letter-spacing: 0.18em; text-transform: uppercase;
+    }
+
+    /* recent covers: ink-bevel frames */
+    .recent-cover {
+      border: 3px solid;
+      border-color: var(--bevel-hi) var(--bevel-lo) var(--bevel-lo) var(--bevel-hi);
+      outline: 1px solid var(--maroon);
+    }
   </style>
 </head>
 <body>
@@ -98,7 +137,9 @@
   </aside>
 
   <main class="g-main">
-    <div class="slideshow-wrap" id="featured">
+    <div class="module-box" id="featured">
+    <div class="module-titlebar">Featured Rotation <span class="tb-count">5 SLIDES · AUTO</span></div>
+    <div class="slideshow-wrap">
       <div class="slide active"><div class="slide-ph" style="background:linear-gradient(160deg,#1a0f06,#2d1810)">[ slide1.jpg ]</div><div class="slide-caption"><span>// featured</span>Elden Ring — The Lands Between await</div></div>
       <div class="slide"><div class="slide-ph" style="background:linear-gradient(160deg,#0d1f35,#060f1c)">[ slide2.jpg ]</div><div class="slide-caption"><span>// featured</span>Halo: Reach — Fall of a Spartan</div></div>
       <div class="slide"><div class="slide-ph" style="background:linear-gradient(160deg,#1a2d14,#0d1809)">[ slide3.jpg ]</div><div class="slide-caption"><span>// featured</span>Red Dead Redemption 2 — Wide open country</div></div>
@@ -109,15 +150,17 @@
         <div class="dot" onclick="goSlide(2)"></div><div class="dot" onclick="goSlide(3)"></div><div class="dot" onclick="goSlide(4)"></div>
       </div>
     </div>
-
-    <div class="g-lede">
-      <p class="g-lede-title">About this library</p>
-      <p>These are the games that left a mark — not a comprehensive backlog tracker, not a review publication, but a personal archive of experiences worth recording. Some entries go deep. Some are just a cover and a star rating. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, the library grows when it grows.</p>
     </div>
 
-    <div id="categories">
-      <div class="g-section-head"><h2>Browse by Category</h2><span class="sh-count">6 sections</span></div>
+    <div class="module-box">
+      <div class="module-titlebar">About This Library</div>
+      <div class="module-body g-lede" style="border:none; margin:0;">
+        <p>These are the games that left a mark — not a comprehensive backlog tracker, not a review publication, but a personal archive of experiences worth recording. Some entries go deep. Some are just a cover and a star rating. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, the library grows when it grows.</p>
+      </div>
     </div>
+
+    <div class="module-box" id="categories">
+      <div class="module-titlebar">Browse by Category <span class="tb-count">6 SECTIONS</span></div>
     <div class="cat-grid">
       <a href="games-starwars.html" class="cat-card">
         <p class="cc-label">sci-fi / action</p><p class="cc-title">A Long Time Ago…</p><p class="cc-count">5 entries</p>
@@ -150,8 +193,11 @@
         <div class="cc-preview"><div class="cc-prev-thumb ph-bd">Civ VI</div><div class="cc-prev-thumb ph-bd">Cities</div><div class="cc-prev-thumb ph-bd">ETS2</div></div>
       </a>
     </div>
+    </div>
 
-    <div id="recent"><div class="g-section-head"><h2>Recently on Rotation</h2></div></div>
+    <div class="module-box" id="recent">
+      <div class="module-titlebar">Recently on Rotation <span class="tb-count">8 TITLES</span></div>
+      <div class="module-body">
     <div class="recent-strip">
       <div class="recent-item"><div class="recent-cover ph-ow">Elden Ring</div><span class="recent-name">Elden Ring</span></div>
       <div class="recent-item"><div class="recent-cover ph-hl">Halo Infinite</div><span class="recent-name">Halo Infinite</span></div>
@@ -161,6 +207,8 @@
       <div class="recent-item"><div class="recent-cover ph-in">Balatro</div><span class="recent-name">Balatro</span></div>
       <div class="recent-item"><div class="recent-cover ph-sh">Metro Exodus</div><span class="recent-name">Metro Exodus</span></div>
       <div class="recent-item"><div class="recent-cover ph-sh">Helldivers 2</div><span class="recent-name">Helldivers 2</span></div>
+    </div>
+      </div>
     </div>
   </main>
 </div>
