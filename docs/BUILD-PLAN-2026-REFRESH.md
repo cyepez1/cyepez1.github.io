@@ -57,7 +57,7 @@ document.
 
 ---
 
-## W0 — Hygiene `[ ]` (Sonnet · branch `chore/hygiene-2026-07`)
+## W0 — Hygiene `[x]` (Sonnet · branch `chore/hygiene-2026-07`)
 
 Small, mechanical, zero visual intent. One concern per commit:
 
@@ -77,7 +77,7 @@ DESIGN-PHILOSOPHY offline export (waits until the rebuild phase completes).
 **DoD:** both imports identical in weight coverage; all 7 games mastheads
 byte-match canonical; branch list clean; browser spot-check of one games page.
 
-## W1 — Rebuild loop `[ ]` (photos → music → misc → index)
+## W1 — Rebuild loop `[x]` (photos → music → misc → index)
 
 Order and Mode B confirmed under the fusion. Treatments per
 DESIGN-DIRECTION §7 (photos = contact-sheet table-grid, run hot; music =
@@ -107,14 +107,16 @@ docs-adjacent, no visual change until used): append the §1 fusion tokens to
 **DoD per page:** matches approved mockup; tokens only from `tokens.css`;
 chrome byte-matches canonical; works with JS off; placeholders intact.
 
-## W2 — Blog light fusion pass `[ ]` (Sonnet · `feature/blog-fusion-pass`)
+## W2 — Blog light fusion pass `[x]` (Sonnet · `feature/blog-fusion-pass`)
 
 After W1 (F7 resolution). Fusion tokens + at most one module box;
 quiet-room register preserved — this is a trim, not a rebuild. One commit.
 **DoD:** blog reads as the same room, now materially consistent with the
 fused pages.
 
-## W3 — 11ty + CMS phase `[ ]` (**Opus** · `feature/eleventy-cms`)
+## W3 — 11ty + CMS phase `[x]` (**Opus** · `feature/eleventy-cms`)
+*(Merged + deployed 2026-07-04: Pages source = GitHub Actions, CMS
+round-trip verified, GoatCounter live — gate closed.)*
 
 Opus justified: a structural migration that touches all 15 pages at once and
 must reproduce them byte-similar — the highest-risk work in the plan.
@@ -145,7 +147,7 @@ edit round-trips to a real commit; feed validates; silo unlinked except its
 in-universe door; site fully functional with JS off; nothing about hosting
 changed except the build step.
 
-## W4 — Post-migration pages `[ ]` (Sonnet each, in order)
+## W4 — Post-migration pages `[~]` (Sonnet each, in order · started 2026-07-04)
 
 1. **Games fusion pass** (`feature/games-fusion-pass`): the hub already
    adopted FULL fusion (2026-07-03 experiment, merged). This task now covers
@@ -176,7 +178,10 @@ approval when resurrected.
 **Old BUILD-PLAN.md:** archived to `docs/archive/BUILD-PLAN.md` with a
 superseded header (done in the same session that created this file).
 
-**The push (F10 — HELD):** nothing pushes this session. The single push to
+**The push (F10 — HELD):** *(Historical — executed. Since the W3 merge,
+deploys flow through the Actions pipeline; per-session push holds are set
+in each session's kickoff instructions.)* Original text: nothing pushes
+this session. The single push to
 origin, executed as the **first action of a future session and only after
 Cairo previews the merged chrome locally**, contains everything accumulated
 on `main`: the canonical-chrome merge (the live-site chrome change), the

@@ -26,7 +26,7 @@ Live: cairoyepez.com · Repo: github.com/cyepez1/cyepez1.github.io
 | 3 | Document the system | ✓ Done | CLAUDE.md, DESIGN-AUDIT.md, REPO-AUDIT.md all updated with resolution tables |
 | 4 | Blog rebuild | ✓ Done | "The Long Room"; single-column Garamond reading list; blog.html was a stale games.html copy |
 | 5 (was 6) | Now page | ✓ Done | Concept C: status ribbon on index + clean single-column /now/index.html; collage layout rejected |
-| 5 | Per-page redesigns | ~ In progress | General Restructure DONE (canonical chrome locked); rebuild loop next: photos → music → misc → index |
+| 5 | Per-page redesigns | ✓ Done | General Restructure + full rebuild loop (photos → music → misc → index) complete under the fusion direction; W2 blog pass done |
 | 6 | Feature builds | Not started | See BUILD-PLAN.md |
 
 ---
@@ -143,15 +143,19 @@ inert until the silo page exists.**
 project: templates in `src/`, chrome as `_includes/` partials (**G1 resolved —
 chrome edits are one-file edits now**), MVP content extracted verbatim into
 `src/_data/*.yaml`, Sveltia CMS at `/top-secret-civil-defense-silo/` (PAT
-login), GoatCounter shipped inert (commented, SITE_CODE pending), Atom feed at
+login), GoatCounter, Atom feed at
 /feed.xml, Actions Pages workflow, CLEARANCE? flourish live (typing "bunker"
 on the index), fallout-shelter door badge in the index badge row. Built output
-verified content-identical to the pre-migration pages. Cairo-side to finish:
-Pages source → "GitHub Actions" (Settings → Pages), fine-grained PAT,
-GoatCounter account. Games/music complex collections deliberately not yet
-data-driven (W4/W5).
+verified content-identical to the pre-migration pages. **Gate closed
+2026-07-04:** merged to main and pushed; Pages source flipped to "GitHub
+Actions" (the flip lagged the push briefly — the legacy branch build served
+raw source and 404'd the homepage until Cairo flipped it; lesson recorded:
+platform-side settings go on the pre-push checklist); PAT sign-in + first
+CMS round-trip verified; GoatCounter live (site code `cyepez1`,
+dashboard-only, link behind the silo door). Games/music complex collections
+deliberately not yet data-driven (W4/W5).
 
-**Phase 5 rebuild loop is the next live step.** Restructure done; loop order:
+**Phase 5 rebuild loop — complete (kept for record).** Restructure done; loop order:
 photos → music → misc → index. Mode B. Quality bar = games + blog + portfolio. Per-page
 treatment: photos = rebuild (contact sheet); music = hybrid (keep custom components,
 align chrome, add page accent + denser index tier); misc = corkboard rebuild;
@@ -196,13 +200,13 @@ is complete. It is not permanently part of the repo.
 
 | Page | Accent | Layout personality | Status |
 |---|---|---|---|
-| Index | maroon | "The Study" — CRT (320px) on flat-ink side table w/ zine stack, headline + Digest box, module sections, badge row; power-on + ribbon-rotation JS | Built (Phase 5 fusion) — on feature/index-rebuild, awaiting browser preview + merge |
+| Index | maroon | "The Study" — CRT (320px) on flat-ink side table w/ zine stack, headline + Digest box, module sections, badge row; power-on + ribbon-rotation JS | Done (Phase 5 fusion) — merged, live under 11ty |
 | Blog | maroon + teal chips | Single-column Garamond reading list + the Ledger index box (W2 light pass — quiet room preserved) | Done (Phase 4; W2 pass 2026-07) |
-| Portfolio | olive | Blueprint grid + project index table | In progress (Phase 5) |
-| Music | maroon + rust accent | "The Deck" — Now Spinning player set-piece (LCD well, beveled transport, waveform seek bar), boxed crate, catalog table tier; decorative deck JS | Built (Phase 5 fusion) — on feature/music-rebuild, awaiting browser preview + merge |
+| Portfolio | olive | Blueprint grid + project index table | Done (pre-refresh) |
+| Music | maroon + rust accent | "The Deck" — Now Spinning player set-piece (LCD well, beveled transport, waveform seek bar), boxed crate, catalog table tier; decorative deck JS | Done (Phase 5 fusion) — merged, live under 11ty |
 | Designs | — | Renamed to Portfolio | — |
-| Photos | maroon + gold stamps | "Editor's Desk" — featured-print module box, roll boxes w/ mini contact sheets + pulled beveled prints; lightbox JS | Built (Phase 5 fusion) — on feature/photos-rebuild, awaiting browser preview + merge |
-| Misc | maroon + olive board labels | "The Corkboard" — full skeuomorph: cork board, thumbtack pins, ±rotation, tape accents, torn-notepage list. No JS | Built (Phase 5 fusion) — on feature/misc-rebuild, awaiting browser preview + merge |
+| Photos | maroon + gold stamps | "Editor's Desk" — featured-print module box, roll boxes w/ mini contact sheets + pulled beveled prints; lightbox JS | Done (Phase 5 fusion) — merged, live under 11ty |
+| Misc | maroon + olive board labels | "The Corkboard" — full skeuomorph: cork board, thumbtack pins, ±rotation, tape accents, torn-notepage list. No JS | Done (Phase 5 fusion) — merged, live under 11ty |
 | Now | maroon | Clean single column, status ribbon on index | Done (Phase 5/6) |
 | 404 | maroon | Main-site chrome + 404 shell, TBD graphic slot | Shipped (Phase 5), live |
 | Games (section) | per-category tints | Wiki density, card catalog | Reference quality bar |
