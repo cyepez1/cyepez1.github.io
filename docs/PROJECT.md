@@ -23,9 +23,12 @@ games-shared.css untouched. Tint preserved per page; approval still per page.
 - [x] Halo — approved, built, merged 2026-07-04 (`feature/games-fusion-pass`)
 - [x] A Long Time Ago… (Star Wars) — merged 2026-07-04; no featured block,
       template applied minus the two featured selectors
-- [~] Open World — in build (`feature/games-openworld-fusion`)
-- [ ] Indie
-- [ ] Shooters
+- [x] Open World — merged 2026-07-04 (template verbatim, no featured block)
+- [x] Indie — merged 2026-07-04 (template verbatim, no featured block)
+- [~] Shooters — built on `feature/games-shooters-fusion`, awaiting preview
+      + merge. Page-specific adaptation approved: minicat supers → teal,
+      `.g-table th` → cell-shade band + teal; tb-* chips untouched by
+      decision; no section-head on this page so no count stamp
 - [ ] Builder & Sim
 
 ### 2 · links.html "The Directory" (after category pages)
