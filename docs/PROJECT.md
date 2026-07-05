@@ -7,24 +7,38 @@ Governing plan: `docs/BUILD-PLAN-2026-REFRESH.md`.
 
 ---
 
-## Just completed: W3 — 11ty + CMS (built, on feature/eleventy-cms)
+## In progress: W4 — post-migration pages (games fusion → links → streaming)
 
-Ten-commit migration; see MEMORY. **Awaiting the W3 merge gate:**
+Gates: per-page mockup approval; one page, one branch, one merge decision
+at a time. **Push held by default — Cairo says go explicitly.** Platform-side
+settings (Pages source, DNS, etc.) go on the pre-push checklist — lesson
+from the W3 Pages-source outage.
 
-- [ ] Cairo: local preview — `npm ci` then `npx @11ty/eleventy --serve`
-      (check index CRT + flourish word, photos, blog Ledger, a games page,
-      the silo door at /top-secret-civil-defense-silo/)
-- [x] Merge feature/eleventy-cms → main, push (2026-07-04)
-- [ ] Cairo: repo Settings → Pages → Source = "GitHub Actions"
-      (the real go-live of the new pipeline; do it right after the push)
-- [ ] Cairo: fine-grained PAT (this repo, Contents read/write) → sign in
-      at the silo; first CMS round-trip edit
-- [x] Cairo: GoatCounter account → fill SITE_CODE in the two footer
-      partials + silo page, uncomment (done 2026-07-04, site code `cyepez1`;
-      dashboard link live behind the silo door, no public counter)
+### 1 · Games category fusion pass (light-touch, per DESIGN-DIRECTION §4)
 
-## Next: W4 (after W3 gate clears)
+Approved template = Halo's Option A block (see MEMORY 2026-07-04): gold
+stamps, teal supers, ink-bevel covers, page-scoped `<style>` only,
+games-shared.css untouched. Tint preserved per page; approval still per page.
 
-Games category pages fusion pass (decide full vs light at its mockup
-gate) → links.html "The Directory" (nav 8→9, now a one-partial edit) →
-streaming page. All Sonnet per plan.
+- [x] Halo — approved, built, merged 2026-07-04 (`feature/games-fusion-pass`)
+- [ ] A Long Time Ago… (Star Wars)
+- [ ] Open World
+- [ ] Indie
+- [ ] Shooters
+- [ ] Builder & Sim
+
+### 2 · links.html "The Directory" (after category pages)
+
+Mockup gate. Module boxes + 88×31 badge wall; nav 8 → 9 = one edit in
+`src/_includes/nav-main.html` (confirmed still true post-W3).
+
+### 3 · Streaming page (last)
+
+Mockup gate + content decisions from Cairo first: which platform embed,
+what the mini window shows. Static embed only — live status detection
+remains a named stack trigger (W5).
+
+### Push status
+
+`main` is ahead of `origin/main` (doc-currency commit + Halo fusion merge +
+this docs commit). Nothing deploys until Cairo says push.

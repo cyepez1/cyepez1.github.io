@@ -155,6 +155,19 @@ CMS round-trip verified; GoatCounter live (site code `cyepez1`,
 dashboard-only, link behind the silo door). Games/music complex collections
 deliberately not yet data-driven (W4/W5).
 
+**W4 games category fusion — Halo first (2026-07-04): Option A light-touch
+approved and merged.** Four moves as a 10-line page-scoped `<style>` block in
+`src/games-halo.html` (games-shared.css untouched): banner `g-tag`s → gold
+stamps; section-head label → teal-ink, count → gold-bordered stamp (the hub's
+`.cc-label`/`.cc-count` pair); covers (featured + collection) → ink-bevel
+frames + 1px maroon outline replacing the olive offset shadow (the hub's
+`.recent-cover` treatment); mono supers (`// editor's pick`, callout titles)
+→ teal-ink. Stars stay maroon (spot-color discipline); tint system, chrome,
+tilt JS untouched. **Option B (module titlebars on Featured/Collection) held
+in reserve** if a later page feels too quiet. This block is the default
+template for the five remaining category pages — tint preserved per page,
+mockup approval still required per page, one page/one branch/one merge.
+
 **Phase 5 rebuild loop — complete (kept for record).** Restructure done; loop order:
 photos → music → misc → index. Mode B. Quality bar = games + blog + portfolio. Per-page
 treatment: photos = rebuild (contact sheet); music = hybrid (keep custom components,
