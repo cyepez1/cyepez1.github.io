@@ -21,8 +21,9 @@ stamps, teal supers, ink-bevel covers, page-scoped `<style>` only,
 games-shared.css untouched. Tint preserved per page; approval still per page.
 
 - [x] Halo — approved, built, merged 2026-07-04 (`feature/games-fusion-pass`)
-- [ ] A Long Time Ago… (Star Wars)
-- [ ] Open World
+- [x] A Long Time Ago… (Star Wars) — merged 2026-07-04; no featured block,
+      template applied minus the two featured selectors
+- [~] Open World — in build (`feature/games-openworld-fusion`)
 - [ ] Indie
 - [ ] Shooters
 - [ ] Builder & Sim
