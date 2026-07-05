@@ -168,6 +168,21 @@ in reserve** if a later page feels too quiet. This block is the default
 template for the five remaining category pages — tint preserved per page,
 mockup approval still required per page, one page/one branch/one merge.
 
+**W4 category loop progress (2026-07-04, same session).** Star Wars, Open
+World, Indie: template applied verbatim (none has a featured block, so the
+two featured selectors are omitted) — approved, built, merged. **Shooters
+adaptation approved** (page has no `.g-section-head`; it's six `.g-minicat`
+series sections with rating tables): minicat supers → teal-ink (the
+sh-label analog); `.g-table th` → `--cell-shade` band + teal-ink text,
+existing maroon underline kept — first shipped use of the DESIGN-DIRECTION
+"tinted table headers" note; **tb-zombies/tb-nozombie/tb-tbd chips stay
+maroon/olive by decision** (gold ×10 per viewport would break spot-color
+discipline — games wins). No count stamp on shooters: counts live inside
+the sup text and HTML stays frozen. Built on `feature/games-shooters-fusion`,
+awaiting Cairo's preview + merge. Builder & Sim (hybrid anatomy: minicats +
+table + one standard section-head/grid) = union of the two approved blocks,
+proposed, not yet approved.
+
 **Phase 5 rebuild loop — complete (kept for record).** Restructure done; loop order:
 photos → music → misc → index. Mode B. Quality bar = games + blog + portfolio. Per-page
 treatment: photos = rebuild (contact sheet); music = hybrid (keep custom components,

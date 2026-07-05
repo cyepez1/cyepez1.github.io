@@ -44,5 +44,9 @@ remains a named stack trigger (W5).
 
 ### Push status
 
-`main` is ahead of `origin/main` (doc-currency commit + Halo fusion merge +
-this docs commit). Nothing deploys until Cairo says push.
+`main` is ahead of `origin/main` by 13 commits (doc-currency pass, four
+category-fusion merges — halo/starwars/openworld/indie — and the docs
+ticks). Branch `feature/games-shooters-fusion` holds the built, unmerged
+shooters pass. **Nothing deploys until Cairo says push.** Pre-push
+checklist: no platform-side settings changed this session (nothing to
+flip); push publishes all four fused category pages at once.
