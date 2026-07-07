@@ -7,54 +7,41 @@ Governing plan: `docs/BUILD-PLAN-2026-REFRESH.md`.
 
 ---
 
-## In progress: W4 — post-migration pages (games fusion → streaming → links)
+## W4 — post-migration pages: CLOSED 2026-07-06, pushed
 
-Gates: per-page mockup approval; one page, one branch, one merge decision
-at a time. **Push held by default — Cairo says go explicitly.** Platform-side
-settings (Pages source, DNS, etc.) go on the pre-push checklist — lesson
-from the W3 Pages-source outage.
+All of W4 shipped and pushed to origin/main (auto-deploys to cairoyepez.com):
 
-### 1A/1B · Games category fusion + dark ground — DONE 2026-07-06
+- 1A · Games category fusion — all six pages (Halo template + per-page
+  adaptations) + **dark ground** (`body.g-dark`, `#0e0c0a`, dark panels,
+  cover-tint placeholder inversion)
+- 1B · Builder & Sim union block; dark extended to music/photos/misc/now
+- 1C · Streaming page — ships **under construction**, platform TBD;
+  `stream-mini` component stored unused for later site-wide drops
+- 1D · links.html "The Directory" — link registers + 88×31 badge wall
 
-All six category pages fused (Halo Option A template, per-page adaptations —
-see MEMORY 2026-07-04/06). Games section + music/photos/misc/now moved to the
-dark ground (`body.g-dark` token remap in tokens.css, `#0e0c0a`, dark panels;
-cover placeholder inversion via `:has()`; full rationale in MEMORY
-2026-07-06). Index/blog/portfolio/404 remain cream; dark is opt-in per page.
+Full history and rationale: MEMORY.md 2026-07-04 / 2026-07-06 entries.
+Nav is 10 items. Dark pages: 7 games + music, photos, misc, now, streaming,
+links. Still cream: index, blog, portfolio, 404.
 
-- [x] Halo, Star Wars, Open World, Indie — merged 2026-07-04
-- [x] Shooters — merged 2026-07-06 (adaptation + dark)
-- [x] Builder & Sim — merged 2026-07-06 (union block)
-- [x] Dark ground: games hub + 6 subpages + music/photos/misc/now — merged 2026-07-06
+## Next up (not started — pick at next session)
 
-### 1C · Streaming page — DONE 2026-07-06
+- **W5 stack triggers** (each needs its own decision + phase): real streaming
+  embed + live status detection (platform choice first — streaming page and
+  stream-mini component are sized for a drop-in iframe); real audio playback;
+  guestbook; RSS/email; JSON-driven games data.
+- **Content passes via CMS**: real links/badges for The Directory, real
+  schedule for Streaming, replacing lorem site-wide (Cairo, via the silo).
+- **Open design question**: whether index/blog/portfolio/404 also go dark
+  (dark is opt-in per page via `body.g-dark`), and whether the dark ground
+  becomes an image.
+- **Housekeeping**: remote branches `feature/canonical-chrome` +
+  `tester-branch` — deletion approved 2026-07-06, blocked by tooling; run
+  `git push origin --delete feature/canonical-chrome tester-branch` anytime.
+  Local merged feature branches kept per archive-over-delete.
 
-Merged. "The Signal Room" internally; page displays "Streaming" and ships
-**under construction** (hazard-bar notice) until Cairo picks a platform —
-generic 16:9 signal well sized for the eventual embed. Panels: schedule
-(CMS-wired via `streaming_page.yaml`), ornament chat, offline status card,
-blank link slots. Nav 8 → 9. **`stream-mini` component stored, unused**
-(`src/_includes/stream-mini.html` + `.stream-mini` CSS in style.css) — drop
-`{% include "stream-mini.html" %}` on any page when wanted; well swaps for
-the real embed at W5. Live status detection remains the W5 stack trigger.
+## Push status
 
-### 1D · links.html "The Directory" (in progress)
-
-Mockup gate. Module boxes + 88×31 badge wall; nav 9 → 10 (label "Links").
-Born dark. Data via `links_page.yaml` + silo config, mirroring streaming.
-
-### Push status
-
-`main` is ahead of `origin/main` by 24 commits (13 prior: doc-currency pass +
-halo/starwars/openworld/indie fusion merges; plus 2026-07-06: shooters merge,
-dark-ground merges, builder merge, docs). **Nothing deploys until Cairo says
-push.** Pre-push checklist: no platform-side settings changed these sessions;
-push publishes all six fused category pages AND the dark ground at once.
-
-### Housekeeping
-
-Remote branches `feature/canonical-chrome` and `tester-branch`: deletion
-approved 2026-07-06 but blocked by tooling — Cairo can run
-`git push origin --delete feature/canonical-chrome tester-branch` whenever.
-Merged local feature branches (games-shooters-fusion, games-dark,
-games-builder-fusion, main-dark-mockup) kept per archive-over-delete.
+Pushed 2026-07-06 (28 commits: doc-currency pass, six category fusions, dark
+ground, streaming, directory). Pre-push checklist was clean — no
+platform-side settings changed. Verify the GitHub Actions deploy + spot-check
+the live site after push.

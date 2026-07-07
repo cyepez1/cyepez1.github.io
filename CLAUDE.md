@@ -70,7 +70,8 @@ page-level `<style>` blocks always win.
 ## Two design systems
 Main site (`style.css` + per-page inline `<style>`): masthead with maroon double
 border, CRT hero on the index, paper/ruled card layouts. Pages: index, blog, music,
-portfolio, photos, misc, now, streaming (under construction, dark), 404.
+portfolio, photos, misc, now, streaming (under construction, dark), links
+("The Directory", dark), 404.
 `src/_includes/stream-mini.html` (+ `.stream-mini` CSS in style.css) is a stored,
 currently-unused mini streaming window any page can include later.
 
@@ -86,7 +87,7 @@ When adding or editing a games page: link `tokens.css`, then `style.css`, then
 styles in a `<head>` `<style>` block.
 
 ## Navigation
-Every main-site page carries the same sidebar/nav (9 items as of 1C). It lives ONCE in
+Every main-site page carries the same sidebar/nav (10 items as of W4 close). It lives ONCE in
 `src/_includes/nav-main.html`; pages set `active` (and `now/` sets `root`) in
 front matter. Adding or renaming a top-level page = one partial edit.
 

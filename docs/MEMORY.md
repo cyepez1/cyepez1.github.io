@@ -225,6 +225,20 @@ small titlebar/well/link module any page can include to carry the stream
 window site-wide later; swap the well contents for the iframe at W5. No JS
 anywhere on the page; live status detection stays the named W5 trigger.
 
+**W4 CLOSED + first post-migration push (2026-07-06).** 1D links.html
+"The Directory" built and merged same session: three data-driven link
+registers (Sites/Reading/Tools placeholder labels, `links_page.yaml`,
+CMS-wired) as teal-headed catalog tables with entry-count titlebars, plus
+the **88×31 badge wall** — twelve CSS-drawn placeholder buttons in a
+six-color accent rotation (shooters-maroon/gold/teal/olive/halo-blue/rust),
+bevel borders that flip on hover; real button images drop in later. Nav
+9 → 10, label "Links" (page title carries "The Directory"). Born dark, no
+JS. **Cairo then closed W4 and called the push** — 28 commits to
+origin/main in one go (doc-currency, six category fusions, dark ground,
+streaming UC, directory). Pre-push checklist clean, no platform-side
+settings touched. Final W4 state: nav 10; dark = 7 games pages + music,
+photos, misc, now, streaming, links; cream = index, blog, portfolio, 404.
+
 **Phase 5 rebuild loop — complete (kept for record).** Restructure done; loop order:
 photos → music → misc → index. Mode B. Quality bar = games + blog + portfolio. Per-page
 treatment: photos = rebuild (contact sheet); music = hybrid (keep custom components,
