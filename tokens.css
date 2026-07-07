@@ -89,3 +89,27 @@
   --titlebar:      var(--maroon);              /* module-box header strip      */
 
 }
+
+/* ── GAMES DARK SURFACE (2026-07-06) ──
+   The games section sits on a warm near-black ground (#0e0c0a, same tone as
+   .g-banner) instead of cream. Scoped remap: games page templates carry
+   class="g-dark" on <body>; the main site is unaffected. The ground may
+   become an image later — this is the flat-color interim.
+   Panels go dark ("one dark room"), text goes warm cream.
+   --cream is NOT remapped: it doubles as the light foreground on the maroon
+   masthead/footer/banner — the page ground is set on body in games-shared.css.
+   --maroon-light and --teal-ink are punched up inside this scope so accent
+   text stays readable; --maroon, --olive, --gold, --tint-* are untouched. */
+body.g-dark {
+  --cream-mid:    #171310;   /* row hover / callout fill           */
+  --cream-dark:   #2e2822;   /* borders & rules (above-surface)    */
+  --paper:        #181310;   /* card/panel surface                 */
+  --ink:          #e8e0cf;   /* body text → warm cream             */
+  --ink-light:    #b9ae96;   /* secondary text                     */
+  --cell-shade:   #221c15;   /* table-header/alt-row band          */
+  --maroon-light: #c0424f;   /* readable maroon accent on dark     */
+  --teal-ink:     #3f9a93;   /* readable teal accent on dark       */
+  --bevel-hi:     rgba(250, 246, 237, 0.22);
+  --bevel-lo:     rgba(0, 0, 0, 0.65);
+  --inset-well:   inset 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
