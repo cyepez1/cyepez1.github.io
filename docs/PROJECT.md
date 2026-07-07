@@ -27,16 +27,21 @@ cover placeholder inversion via `:has()`; full rationale in MEMORY
 - [x] Builder & Sim — merged 2026-07-06 (union block)
 - [x] Dark ground: games hub + 6 subpages + music/photos/misc/now — merged 2026-07-06
 
-### 1C · Streaming page (next)
+### 1C · Streaming page — DONE 2026-07-06
 
-Mockup gate + content decisions from Cairo first: which platform embed,
-what the mini window shows. Static embed only — live status detection
-remains a named stack trigger (W5). Page will be born dark (`g-dark`).
+Merged. "The Signal Room" internally; page displays "Streaming" and ships
+**under construction** (hazard-bar notice) until Cairo picks a platform —
+generic 16:9 signal well sized for the eventual embed. Panels: schedule
+(CMS-wired via `streaming_page.yaml`), ornament chat, offline status card,
+blank link slots. Nav 8 → 9. **`stream-mini` component stored, unused**
+(`src/_includes/stream-mini.html` + `.stream-mini` CSS in style.css) — drop
+`{% include "stream-mini.html" %}` on any page when wanted; well swaps for
+the real embed at W5. Live status detection remains the W5 stack trigger.
 
-### 1D · links.html "The Directory" (after streaming)
+### 1D · links.html "The Directory" (in progress)
 
-Mockup gate. Module boxes + 88×31 badge wall; nav 8 → 9 = one edit in
-`src/_includes/nav-main.html` (confirmed still true post-W3). Born dark.
+Mockup gate. Module boxes + 88×31 badge wall; nav 9 → 10 (label "Links").
+Born dark. Data via `links_page.yaml` + silo config, mirroring streaming.
 
 ### Push status
 

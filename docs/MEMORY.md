@@ -209,6 +209,22 @@ Housekeeping: local `feature/eleventy-cms` deleted; remote
 `feature/canonical-chrome` + `tester-branch` deletions approved but blocked
 by tooling — Cairo runs `git push origin --delete` himself if still wanted.
 
+**W4/1C streaming page shipped under construction (2026-07-06).** Internal
+name "The Signal Room"; the page displays plain "Streaming" (Cairo's call).
+Platform deliberately undecided → platform-agnostic static 16:9 signal well
+(near-black, scanlines, token test-pattern bar, "NO SIGNAL — EMBED TBD")
+sized so the real embed drops in with no layout change. Ships with a gold
+hazard-bar **UNDER CONSTRUCTION — TRANSMISSION PENDING** notice until the
+platform is chosen. Panels: schedule (data-driven, `streaming_page.yaml`,
+CMS collection added to the silo config), CSS-only chat labeled
+"CHAT — ORNAMENT · NOT LIVE" (the music-deck ornament precedent), offline
+status card, links panel blank by instruction. Nav 8 → 9 via the partial.
+**stream-mini component built and STORED, referenced nowhere:**
+`src/_includes/stream-mini.html` + `.stream-mini` section in style.css — a
+small titlebar/well/link module any page can include to carry the stream
+window site-wide later; swap the well contents for the iframe at W5. No JS
+anywhere on the page; live status detection stays the named W5 trigger.
+
 **Phase 5 rebuild loop — complete (kept for record).** Restructure done; loop order:
 photos → music → misc → index. Mode B. Quality bar = games + blog + portfolio. Per-page
 treatment: photos = rebuild (contact sheet); music = hybrid (keep custom components,
