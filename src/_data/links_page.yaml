@@ -1,0 +1,31 @@
+# Links page ("The Directory") content — CMS collection "links_page"
+sections:
+  - label: "Sites"
+    items:
+      - { name: "Site Placeholder One", note: "Lorem ipsum dolor sit amet.", url: "#" }
+      - { name: "Site Placeholder Two", note: "Consectetur adipiscing elit.", url: "#" }
+      - { name: "Site Placeholder Three", note: "Sed do eiusmod tempor.", url: "#" }
+      - { name: "Site Placeholder Four", note: "Ut labore et dolore magna.", url: "#" }
+  - label: "Reading"
+    items:
+      - { name: "Reading Placeholder One", note: "Lorem ipsum dolor sit amet.", url: "#" }
+      - { name: "Reading Placeholder Two", note: "Consectetur adipiscing elit.", url: "#" }
+      - { name: "Reading Placeholder Three", note: "Sed do eiusmod tempor.", url: "#" }
+  - label: "Tools"
+    items:
+      - { name: "Tool Placeholder One", note: "Lorem ipsum dolor sit amet.", url: "#" }
+      - { name: "Tool Placeholder Two", note: "Consectetur adipiscing elit.", url: "#" }
+      - { name: "Tool Placeholder Three", note: "Sed do eiusmod tempor.", url: "#" }
+badges:
+  - { label: "BADGE 001", url: "#" }
+  - { label: "BADGE 002", url: "#" }
+  - { label: "BADGE 003", url: "#" }
+  - { label: "BADGE 004", url: "#" }
+  - { label: "BADGE 005", url: "#" }
+  - { label: "BADGE 006", url: "#" }
+  - { label: "BADGE 007", url: "#" }
+  - { label: "BADGE 008", url: "#" }
+  - { label: "BADGE 009", url: "#" }
+  - { label: "BADGE 010", url: "#" }
+  - { label: "BADGE 011", url: "#" }
+  - { label: "BADGE 012", url: "#" }

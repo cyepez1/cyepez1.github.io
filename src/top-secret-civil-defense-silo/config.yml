@@ -122,6 +122,28 @@ collections:
             fields:
               - { label: "Label", name: "label", widget: "string" }
               - { label: "URL", name: "url", widget: "string" }
+      - name: "links"
+        label: "Links page (The Directory)"
+        file: "src/_data/links_page.yaml"
+        fields:
+          - label: "Sections"
+            name: "sections"
+            widget: "list"
+            fields:
+              - { label: "Section label", name: "label", widget: "string" }
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Name", name: "name", widget: "string" }
+                  - { label: "Note", name: "note", widget: "string" }
+                  - { label: "URL", name: "url", widget: "string" }
+          - label: "Badges (88×31)"
+            name: "badges"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
       - name: "chrome_text"
         label: "Sidebar notes + banner subs"
         file: "src/_data/chrome_text.yaml"
@@ -169,6 +191,12 @@ collections:
               - { label: "Banner sub", name: "banner_sub", widget: "string" }
           - label: "Streaming"
             name: "streaming"
+            widget: "object"
+            fields:
+              - { label: "Sidebar note", name: "sidebar_note", widget: "text" }
+              - { label: "Banner sub", name: "banner_sub", widget: "string" }
+          - label: "Links"
+            name: "links"
             widget: "object"
             fields:
               - { label: "Sidebar note", name: "sidebar_note", widget: "text" }

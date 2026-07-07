@@ -1,0 +1,182 @@
+---
+active: "links"
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Links — Cairo Yepez</title>
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ─── THE DIRECTORY — fusion vocabulary, born dark (g-dark) ───
+       Module-box link registers + the 88×31 badge wall. Badges are
+       CSS-drawn placeholders until real button images land. No JS. */
+
+    .module-box {
+      border: var(--grid-rule);
+      background: var(--paper);
+      margin-bottom: 24px;
+    }
+    .module-titlebar {
+      background: var(--titlebar);
+      color: var(--cream);
+      font-family: 'Special Elite', cursive;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 7px 12px;
+      border-bottom: var(--grid-rule);
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+    .module-titlebar .tb-count {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      opacity: 0.75;
+    }
+    .module-body { padding: 14px; }
+
+    /* link register (catalog-table pattern) */
+    .dir-table {
+      width: 100%;
+      border-collapse: collapse;
+      border: var(--grid-rule-in);
+      font-size: 12.5px;
+    }
+    .dir-table th {
+      background: var(--teal-ink);
+      color: var(--cream);
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 9px;
+      font-weight: normal;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-align: left;
+      padding: 6px 10px;
+    }
+    .dir-table td {
+      border: var(--grid-rule-in);
+      padding: 6px 10px;
+      font-family: 'EB Garamond', serif;
+      vertical-align: baseline;
+    }
+    .dir-table tr:nth-child(even) td { background: var(--cell-shade); }
+    .dir-name {
+      font-family: 'Special Elite', cursive;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+    .dir-name a { color: var(--maroon-light); text-decoration: none; }
+    .dir-name a:hover { color: var(--gold); }
+    .dir-note { font-style: italic; color: var(--ink-light); font-size: 12px; }
+
+    /* the badge wall — 88×31 web buttons, CSS-drawn placeholders */
+    .badge-wall {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: flex-start;
+    }
+    .badge {
+      width: 88px;
+      height: 31px;
+      flex: 0 0 88px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 8px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      text-align: center;
+      line-height: 1.2;
+      padding: 2px 4px;
+      border: 2px solid;
+      border-color: var(--bevel-hi) var(--bevel-lo) var(--bevel-lo) var(--bevel-hi);
+      box-shadow: var(--inset-well);
+      overflow: hidden;
+    }
+    .badge:hover { border-color: var(--bevel-lo) var(--bevel-hi) var(--bevel-hi) var(--bevel-lo); }
+    /* rotation palette — assigned by position, cycles every 6 */
+    .badge:nth-child(6n+1) { background: var(--tint-shooters); color: var(--maroon-light); }
+    .badge:nth-child(6n+2) { background: #221a08; color: var(--gold); }
+    .badge:nth-child(6n+3) { background: #0c1f1d; color: var(--teal-ink); }
+    .badge:nth-child(6n+4) { background: var(--tint-openworld); color: var(--olive-light); }
+    .badge:nth-child(6n+5) { background: var(--tint-halo); color: var(--blue-margin); }
+    .badge:nth-child(6n+6) { background: #23130c; color: var(--rust); }
+    .badge-note {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 8px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--olive-light);
+      opacity: 0.6;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body class="g-dark">
+
+{% include "masthead-main.html" %}
+
+<div class="page-banner">
+  <div class="page-banner-inner">
+    <div class="page-banner-label">Cairo Yepez / Links</div>
+    <div class="page-banner-title">The Directory</div>
+    <div class="page-banner-sub">{{ chrome_text[active].banner_sub }}</div>
+  </div>
+</div>
+
+<div id="main">
+
+  <aside>
+    <div class="paper ruled">
+      <div class="sidebar-name">Cairo Yepez</div>
+      <div class="sidebar-tagline">Chicago, IL &nbsp;·&nbsp; Since 2026</div>
+      {% include "nav-main.html" %}
+      <div class="sidebar-note">
+        {{ chrome_text[active].sidebar_note }}
+      </div>
+    </div>
+  </aside>
+
+  <main>
+
+{% for sec in links_page.sections %}
+    <div class="module-box">
+      <div class="module-titlebar">{{ sec.label }} <span class="tb-count">{{ sec.items.size }} ENTRIES</span></div>
+      <div class="module-body">
+        <table class="dir-table">
+          <thead>
+            <tr><th>Name</th><th>Note</th></tr>
+          </thead>
+          <tbody>
+{% for item in sec.items %}            <tr><td class="dir-name"><a href="{{ item.url }}">{{ item.name }}</a></td><td class="dir-note">{{ item.note }}</td></tr>
+{% endfor %}          </tbody>
+        </table>
+      </div>
+    </div>
+{% endfor %}
+
+    <!-- THE BADGE WALL -->
+    <div class="module-box">
+      <div class="module-titlebar">The Badge Wall <span class="tb-count">88 × 31</span></div>
+      <div class="module-body">
+        <div class="badge-wall">
+{% for b in links_page.badges %}          <a class="badge" href="{{ b.url }}">{{ b.label }}</a>
+{% endfor %}        </div>
+        <div class="badge-note">CSS placeholders — real buttons welcome</div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+{% include "footer-main.html" %}
+
+</body>
+</html>
