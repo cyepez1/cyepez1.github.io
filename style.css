@@ -274,3 +274,29 @@ hr.divider { border: none; border-top: 1px dashed #c8b89a; margin: 18px 0; }
   text-align: right;
   line-height: 1.8;
 }
+
+/* ─── DARK GROUND (2026-07-06, mockup) ───
+   Same body.g-dark scope as the games section (token remap in tokens.css).
+   Games pages get the ground from games-shared.css; main-site pages that
+   opt in get it here. Dark-maroon/olive TEXT bumps to the light variants;
+   maroon chrome (masthead/footer) and physical objects (corkboard, notes)
+   are untouched. :where() keeps page <style> blocks winning. */
+body.g-dark { background-color: #0e0c0a; }
+body.g-dark::before { filter: invert(1); }
+
+:where(body.g-dark) .paper { border-color: #2e2822; box-shadow: 2px 2px 0 rgba(0,0,0,.35); }
+:where(body.g-dark) .sidebar-name,
+:where(body.g-dark) .nav-item,
+:where(body.g-dark) .post-title,
+:where(body.g-dark) .read-more { color: var(--maroon-light); }
+:where(body.g-dark) .read-more { border-bottom-color: var(--maroon-light); }
+:where(body.g-dark) .sidebar-tagline,
+:where(body.g-dark) .post-meta { color: var(--olive-light); }
+:where(body.g-dark) .sidebar-note { color: var(--ink-light); border-top-color: #3a332b; }
+:where(body.g-dark) hr.divider { border-top-color: #3a332b; }
+:where(body.g-dark) .ph-img {
+  background: repeating-linear-gradient(-45deg, #171310 0px, #171310 2px, #1f1a15 2px, #1f1a15 12px);
+  border-color: #2e2822;
+  color: var(--maroon-light);
+}
+:where(body.g-dark) .ph-img .corner { border-color: var(--maroon-light); }

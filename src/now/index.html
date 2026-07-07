@@ -38,9 +38,12 @@ active: "now"
       text-align: center;
       margin-top: 28px;
     }
+
+    /* ── dark-ground mockup tune (2026-07-06) ── */
+    .now-title { color: var(--maroon-light); }
   </style>
 </head>
-<body>
+<body class="g-dark">
 
 {% include "masthead-main.html" %}
 
@@ -73,7 +76,7 @@ active: "now"
       <div class="paper">
         <div class="now-title">{{ s.title }}</div>
         <div class="now-sub">{{ s.sub }}</div>
-        <p style="font-size:14px; color:#3a2e22; line-height:1.65;">
+        <p style="font-size:14px; color:var(--ink-light); line-height:1.65;">
           {{ s.body }}
         </p>
       </div>

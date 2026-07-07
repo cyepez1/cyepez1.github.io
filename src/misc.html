@@ -187,9 +187,18 @@ active: "misc"
       .scrap-row, .misc-grid { grid-template-columns: 1fr; }
       .corkboard { padding: 20px 12px 24px; }
     }
+
+    /* ── dark-ground mockup tune (2026-07-06) — text/edges on dark panels
+       only; corkboard, scraps, tape, pins stay physical (light) ── */
+    .misc-card { border-color: #2e2822; border-top-color: var(--olive); }
+    .misc-card-title { color: var(--maroon-light); }
+    .misc-card-body { color: var(--ink-light); }
+    .list-block li { border-bottom-color: #3a332b; }
+    .list-block li::before { color: var(--maroon-light); }
+    .list-note { color: var(--ink-light); }
   </style>
 </head>
-<body>
+<body class="g-dark">
 
 {% include "masthead-main.html" %}
 
@@ -246,7 +255,7 @@ active: "misc"
     <div class="board-label">Currently / Recently</div>
     <div class="notepage pinned r4">
       <ul class="list-block">
-{% for c in misc_page.currently %}        <li>{{ c.verb }} <em style="color:var(--maroon);">{{ c.item }}</em> <span class="list-note">{{ c.note }}</span></li>
+{% for c in misc_page.currently %}        <li>{{ c.verb }} <em style="color:var(--maroon-light);">{{ c.item }}</em> <span class="list-note">{{ c.note }}</span></li>
 {% endfor %}      </ul>
     </div>
 

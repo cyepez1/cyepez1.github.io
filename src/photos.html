@@ -135,9 +135,15 @@ active: "photos"
       #lightbox.open img { animation: lb-in 140ms ease-out; }
       @keyframes lb-in { from { transform: scale(0.97); opacity: 0; } }
     }
+
+    /* ── dark-ground mockup tune (2026-07-06) — text/edges only ── */
+    .sheet-cell { color: var(--maroon-light); opacity: 0.75; }
+    .photo-caption { color: var(--ink-light); }
+    .photo-caption strong { color: var(--maroon-light); }
+    .stamp { color: var(--gold); }
   </style>
 </head>
-<body>
+<body class="g-dark">
 
 {% include "masthead-main.html" %}
 
@@ -175,7 +181,7 @@ active: "photos"
         </div>
         <div class="post-title">{{ photos_page.featured.title }}</div>
         <div class="post-meta">{{ photos_page.featured.meta }}</div>
-        <p style="font-size:14px; color:#3a2e22; line-height:1.65;">
+        <p style="font-size:14px; color:var(--ink-light); line-height:1.65;">
           {{ photos_page.featured.caption }}
         </p>
       </div>
