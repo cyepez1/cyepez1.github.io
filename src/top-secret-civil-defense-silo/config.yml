@@ -104,6 +104,24 @@ collections:
               - { label: "Verb", name: "verb", widget: "string" }
               - { label: "Item", name: "item", widget: "string" }
               - { label: "Note", name: "note", widget: "string" }
+      - name: "streaming"
+        label: "Streaming page"
+        file: "src/_data/streaming_page.yaml"
+        fields:
+          - label: "Schedule"
+            name: "schedule"
+            widget: "list"
+            fields:
+              - { label: "Day", name: "day", widget: "string" }
+              - { label: "Time", name: "time", widget: "string" }
+              - { label: "Programme", name: "programme", widget: "string" }
+          - label: "Links"
+            name: "links"
+            widget: "list"
+            required: false
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
       - name: "chrome_text"
         label: "Sidebar notes + banner subs"
         file: "src/_data/chrome_text.yaml"
@@ -145,6 +163,12 @@ collections:
               - { label: "Banner sub", name: "banner_sub", widget: "string" }
           - label: "Now"
             name: "now"
+            widget: "object"
+            fields:
+              - { label: "Sidebar note", name: "sidebar_note", widget: "text" }
+              - { label: "Banner sub", name: "banner_sub", widget: "string" }
+          - label: "Streaming"
+            name: "streaming"
             widget: "object"
             fields:
               - { label: "Sidebar note", name: "sidebar_note", widget: "text" }

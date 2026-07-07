@@ -1,0 +1,318 @@
+---
+active: "streaming"
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Streaming — Cairo Yepez</title>
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ─── THE SIGNAL ROOM — fusion vocabulary, born dark (g-dark) ───
+       Platform-agnostic static frame; real embed + live status are W5.
+       No JS on this page. */
+
+    .module-box {
+      border: var(--grid-rule);
+      background: var(--paper);
+      margin-bottom: 24px;
+    }
+    .module-titlebar {
+      background: var(--titlebar);
+      color: var(--cream);
+      font-family: 'Special Elite', cursive;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 7px 12px;
+      border-bottom: var(--grid-rule);
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+    .module-titlebar .tb-note {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      opacity: 0.75;
+    }
+    .module-body { padding: 14px; }
+
+    /* ── the frame: platform-agnostic embed well ── */
+    .signal-frame {
+      aspect-ratio: 16 / 9;
+      background: #050403;
+      border: var(--grid-rule-in);
+      box-shadow: var(--inset-well);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+    .signal-frame::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.35) 3px, rgba(0,0,0,0.35) 4px);
+      pointer-events: none;
+    }
+    .testbar {
+      display: flex;
+      width: 200px;
+      height: 28px;
+      border: var(--grid-rule-in);
+    }
+    .testbar span { flex: 1; opacity: 0.5; }
+    .tb-c1 { background: var(--maroon-light); }
+    .tb-c2 { background: var(--gold); }
+    .tb-c3 { background: var(--teal-ink); }
+    .tb-c4 { background: var(--olive-light); }
+    .tb-c5 { background: var(--blue-margin); }
+    .tb-c6 { background: var(--rust); }
+    .tb-c7 { background: var(--cream-dark); }
+    .signal-caption {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--olive-light);
+      opacity: 0.7;
+    }
+
+    /* ── panel row ── */
+    .panel-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    .panel-grid .module-box { margin-bottom: 0; }
+
+    /* schedule (catalog-table pattern) */
+    .sched-table {
+      width: 100%;
+      border-collapse: collapse;
+      border: var(--grid-rule-in);
+      font-size: 12px;
+    }
+    .sched-table th {
+      background: var(--teal-ink);
+      color: var(--cream);
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 9px;
+      font-weight: normal;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-align: left;
+      padding: 6px 10px;
+    }
+    .sched-table td {
+      border: var(--grid-rule-in);
+      padding: 5px 10px;
+      font-family: 'EB Garamond', serif;
+    }
+    .sched-table td.mono {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      color: var(--olive-light);
+      white-space: nowrap;
+    }
+    .sched-table tr:nth-child(even) td { background: var(--cell-shade); }
+
+    /* chat — decorative only (ORNAMENT) */
+    .chat-well {
+      background: #0a0806;
+      border: var(--grid-rule-in);
+      box-shadow: var(--inset-well);
+      padding: 10px 12px;
+      min-height: 170px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .chat-line { font-size: 11.5px; line-height: 1.45; color: var(--ink-light); }
+    .chat-line .u {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      margin-right: 6px;
+    }
+    .u-1 { color: #4ac; }
+    .u-2 { color: #ca4; }
+    .u-3 { color: #a6a; }
+    .u-4 { color: #6a6; }
+    .chat-note {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 8px;
+      letter-spacing: 0.2em;
+      color: var(--olive-light);
+      opacity: 0.6;
+      margin-top: 10px;
+    }
+
+    /* status / now playing card */
+    .stamp {
+      display: inline-block;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 2px 7px;
+      margin-bottom: 10px;
+    }
+    .status-sup {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--teal-ink);
+      margin-bottom: 6px;
+    }
+    .status-rows { list-style: none; margin: 0; }
+    .status-rows li {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px dotted #3a332b;
+      padding: 5px 0;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+    }
+    .status-rows li:last-child { border-bottom: none; }
+    .status-key { color: var(--olive-light); text-transform: uppercase; }
+    .status-val { color: var(--ink); }
+
+    /* links — blank slots for now */
+    .link-slot {
+      border: 1px dashed #3a332b;
+      padding: 9px 12px;
+      margin-bottom: 8px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      color: var(--ink-light);
+      opacity: 0.55;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .link-slot:last-child { margin-bottom: 0; }
+
+    @media (max-width: 700px) {
+      .panel-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="g-dark">
+
+{% include "masthead-main.html" %}
+
+<div class="page-banner">
+  <div class="page-banner-inner">
+    <div class="page-banner-label">Cairo Yepez / Streaming</div>
+    <div class="page-banner-title">The Signal Room</div>
+    <div class="page-banner-sub">{{ chrome_text[active].banner_sub }}</div>
+  </div>
+</div>
+
+<div id="main">
+
+  <aside>
+    <div class="paper ruled">
+      <div class="sidebar-name">Cairo Yepez</div>
+      <div class="sidebar-tagline">Chicago, IL &nbsp;·&nbsp; Since 2026</div>
+      {% include "nav-main.html" %}
+      <div class="sidebar-note">
+        {{ chrome_text[active].sidebar_note }}
+      </div>
+    </div>
+  </aside>
+
+  <main>
+
+    <!-- THE FRAME — platform TBD; static well sized for a real embed -->
+    <div class="module-box">
+      <div class="module-titlebar">Now Broadcasting <span class="tb-note">CH — TBD</span></div>
+      <div class="module-body">
+        <div class="signal-frame">
+          <div class="testbar">
+            <span class="tb-c1"></span><span class="tb-c2"></span><span class="tb-c3"></span><span class="tb-c4"></span><span class="tb-c5"></span><span class="tb-c6"></span><span class="tb-c7"></span>
+          </div>
+          <div class="signal-caption">No Signal — Embed TBD</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-grid">
+
+      <!-- SCHEDULE -->
+      <div class="module-box">
+        <div class="module-titlebar">Schedule</div>
+        <div class="module-body">
+          <table class="sched-table">
+            <thead>
+              <tr><th>Day</th><th>Time</th><th>Programme</th></tr>
+            </thead>
+            <tbody>
+{% for s in streaming_page.schedule %}              <tr><td class="mono">{{ s.day }}</td><td class="mono">{{ s.time }}</td><td>{{ s.programme }}</td></tr>
+{% endfor %}            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- CHAT — ORNAMENT -->
+      <div class="module-box">
+        <div class="module-titlebar">Chat <span class="tb-note">ORNAMENT</span></div>
+        <div class="module-body">
+          <div class="chat-well">
+            <div class="chat-line"><span class="u u-1">guest_01:</span>Lorem ipsum dolor sit amet, consectetur.</div>
+            <div class="chat-line"><span class="u u-2">guest_02:</span>Sed do eiusmod tempor incididunt ut labore.</div>
+            <div class="chat-line"><span class="u u-3">guest_03:</span>Ut enim ad minim veniam, quis nostrud.</div>
+            <div class="chat-line"><span class="u u-1">guest_01:</span>Duis aute irure dolor in reprehenderit.</div>
+            <div class="chat-line"><span class="u u-4">guest_04:</span>Excepteur sint occaecat cupidatat non proident.</div>
+          </div>
+          <div class="chat-note">CHAT — ORNAMENT · NOT LIVE</div>
+        </div>
+      </div>
+
+      <!-- STATUS / NOW PLAYING -->
+      <div class="module-box">
+        <div class="module-titlebar">Status</div>
+        <div class="module-body">
+          <span class="stamp">Offline</span>
+          <div class="status-sup">// now playing</div>
+          <ul class="status-rows">
+            <li><span class="status-key">Signal</span><span class="status-val">—</span></li>
+            <li><span class="status-key">Programme</span><span class="status-val">—</span></li>
+            <li><span class="status-key">Bitrate</span><span class="status-val">—</span></li>
+            <li><span class="status-key">Uptime</span><span class="status-val">—</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- LINKS — blank for now -->
+      <div class="module-box">
+        <div class="module-titlebar">Links</div>
+        <div class="module-body">
+{% if streaming_page.links.size > 0 %}{% for l in streaming_page.links %}          <div class="link-slot">{{ l.label }}</div>
+{% endfor %}{% else %}          <div class="link-slot">— TBD —</div>
+          <div class="link-slot">— TBD —</div>
+          <div class="link-slot">— TBD —</div>
+{% endif %}        </div>
+      </div>
+
+    </div>
+
+  </main>
+</div>
+
+{% include "footer-main.html" %}
+
+</body>
+</html>

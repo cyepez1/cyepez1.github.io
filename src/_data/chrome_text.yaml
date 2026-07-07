@@ -19,6 +19,9 @@ misc:
 now:
   sidebar_note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
   banner_sub: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+streaming:
+  sidebar_note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  banner_sub: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 notfound:
   sidebar_note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
   banner_sub: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."

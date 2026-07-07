@@ -1,0 +1,8 @@
+# Streaming page content — CMS collection "streaming_page"
+schedule:
+  - { day: "MON", time: "20:00 CT", programme: "Lorem ipsum dolor sit" }
+  - { day: "WED", time: "21:00 CT", programme: "Consectetur adipiscing elit" }
+  - { day: "FRI", time: "19:30 CT", programme: "Sed do eiusmod tempor" }
+  - { day: "SAT", time: "15:00 CT", programme: "Ut labore et dolore" }
+# Links panel is deliberately blank for now — add { label, url } items later.
+links: []
