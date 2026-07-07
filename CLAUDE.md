@@ -58,6 +58,15 @@ Canonical tokens (Phase 2 resolved):
 Extended tokens (games section and index extras) are also in `tokens.css` —
 see that file for the full list. Grain overlay applied via `body::before` in `style.css`.
 
+**Dark ground (2026-07-06):** pages that opt in carry `class="g-dark"` on
+`<body>`; a scoped remap block `body.g-dark` in `tokens.css` (the one allowed
+exception to ":root only") flips surfaces/text dark (`#0e0c0a` ground — may
+become an image later). `--cream` is NOT remapped (it doubles as light text on
+maroon chrome). Currently dark: all 7 games pages + music, photos, misc, now.
+Still cream: index, blog, portfolio, 404. Shared dark rules live at the end of
+`style.css` and `games-shared.css`, scoped with `:where(body.g-dark)` so
+page-level `<style>` blocks always win.
+
 ## Two design systems
 Main site (`style.css` + per-page inline `<style>`): masthead with maroon double
 border, CRT hero on the index, paper/ruled card layouts. Pages: index, blog, music,

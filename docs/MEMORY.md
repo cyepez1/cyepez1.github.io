@@ -183,6 +183,32 @@ awaiting Cairo's preview + merge. Builder & Sim (hybrid anatomy: minicats +
 table + one standard section-head/grid) = union of the two approved blocks,
 proposed, not yet approved.
 
+**W4 closed + dark ground adopted (2026-07-06).** Shooters and Builder & Sim
+merged (Builder = the proposed union block verbatim: halo template + shooters
+adaptations, minus featured selectors — page has minicats, one section-head,
+tables, covers). **Cairo moved the games section to a dark ground**: warm
+near-black `#0e0c0a` (the `.g-banner` tone; "black for now, may be an image
+later"), dark panels + warm-cream text ("one dark room", chosen over light
+cards on black at the option gate). Mechanism: scoped token remap
+`body.g-dark` in tokens.css — `--cream` deliberately NOT remapped (it doubles
+as light text on maroon chrome; ground set on `body` in the stylesheets);
+`--maroon-light`/`--teal-ink` punched up inside the scope (#c0424f / #3f9a93)
+because true maroon/teal-ink die on black; grain overlays inverted. Shared
+dark rules use `:where(body.g-dark)` so page-scoped fusion blocks keep
+winning. **Cover placeholder inversion (Cairo's call):** the tilting cover
+object carries the category tint via `.g-cover:has(.ph-*)`; the placeholder
+slot inside is near-black — future cover art sits on top of the tinted
+square. Hub mini-thumbs keep tint fill (too small for the inset). **Dark
+extended to music/photos/misc/now same session** (mocked, approved, merged):
+same `body.g-dark` class + a dark chrome section in style.css; physical
+objects stay light by design (corkboard cork, sticky notes, tape, lightbox);
+inline `#3a2e22` body colors converted to `var(--ink-light)` so they adapt.
+Index/blog/portfolio/404 remain cream — dark is opt-in per page via the body
+class. The Directory (1D) and Streaming (1C) pages will be born dark.
+Housekeeping: local `feature/eleventy-cms` deleted; remote
+`feature/canonical-chrome` + `tester-branch` deletions approved but blocked
+by tooling — Cairo runs `git push origin --delete` himself if still wanted.
+
 **Phase 5 rebuild loop — complete (kept for record).** Restructure done; loop order:
 photos → music → misc → index. Mode B. Quality bar = games + blog + portfolio. Per-page
 treatment: photos = rebuild (contact sheet); music = hybrid (keep custom components,
