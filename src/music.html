@@ -245,9 +245,31 @@ active: "music"
       }
       @keyframes seek-scroll { to { background-position: 96px 0; } }
     }
+
+    /* ── dark-ground mockup tune (2026-07-06) — text/edges only ── */
+    .vol, .record-artist, .track-duration, .catalog-table td.mono { color: var(--olive-light); }
+    .record-title, .tracklist li::before, .waveform::after { color: var(--maroon-light); }
+    .stamp { color: var(--gold); }
+    .record-card { border-color: #2e2822 #2e2822 var(--cell-shade) #2e2822; }
+    .record-card:hover { border-color: var(--rust); }
+    .record-cover {
+      background: repeating-linear-gradient(-45deg, #171310 0px, #171310 2px, #1f1a15 2px, #1f1a15 10px);
+      color: var(--maroon-light);
+    }
+    .tracklist li { border-bottom-color: #3a332b; }
+    .waveform {
+      border-color: #3a332b;
+      background: repeating-linear-gradient(90deg,
+        transparent 0px, transparent 2px,
+        rgba(192,66,79,0.4) 2px, rgba(192,66,79,0.4) 3px,
+        transparent 3px, transparent 7px,
+        rgba(192,66,79,0.6) 7px, rgba(192,66,79,0.6) 8px,
+        transparent 8px, transparent 12px,
+        rgba(192,66,79,0.3) 12px, rgba(192,66,79,0.3) 13px);
+    }
   </style>
 </head>
-<body>
+<body class="g-dark">
 
 {% include "masthead-main.html" %}
 
@@ -301,7 +323,7 @@ active: "music"
         <div class="post-title">Consectetur: <em>Nocturne for the Unfinished City</em></div>
         <div class="post-meta">2003 &nbsp;·&nbsp; Drum &amp; Bass / Electronic</div>
         <div class="waveform"></div>
-        <p style="font-size:14px; color:#3a2e22; line-height:1.65;">
+        <p style="font-size:14px; color:var(--ink-light); line-height:1.65;">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
         </p>
         <hr class="divider">
@@ -396,7 +418,7 @@ active: "music"
     <div class="paper ruled" style="margin-bottom:14px;">
       <div class="post-title">Why Brazilian Drum &amp; Bass Never Left My Rotation</div>
       <div class="post-meta">Feb 2026 &nbsp;·&nbsp; Essay</div>
-      <p style="font-size:14px; color:#3a2e22; line-height:1.65;">
+      <p style="font-size:14px; color:var(--ink-light); line-height:1.65;">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
       </p>
       <a href="#" class="read-more">Read More →</a>
