@@ -549,3 +549,31 @@ body::before {
 @media (max-width: 480px) {
   .g-grid { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* ─── GAMES DARK GROUND (2026-07-06) ───
+   Warm near-black field (same tone as .g-banner); may become an image later.
+   Token remap lives in tokens.css (body.g-dark). Rules here cover what the
+   remap can't reach: the ground itself, the grain, and dark-maroon/olive
+   TEXT bumped to the light variants (borders/edges keep true maroon/olive).
+   Scoped with :where() so per-page fusion <style> blocks still win. */
+body.g-dark { background: #0e0c0a; }
+body.g-dark::before { filter: invert(1); opacity: .3; }
+
+:where(body.g-dark) .g-section-head h2,
+:where(body.g-dark) .g-lede-title,
+:where(body.g-dark) .g-minicat-title,
+:where(body.g-dark) .g-featured-body h3,
+:where(body.g-dark) .g-pn-title,
+:where(body.g-dark) .g-card-stars,
+:where(body.g-dark) .g-table .td-stars,
+:where(body.g-dark) .g-featured-body .feat-stars,
+:where(body.g-dark) .g-table th { color: var(--maroon-light); }
+
+:where(body.g-dark) .g-jumpnav a:hover,
+:where(body.g-dark) .g-jumpnav a.jn-active,
+:where(body.g-dark) .g-sidebar-block nav a:hover,
+:where(body.g-dark) .g-sidebar-block nav a.active { color: var(--maroon-light); }
+
+:where(body.g-dark) .g-jumpnav a { color: var(--olive-light); }
+:where(body.g-dark) .g-callout-title { color: var(--olive-light); }
+:where(body.g-dark) .ph-generic { color: var(--olive-light); }
