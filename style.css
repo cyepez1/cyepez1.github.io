@@ -275,6 +275,82 @@ hr.divider { border: none; border-top: 1px dashed #c8b89a; margin: 18px 0; }
   line-height: 1.8;
 }
 
+/* ─── STREAM MINI-WINDOW (2026-07-06) — STORED FOR LATER ───
+   Component for src/_includes/stream-mini.html. No page includes it yet;
+   drop the partial anywhere to get a small streaming window + link. The
+   .sm-well contents swap for the real embed iframe when the platform is
+   chosen (W5). Self-contained: dark well works on cream or g-dark pages. */
+.stream-mini {
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  max-width: 260px;
+}
+.sm-titlebar {
+  background: var(--maroon);
+  color: var(--cream);
+  font-family: 'Special Elite', cursive;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-bottom: 2px solid var(--ink);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.sm-titlebar .sm-note {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  opacity: 0.75;
+}
+.sm-well {
+  aspect-ratio: 16 / 9;
+  background: #050403;
+  margin: 8px;
+  border: 1px solid var(--cream-dark);
+  box-shadow: var(--inset-well);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.sm-well::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.35) 2px, rgba(0,0,0,0.35) 3px);
+  pointer-events: none;
+}
+.sm-testbar { display: flex; width: 90px; height: 12px; border: 1px solid rgba(240,232,213,0.15); }
+.sm-testbar span { flex: 1; opacity: 0.5; }
+.sm-c1 { background: var(--maroon-light); }
+.sm-c2 { background: var(--gold); }
+.sm-c3 { background: var(--teal-ink); }
+.sm-c4 { background: var(--olive-light); }
+.sm-c5 { background: var(--blue-margin); }
+.sm-caption {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--olive-light);
+  opacity: 0.7;
+}
+.sm-link {
+  display: block;
+  padding: 4px 10px 8px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: var(--maroon-light);
+  text-decoration: none;
+}
+.sm-link:hover { color: var(--maroon); }
+
 /* ─── DARK GROUND (2026-07-06, mockup) ───
    Same body.g-dark scope as the games section (token remap in tokens.css).
    Games pages get the ground from games-shared.css; main-site pages that

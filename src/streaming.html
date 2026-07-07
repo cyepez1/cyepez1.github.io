@@ -9,9 +9,26 @@ active: "streaming"
   <link rel="stylesheet" href="tokens.css">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* ─── THE SIGNAL ROOM — fusion vocabulary, born dark (g-dark) ───
-       Platform-agnostic static frame; real embed + live status are W5.
-       No JS on this page. */
+    /* ─── THE SIGNAL ROOM (internal name; page displays "Streaming") ───
+       Fusion vocabulary, born dark (g-dark). Page is UNDER CONSTRUCTION
+       until the platform is chosen. Platform-agnostic static frame;
+       real embed + live status are W5. No JS on this page. */
+
+    /* under-construction notice */
+    .uc-bar {
+      height: 12px;
+      background: repeating-linear-gradient(-45deg, var(--gold) 0px, var(--gold) 10px, #0e0c0a 10px, #0e0c0a 20px);
+      border: 1px solid var(--gold-dark);
+    }
+    .uc-text {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: center;
+      padding: 10px 0;
+    }
 
     .module-box {
       border: var(--grid-rule);
@@ -216,7 +233,7 @@ active: "streaming"
 <div class="page-banner">
   <div class="page-banner-inner">
     <div class="page-banner-label">Cairo Yepez / Streaming</div>
-    <div class="page-banner-title">The Signal Room</div>
+    <div class="page-banner-title">Streaming</div>
     <div class="page-banner-sub">{{ chrome_text[active].banner_sub }}</div>
   </div>
 </div>
@@ -235,6 +252,15 @@ active: "streaming"
   </aside>
 
   <main>
+
+    <!-- UNDER CONSTRUCTION — page ships in this state until platform chosen -->
+    <div class="module-box">
+      <div class="module-body">
+        <div class="uc-bar"></div>
+        <div class="uc-text">Under Construction — Transmission Pending</div>
+        <div class="uc-bar"></div>
+      </div>
+    </div>
 
     <!-- THE FRAME — platform TBD; static well sized for a real embed -->
     <div class="module-box">

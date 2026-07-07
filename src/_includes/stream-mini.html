@@ -1,0 +1,16 @@
+<!-- STREAM MINI-WINDOW — stored for later; no page includes this yet.
+     Usage: {% raw %}{% include "stream-mini.html" %}{% endraw %} anywhere inside a page's
+     <main>/<aside>. Styles live in style.css (.stream-mini section).
+     Pages outside the root (e.g. now/) get the link path via `root`
+     front matter, same as nav-main. When the platform is chosen, the
+     .sm-well contents swap for the real embed iframe (W5). -->
+<div class="stream-mini">
+  <div class="sm-titlebar">Signal <span class="sm-note">OFFLINE</span></div>
+  <div class="sm-well">
+    <div class="sm-testbar">
+      <span class="sm-c1"></span><span class="sm-c2"></span><span class="sm-c3"></span><span class="sm-c4"></span><span class="sm-c5"></span>
+    </div>
+    <div class="sm-caption">No Signal</div>
+  </div>
+  <a class="sm-link" href="{{ root }}streaming.html">&rarr; streaming</a>
+</div>
