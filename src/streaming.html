@@ -89,36 +89,42 @@ active: "streaming"
     }
     .panel-grid .module-box { margin-bottom: 0; }
 
-    /* schedule (catalog-table pattern) */
-    .sched-table {
-      width: 100%;
-      border-collapse: collapse;
-      border: var(--grid-rule-in);
-      font-size: 12px;
+    /* formats — replaces the schedule module until a real weekly slot exists */
+    .formats-rows { list-style: none; margin: 0 0 14px; }
+    .formats-rows li {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      border-bottom: 1px dotted #3a332b;
+      padding: 7px 0;
     }
-    .sched-table th {
-      background: var(--teal-ink);
-      color: var(--cream);
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 9px;
-      font-weight: normal;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      text-align: left;
-      padding: 6px 10px;
-    }
-    .sched-table td {
-      border: var(--grid-rule-in);
-      padding: 5px 10px;
-      font-family: 'EB Garamond', serif;
-    }
-    .sched-table td.mono {
+    .formats-rows li:last-child { border-bottom: none; }
+    .format-num {
       font-family: 'Share Tech Mono', monospace;
       font-size: 10px;
-      color: var(--olive-light);
-      white-space: nowrap;
+      letter-spacing: 0.1em;
+      color: var(--teal-ink);
     }
-    .sched-table tr:nth-child(even) td { background: var(--cell-shade); }
+    .format-name {
+      font-family: 'EB Garamond', serif;
+      font-size: 14px;
+      color: var(--ink);
+    }
+    .formats-note {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--olive-light);
+      opacity: 0.7;
+    }
+    .formats-tune {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      color: var(--gold);
+      margin-top: 10px;
+    }
 
     /* chat — real Twitch chat, dark theme, well-framed like the player */
     .chat-well {
@@ -239,18 +245,23 @@ active: "streaming"
 
     <div class="panel-grid">
 
-      <!-- SCHEDULE -->
+      <!-- FORMATS — no weekly slot exists yet, so a schedule module here
+           would render empty. This box lists the three session types
+           instead; "tune in soon..." below carries the timing message a
+           schedule would otherwise show. A schedule module can be added
+           later without disturbing this one — both Formats and a future
+           Schedule are candidate Sveltia CMS collections; no CMS wiring
+           this sprint. -->
       <div class="module-box">
-        <div class="module-titlebar">Schedule</div>
+        <div class="module-titlebar">Formats</div>
         <div class="module-body">
-          <table class="sched-table">
-            <thead>
-              <tr><th>Day</th><th>Time</th><th>Programme</th></tr>
-            </thead>
-            <tbody>
-{% for s in streaming_page.schedule %}              <tr><td class="mono">{{ s.day }}</td><td class="mono">{{ s.time }}</td><td>{{ s.programme }}</td></tr>
-{% endfor %}            </tbody>
-          </table>
+          <ul class="formats-rows">
+            <li><span class="format-num">01</span><span class="format-name">Video Game Only</span></li>
+            <li><span class="format-num">02</span><span class="format-name">Podcast</span></li>
+            <li><span class="format-num">03</span><span class="format-name">Book Club</span></li>
+          </ul>
+          <div class="formats-note">All sessions run video games in the background</div>
+          <div class="formats-tune">tune in soon...</div>
         </div>
       </div>
 
