@@ -245,6 +245,30 @@ treatment: photos = rebuild (contact sheet); music = hybrid (keep custom compone
 align chrome, add page accent + denser index tier); misc = corkboard rebuild;
 index = hybrid with the CRT as an anchored set-piece (not sidebar).
 
+**W5 — real Twitch embed shipped, streaming page live (2026-07-27).**
+Platform decided: Twitch, via OBS, no camera. `src/_data/stream.yaml` holds
+the channel slug (placeholder `chipsdominguez`) and the `parent=` host list
+(`cairoyepez.com`, `www.cairoyepez.com`, `localhost`) so the swap is one
+edit. Player + chat iframes replace the W4 test-pattern well and CSS chat
+ornament; verified in a real browser that both render actual content, not
+blank frames. **Decision on record: Twitch's iframes set third-party
+cookies** — low stakes for a personal site, but noted rather than a silent
+surprise later. Schedule module swapped for a **Formats** box (three
+session types: video game only, podcast, book club — no real weekly slot
+exists yet); a schedule module can return later without disturbing it.
+Both are candidate Sveltia CMS collections — no CMS wiring this sprint.
+`stream-mini` deployed site-wide to the footer at last: static wayfinding
+only, **no live/offline indicator** (stripped the W4 placeholder's
+hardcoded OFFLINE/No-Signal claims) — real live status needs the Twitch
+API + an app access token, which can't live in a static site; **this stays
+the named Phase 7 static/dynamic fork.** VOD archive scaffolded
+(`stream_episodes.yaml`, one placeholder entry, mirrors the blog's
+YAML-list pattern since this repo has no true 11ty collections). Conduct
+module added (chat rules, verbatim, sequential 1–7). Audit found the nav
+item and `active` wiring already existed from W4 — no nav commit needed.
+Under-construction banner removal is the last commit, gated on the
+browser verification above (not grep, not a handoff claim).
+
 ---
 
 ## Content conventions (hard)
@@ -294,4 +318,4 @@ is complete. It is not permanently part of the repo.
 | Now | maroon | Clean single column, status ribbon on index | Done (Phase 5/6) |
 | 404 | maroon | Main-site chrome + 404 shell, TBD graphic slot | Shipped (Phase 5), live |
 | Games (section) | per-category tints | Wiki density, card catalog | Reference quality bar |
-| Streaming | TBD | Static embed + mini window | Planned, not started |
+| Streaming | maroon, dark | "The Signal Room" — live Twitch player + chat, Formats module, VOD archive scaffold, stream-mini in footer | Done (W5, 2026-07-27) — shipped, live embed |

@@ -23,14 +23,22 @@ Full history and rationale: MEMORY.md 2026-07-04 / 2026-07-06 entries.
 Nav is 10 items. Dark pages: 7 games + music, photos, misc, now, streaming,
 links. Still cream: index, blog, portfolio, 404.
 
+## W5 — streaming embed: shipped 2026-07-27
+
+Platform decided (Twitch, via OBS, no camera). Real player + chat iframes
+live on `streaming.html`, `stream-mini` deployed to the footer, Formats
+module + VOD archive scaffold added, conduct note added. Full record:
+`docs/MEMORY.md` W5 entry, `docs/W5-STREAM-PREP.md`. **Live status
+detection remains deferred** — no app access token in a static site;
+parked as the Phase 7 static/dynamic fork.
+
 ## Next up (not started — pick at next session)
 
-- **W5 stack triggers** (each needs its own decision + phase): real streaming
-  embed + live status detection (platform choice first — streaming page and
-  stream-mini component are sized for a drop-in iframe); real audio playback;
-  guestbook; RSS/email; JSON-driven games data.
+- **Remaining W5 stack triggers** (each needs its own decision + phase):
+  real audio playback; guestbook; RSS/email; JSON-driven games data.
 - **Content passes via CMS**: real links/badges for The Directory, real
-  schedule for Streaming, replacing lorem site-wide (Cairo, via the silo).
+  channel + real VOD entries for Streaming, replacing lorem site-wide
+  (Cairo, via the silo).
 - **Open design question**: whether index/blog/portfolio/404 also go dark
   (dark is opt-in per page via `body.g-dark`), and whether the dark ground
   becomes an image.
