@@ -1,0 +1,9 @@
+# Stream embed config — consumed by the Twitch player/chat iframes on
+# streaming.html and by stream-mini's footer link. Swapping the channel is a
+# one-line edit here, not a hunt through iframe URLs. See docs/W5-STREAM-PREP.md.
+channel: chipsdominguez
+# Host only — no port, no protocol. A port on the parent param fails silently.
+parent_hosts:
+  - cairoyepez.com
+  - www.cairoyepez.com
+  - localhost
