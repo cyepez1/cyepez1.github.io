@@ -1,41 +1,77 @@
 posts:
+  - category: Dispatch
+    title: Birding July 2026
+    month_long: July 2026
+    month_short: July 2026
+    words_long: '250'
+    words_short: '250'
+    date: 2026-07-27
+    excerpt: |-
+      July 2026 Birding Report
+
+      - House finches (about two dozen) precious red little birds
+      - House Sparrows
+      - House Sparrows (countless)
+      - Robins (dozens, I see young robins now)
+      - Hairy Woodpecker, one female
+      - Mourning doves, a pair
   - category: Essay
-    title: On the Freedom of The Soul
+    title: Neighboring
     month_long: July 4 2026
     month_short: JUL26
     words_long: '200'
     words_short: '200'
-    date: 2026-07-04
-    excerpt: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    date: 2026-07-27
+    excerpt: |-
+      Today after the storm, my neighbor let me know he picked up the branches from my tree and tossed them into the street. He started talking to my mom for like twenty minutes, then the neighbor to his right. I think they talk a bit, but I've never spoken to her. 
+
+      Little interactions like this made me think about how easy or natural it is to be neighborly. After a storm, it felt right to just put all of the branches on the street -- even if you don't have any trees. On the other hand, my other neighbor doesn't talk to me too much either, and hates that our tree drops tree-things onto their yard. I helped out and tried to clean up the leaves on their side with the air blower, but saw they were watching and didn't want them to think I was blowing leaves onto their lawn. They already think I do that.
+
+      How easy is it to be neighborly? What if your neighbors just really suck? It's ok to be an annoyingly friendly neighbor if your neighbors really suck, by the way.
   - category: Notes
-    title: Three Observations About the 18 Bus
-    month_long: May 2026
-    month_short: MAY 2026
-    words_long: 900 words
-    words_short: 900 W
-    date: 2026-05-01
-    excerpt: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+    title: Moving Archer Forward?
+    month_long: June 2026
+    month_short: June 2026
+    words_long: '200'
+    words_short: '200'
+    date: 2026-06-24
+    excerpt: |-
+      Moving Archer Forward is a plan to strengthen and invest into the Archer Avenue corridor from Halsted to Cicero. It is a controversial plan because it aims to bring revitalization to disinvested areas, infill lots with affordable housing, improve transit options and stations, increase green space, and -- quite possibly the most controversial -- integrate bike-related infrastructure into the street network.
+
+      The City of Chicago commissioned a study into the corridor several years ago and this was their proposal. The study was done because the Southwest Side, in comparison to other developing areas of the city, lacks:
+      - Business Investment
+      - Community Investment
+      - Affordable housing
+      - Equitable transit oriented development
+      - Transit infrastructure
+      - Cohesive transportation network
+
+      Each of these bullet points deserves its own story on how disinvestment has been a tool of the Chicago Political Machine. Each bullet point is also weaponized by conservatives in neighborhoods who hate seeing construction and new people in their neighborhood.
   - category: Review
-    title: What the Building Knows That the Map Does Not
+    title: Building Reviews
     month_long: April 2026
     month_short: APR 2026
     words_long: 1,800 words
     words_short: 1,800 W
-    date: 2026-04-01
+    date: 2026-07-27
     excerpt: At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.
   - category: Dispatch
-    title: Spring Migration, Backyard Log
+    title: Birding Summary
     month_long: March 2026
-    month_short: MAR 2026
+    month_short: March 2026
     words_long: 600 words
     words_short: 600 W
-    date: 2026-03-01
-    excerpt: Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis.
-  - category: Essay
-    title: A Theory of the Bungalow as Civic Form
-    month_long: February 2026
-    month_short: FEB 2026
-    words_long: 3,100 words
-    words_short: 3,100 W
-    date: 2026-02-01
-    excerpt: Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.
+    date: 2026-03-31
+    excerpt: |-
+      Bird Report:
+
+      - House Finches (15-20)
+          - beautiful red little birds
+      - House Sparrows (countless)
+      - Dark eyed Juncos, about 6
+      - Robins (dozens)
+      - A raven, sometimes
+      - Hairy Woodpecker, one or 2, usually female
+      - Mourning doves, a pair
+      - European Starlings, maybe a dozen
+      - Red breasted grosbeak, one time
