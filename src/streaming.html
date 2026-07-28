@@ -185,6 +185,57 @@ active: "streaming"
     }
     .link-slot:last-child { margin-bottom: 0; }
 
+    /* archive — VOD entry card */
+    .vod-entry {
+      border-bottom: var(--grid-rule-in);
+      padding-bottom: 14px;
+      margin-bottom: 14px;
+    }
+    .vod-entry:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+    .vod-head {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 4px;
+    }
+    .vod-num, .vod-date {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: var(--olive-light);
+    }
+    .vod-type {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--teal-ink);
+      border: 1px solid var(--teal-ink);
+      padding: 1px 6px;
+      margin-left: auto;
+    }
+    .vod-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 16px;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .vod-meta {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.08em;
+      color: var(--ink-light);
+      opacity: 0.75;
+      margin-bottom: 10px;
+    }
+    .vod-notes {
+      font-family: 'EB Garamond', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-light);
+      margin-top: 10px;
+    }
+
     @media (max-width: 700px) {
       .panel-grid { grid-template-columns: 1fr; }
     }
@@ -306,6 +357,27 @@ active: "streaming"
 {% endif %}        </div>
       </div>
 
+    </div>
+
+    <!-- ARCHIVE — VOD scaffold, structure only (W5). One placeholder entry
+         proves the layout; W6 is content-only from here (add entries via
+         the CMS). Candidate Sveltia CMS collection "stream_episodes" — no
+         CMS wiring this sprint. -->
+    <div class="module-box">
+      <div class="module-titlebar">Archive <span class="tb-note">{{ stream_episodes.episodes.size }} VOD{% if stream_episodes.episodes.size != 1 %}S{% endif %}</span></div>
+      <div class="module-body">
+{% for e in stream_episodes.episodes %}        <div class="vod-entry">
+          <div class="vod-head">
+            <span class="vod-num">EP {{ e.number }}</span>
+            <span class="vod-date">{{ e.date }}</span>
+            <span class="vod-type">{{ e.type }}</span>
+          </div>
+          <div class="vod-title">{{ e.title }}</div>
+          <div class="vod-meta">Topics: {{ e.topics | join: ", " }} &nbsp;·&nbsp; Guest: {% if e.guest.size > 0 %}{{ e.guest }}{% else %}—{% endif %}</div>
+          <div class="link-slot">{% if e.embed_slot.size > 0 %}{{ e.embed_slot }}{% else %}— VOD embed TBD —{% endif %}</div>
+          <div class="vod-notes">{{ e.notes }}</div>
+        </div>
+{% endfor %}      </div>
     </div>
 
   </main>

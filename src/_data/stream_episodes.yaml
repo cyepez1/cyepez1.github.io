@@ -1,0 +1,13 @@
+# VOD archive — structure only (W5). One placeholder entry proves the
+# layout; W6 is content-only from here (add entries via the CMS). Candidate
+# Sveltia CMS collection "stream_episodes" — no CMS wiring this sprint.
+# type is one of the three Formats: Video Game Only / Podcast / Book Club.
+episodes:
+  - number: 1
+    date: "2026-08-09"
+    title: "First Signal — Getting the Feed Working"
+    type: "Video Game Only"
+    topics: ["Lorem", "Ipsum", "Dolor"]
+    guest: ""
+    embed_slot: ""
+    notes: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
