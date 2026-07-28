@@ -56,7 +56,7 @@ active: "streaming"
     }
     .module-body { padding: 14px; }
 
-    /* ── the frame: platform-agnostic embed well ── */
+    /* ── the frame: real Twitch player, well sized to the old placeholder ── */
     .signal-frame {
       aspect-ratio: 16 / 9;
       background: #050403;
@@ -64,11 +64,6 @@ active: "streaming"
       box-shadow: var(--inset-well);
       position: relative;
       overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
     }
     .signal-frame::after {
       content: "";
@@ -77,27 +72,12 @@ active: "streaming"
       background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.35) 3px, rgba(0,0,0,0.35) 4px);
       pointer-events: none;
     }
-    .testbar {
-      display: flex;
-      width: 200px;
-      height: 28px;
-      border: var(--grid-rule-in);
-    }
-    .testbar span { flex: 1; opacity: 0.5; }
-    .tb-c1 { background: var(--maroon-light); }
-    .tb-c2 { background: var(--gold); }
-    .tb-c3 { background: var(--teal-ink); }
-    .tb-c4 { background: var(--olive-light); }
-    .tb-c5 { background: var(--blue-margin); }
-    .tb-c6 { background: var(--rust); }
-    .tb-c7 { background: var(--cream-dark); }
-    .signal-caption {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--olive-light);
-      opacity: 0.7;
+    .signal-embed {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
     }
 
     /* ── panel row ── */
@@ -140,36 +120,14 @@ active: "streaming"
     }
     .sched-table tr:nth-child(even) td { background: var(--cell-shade); }
 
-    /* chat — decorative only (ORNAMENT) */
+    /* chat — real Twitch chat, dark theme, well-framed like the player */
     .chat-well {
       background: #0a0806;
       border: var(--grid-rule-in);
       box-shadow: var(--inset-well);
-      padding: 10px 12px;
-      min-height: 170px;
-      display: flex;
-      flex-direction: column;
-      gap: 7px;
+      height: 340px;
     }
-    .chat-line { font-size: 11.5px; line-height: 1.45; color: var(--ink-light); }
-    .chat-line .u {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.06em;
-      margin-right: 6px;
-    }
-    .u-1 { color: #4ac; }
-    .u-2 { color: #ca4; }
-    .u-3 { color: #a6a; }
-    .u-4 { color: #6a6; }
-    .chat-note {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 8px;
-      letter-spacing: 0.2em;
-      color: var(--olive-light);
-      opacity: 0.6;
-      margin-top: 10px;
-    }
+    .chat-embed { width: 100%; height: 100%; border: 0; display: block; }
 
     /* status / now playing card */
     .stamp {
@@ -262,15 +220,19 @@ active: "streaming"
       </div>
     </div>
 
-    <!-- THE FRAME — platform TBD; static well sized for a real embed -->
+    <!-- THE FRAME — real Twitch player. Iframe internals can't be styled,
+         so the well border + scanline overlay carry the fusion look. -->
     <div class="module-box">
-      <div class="module-titlebar">Now Broadcasting <span class="tb-note">CH — TBD</span></div>
+      <div class="module-titlebar">Now Broadcasting <span class="tb-note">{{ stream.channel }}</span></div>
       <div class="module-body">
         <div class="signal-frame">
-          <div class="testbar">
-            <span class="tb-c1"></span><span class="tb-c2"></span><span class="tb-c3"></span><span class="tb-c4"></span><span class="tb-c5"></span><span class="tb-c6"></span><span class="tb-c7"></span>
-          </div>
-          <div class="signal-caption">No Signal — Embed TBD</div>
+          <iframe
+            class="signal-embed"
+            src="https://player.twitch.tv/?channel={{ stream.channel }}{% for h in stream.parent_hosts %}&parent={{ h }}{% endfor %}"
+            allowfullscreen
+            scrolling="no"
+            frameborder="0"
+            title="Twitch player — {{ stream.channel }}"></iframe>
         </div>
       </div>
     </div>
@@ -292,18 +254,18 @@ active: "streaming"
         </div>
       </div>
 
-      <!-- CHAT — ORNAMENT -->
+      <!-- CHAT — real Twitch chat, forced dark to sit on the dark ground -->
       <div class="module-box">
-        <div class="module-titlebar">Chat <span class="tb-note">ORNAMENT</span></div>
+        <div class="module-titlebar">Chat</div>
         <div class="module-body">
           <div class="chat-well">
-            <div class="chat-line"><span class="u u-1">guest_01:</span>Lorem ipsum dolor sit amet, consectetur.</div>
-            <div class="chat-line"><span class="u u-2">guest_02:</span>Sed do eiusmod tempor incididunt ut labore.</div>
-            <div class="chat-line"><span class="u u-3">guest_03:</span>Ut enim ad minim veniam, quis nostrud.</div>
-            <div class="chat-line"><span class="u u-1">guest_01:</span>Duis aute irure dolor in reprehenderit.</div>
-            <div class="chat-line"><span class="u u-4">guest_04:</span>Excepteur sint occaecat cupidatat non proident.</div>
+            <iframe
+              class="chat-embed"
+              src="https://www.twitch.tv/embed/{{ stream.channel }}/chat?darkpopout{% for h in stream.parent_hosts %}&parent={{ h }}{% endfor %}"
+              frameborder="0"
+              scrolling="no"
+              title="Twitch chat — {{ stream.channel }}"></iframe>
           </div>
-          <div class="chat-note">CHAT — ORNAMENT · NOT LIVE</div>
         </div>
       </div>
 
