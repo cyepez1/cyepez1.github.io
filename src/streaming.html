@@ -185,6 +185,24 @@ active: "streaming"
     }
     .link-slot:last-child { margin-bottom: 0; }
 
+    /* conduct — chat rules */
+    .conduct-intro {
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+      font-size: 14px;
+      color: var(--ink-light);
+      margin-bottom: 12px;
+    }
+    .conduct-list {
+      margin: 0;
+      padding-left: 22px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11.5px;
+      letter-spacing: 0.02em;
+      color: var(--ink);
+    }
+    .conduct-list li { padding: 4px 0; }
+
     /* archive — VOD entry card */
     .vod-entry {
       border-bottom: var(--grid-rule-in);
@@ -357,6 +375,23 @@ active: "streaming"
 {% endif %}        </div>
       </div>
 
+    </div>
+
+    <!-- CONDUCT — chat rules, verbatim from Cairo, renumbered sequentially -->
+    <div class="module-box">
+      <div class="module-titlebar">Conduct</div>
+      <div class="module-body">
+        <div class="conduct-intro">welcome to the lounge, chill here for a sec</div>
+        <ol class="conduct-list">
+          <li>be nice and say hello</li>
+          <li>keep it clean</li>
+          <li>dont be mean</li>
+          <li>no hate speech</li>
+          <li>no spam</li>
+          <li>no spoilers</li>
+          <li>when necessary, use citations</li>
+        </ol>
+      </div>
     </div>
 
     <!-- ARCHIVE — VOD scaffold, structure only (W5). One placeholder entry
