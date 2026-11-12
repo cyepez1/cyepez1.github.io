@@ -1,0 +1,9 @@
+<!-- Games-section "Site" nav — same 10 items, same order as nav-main.html.
+     Lives once here (was hand-copied into all 7 games pages). The hub
+     (games.html) passes games_active: true to mark Games. -->
+<nav>
+        <a href="index.html">Home</a><a href="games.html"{% if games_active %} class="active"{% endif %}>Games</a><a href="blog.html">Blog</a>
+        <a href="music.html">Music</a><a href="portfolio.html">Portfolio</a><a href="photos.html">Photos</a>
+        <a href="misc.html">Misc</a><a href="now/">Now</a><a href="streaming.html">Streaming</a>
+        <a href="links.html">Links</a>
+      </nav>

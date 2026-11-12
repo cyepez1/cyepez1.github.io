@@ -110,7 +110,8 @@ front matter. Adding or renaming a top-level page = one partial edit.
 
 ## Canonical chrome (source of truth)
 Chrome lives as 11ty partials in `src/_includes/`: `masthead-main`, `nav-main`,
-`footer-main`, `masthead-games`, `footer-games`. Edit a partial once and every
+`footer-main`, `masthead-games`, `footer-games`, `nav-games-site` (the games
+sidebar "Site" list — same 10 items as `nav-main`), `nav-drawer`. Edit a partial once and every
 page gets it — the G1 hand-propagation debt is resolved (W3, 2026-07).
 `docs/canonical/` snippets are HISTORICAL reference only.
 
