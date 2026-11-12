@@ -46,16 +46,16 @@ active: "home"
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 9px;
-      background: var(--ink);
+      background: var(--desk);
     }
     .side-table::after {
       content: "";
       position: absolute;
       top: 9px; left: 10%; right: 10%; bottom: 0;
       background: linear-gradient(90deg,
-        var(--ink) 0 8px,
+        var(--desk) 0 8px,
         transparent 8px calc(100% - 8px),
-        var(--ink) calc(100% - 8px));
+        var(--desk) calc(100% - 8px));
     }
     /* zine stack on the table, beside the set */
     .zine-stack {
@@ -68,7 +68,7 @@ active: "home"
     .zine-stack i { display: block; height: 9px; margin-top: 3px; }
     .zine-stack i:nth-child(1) { background: var(--maroon); transform: rotate(-2deg); }
     .zine-stack i:nth-child(2) { background: var(--olive); transform: rotate(1.5deg); }
-    .zine-stack i:nth-child(3) { background: var(--cream-dark); border: 1px solid var(--ink); transform: rotate(-1deg); }
+    .zine-stack i:nth-child(3) { background: var(--cream-dark); border: 1px solid var(--desk); transform: rotate(-1deg); }
 
     .crt-wrap {
       position: relative;
@@ -649,6 +649,8 @@ active: "home"
        Index joins the body.g-dark system (token remap in tokens.css, shared
        rules in style.css). Below: what the remap can't reach — dark-maroon/
        olive TEXT bumps to the light variants. Hatching follows --hatch-*.
+       The desk (side table + zine stack) uses --desk: flat ink on cream,
+       muted cream on dark — the CRT reads as your desk, not a glare.
        The portrait stamp stays a light physical object. */
     body.g-dark .study-title,
     body.g-dark .featured-title,

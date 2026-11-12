@@ -101,6 +101,7 @@
   --hatch-b:       #ede5d0;   /* placeholder hatching, stripe B              */
   --well:          #050403;   /* screen/embed black — player wells, covers   */
   --blueprint:     #e8eef5;   /* portfolio blueprint field                   */
+  --desk:          #1a1410;   /* index side table + zine stack (flat ink)    */
 
   /* ── CRT SET-PIECE (index) — physical object, never theme-flipped ── */
   --crt-shell:     #2a2420;
@@ -165,4 +166,6 @@ body.g-dark {
   --hatch-a:      #171310;
   --hatch-b:      #1f1a15;
   --blueprint:    #0f1722;   /* night blueprint                       */
+  --desk:         #6b6253;   /* muted cream — the desk reads as a
+                                desk in the dark, without glaring     */
 }
