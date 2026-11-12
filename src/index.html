@@ -645,9 +645,49 @@ active: "home"
       font-size: 8px;
       letter-spacing: 0.12em;
     }
+    /* ─── DARK GROUND (2026-11) ───
+       Index joins the body.g-dark system (token remap in tokens.css, shared
+       rules in style.css). Below: what the remap can't reach — dark-maroon/
+       olive TEXT bumps to the light variants, hard-coded cream placeholder
+       hatching goes dark. The flat-ink side table follows --ink and reads as
+       a reverse print; the portrait stamp stays a light physical object. */
+    body.g-dark .study-title,
+    body.g-dark .featured-title,
+    body.g-dark .post-title,
+    body.g-dark .chicago-mark .cm-stars { color: var(--maroon-light); }
+    body.g-dark .ribbon-link { color: var(--maroon-light); border-bottom-color: var(--maroon-light); }
+    body.g-dark .study-sub,
+    body.g-dark .featured-meta { color: var(--olive-light); }
+    body.g-dark .post-excerpt { color: var(--ink-light); }
+    body.g-dark #now-ribbon { border-bottom-color: #2e2822; }
+    body.g-dark .ribbon-sep { color: #3a332b; }
+    body.g-dark .torn { background: transparent; }
+    body.g-dark .featured-img,
+    body.g-dark .post-thumb,
+    body.g-dark .photo-cell {
+      background: repeating-linear-gradient(-45deg, #171310 0px, #171310 2px, #1f1a15 2px, #1f1a15 12px);
+      border-color: #2e2822;
+      color: var(--maroon-light);
+    }
+    body.g-dark .featured-img::after { color: var(--maroon-light); }
+    body.g-dark .featured-img .img-corner { border-color: var(--maroon-light); }
+    body.g-dark .sidebar-avatar { --ink: #1a1410; }
+
+    /* ─── SMALL SCREENS (2026-11) ─── */
+    @media (max-width: 760px) {
+      #study { padding: 24px 16px 0; gap: 18px; }
+      .study-title { font-size: 32px; }
+      .study-sub { letter-spacing: 0.15em; }
+      #now-ribbon { padding: 6px 16px; flex-wrap: wrap; gap: 4px 12px; }
+      .ribbon-link { margin-left: 0; }
+      .sidebar-avatar { width: 72px; margin-bottom: 12px; }
+      .post-inner { grid-template-columns: 72px 1fr; gap: 12px; }
+      .photo-strip { gap: 6px; }
+    }
   </style>
+
 </head>
-<body>
+<body class="g-dark">
 
 <!-- MASTHEAD -->
 {% include "masthead-main.html" %}
@@ -660,7 +700,7 @@ active: "home"
     <div class="module-box" style="margin:20px 0 0;">
       <div class="module-titlebar">The Digest</div>
       <div class="module-body">
-        <p style="font-size:14px; color:#3a2e22; line-height:1.65; margin:0;">
+        <p style="font-size:14px; color:var(--ink-light); line-height:1.65; margin:0;">
           {{ home.digest }}
         </p>
       </div>
@@ -743,7 +783,7 @@ active: "home"
       </div>
       <div class="featured-title">Lorem Ipsum Dolor Sit Amet Consectetur</div>
       <div class="featured-meta">March 2026 &nbsp;·&nbsp; Category &nbsp;·&nbsp; 6 min read</div>
-      <p style="font-size:14px; color:#3a2e22; line-height:1.65;">
+      <p style="font-size:14px; color:var(--ink-light); line-height:1.65;">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
       </p>
       <a href="#" class="read-more">Read More →</a>
@@ -759,7 +799,7 @@ active: "home"
         <div class="photo-cell"><span class="cell-label">Photo 02</span></div>
         <div class="photo-cell"><span class="cell-label">Photo 03</span></div>
       </div>
-      <div style="margin-top:10px; font-size:12px; color:#5a4a38; font-style:italic;">
+      <div style="margin-top:10px; font-size:12px; color:var(--ink-light); font-style:italic;">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi.
         <a href="photos.html" class="read-more" style="margin-left:10px;">View All →</a>
       </div>
