@@ -39,7 +39,7 @@ active: "portfolio"
       letter-spacing: 0.12em;
       margin-bottom: 10px;
     }
-    .pf-current-body { font-size: 14px; color: #3a2e22; line-height: 1.65; }
+    .pf-current-body { font-size: 14px; color: var(--ink-light); line-height: 1.65; }
 
     /* INDEX table */
     .pf-table-wrap { border-top: 2px solid var(--olive); }
@@ -91,7 +91,7 @@ active: "portfolio"
     }
     .pf-card {
       background: var(--paper);
-      border: 0.5px solid #c8b89a;
+      border: 0.5px solid var(--rule);
       border-top: 2px solid var(--olive);
       overflow: hidden;
       transition: transform 0.15s;
@@ -114,13 +114,13 @@ active: "portfolio"
     .pf-card-desc {
       font-family: 'EB Garamond', serif;
       font-size: 13px;
-      color: #3a2e22;
+      color: var(--ink-light);
       line-height: 1.55;
     }
 
     /* Blueprint preview frame (replaces the hatched .design-preview) */
     .bp-frame {
-      background: #e8eef5;
+      background: var(--blueprint);
       border-bottom: 0.5px solid var(--blue-margin);
       width: 100%; aspect-ratio: 4/3;
       position: relative;
@@ -152,8 +152,8 @@ active: "portfolio"
     body.g-dark .pf-card-title { color: var(--olive-light); }
     body.g-dark .pf-current-body,
     body.g-dark .pf-card-desc { color: var(--ink-light); }
-    body.g-dark .pf-card { border-color: #2e2822; border-top-color: var(--olive); }
-    body.g-dark .bp-frame { background: #0f1722; }
+    body.g-dark .pf-card { border-color: var(--rule); border-top-color: var(--olive); }
+    body.g-dark .bp-frame { background: var(--blueprint); }
   </style>
 </head>
 <body class="g-dark">

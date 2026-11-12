@@ -95,7 +95,7 @@ active: "music"
     }
     .record-card {
       background: var(--paper);
-      border: 1px solid #c8b89a;
+      border: 1px solid var(--rule);
       border-bottom: 4px solid var(--cell-shade);
       padding: 0 0 10px;
       transition: transform 0.15s;
@@ -104,7 +104,7 @@ active: "music"
     .record-cover {
       width: 100%;
       aspect-ratio: 1;
-      background: repeating-linear-gradient(-45deg, #e2d8c2 0px, #e2d8c2 2px, #ede5d0 2px, #ede5d0 10px);
+      background: repeating-linear-gradient(-45deg, var(--hatch-a) 0px, var(--hatch-a) 2px, var(--hatch-b) 2px, var(--hatch-b) 10px);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -143,7 +143,7 @@ active: "music"
       align-items: baseline;
       gap: 10px;
       padding: 5px 0;
-      border-bottom: 1px dotted #c8b89a;
+      border-bottom: 1px dotted var(--rule-soft);
       font-size: 13px;
     }
     .tracklist li::before {
@@ -171,8 +171,8 @@ active: "music"
         transparent 8px, transparent 12px,
         rgba(107,15,26,0.15) 12px, rgba(107,15,26,0.15) 13px
       );
-      border-top: 1px solid #c8b89a;
-      border-bottom: 1px solid #c8b89a;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
       margin: 12px 0;
       position: relative;
     }
@@ -250,15 +250,15 @@ active: "music"
     .vol, .record-artist, .track-duration, .catalog-table td.mono { color: var(--olive-light); }
     .record-title, .tracklist li::before, .waveform::after { color: var(--maroon-light); }
     .stamp { color: var(--gold); }
-    .record-card { border-color: #2e2822 #2e2822 var(--cell-shade) #2e2822; }
+    .record-card { border-color: var(--rule) var(--rule) var(--cell-shade) var(--rule); }
     .record-card:hover { border-color: var(--rust); }
     .record-cover {
-      background: repeating-linear-gradient(-45deg, #171310 0px, #171310 2px, #1f1a15 2px, #1f1a15 10px);
+      background: repeating-linear-gradient(-45deg, var(--hatch-a) 0px, var(--hatch-a) 2px, var(--hatch-b) 2px, var(--hatch-b) 10px);
       color: var(--maroon-light);
     }
-    .tracklist li { border-bottom-color: #3a332b; }
+    .tracklist li { border-bottom-color: var(--rule-soft); }
     .waveform {
-      border-color: #3a332b;
+      border-color: var(--rule-soft);
       background: repeating-linear-gradient(90deg,
         transparent 0px, transparent 2px,
         rgba(192,66,79,0.4) 2px, rgba(192,66,79,0.4) 3px,

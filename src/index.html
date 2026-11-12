@@ -91,31 +91,31 @@ active: "home"
       width: 14px;
       height: 14px;
       border-radius: 50%;
-      background: #2a2420;
-      border: 2px solid #3a3028;
+      background: var(--crt-shell);
+      border: 2px solid var(--crt-rim);
       box-shadow: inset 0 1px 2px rgba(0,0,0,0.8);
       cursor: pointer;
       padding: 0;
     }
-    .power-btn:active { background: #151210; }
+    .power-btn:active { background: var(--crt-press); }
     .crt-arrow {
       font-family: 'Share Tech Mono', monospace;
       font-size: 9px;
       line-height: 1;
-      color: #6a5f52;
-      background: #2a2420;
-      border: 2px solid #3a3028;
+      color: var(--crt-label);
+      background: var(--crt-shell);
+      border: 2px solid var(--crt-rim);
       border-radius: 3px;
       padding: 2px 6px 3px;
       cursor: pointer;
     }
-    .crt-arrow:active { background: #151210; }
+    .crt-arrow:active { background: var(--crt-press); }
     /* screen OFF state: dead tube */
     .crt-screen.off .crt-image,
     .crt-screen.off .crt-ticker { display: none; }
-    .crt-screen.off { background: #000; }
+    .crt-screen.off { background: var(--well); }
     .crt-shell.off .crt-led {
-      background: #3a3028;
+      background: var(--crt-rim);
       box-shadow: none;
       animation: none;
     }
@@ -182,12 +182,12 @@ active: "home"
 
     /* Outer shell */
     .crt-shell {
-      background: linear-gradient(160deg, #2a2420, #1a1410, #221e18);
+      background: linear-gradient(160deg, var(--crt-shell), var(--ink-dark), var(--crt-shell-hi));
       border-radius: 18px 18px 22px 22px;
       padding: 14px 14px 34px;
       box-shadow:
-        0 0 0 2px #3a3028,
-        0 0 0 5px #151210,
+        0 0 0 2px var(--crt-rim),
+        0 0 0 5px var(--crt-press),
         0 8px 40px rgba(0,0,0,0.8),
         inset 0 1px 0 rgba(255,255,255,0.06);
       position: relative;
@@ -195,7 +195,7 @@ active: "home"
 
     /* Screen bezel */
     .crt-bezel {
-      background: #0a0806;
+      background: var(--crt-bezel);
       border-radius: 10px;
       padding: 6px;
       box-shadow: inset 0 0 12px rgba(0,0,0,0.9), inset 0 0 3px rgba(255,255,255,0.04);
@@ -206,7 +206,7 @@ active: "home"
       position: relative;
       width: 100%;
       aspect-ratio: 4/3;
-      background: #050e05;
+      background: var(--crt-phosphor);
       border-radius: 6px;
       overflow: hidden;
     }
@@ -226,7 +226,7 @@ active: "home"
           rgba(0,255,80,0.018) 2px,
           rgba(0,255,80,0.018) 4px
         ),
-        linear-gradient(135deg, #0a1a0a 0%, #050e05 50%, #0d150a 100%);
+        linear-gradient(135deg, var(--crt-phosphor-hi) 0%, var(--crt-phosphor) 50%, var(--crt-phosphor-lo) 100%);
       font-family: 'Share Tech Mono', monospace;
       color: rgba(80,200,80,0.5);
       font-size: 12px;
@@ -328,7 +328,7 @@ active: "home"
     .crt-foot {
       width: 60%;
       height: 10px;
-      background: linear-gradient(180deg, #1a1410, #2a2420);
+      background: linear-gradient(180deg, var(--ink-dark), var(--crt-shell));
       margin: 0 auto;
       border-radius: 0 0 8px 8px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.5);
@@ -337,7 +337,7 @@ active: "home"
     .crt-foot-base {
       width: 40%;
       height: 6px;
-      background: #1a1410;
+      background: var(--ink-dark);
       margin: 0 auto;
       border-radius: 0 0 6px 6px;
       box-shadow: 0 3px 8px rgba(0,0,0,0.4);
@@ -350,9 +350,9 @@ active: "home"
       right: 22px;
       width: 6px;
       height: 6px;
-      background: #2ecc40;
+      background: var(--crt-led);
       border-radius: 50%;
-      box-shadow: 0 0 6px #2ecc40, 0 0 12px rgba(46,204,64,0.4);
+      box-shadow: 0 0 6px var(--crt-led), 0 0 12px rgba(46,204,64,0.4);
       animation: led-pulse 3s ease-in-out infinite;
     }
 
@@ -364,7 +364,7 @@ active: "home"
     /* ─── NOW RIBBON (index-specific) ─── */
     #now-ribbon {
       background: var(--paper);
-      border-bottom: 1px solid #c8b89a;
+      border-bottom: 1px solid var(--rule);
       padding: 5px 30px;
       display: flex;
       align-items: center;
@@ -469,8 +469,8 @@ active: "home"
       width: 100%;
       aspect-ratio: 16/7;
       background:
-        repeating-linear-gradient(-45deg, #e2d8c2 0px, #e2d8c2 2px, #ede5d0 2px, #ede5d0 12px);
-      border: 1px solid #c8b89a;
+        repeating-linear-gradient(-45deg, var(--hatch-a) 0px, var(--hatch-a) 2px, var(--hatch-b) 2px, var(--hatch-b) 12px);
+      border: 1px solid var(--rule);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -540,8 +540,8 @@ active: "home"
     .post-thumb {
       aspect-ratio: 1;
       background:
-        repeating-linear-gradient(45deg, #e2d8c2 0px, #e2d8c2 1px, #ede5d0 1px, #ede5d0 8px);
-      border: 1px solid #c8b89a;
+        repeating-linear-gradient(45deg, var(--hatch-a) 0px, var(--hatch-a) 1px, var(--hatch-b) 1px, var(--hatch-b) 8px);
+      border: 1px solid var(--rule);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -572,7 +572,7 @@ active: "home"
 
     .post-excerpt {
       font-size: 13.5px;
-      color: #3a2e22;
+      color: var(--ink-light);
       line-height: 1.55;
     }
 
@@ -616,8 +616,8 @@ active: "home"
     .photo-cell {
       aspect-ratio: 4/3;
       background:
-        repeating-linear-gradient(-45deg, #e2d8c2 0px, #e2d8c2 1px, #ede5d0 1px, #ede5d0 8px);
-      border: 1px solid #c8b89a;
+        repeating-linear-gradient(-45deg, var(--hatch-a) 0px, var(--hatch-a) 1px, var(--hatch-b) 1px, var(--hatch-b) 8px);
+      border: 1px solid var(--rule);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -648,9 +648,8 @@ active: "home"
     /* ─── DARK GROUND (2026-11) ───
        Index joins the body.g-dark system (token remap in tokens.css, shared
        rules in style.css). Below: what the remap can't reach — dark-maroon/
-       olive TEXT bumps to the light variants, hard-coded cream placeholder
-       hatching goes dark. The flat-ink side table follows --ink and reads as
-       a reverse print; the portrait stamp stays a light physical object. */
+       olive TEXT bumps to the light variants. Hatching follows --hatch-*.
+       The portrait stamp stays a light physical object. */
     body.g-dark .study-title,
     body.g-dark .featured-title,
     body.g-dark .post-title,
@@ -659,19 +658,19 @@ active: "home"
     body.g-dark .study-sub,
     body.g-dark .featured-meta { color: var(--olive-light); }
     body.g-dark .post-excerpt { color: var(--ink-light); }
-    body.g-dark #now-ribbon { border-bottom-color: #2e2822; }
-    body.g-dark .ribbon-sep { color: #3a332b; }
+    body.g-dark #now-ribbon { border-bottom-color: var(--rule); }
+    body.g-dark .ribbon-sep { color: var(--rule-soft); }
     body.g-dark .torn { background: transparent; }
     body.g-dark .featured-img,
     body.g-dark .post-thumb,
     body.g-dark .photo-cell {
-      background: repeating-linear-gradient(-45deg, #171310 0px, #171310 2px, #1f1a15 2px, #1f1a15 12px);
-      border-color: #2e2822;
+      background: repeating-linear-gradient(-45deg, var(--hatch-a) 0px, var(--hatch-a) 2px, var(--hatch-b) 2px, var(--hatch-b) 12px);
+      border-color: var(--rule);
       color: var(--maroon-light);
     }
     body.g-dark .featured-img::after { color: var(--maroon-light); }
     body.g-dark .featured-img .img-corner { border-color: var(--maroon-light); }
-    body.g-dark .sidebar-avatar { --ink: #1a1410; }
+    body.g-dark .sidebar-avatar { --ink: var(--ink-dark); }
 
     /* ─── SMALL SCREENS (2026-11) ─── */
     @media (max-width: 760px) {
