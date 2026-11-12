@@ -466,3 +466,12 @@ body.nav-open { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   #main > aside, #main > aside.open { transition: none; }
 }
+
+/* ─── FULL-HEIGHT PAGE (2026-11) ───
+   On short pages the footer used to stop mid-screen with bare ground below
+   it. The body is now a full-height column and the content area grows, so
+   the footer always sits at the bottom of the window. :where() keeps these
+   at zero specificity so any existing rule still wins. */
+body { min-height: 100vh; display: flex; flex-direction: column; }
+:where(body > *) { flex-shrink: 0; width: 100%; }
+:where(#main, .g-layout) { flex-grow: 1; }
