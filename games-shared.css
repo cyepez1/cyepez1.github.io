@@ -532,6 +532,9 @@ body::before {
 .g-footer-right { font-family:'Share Tech Mono',monospace; font-size:.6rem; color:var(--cream); opacity:.4; letter-spacing:.12em; text-align:right; line-height:1.8; }
 
 /* ─── MOBILE ─── */
+/* grid children may shrink below their content (stops the hub's slideshow
+   and tables from pushing the page sideways on phones) */
+.g-layout > * { min-width: 0; }
 @media (max-width: 780px) {
   .g-layout { grid-template-columns: 1fr; }
   .g-sidebar { position: static; }
