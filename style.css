@@ -382,3 +382,37 @@ body.g-dark::before { filter: invert(1); }
   color: var(--maroon-light);
 }
 :where(body.g-dark) .ph-img .corner { border-color: var(--maroon-light); }
+
+/* ─── SMALL SCREENS (2026-11) ───
+   The two-column #main grid collapses to one column; the sidebar becomes a
+   compact nav card above the content (nav items wrap into rows); banner,
+   masthead and footer tighten their gutters. Grid children get min-width:0
+   so wide content (tables, set-pieces) can't push the page sideways. */
+#main > * { min-width: 0; }
+img, iframe, video { max-width: 100%; }
+
+@media (max-width: 760px) {
+  #masthead { padding: 10px 16px; }
+  .page-banner { padding: 22px 16px 18px; }
+  .page-banner-inner { padding: 0; }
+  .page-banner-title { font-size: 28px; line-height: 1.15; }
+
+  #main {
+    grid-template-columns: 1fr;
+    margin: 16px auto 24px;
+    padding: 0 12px;
+    gap: 18px;
+  }
+  #main > aside .paper { padding: 12px 14px 12px 28px; }
+  .sidebar-tagline { margin-bottom: 10px; }
+  .nav-label { margin-bottom: 6px; }
+  .nav-list { display: flex; flex-wrap: wrap; gap: 0 6px; }
+  .nav-item { padding: 4px 8px; border-left-width: 2px; }
+  .nav-item:hover { padding-left: 8px; }
+  .nav-item::before { display: none; }
+  .sidebar-note { margin-top: 10px; padding-top: 10px; }
+
+  #footer { padding: 20px 16px; margin-top: 24px; }
+  .footer-main-row { flex-direction: column; gap: 10px; text-align: center; }
+  .footer-right { text-align: center; }
+}
