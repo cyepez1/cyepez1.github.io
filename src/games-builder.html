@@ -53,11 +53,7 @@ g_dateline: "// BUILDER &amp; SIM"
   <aside class="g-sidebar" id="g-sidebar">
     <div class="g-sidebar-block">
       <p class="g-sidebar-label">Site</p>
-      <nav>
-        <a href="index.html">Home</a><a href="blog.html">Blog</a><a href="music.html">Music</a>
-        <a href="photos.html">Photos</a><a href="portfolio.html">Portfolio</a>
-        <a href="games.html">Games</a><a href="misc.html">Misc</a><a href="now/">Now</a>
-      </nav>
+      {% include "nav-games-site.html" %}
     </div>
     <div class="g-sidebar-block">
       <p class="g-sidebar-label">Categories</p>
@@ -245,7 +241,6 @@ g_dateline: "// BUILDER &amp; SIM"
     sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-130)cur=id;});
     jnLinks.forEach(a=>{a.classList.toggle('jn-active',a.getAttribute('href')==='#'+cur);});
   });
-  function toggleNav(){document.getElementById('g-sidebar').classList.toggle('open');}
   document.querySelectorAll('.g-card').forEach(card=>{const inner=card.querySelector('.g-card-inner');card.addEventListener('mousemove',e=>{const r=card.getBoundingClientRect();inner.style.transform=`rotateX(${-((e.clientY-r.top-r.height/2)/r.height)*16}deg) rotateY(${((e.clientX-r.left-r.width/2)/r.width)*16}deg) scale(1.04)`;});card.addEventListener('mouseleave',()=>{inner.style.transition='transform .4s ease';inner.style.transform='rotateX(0) rotateY(0) scale(1)';});card.addEventListener('mouseenter',()=>{inner.style.transition='transform .1s ease';});});
 </script>
 </body>

@@ -4,7 +4,7 @@
 
 body {
   font-family: 'EB Garamond', serif;
-  background-color: var(--cream);
+  background-color: var(--ground);
   color: var(--ink);
   font-size: 15px;
   line-height: 1.6;
@@ -49,7 +49,7 @@ body::before {
 
 /* ─── PAGE BANNER ─── */
 .page-banner {
-  background: #111;
+  background: var(--night);
   border-bottom: 4px solid var(--maroon);
   padding: 28px 30px 22px;
   position: relative;
@@ -105,7 +105,7 @@ body::before {
 /* ─── PAPER ─── */
 .paper {
   background: var(--paper);
-  border: 1px solid #c8b89a;
+  border: 1px solid var(--rule);
   border-left: 3px solid var(--maroon);
   padding: 16px 18px 16px 28px;
   position: relative;
@@ -168,11 +168,11 @@ body::before {
 .nav-item.active { border-left-color: var(--maroon); color: var(--ink); font-style: italic; }
 .sidebar-note {
   margin-top: 18px;
-  border-top: 1px dashed #c8b89a;
+  border-top: 1px dashed var(--rule-soft);
   padding-top: 14px;
   font-size: 12px;
   line-height: 1.5;
-  color: #5a4a38;
+  color: var(--ink-soft);
   font-style: italic;
 }
 
@@ -192,8 +192,8 @@ body::before {
 
 /* ─── PLACEHOLDER IMAGE ─── */
 .ph-img {
-  background: repeating-linear-gradient(-45deg, #e2d8c2 0px, #e2d8c2 2px, #ede5d0 2px, #ede5d0 12px);
-  border: 1px solid #c8b89a;
+  background: repeating-linear-gradient(-45deg, var(--hatch-a) 0px, var(--hatch-a) 2px, var(--hatch-b) 2px, var(--hatch-b) 12px);
+  border: 1px solid var(--rule);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -246,7 +246,7 @@ body::before {
 }
 
 /* ─── DIVIDER ─── */
-hr.divider { border: none; border-top: 1px dashed #c8b89a; margin: 18px 0; }
+hr.divider { border: none; border-top: 1px dashed var(--rule-soft); margin: 18px 0; }
 
 /* ─── FOOTER ─── */
 #footer {
@@ -312,7 +312,7 @@ hr.divider { border: none; border-top: 1px dashed #c8b89a; margin: 18px 0; }
 }
 .sm-well {
   aspect-ratio: 16 / 9;
-  background: #050403;
+  background: var(--well);
   margin: 8px;
   border: 1px solid var(--cream-dark);
   box-shadow: var(--inset-well);
@@ -363,10 +363,10 @@ hr.divider { border: none; border-top: 1px dashed #c8b89a; margin: 18px 0; }
    opt in get it here. Dark-maroon/olive TEXT bumps to the light variants;
    maroon chrome (masthead/footer) and physical objects (corkboard, notes)
    are untouched. :where() keeps page <style> blocks winning. */
-body.g-dark { background-color: #0e0c0a; }
+body.g-dark { background-color: var(--night); }
 body.g-dark::before { filter: invert(1); }
 
-:where(body.g-dark) .paper { border-color: #2e2822; box-shadow: 2px 2px 0 rgba(0,0,0,.35); }
+:where(body.g-dark) .paper { border-color: var(--rule); box-shadow: 2px 2px 0 rgba(0,0,0,.35); }
 :where(body.g-dark) .sidebar-name,
 :where(body.g-dark) .nav-item,
 :where(body.g-dark) .post-title,
@@ -374,11 +374,104 @@ body.g-dark::before { filter: invert(1); }
 :where(body.g-dark) .read-more { border-bottom-color: var(--maroon-light); }
 :where(body.g-dark) .sidebar-tagline,
 :where(body.g-dark) .post-meta { color: var(--olive-light); }
-:where(body.g-dark) .sidebar-note { color: var(--ink-light); border-top-color: #3a332b; }
-:where(body.g-dark) hr.divider { border-top-color: #3a332b; }
+:where(body.g-dark) .sidebar-note { color: var(--ink-light); border-top-color: var(--rule-soft); }
+:where(body.g-dark) hr.divider { border-top-color: var(--rule-soft); }
 :where(body.g-dark) .ph-img {
-  background: repeating-linear-gradient(-45deg, #171310 0px, #171310 2px, #1f1a15 2px, #1f1a15 12px);
-  border-color: #2e2822;
+  background: repeating-linear-gradient(-45deg, var(--hatch-a) 0px, var(--hatch-a) 2px, var(--hatch-b) 2px, var(--hatch-b) 12px);
+  border-color: var(--rule);
   color: var(--maroon-light);
 }
 :where(body.g-dark) .ph-img .corner { border-color: var(--maroon-light); }
+
+/* ─── SMALL SCREENS (2026-11) ───
+   The two-column #main grid collapses to one column; the sidebar becomes a
+   compact nav card above the content (nav items wrap into rows); banner,
+   masthead and footer tighten their gutters. Grid children get min-width:0
+   so wide content (tables, set-pieces) can't push the page sideways. */
+#main > * { min-width: 0; }
+img, iframe, video { max-width: 100%; }
+
+@media (max-width: 760px) {
+  #masthead { padding: 10px 16px; }
+  .page-banner { padding: 22px 16px 18px; }
+  .page-banner-inner { padding: 0; }
+  .page-banner-title { font-size: 28px; line-height: 1.15; }
+
+  #main {
+    grid-template-columns: 1fr;
+    margin: 16px auto 24px;
+    padding: 0 12px;
+    gap: 18px;
+  }
+  #masthead { justify-content: flex-start; gap: 12px; }
+  #masthead .site-title { margin-right: auto; }
+  #masthead .nav-toggle { display: flex; }
+
+  /* sidebar → left drawer, opened by the masthead hamburger */
+  #main > aside {
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    width: min(290px, 84vw);
+    z-index: 1001;
+    overflow-y: auto;
+    background: var(--ground);
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.45);
+    transform: translateX(-102%);
+    visibility: hidden;
+    transition: transform 0.25s ease, visibility 0s linear 0.25s;
+  }
+  #main > aside.open {
+    transform: none;
+    visibility: visible;
+    transition: transform 0.25s ease;
+  }
+  #main > aside .paper { min-height: 100%; border-top: none; border-bottom: none; }
+  .nav-item { padding: 8px 0 8px 10px; }   /* bigger tap targets */
+
+  #footer { padding: 20px 16px; margin-top: 24px; }
+  .footer-main-row { flex-direction: column; gap: 10px; text-align: center; }
+  .footer-right { text-align: center; }
+}
+
+/* ─── NAV DRAWER (2026-11) ───
+   Left-hand hamburger in the masthead (hidden on desktop); the drawer and
+   scrim behavior lives in src/_includes/nav-drawer.html. */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 34px; height: 34px;
+  margin-left: -6px;
+  padding: 6px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.nav-toggle span {
+  display: block;
+  width: 22px; height: 2px;
+  background: var(--cream);
+  border-radius: 2px;
+}
+.nav-toggle:focus-visible { outline: 1px dashed var(--cream); outline-offset: 2px; }
+.nav-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(14, 12, 10, 0.6);
+}
+.nav-scrim[hidden] { display: none; }
+body.nav-open { overflow: hidden; }
+@media (prefers-reduced-motion: reduce) {
+  #main > aside, #main > aside.open { transition: none; }
+}
+
+/* ─── FULL-HEIGHT PAGE (2026-11) ───
+   On short pages the footer used to stop mid-screen with bare ground below
+   it. The body is now a full-height column and the content area grows, so
+   the footer always sits at the bottom of the window. :where() keeps these
+   at zero specificity so any existing rule still wins. */
+body { min-height: 100vh; display: flex; flex-direction: column; }
+:where(body > *) { flex-shrink: 0; width: 100%; }
+:where(#main, .g-layout) { flex-grow: 1; }

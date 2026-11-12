@@ -1,0 +1,23 @@
+<!-- NAV DRAWER (2026-11) — phone-width menu. The left-hand hamburger in the
+     masthead calls toggleNav(); the page's sidebar (#main > aside on the main
+     site, #g-sidebar in the games section) slides in from the left. Tap the
+     scrim or press Esc to close. Styles: style.css / games-shared.css
+     "NAV DRAWER" blocks. Included once, by the masthead partials. -->
+<div class="nav-scrim" data-nav-close hidden></div>
+<script>
+  (function () {
+    var body = document.body;
+    function drawer() { return document.getElementById('g-sidebar') || document.querySelector('#main > aside'); }
+    function setNav(open) {
+      var d = drawer(); if (!d) return;
+      body.classList.toggle('nav-open', open);
+      d.classList.toggle('open', open);
+      document.querySelectorAll('[data-nav-toggle]').forEach(function (b) { b.setAttribute('aria-expanded', open ? 'true' : 'false'); });
+      var s = document.querySelector('.nav-scrim'); if (s) s.hidden = !open;
+    }
+    window.toggleNav = function () { setNav(!body.classList.contains('nav-open')); };
+    document.addEventListener('click', function (e) { if (e.target.closest('[data-nav-close]')) setNav(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setNav(false); });
+    window.matchMedia('(min-width: 781px)').addEventListener('change', function (m) { if (m.matches) setNav(false); });
+  })();
+</script>

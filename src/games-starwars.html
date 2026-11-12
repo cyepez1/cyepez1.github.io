@@ -47,11 +47,7 @@ g_dateline: "// A LONG TIME AGO…"
   <aside class="g-sidebar" id="g-sidebar">
     <div class="g-sidebar-block">
       <p class="g-sidebar-label">Site</p>
-      <nav>
-        <a href="index.html">Home</a><a href="blog.html">Blog</a><a href="music.html">Music</a>
-        <a href="photos.html">Photos</a><a href="portfolio.html">Portfolio</a>
-        <a href="games.html">Games</a><a href="misc.html">Misc</a><a href="now/">Now</a>
-      </nav>
+      {% include "nav-games-site.html" %}
     </div>
     <div class="g-sidebar-block">
       <p class="g-sidebar-label">Categories</p>
@@ -168,7 +164,6 @@ g_dateline: "// A LONG TIME AGO…"
 {% include "footer-games.html" %}
 <script>
   window.addEventListener('scroll',()=>{const p=window.scrollY/(document.body.scrollHeight-window.innerHeight)*100;document.getElementById('scroll-bar').style.width=p+'%';});
-  function toggleNav(){document.getElementById('g-sidebar').classList.toggle('open');}
   document.querySelectorAll('.g-card').forEach(card=>{
     const inner=card.querySelector('.g-card-inner');
     card.addEventListener('mousemove',e=>{const r=card.getBoundingClientRect();const x=e.clientX-r.left-r.width/2;const y=e.clientY-r.top-r.height/2;inner.style.transform=`rotateX(${-(y/r.height)*16}deg) rotateY(${(x/r.width)*16}deg) scale(1.04)`;});

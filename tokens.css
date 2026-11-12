@@ -87,6 +87,52 @@
   --grid-rule-in:  1px solid var(--cream-dark);/* interior cell rules          */
   --cell-shade:    #e9dfc9;                    /* alternating row/header tint  */
   --titlebar:      var(--maroon);              /* module-box header strip      */
+  /* ── NAMED SURFACES & RULES (2026-11) ──
+     Every recurring raw hex now has a name. Values here are the light
+     (cream-page) values; body.g-dark remaps the theme-aware ones below, so
+     a rule written once with these tokens is correct on both grounds. */
+  --ground:        #f0e8d5;   /* page ground (= --cream on light pages)      */
+  --night:         #0e0c0a;   /* warm near-black: banners + the dark ground  */
+  --ink-dark:      #1a1410;   /* ink that never flips (objects, CRT, stamps) */
+  --ink-soft:      #5a4a38;   /* tertiary text — captions, sidebar notes     */
+  --rule:          #c8b89a;   /* solid hairline borders (cards, paper)       */
+  --rule-soft:     #c8b89a;   /* dashed/dotted dividers                      */
+  --hatch-a:       #e2d8c2;   /* placeholder hatching, stripe A              */
+  --hatch-b:       #ede5d0;   /* placeholder hatching, stripe B              */
+  --well:          #050403;   /* screen/embed black — player wells, covers   */
+  --blueprint:     #e8eef5;   /* portfolio blueprint field                   */
+  --desk:          #1a1410;   /* index side table + zine stack (flat ink)    */
+
+  /* ── CRT SET-PIECE (index) — physical object, never theme-flipped ── */
+  --crt-shell:     #2a2420;
+  --crt-shell-hi:  #221e18;
+  --crt-rim:       #3a3028;
+  --crt-press:     #151210;
+  --crt-bezel:     #0a0806;
+  --crt-phosphor:  #050e05;
+  --crt-led:       #2ecc40;
+
+  /* ── CATEGORY TINTS, deep ends (games cover gradients) ── */
+  --tint-starwars-deep:  #1f1508;
+  --tint-halo-deep:      #060f1c;
+  --tint-openworld-deep: #0d1809;
+  --tint-indie-deep:     #150d1c;
+  --tint-shooters-deep:  #180808;
+  --tint-builder-deep:   #0d160c;
+
+  /* ── SPOT-COLOR GROUNDS (dark badge fills for gold/teal/rust text) ── */
+  --tint-gold:     #221a08;
+  --tint-teal:     #0c1f1d;
+  --tint-rust:     #23130c;
+
+  /* ── PHYSICAL OBJECTS — stay light/material on any ground ── */
+  --note:          #fffde8;   /* sticky-note paper                     */
+  --note-edge:     #e0d890;
+  --cork:          #c2a97e;
+  --maroon-deep:   #40080f;   /* pin-head shadow side                  */
+  --crt-phosphor-hi: #0a1a0a;
+  --crt-phosphor-lo: #0d150a;
+  --crt-label:     #6a5f52;   /* engraved control lettering            */
 
 }
 
@@ -112,4 +158,14 @@ body.g-dark {
   --bevel-hi:     rgba(250, 246, 237, 0.22);
   --bevel-lo:     rgba(0, 0, 0, 0.65);
   --inset-well:   inset 1px 1px 3px rgba(0, 0, 0, 0.6);
+  /* named surfaces & rules (2026-11) */
+  --ground:       var(--night);
+  --ink-soft:     #b9ae96;   /* = --ink-light on dark                 */
+  --rule:         #2e2822;   /* = --cream-dark on dark                */
+  --rule-soft:    #3a332b;
+  --hatch-a:      #171310;
+  --hatch-b:      #1f1a15;
+  --blueprint:    #0f1722;   /* night blueprint                       */
+  --desk:         #6b6253;   /* muted cream — the desk reads as a
+                                desk in the dark, without glaring     */
 }

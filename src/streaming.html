@@ -42,7 +42,7 @@ active: "streaming"
     /* ── the frame: real Twitch player, well sized to the old placeholder ── */
     .signal-frame {
       aspect-ratio: 16 / 9;
-      background: #050403;
+      background: var(--well);
       border: var(--grid-rule-in);
       box-shadow: var(--inset-well);
       position: relative;
@@ -78,7 +78,7 @@ active: "streaming"
       display: flex;
       align-items: baseline;
       gap: 10px;
-      border-bottom: 1px dotted #3a332b;
+      border-bottom: 1px dotted var(--rule-soft);
       padding: 7px 0;
     }
     .formats-rows li:last-child { border-bottom: none; }
@@ -111,7 +111,7 @@ active: "streaming"
 
     /* chat — real Twitch chat, dark theme, well-framed like the player */
     .chat-well {
-      background: #0a0806;
+      background: var(--well);
       border: var(--grid-rule-in);
       box-shadow: var(--inset-well);
       height: 340px;
@@ -143,7 +143,7 @@ active: "streaming"
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      border-bottom: 1px dotted #3a332b;
+      border-bottom: 1px dotted var(--rule-soft);
       padding: 5px 0;
       font-family: 'Share Tech Mono', monospace;
       font-size: 10px;
@@ -155,7 +155,7 @@ active: "streaming"
 
     /* links — blank slots for now */
     .link-slot {
-      border: 1px dashed #3a332b;
+      border: 1px dashed var(--rule-soft);
       padding: 9px 12px;
       margin-bottom: 8px;
       font-family: 'Share Tech Mono', monospace;

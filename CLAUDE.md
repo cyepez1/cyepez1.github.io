@@ -62,10 +62,27 @@ see that file for the full list. Grain overlay applied via `body::before` in `st
 `<body>`; a scoped remap block `body.g-dark` in `tokens.css` (the one allowed
 exception to ":root only") flips surfaces/text dark (`#0e0c0a` ground — may
 become an image later). `--cream` is NOT remapped (it doubles as light text on
-maroon chrome). Currently dark: all 7 games pages + music, photos, misc, now.
-Still cream: index, blog, portfolio, 404. Shared dark rules live at the end of
+maroon chrome). Currently dark: every page except the blog (games x7, index, music, photos,
+misc, now, portfolio, streaming, links, 404 — index/portfolio/404 joined
+2026-11). The blog stays cream by design: it is the light reading room.
+
+Shared dark rules live at the end of
 `style.css` and `games-shared.css`, scoped with `:where(body.g-dark)` so
 page-level `<style>` blocks always win.
+
+**Named colors (2026-11):** no raw hex values outside `tokens.css`. Use the
+named tokens — `--ground`, `--night`, `--rule`, `--rule-soft`, `--hatch-a/b`,
+`--ink-soft`, `--ink-dark`, `--well`, `--blueprint`, `--desk`, `--crt-*`,
+`--tint-*-deep`, `--tint-gold/teal/rust`, `--note*`, `--cork`. The
+theme-aware ones remap under `body.g-dark`, so a rule written once is right on
+both grounds. Game tags (`.vt-*`) take their hue from the palette via `--vt`.
+
+**Small screens (2026-11):** at <=760px (games: <=780px) `#main` collapses to
+one column and the sidebar becomes a left drawer opened by the left-hand
+hamburger in the masthead (`src/_includes/nav-drawer.html`, shared by both
+masthead partials). Grid children carry `min-width:0` so wide content can't
+push the page sideways — keep that when adding new grids. The body is a
+full-height flex column so short pages keep the footer at the bottom.
 
 ## Two design systems
 Main site (`style.css` + per-page inline `<style>`): masthead with maroon double
@@ -93,7 +110,8 @@ front matter. Adding or renaming a top-level page = one partial edit.
 
 ## Canonical chrome (source of truth)
 Chrome lives as 11ty partials in `src/_includes/`: `masthead-main`, `nav-main`,
-`footer-main`, `masthead-games`, `footer-games`. Edit a partial once and every
+`footer-main`, `masthead-games`, `footer-games`, `nav-games-site` (the games
+sidebar "Site" list — same 10 items as `nav-main`), `nav-drawer`. Edit a partial once and every
 page gets it — the G1 hand-propagation debt is resolved (W3, 2026-07).
 `docs/canonical/` snippets are HISTORICAL reference only.
 

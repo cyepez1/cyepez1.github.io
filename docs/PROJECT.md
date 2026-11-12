@@ -34,18 +34,27 @@ parked as the Phase 7 static/dynamic fork.
 
 ## Next up (not started — pick at next session)
 
-- **Remaining W5 stack triggers** (each needs its own decision + phase):
-  real audio playback; guestbook; RSS/email; JSON-driven games data.
+- **Remaining W5 stack triggers** — PAUSED 2026-11: Cairo will pick two of
+  real audio playback / guestbook / RSS-email / live stream status. Nothing
+  built until he selects. (JSON-driven games data also still deferred.)
+- **Streaming schedule** — PAUSED 2026-11. Cairo's real schedule is in
+  `streaming_page.yaml` (via CMS) but not rendered; the Formats module
+  replaced the schedule module in W5. Decide later whether it returns.
 - **Content passes via CMS**: real links/badges for The Directory, real
   channel + real VOD entries for Streaming, replacing lorem site-wide
   (Cairo, via the silo).
-- **Open design question**: whether index/blog/portfolio/404 also go dark
-  (dark is opt-in per page via `body.g-dark`), and whether the dark ground
-  becomes an image.
+- **Dark ground**: RESOLVED 2026-11 — index, portfolio, 404 joined
+  `body.g-dark`; the blog stays cream by decision. Still open: whether the
+  dark ground becomes an image.
+- **Mobile + palette pass**: 2026-11 on `feature/dark-mobile` — no page
+  scrolls sideways at 390px; left-hand hamburger opens a left nav drawer
+  (main + games); every color named in `tokens.css`; index desk muted
+  (`--desk`); full-height page column (no bare strip under short pages).
 - **Housekeeping**: remote branches `feature/canonical-chrome` +
-  `tester-branch` — deletion approved 2026-07-06, blocked by tooling; run
-  `git push origin --delete feature/canonical-chrome tester-branch` anytime.
-  Local merged feature branches kept per archive-over-delete.
+  `tester-branch` ARCHIVED locally 2026-11 as tags
+  `archive/feature-canonical-chrome` + `archive/tester-branch` on Cairo's
+  machine. Decision: do not delete. Local merged feature branches kept per
+  archive-over-delete.
 
 ## Push status
 
