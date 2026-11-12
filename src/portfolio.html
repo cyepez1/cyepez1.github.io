@@ -140,9 +140,23 @@ active: "portfolio"
     }
 
     @media(max-width:700px){ .pf-grid{grid-template-columns:1fr;} }
+    .pf-table-wrap { overflow-x: auto; }
+
+    /* ─── DARK GROUND (2026-11) ───
+       Portfolio joins body.g-dark. Olive accent TEXT bumps to --olive-light
+       (olive fills/rules stay true olive); blueprint frames go to a night
+       blueprint — dark field, same blue-margin linework. */
+    body.g-dark .section-label,
+    body.g-dark .pf-current-title,
+    body.g-dark .pf-row-title,
+    body.g-dark .pf-card-title { color: var(--olive-light); }
+    body.g-dark .pf-current-body,
+    body.g-dark .pf-card-desc { color: var(--ink-light); }
+    body.g-dark .pf-card { border-color: #2e2822; border-top-color: var(--olive); }
+    body.g-dark .bp-frame { background: #0f1722; }
   </style>
 </head>
-<body>
+<body class="g-dark">
 
 {% include "masthead-main.html" %}
 
