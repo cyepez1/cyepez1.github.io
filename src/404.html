@@ -61,12 +61,23 @@ active: "notfound"
     .err-filler {
       font-family: 'EB Garamond', serif;
       font-size: 14px;
-      color: #3a2e22;
+      color: var(--ink-light);
       line-height: 1.65;
     }
+
+    /* ─── DARK GROUND (2026-11) ─── 404 joins body.g-dark */
+    body.g-dark .err-code { color: var(--maroon-light); }
+    body.g-dark .err-sub { color: var(--olive-light); }
+    body.g-dark .err-graphic-slot {
+      background: repeating-linear-gradient(-45deg, #171310 0px, #171310 2px, #1f1a15 2px, #1f1a15 12px);
+      border-color: #2e2822;
+    }
+    body.g-dark .err-graphic-slot::after { color: var(--maroon-light); }
+
+    @media (max-width: 760px) { .err-code { font-size: 64px; } }
   </style>
 </head>
-<body>
+<body class="g-dark">
 
 {% include "masthead-main.html" %}
 
