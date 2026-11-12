@@ -39,9 +39,11 @@ parked as the Phase 7 static/dynamic fork.
 - **Content passes via CMS**: real links/badges for The Directory, real
   channel + real VOD entries for Streaming, replacing lorem site-wide
   (Cairo, via the silo).
-- **Open design question**: whether index/blog/portfolio/404 also go dark
-  (dark is opt-in per page via `body.g-dark`), and whether the dark ground
-  becomes an image.
+- **Dark ground**: RESOLVED 2026-11 — index, portfolio, 404 joined
+  `body.g-dark`; the blog stays cream by decision. Still open: whether the
+  dark ground becomes an image.
+- **Mobile pass**: shipped 2026-11 on `feature/dark-mobile` — no page scrolls
+  sideways at 390px; sidebar nav wraps into rows on phones.
 - **Housekeeping**: remote branches `feature/canonical-chrome` +
   `tester-branch` — deletion approved 2026-07-06, blocked by tooling; run
   `git push origin --delete feature/canonical-chrome tester-branch` anytime.

@@ -62,8 +62,14 @@ see that file for the full list. Grain overlay applied via `body::before` in `st
 `<body>`; a scoped remap block `body.g-dark` in `tokens.css` (the one allowed
 exception to ":root only") flips surfaces/text dark (`#0e0c0a` ground — may
 become an image later). `--cream` is NOT remapped (it doubles as light text on
-maroon chrome). Currently dark: all 7 games pages + music, photos, misc, now.
-Still cream: index, blog, portfolio, 404. Shared dark rules live at the end of
+maroon chrome). Currently dark: every page except the blog (games x7, index, music, photos,
+misc, now, portfolio, streaming, links, 404 — index/portfolio/404 joined
+2026-11). The blog stays cream by design: it is the light reading room.
+
+**Small screens (2026-11):** at <=760px `#main` collapses to one column and
+the sidebar nav (wrapped in `<nav class="nav-list">` in `nav-main.html`)
+flows into wrapped rows. Grid children carry `min-width:0` so wide content
+can't push the page sideways — keep that when adding new grids. Shared dark rules live at the end of
 `style.css` and `games-shared.css`, scoped with `:where(body.g-dark)` so
 page-level `<style>` blocks always win.
 
