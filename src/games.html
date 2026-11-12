@@ -219,7 +219,6 @@ g_dateline: "// GAMES LIBRARY"
   let cur=0;const slides=document.querySelectorAll('.slide'),dots=document.querySelectorAll('.dot');
   function goSlide(n){slides[cur].classList.remove('active');dots[cur].classList.remove('active');cur=n;slides[cur].classList.add('active');dots[cur].classList.add('active');}
   setInterval(()=>goSlide((cur+1)%slides.length),4500);
-  function toggleNav(){document.getElementById('g-sidebar').classList.toggle('open');}
 </script>
 </body>
 </html>

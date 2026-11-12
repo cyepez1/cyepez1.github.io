@@ -403,16 +403,66 @@ img, iframe, video { max-width: 100%; }
     padding: 0 12px;
     gap: 18px;
   }
-  #main > aside .paper { padding: 12px 14px 12px 28px; }
-  .sidebar-tagline { margin-bottom: 10px; }
-  .nav-label { margin-bottom: 6px; }
-  .nav-list { display: flex; flex-wrap: wrap; gap: 0 6px; }
-  .nav-item { padding: 4px 8px; border-left-width: 2px; }
-  .nav-item:hover { padding-left: 8px; }
-  .nav-item::before { display: none; }
-  .sidebar-note { margin-top: 10px; padding-top: 10px; }
+  #masthead { justify-content: flex-start; gap: 12px; }
+  #masthead .site-title { margin-right: auto; }
+  #masthead .nav-toggle { display: flex; }
+
+  /* sidebar → left drawer, opened by the masthead hamburger */
+  #main > aside {
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    width: min(290px, 84vw);
+    z-index: 1001;
+    overflow-y: auto;
+    background: var(--ground);
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.45);
+    transform: translateX(-102%);
+    visibility: hidden;
+    transition: transform 0.25s ease, visibility 0s linear 0.25s;
+  }
+  #main > aside.open {
+    transform: none;
+    visibility: visible;
+    transition: transform 0.25s ease;
+  }
+  #main > aside .paper { min-height: 100%; border-top: none; border-bottom: none; }
+  .nav-item { padding: 8px 0 8px 10px; }   /* bigger tap targets */
 
   #footer { padding: 20px 16px; margin-top: 24px; }
   .footer-main-row { flex-direction: column; gap: 10px; text-align: center; }
   .footer-right { text-align: center; }
+}
+
+/* ─── NAV DRAWER (2026-11) ───
+   Left-hand hamburger in the masthead (hidden on desktop); the drawer and
+   scrim behavior lives in src/_includes/nav-drawer.html. */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 34px; height: 34px;
+  margin-left: -6px;
+  padding: 6px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.nav-toggle span {
+  display: block;
+  width: 22px; height: 2px;
+  background: var(--cream);
+  border-radius: 2px;
+}
+.nav-toggle:focus-visible { outline: 1px dashed var(--cream); outline-offset: 2px; }
+.nav-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(14, 12, 10, 0.6);
+}
+.nav-scrim[hidden] { display: none; }
+body.nav-open { overflow: hidden; }
+@media (prefers-reduced-motion: reduce) {
+  #main > aside, #main > aside.open { transition: none; }
 }

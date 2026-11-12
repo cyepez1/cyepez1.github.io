@@ -1,5 +1,6 @@
 <header class="g-masthead">
   <a href="index.html" class="site-name">Cairo Yepez</a>
   <span class="dateline">{{ g_dateline }}</span>
-  <div class="g-hamburger" id="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
+  <button class="g-hamburger" id="hamburger" type="button" data-nav-toggle aria-label="Menu" aria-expanded="false" onclick="toggleNav()"><span></span><span></span><span></span></button>
 </header>
+{% include "nav-drawer.html" %}

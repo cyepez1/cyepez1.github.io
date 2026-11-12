@@ -188,7 +188,6 @@ g_dateline: "// OPEN WORLD"
 {% include "footer-games.html" %}
 <script>
   window.addEventListener('scroll',()=>{const p=window.scrollY/(document.body.scrollHeight-window.innerHeight)*100;document.getElementById('scroll-bar').style.width=p+'%';});
-  function toggleNav(){document.getElementById('g-sidebar').classList.toggle('open');}
   document.querySelectorAll('.g-card').forEach(card=>{const inner=card.querySelector('.g-card-inner');card.addEventListener('mousemove',e=>{const r=card.getBoundingClientRect();inner.style.transform=`rotateX(${-((e.clientY-r.top-r.height/2)/r.height)*16}deg) rotateY(${((e.clientX-r.left-r.width/2)/r.width)*16}deg) scale(1.04)`;});card.addEventListener('mouseleave',()=>{inner.style.transition='transform .4s ease';inner.style.transform='rotateX(0) rotateY(0) scale(1)';});card.addEventListener('mouseenter',()=>{inner.style.transition='transform .1s ease';});});
 </script>
 </body>
